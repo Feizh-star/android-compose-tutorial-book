@@ -9,10 +9,10 @@
 ## 目录结构
 
 ```
-单元目录/章节目录/笔记.md
+NN.单元目录/NN.章节目录/NN.笔记.md
 ```
 
-示例：`1.您的首个 Android 应用/Kotlin 简介/01.准备工作.md`
+示例：`01.您的首个 Android 应用/01.Kotlin 简介/01.准备工作.md`
 
 ### 文件命名规则
 
@@ -60,7 +60,7 @@
 3. `browser_evaluate` 提取 `<article>` 内所有图片的 URL（保存到 `.playwright-mcp/page-imgs.txt`）。
 4. **批量并行下载图片**：每轮并行 3 张图片——
    - 并行调用 3 次 `browser_evaluate`（各 fetch 一张图并 base64 编码）；
-   - 再并行调用 `node download-image.js` 保存这 3 张。
+   - 再并行调用 `node download-image.js` 保存这 3 张（分别调用，不得使用任何批量处理参数，避免反复请求权限）。
    - 重复至全部下载完。重复 URL 的图片（同一张图被引用多次）只下载一次，后续跳过。
 5. 运行 `node .claude/skills/fetch-tutorial-images/download-image.js <临时文件> <目标图片路径>` 保存图片。
 6. 编写 md 笔记文件，图片引用使用 `../../image/xxx.png` 相对路径。

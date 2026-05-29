@@ -32,7 +32,6 @@
   - [与界面和状态交互](https://developer.android.com/courses/pathways/android-basics-compose-unit-2-pathway-3?hl=zh-cn)
     - [Compose 中的状态简介](https://developer.android.com/codelabs/basic-android-kotlin-compose-using-state?hl=zh-cn)
     - [计算自定义小费](https://developer.android.com/codelabs/basic-android-kotlin-compose-calculate-tip?hl=zh-cn)
-    - [自动化测试简介](https://developer.android.com/codelabs/basic-android-kotlin-compose-calculate-tip?hl=zh-cn)
     - [项目：创建艺术空间应用](https://developer.android.com/codelabs/basic-android-kotlin-compose-art-space?hl=zh-cn)
 - [第 3 单元：显示列表并使用 Material Design](https://developer.android.com/courses/android-basics-compose/unit-3?hl=zh-cn)
   - [更多 Kotlin 基础知识](https://developer.android.com/courses/pathways/android-basics-compose-unit-3-pathway-1?hl=zh-cn)
