@@ -4,7 +4,8 @@
 
 将官方 [Android 之 Compose 开发基础](https://developer.android.com/courses/android-basics-compose/unit-1?hl=zh-cn) 教程文档整理成本地 markdown 知识库。
 
-课程目录参见 [menu.md](menu.md)。
+课程目录参见 [menu.md](menu.md)。每次只处理一个小节（第三级标题），以免上下文过大。
+- 每轮任务开始时读取“01.您的首个 Android 应用”目录中已完成的小节（第三级标题）。从[menu.md](menu.md)中的下一个小节开始处理。
 
 ## 目录结构
 
@@ -48,7 +49,7 @@ NN.单元目录/NN.章节目录/NN.笔记.md
 - 每个笔记完整复制对应小节网页的正文内容。
 - **跳过**网页开头的"关于此 Codelab"版块（包含更新时间、编写团队等元信息）。
 - 保留原文中的超链接。
-- 图片使用 node 脚本 `download-image.js` 下载（从浏览器 evaluate 输出的 base64 结果文件中提取）。
+- 图片使用 node 脚本 `.claude/skills/fetch-tutorial-images/download-image.js` 下载（从浏览器 evaluate 输出的 base64 结果文件中提取）。
 
 ## 工作流程
 
@@ -60,7 +61,7 @@ NN.单元目录/NN.章节目录/NN.笔记.md
 3. `browser_evaluate` 提取 `<article>` 内所有图片的 URL（保存到 `.playwright-mcp/page-imgs.txt`）。
 4. **逐个下载图片**：每轮 3 张图片——
    - 并行调用 3 次 `browser_evaluate`（各 fetch 一张图并 base64 编码）；
-   - 再逐个调用 `node download-image.js` 保存这 3 张（分别调用，不得使用任何批量处理参数，避免反复请求权限）。
+   - 再逐个调用 `node .claude/skills/fetch-tutorial-images/download-image.js` 保存这 3 张（分别调用，不得使用任何批量处理参数，避免反复请求权限）。
    - 重复至全部下载完。重复 URL 的图片（同一张图被引用多次）只下载一次，后续跳过。
 5. 运行 `node .claude/skills/fetch-tutorial-images/download-image.js <临时文件> <目标图片路径>` 保存图片。
    - 临时文件示例：`.playwright-mcp/page-imgs.txt`。必须使用相对路径。
