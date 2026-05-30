@@ -1,0 +1,2247 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=vi" /><title>在 Kotlin 中使用函数类型和 lambda 表达式 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="在 Kotlin 中使用函数类型和 lambda 表达式 &nbsp;|&nbsp; Android Developers"><meta name="description" content="了解如何在 Kotlin 中使用 lambda 表达式和高阶函数。">
+  <meta property="og:description" content="了解如何在 Kotlin 中使用 lambda 表达式和高阶函数。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      在 Kotlin 中使用函数类型和 lambda 表达式<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="1t2Ojwg8urovViVFjODIXorAGB_S8ZcUs_1y0EH5Gc38" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dice-roller/issues/new?assignees=&amp;labels=&amp;template=use-function-types-and-lambda-expressions-in-kotlin-issue-template.md&amp;title=Use&#43;function&#43;types&#43;and&#43;lambda&#43;expressions&#43;in&#43;Kotlin%3A&#43;Android&#43;Basics&#43;with&#43;Compose" id="basic-android-kotlin-compose-function-types-and-lambda" layout="paginated" no-tooltip="" title="在 Kotlin 中使用函数类型和 lambda 表达式">
+      
+        <google-codelab-step duration="0" step="0" label="简介">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2023-09-21T19:59:23Z" codelab-title="在 Kotlin 中使用函数类型和 lambda 表达式">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 简介           " id="0" tabindex="-1">
+              1. 简介
+          </h2>
+          
+          <p>在此 Codelab 中，您将了解函数类型、函数类型的用法以及特定于 lambda 表达式的语法。</p>
+<p>在 Kotlin 中，函数被视为一级结构。这意味着函数可以被视为数据类型。您可以将函数存储在变量中，将函数作为参数传递到其他函数，以及从其他函数返回函数。</p>
+<p>与您可以使用字面量值表示的其他数据类型（例如值为 <code dir="ltr" translate="no">10</code> 的 <code dir="ltr" translate="no">Int</code> 类型和值为 <code dir="ltr" translate="no">"Hello"</code> 的 <code dir="ltr" translate="no">String</code> 类型）一样，您也可以声明函数字面量（称为 lambda 表达式，也可简称为 lambda）。在 Android 开发中，您会广泛使用 lambda 表达式；在 Kotlin 编程中，lambda 表达式的使用就更广泛了。</p>
+<h2 data-text="前提条件" id="prerequisites" is-upgraded="" tabindex="-1">前提条件</h2>
+<ul>
+<li>熟悉 Kotlin 编程，包括函数、<code dir="ltr" translate="no">if/else</code> 语句和可为 null 性</li>
+</ul>
+<h2 class="checklist" data-text="学习内容" id="what-youll-learn" is-upgraded="" tabindex="-1">学习内容</h2>
+<ul class="checklist">
+<li>如何使用 lambda 语法定义函数。</li>
+<li>如何将函数存储在变量中。</li>
+<li>如何将函数作为参数传递到其他函数。</li>
+<li>如何从其他函数返回函数。</li>
+<li>如何使用可为 null 的函数类型。</li>
+<li>如何使 lambda 表达式更简洁。</li>
+<li>什么是高阶函数。</li>
+<li>如何使用 <code dir="ltr" translate="no">repeat()</code> 函数。</li>
+</ul>
+<h2 data-text="所需条件" id="what-youll-need" is-upgraded="" tabindex="-1">所需条件</h2>
+<ul>
+<li>一个能够访问 Kotlin 园地的网络浏览器</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="观看配套代码演示视频（可选）">
+          
+          <h2 class="step-title" data-text="               2. 观看配套代码演示视频（可选）           " id="1" tabindex="-1">
+              2. 观看配套代码演示视频（可选）
+          </h2>
+          
+          <p>如果您想要观看某位课程讲师完成此 Codelab 的过程，请播放以下视频。</p>
+<p>建议将视频全屏展开（使用视频一角的 <img alt="此符号突出显示了方形的 4 个角，表示全屏模式。" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/d009d08384447d4c_2880.png?hl=zh-cn 2880w" style="width: 28.80px" /> 图标），以便更清楚地查看 Kotlin 园地和相关代码。</p>
+<p>这是可选步骤。您也可以跳过视频，立即开始按照此 Codelab 中的说明操作。</p>
+<devsite-youtube video-id="nG0e9OjVGDQ"></devsite-youtube>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="将函数存储在变量中">
+          
+          <h2 class="step-title" data-text="               3. 将函数存储在变量中           " id="2" tabindex="-1">
+              3. 将函数存储在变量中
+          </h2>
+          
+          <p>到目前为止，您已经学习了如何使用 <code dir="ltr" translate="no">fun</code> 关键字来声明函数。使用 <code dir="ltr" translate="no">fun</code> 关键字声明的函数可供调用，调用后，函数正文中的代码就会执行。</p>
+<p>作为一种一级结构，函数也属于数据类型，因此，您可以将函数存储在变量中、将函数传递到函数，以及从函数返回函数。或许，您希望在运行时更改应用中某一部分的行为，或嵌入可组合函数以构建布局，就像您在之前的 Codelab 中所做的那样。这一切都可通过 lambda 表达式来实现。</p>
+<p>您可以参照一些 <a href="https://en.wikipedia.org/wiki/Trick-or-treating" target="_blank">trick-or-treating</a>（不给糖就捣蛋）代码来理解该过程的实际运作。“不给糖就捣蛋”是指许多国家/地区过万圣节时的传统习俗：万圣节期间，孩子们会穿着万圣节的服饰挨家挨户地说“不给糖就捣蛋”，他们通常能换到糖果。</p>
+<p>将函数存储在变量中：</p>
+<ol type="1">
+<li>访问 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a>。</li>
+<li>在 <code dir="ltr" translate="no">main()</code> 函数后面，定义一个不带参数和返回值且输出 <code dir="ltr" translate="no">"No treats!"</code> 的 <code dir="ltr" translate="no">trick()</code> 函数。其语法与您在之前的 Codelab 中看到的其他函数的语法相同。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">trick</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"No treats!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 函数的正文中，创建一个名为 <code dir="ltr" translate="no">trickFunction</code> 的变量，并将其设置为与 <code dir="ltr" translate="no">trick</code> 相等。请勿在 <code dir="ltr" translate="no">trick</code> 后添加圆括号，因为您是想将函数存储在变量中，而不是调用函数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trick</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">trick</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"No treats!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>运行您的代码。代码会产生错误，因为 Kotlin 编译器会将 <code dir="ltr" translate="no">trick</code> 识别为 <code dir="ltr" translate="no">trick()</code> 函数的名称，但它想让您调用该函数，而不是将其分配给变量。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Function invocation &#39;trick()&#39; expected
+</pre></devsite-code>
+<p>您试图将 <code dir="ltr" translate="no">trick</code> 存储在 <code dir="ltr" translate="no">trickFunction</code> 变量中。不过，如需将函数作为值引用，您需要使用函数引用运算符 (<code dir="ltr" translate="no">::</code>)。语法如下图所示：</p>
+<p class="image-container"><img alt="a9a9bfa88485ec67.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/a9a9bfa88485ec67_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<ol start="5" type="1">
+<li>如需将函数作为值引用，请将 <code dir="ltr" translate="no">trickFunction</code> 重新分配给 <code dir="ltr" translate="no">::trick</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">trick</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">trick</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"No treats!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>运行代码，验证有没有其他错误。您会看到一条警告，提示您 <code dir="ltr" translate="no">trickFunction</code> 从未使用，但此问题会在下一部分中修复。</li>
+</ol>
+<h2 data-text="使用 lambda 表达式重新定义函数" id="redefine-the-function-with-a-lambda-expression" is-upgraded="" tabindex="-1">使用 lambda 表达式重新定义函数</h2>
+<p>lambda 表达式提供了简洁的语法来定义函数，无需使用 <code dir="ltr" translate="no">fun</code> 关键字。您可以直接将 lambda 表达式存储在变量中，无需对其他函数进行函数引用。</p>
+<p>在赋值运算符 (<code dir="ltr" translate="no">=</code>) 前面，您要添加 <code dir="ltr" translate="no">val</code> 或 <code dir="ltr" translate="no">var</code> 关键字，后跟变量名称，以供您在调用函数时使用。赋值运算符 (<code dir="ltr" translate="no">=</code>) 后面是 lambda 表达式，它由一对大括号构成，而大括号中的内容则构成函数正文。语法如下图所示：</p>
+<p class="image-container"><img alt="5e25af769cc200bc.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5e25af769cc200bc_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>使用 lambda 表达式定义函数时，您有一个引用该函数的变量。您还可以像对待任何其他类型一样，将其值分配给其他变量，并使用新变量的名称调用该函数。</p>
+<p>更新代码以使用 lambda 表达式：</p>
+<ol type="1">
+<li>使用 lambda 表达式重写 <code dir="ltr" translate="no">trick()</code> 函数。现在，名称 <code dir="ltr" translate="no">trick</code> 将引用变量的名称。现在，大括号中的函数正文是 lambda 表达式。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">trick</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"No treats!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 函数中，移除函数引用运算符 (<code dir="ltr" translate="no">::</code>)，因为 <code dir="ltr" translate="no">trick</code> 现在引用的是变量，而不是函数名称。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trick</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"No treats!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行您的代码。此时没有任何错误，您可以在不使用函数引用运算符 (<code dir="ltr" translate="no">::</code>) 的情况下引用 <code dir="ltr" translate="no">trick()</code> 函数。也没有输出，因为您尚未调用函数。</li>
+<li>在 <code dir="ltr" translate="no">main()</code> 函数中，调用 <code dir="ltr" translate="no">trick()</code> 函数，但这次要包含圆括号，就像您在调用任何其他函数时所做的那样。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trick</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"No treats!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>运行您的代码。系统会执行 lambda 表达式的正文。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>No treats!
+</pre></devsite-code>
+<ol start="6" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 函数中，将 <code dir="ltr" translate="no">trickFunction</code> 变量视为函数进行调用。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trick</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trickFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"No treats!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="7" type="1">
+<li>运行您的代码。系统会调用函数两次，一次针对 <code dir="ltr" translate="no">trick()</code> 函数调用，第二次针对 <code dir="ltr" translate="no">trickFunction()</code> 函数调用。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>No treats!
+No treats!
+</pre></devsite-code>
+<p>借助 lambda 表达式，您可以创建用于存储函数的变量，像调用函数一样调用这些变量，并将其存储在其他可以像函数一样调用的变量中。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="将函数用作数据类型">
+          
+          <h2 class="step-title" data-text="               4. 将函数用作数据类型           " id="3" tabindex="-1">
+              4. 将函数用作数据类型
+          </h2>
+          
+          <p>在之前的 Codelab 中，您已了解到 Kotlin 具有类型推断。声明变量时，您通常不需要明确指定类型。在前面的示例中，Kotlin 编译器能够推断出 <code dir="ltr" translate="no">trick</code> 的值是函数。不过，如果要指定函数参数的类型或返回值类型，则需要了解用于表达函数类型的语法。函数类型由一组圆括号组成，其中包含可选的参数列表、<code dir="ltr" translate="no">-&gt;</code> 符号和返回值类型。语法如下图所示：</p>
+<p class="image-container"><img alt="5608ac5e471b424b.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/5608ac5e471b424b_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>您之前声明的 <code dir="ltr" translate="no">trick</code> 变量的数据类型为 <code dir="ltr" translate="no">() -&gt; Unit</code>。圆括号为空，因为函数没有任何参数。返回值类型为 <code dir="ltr" translate="no">Unit</code>，因为函数不返回任何内容。如果您的参数接受两个 <code dir="ltr" translate="no">Int</code> 参数并返回 <code dir="ltr" translate="no">Int</code>，则其数据类型为 <code dir="ltr" translate="no">(Int, Int) -&gt; Int</code>。</p>
+<p>使用明确指定函数类型的 lambda 表达式声明另一个函数：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">trick</code> 变量后面，声明一个名为 <code dir="ltr" translate="no">treat</code> 的变量，使其与正文输出 <code dir="ltr" translate="no">"Have a treat!"</code> 的 lambda 表达式相等。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"No treats!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treat</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have a treat!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>将 <code dir="ltr" translate="no">treat</code> 变量的数据类型指定为 <code dir="ltr" translate="no">() -&gt; Unit</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treat</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have a treat!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 函数中，调用 <code dir="ltr" translate="no">treat()</code> 函数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trick</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trickFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">treat</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>运行代码。<code dir="ltr" translate="no">treat()</code> 函数的行为类似于 <code dir="ltr" translate="no">trick()</code> 函数。这两个变量具有相同的数据类型，尽管只有 <code dir="ltr" translate="no">treat</code> 变量明确声明数据类型。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>No treats!
+No treats!
+Have a treat!
+</pre></devsite-code>
+<h2 data-text="将函数用作返回值类型" id="use-a-function-as-a-return-type" is-upgraded="" tabindex="-1">将函数用作返回值类型</h2>
+<p>函数是一种数据类型，因此您可以像使用任何其他数据类型一样使用函数。您甚至可以从其他函数返回函数。语法如下图所示：</p>
+<p class="image-container"><img alt="f16dd6ca0c1588f5.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/f16dd6ca0c1588f5_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>创建一个可返回函数的函数。</p>
+<ol type="1">
+<li>从 <code dir="ltr" translate="no">main()</code> 函数中删除代码。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 函数后面，定义一个接受 <code dir="ltr" translate="no">Boolean</code> 类型的 <code dir="ltr" translate="no">isTrick</code> 参数的 <code dir="ltr" translate="no">trickOrTreat()</code> 函数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">isTrick</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"No treats!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treat</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have a treat!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">trickOrTreat()</code> 函数的正文中，添加一个 <code dir="ltr" translate="no">if</code> 语句，使其在 <code dir="ltr" translate="no">isTrick</code> 为 <code dir="ltr" translate="no">true</code> 时返回 <code dir="ltr" translate="no">trick()</code> 函数，并在 <code dir="ltr" translate="no">isTrick</code> 为 false 时返回 <code dir="ltr" translate="no">treat()</code> 函数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">isTrick</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">isTrick</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trick</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">treat</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 函数中，创建一个名为 <code dir="ltr" translate="no">treatFunction</code> 的变量，并将其分配给调用 <code dir="ltr" translate="no">trickOrTreat()</code> 的结果，以为 <code dir="ltr" translate="no">isTrick</code> 参数传入 <code dir="ltr" translate="no">false</code>。然后，创建第二个变量（名为 <code dir="ltr" translate="no">trickFunction</code>），并将其分配给调用 <code dir="ltr" translate="no">trickOrTreat()</code> 的结果，这次要为 <code dir="ltr" translate="no">isTrick</code> 参数传入 <code dir="ltr" translate="no">true</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treatFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>调用 <code dir="ltr" translate="no">treatFunction()</code>，然后调用下一代码行中的 <code dir="ltr" translate="no">trickFunction()</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treatFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">treatFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trickFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>运行您的代码。您应该会看到每个函数的输出。即使您没有直接调用 <code dir="ltr" translate="no">trick()</code> 或 <code dir="ltr" translate="no">treat()</code> 函数，您仍然可以调用它们，因为您存储了每次调用 <code dir="ltr" translate="no">trickOrTreat()</code> 函数时的返回值，并使用 <code dir="ltr" translate="no">trickFunction</code> 和 <code dir="ltr" translate="no">treatFunction</code> 变量调用了相关函数。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Have a treat!
+No treats!
+</pre></devsite-code>
+<p>现在，您已经了解了函数如何返回其他函数。您还可以将一个函数作为参数传递到另一个函数。也许您需要为 <code dir="ltr" translate="no">trickOrTreat()</code> 函数提供一些自定义行为，以执行除返回这两个字符串之一以外的其他操作。如果一个函数接受另一个函数作为参数，那么您每次调用该函数时，都可以传入一个不同的函数。</p>
+<h2 data-text="将一个函数作为参数传递到另一个函数" id="pass-a-function-to-another-function-as-an-argument" is-upgraded="" tabindex="-1"><strong>将一个函数作为参数传递到另一个函数</strong></h2>
+<p>在世界上某些过万圣节的地区，孩子们会收到零钱（而非糖果），或者既能收到零钱，也能收到糖果。您将修改 <code dir="ltr" translate="no">trickOrTreat()</code> 函数，以允许提供函数代表的其他招待内容作为参数。</p>
+<p><code dir="ltr" translate="no">trickOrTreat()</code> 用作参数的函数也需要接受自己的参数。声明函数类型时，参数不会带有标签。您只需指定各个参数的数据类型（以英文逗号隔开）即可。语法如下图所示：</p>
+<p class="image-container"><img alt="8372d3b83d539fac.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/8372d3b83d539fac_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>当您为接受参数的函数编写 lambda 表达式时，系统会按参数出现的先后顺序为参数命名。参数名称列在左大括号后面，各名称之间以英文逗号隔开。箭头 (<code dir="ltr" translate="no">-&gt;</code>) 将参数名称与函数正文隔开。语法如下图所示：</p>
+<p class="image-container"><img alt="938d2adf25172873.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/938d2adf25172873_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>将 <code dir="ltr" translate="no">trickOrTreat()</code> 函数更新为接受函数作为参数：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">isTrick</code> 参数后面，添加类型为 <code dir="ltr" translate="no">(Int) -&gt; String</code> 的 <code dir="ltr" translate="no">extraTreat</code> 参数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">isTrick</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">extraTreat</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">else</code> 代码块中，在 <code dir="ltr" translate="no">return</code> 语句前面调用 <code dir="ltr" translate="no">println()</code>，以传入对 <code dir="ltr" translate="no">extraTreat()</code> 函数的调用。将 <code dir="ltr" translate="no">5</code> 传入对 <code dir="ltr" translate="no">extraTreat()</code> 的调用。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">isTrick</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">extraTreat</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">isTrick</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trick</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">extraTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">5</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">treat</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>现在，当您调用 <code dir="ltr" translate="no">trickOrTreat()</code> 函数时，需要使用 lambda 表达式定义一个函数并为 <code dir="ltr" translate="no">extraTreat</code> 参数传入该函数。在 <code dir="ltr" translate="no">main()</code> 函数中，在对 <code dir="ltr" translate="no">trickOrTreat()</code> 函数的调用前面添加一个 <code dir="ltr" translate="no">coins()</code> 函数。<code dir="ltr" translate="no">coins()</code> 函数为 <code dir="ltr" translate="no">Int</code> 参数指定名称 <code dir="ltr" translate="no">quantity</code> 并返回 <code dir="ltr" translate="no">String</code>。您可能会发现这里没有 <code dir="ltr" translate="no">return</code> 关键字，lambda 表达式中无法使用该关键字。相反，函数中最后一个表达式的结果将成为返回值。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">coins</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-s"> quarters"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treatFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">treatFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trickFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">coins()</code> 函数后面，添加一个 <code dir="ltr" translate="no">cupcake()</code> 函数，如下所示。将 <code dir="ltr" translate="no">Int</code> 参数命名为 <code dir="ltr" translate="no">quantity</code>，并使用 <code dir="ltr" translate="no">-&gt;</code> 运算符将其与函数正文隔开。现在，您可以将 <code dir="ltr" translate="no">coins()</code> 或 <code dir="ltr" translate="no">cupcake()</code> 函数传入 <code dir="ltr" translate="no">trickOrTreat()</code> 函数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">coins</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-s"> quarters"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">cupcake</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"Have a cupcake!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treatFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">treatFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trickFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>在 <code dir="ltr" translate="no">cupcake()</code> 函数中，移除 <code dir="ltr" translate="no">quantity</code> 参数和 <code dir="ltr" translate="no">-&gt;</code> 符号。这里用不到它们，因此您可以将其省略。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">cupcake</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"Have a cupcake!"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意：</strong>在 <code dir="ltr" translate="no">coins()</code> 函数中，<code dir="ltr" translate="no">Int</code> 参数名为 <code dir="ltr" translate="no">quantity</code>。不过，它可以使用任意名称，只要字符串中的参数名称和变量名称相同即可。</p>
+</aside>
+<ol start="6" type="1">
+<li>更新对 <code dir="ltr" translate="no">trickOrTreat()</code> 函数的调用。对于第一次调用，当 <code dir="ltr" translate="no">isTrick</code> 为 <code dir="ltr" translate="no">false</code> 时，传入 <code dir="ltr" translate="no">coins()</code> 函数。对于第二次调用，当 <code dir="ltr" translate="no">isTrick</code> 为 <code dir="ltr" translate="no">true</code> 时，传入 <code dir="ltr" translate="no">cupcake()</code> 函数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">coins</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-s"> quarters"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">cupcake</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"Have a cupcake!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treatFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">coins</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cupcake</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">treatFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trickFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="7" type="1">
+<li>运行您的代码。仅当 <code dir="ltr" translate="no">isTrick</code> 参数设置为 <code dir="ltr" translate="no">false</code> 实参时，系统才会调用 <code dir="ltr" translate="no">extraTreat()</code> 函数，因此输出会包含 5 个 25 美分硬币，但不包含纸杯蛋糕。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>5 quarters
+Have a treat!
+No treats!
+</pre></devsite-code>
+<h2 data-text="可为 null 的函数类型" id="nullable-function-types" is-upgraded="" tabindex="-1">可为 null 的函数类型</h2>
+<p>与其他数据类型一样，函数类型可声明为可为 null。在这些情况下，变量可以包含函数，也可以为 <code dir="ltr" translate="no">null</code>。</p>
+<p>如需将函数声明为可为 null，请用圆括号括住函数类型，并在右圆括号外后接 <code dir="ltr" translate="no">?</code> 符号。例如，如果您想让 <code dir="ltr" translate="no">() -&gt; String</code> 类型可为 null，则将其声明为 <code dir="ltr" translate="no">(() -&gt; String)?</code> 类型。语法如下图所示：</p>
+<p class="image-container"><img alt="c8a004fbdc7469d.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/c8a004fbdc7469d_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>将 <code dir="ltr" translate="no">extraTreat</code> 参数设置为可为 null，这样您就不必在每次调用 <code dir="ltr" translate="no">trickOrTreat()</code> 函数时都提供 <code dir="ltr" translate="no">extraTreat()</code> 函数：</p>
+<ol type="1">
+<li>将 <code dir="ltr" translate="no">extraTreat</code> 参数的类型更改为 <code dir="ltr" translate="no">(() -&gt; String)?</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">isTrick</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">extraTreat</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">((</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-o">?</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>将对 <code dir="ltr" translate="no">extraTreat()</code> 函数的调用修改为使用 <code dir="ltr" translate="no">if</code> 语句，以便仅在该函数为非 null 时才调用该函数。现在，<code dir="ltr" translate="no">trickOrTreat()</code> 函数应如以下代码段所示：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">isTrick</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">extraTreat</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">((</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-o">?</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">isTrick</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trick</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">extraTreat</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">extraTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">5</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">treat</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>移除 <code dir="ltr" translate="no">cupcake()</code> 函数，然后在对 <code dir="ltr" translate="no">trickOrTreat()</code> 的第二次调用中将 <code dir="ltr" translate="no">cupcake</code> 参数替换为 <code dir="ltr" translate="no">null</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">coins</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-s"> quarters"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treatFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">coins</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">treatFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trickFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>运行您的代码。输出应保持不变。现在，您可以将函数类型声明为可为 null，无需再为 <code dir="ltr" translate="no">extraTreat</code> 参数传入函数。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>5 quarters
+Have a treat!
+No treats!
+</pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="使用简写语法编写 lambda 表达式">
+          
+          <h2 class="step-title" data-text="               5. 使用简写语法编写 lambda 表达式           " id="4" tabindex="-1">
+              5. 使用简写语法编写 lambda 表达式
+          </h2>
+          
+          <p>lambda 表达式提供了多种方式来让您的代码更简洁。在本节中，您将探索其中的一些方式，因为您遇到和编写的大多数 lambda 表达式都是使用简写语法编写的。</p>
+<h2 data-text="省略参数名称" id="omit-parameter-name" is-upgraded="" tabindex="-1">省略参数名称</h2>
+<p>在编写 <code dir="ltr" translate="no">coins()</code> 函数时，您为函数的 <code dir="ltr" translate="no">Int</code> 参数明确声明了名称 <code dir="ltr" translate="no">quantity</code>。不过，与使用 <code dir="ltr" translate="no">cupcake()</code> 函数时一样，您可以完全省略参数名称。如果函数只有一个参数，而您未提供名称，Kotlin 会隐式为其分配 <code dir="ltr" translate="no">it</code> 名称，因此您可以省略参数名称和 <code dir="ltr" translate="no">-&gt;</code> 符号，从而使 lambda 表达式变得更简洁。语法如下图所示：</p>
+<p class="image-container"><img alt="332ea7bade5062d6.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/332ea7bade5062d6_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>更新 <code dir="ltr" translate="no">coins()</code> 函数以使用参数的简写语法：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">coins()</code> 函数中，移除 <code dir="ltr" translate="no">quantity</code> 参数名称和 <code dir="ltr" translate="no">-&gt;</code> 符号。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">coins</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-s"> quarters"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>使用 <code dir="ltr" translate="no">$it</code> 将 <code dir="ltr" translate="no">"$quantity quarters"</code> 字符串模板更改为引用单个参数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">coins</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">it</span><span class="devsite-syntax-s"> quarters"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行您的代码。Kotlin 可识别 <code dir="ltr" translate="no">Int</code> 参数的 <code dir="ltr" translate="no">it</code> 参数名称，并仍会输出 25 美分硬币的数量。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>5 quarters
+Have a treat!
+No treats!
+</pre></devsite-code>
+<h2 data-text="将 lambda 表达式直接传入函数" id="pass-a-lambda-expression-directly-into-a-function" is-upgraded="" tabindex="-1">将 lambda 表达式直接传入函数</h2>
+<p>目前仅在一个位置使用了 <code dir="ltr" translate="no">coins()</code> 函数。如果您只需将 lambda 表达式直接传入 <code dir="ltr" translate="no">trickOrTreat()</code> 函数，而无需先创建变量呢？</p>
+<p>lambda 表达式只是函数字面量，就像 <code dir="ltr" translate="no">0</code> 是整数字面量或 <code dir="ltr" translate="no">"Hello"</code> 是字符串字面量一样。您可以将 lambda 表达式直接传入函数调用。语法如下图所示：</p>
+<p class="image-container"><img alt="39dc1086e2471ffc.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/39dc1086e2471ffc_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>修改代码，以便您可以移除 <code dir="ltr" translate="no">coins</code> 变量：</p>
+<ol type="1">
+<li>移动 lambda 表达式，使其直接传入对 <code dir="ltr" translate="no">trickOrTreat()</code> 函数的调用。您还可以将 lambda 表达式压缩为一行代码。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">coins</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">it</span><span class="devsite-syntax-s"> quarters"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treatFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">it</span><span class="devsite-syntax-s"> quarters"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">})</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">treatFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trickFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>移除 <code dir="ltr" translate="no">coins</code> 变量，因为已经用不到它了。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treatFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">it</span><span class="devsite-syntax-s"> quarters"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">})</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">treatFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trickFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行代码。代码仍会按预期编译和运行。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>5 quarters
+Have a treat!
+No treats!
+</pre></devsite-code>
+<h2 data-text="使用尾随 lambda 语法" id="use-trailing-lambda-syntax" is-upgraded="" tabindex="-1"><strong>使用尾随 lambda 语法</strong></h2>
+<p>当函数类型是函数的最后一个参数时，您可以使用另一个简写选项来编写 lambda。在这种情况下，您可以将 lambda 表达式放在右圆括号后面以调用函数。语法如下图所示：</p>
+<p class="image-container"><img alt="3ee3176d612b54.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/3ee3176d612b54_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>这会使代码的可读性更强，因为它将 lambda 表达式与其他参数隔开，但没有改变代码的作用。</p>
+<p>将代码更改为使用尾随 lambda 语法：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">treatFunction</code> 变量中，将 lambda 表达式 <code dir="ltr" translate="no">{"$it quarters"}</code> 移到对 <code dir="ltr" translate="no">trickOrTreat()</code> 的调用中的右圆括号后面。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treatFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">it</span><span class="devsite-syntax-s"> quarters"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>运行您的代码。仍然一切正常！</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>5 quarters
+Have a treat!
+No treats!
+</pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：您用于声明界面的可组合函数接受函数作为参数，并且通常使用尾随 lambda 语法进行调用。</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="5" label="使用 repeat() 函数">
+          
+          <h2 class="step-title" data-text="               6. 使用 repeat() 函数           " id="5" tabindex="-1">
+              6. 使用 repeat() 函数
+          </h2>
+          
+          <p>如果一个函数会返回或接受另一个函数作为实参，该函数就称为高阶函数。<em></em><code dir="ltr" translate="no">trickOrTreat()</code> 函数是一个高阶函数示例，因为它接受 <code dir="ltr" translate="no">((Int) -&gt; String)?</code> 类型的函数作为参数，并返回 <code dir="ltr" translate="no">() -&gt; Unit</code> 类型的函数。Kotlin 提供了几个有用的高阶函数，您可以利用新掌握的 lambda 知识对这些函数加以利用。</p>
+<p><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/repeat.html" target="_blank"><code dir="ltr" translate="no">repeat()</code></a> 函数就是这样一种高阶函数。<code dir="ltr" translate="no">repeat()</code> 函数是使用函数表达 <code dir="ltr" translate="no">for</code> 循环的简洁方式。在后续单元中，您会经常使用该函数以及其他高阶函数。<code dir="ltr" translate="no">repeat()</code> 函数具有以下函数签名：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">times</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">action</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p><code dir="ltr" translate="no">times</code> 参数是操作应发生的次数。<code dir="ltr" translate="no">action</code> 参数是一个函数，它接受单个 <code dir="ltr" translate="no">Int</code> 参数并返回 <code dir="ltr" translate="no">Unit</code> 类型的函数。<code dir="ltr" translate="no">action</code> 函数的 <code dir="ltr" translate="no">Int</code> 参数是到目前为止已执行的操作次数，例如第一次迭代的 <code dir="ltr" translate="no">0</code> 实参或第二次迭代的 <code dir="ltr" translate="no">1</code> 实参。您可以使用 <code dir="ltr" translate="no">repeat()</code> 函数按指定次数重复执行代码，这与 <code dir="ltr" translate="no">for</code> 循环类似。语法如下图所示：</p>
+<p class="image-container"><img alt="519a2e0f5d02687.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-function-types-and-lambda/img/519a2e0f5d02687_2880.png?hl=zh-cn 2880w" style="width: 566.92px" /></p>
+<p>您可以使用 <code dir="ltr" translate="no">repeat()</code> 函数多次调用 <code dir="ltr" translate="no">trickFunction()</code> 函数，而不是只调用一次。</p>
+<p>更新 trick-or-treating 代码以查看 <code dir="ltr" translate="no">repeat()</code> 函数的实际运用：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 函数中，在对 <code dir="ltr" translate="no">treatFunction()</code> 和 <code dir="ltr" translate="no">trickFunction()</code> 的调用之间调用 <code dir="ltr" translate="no">repeat()</code> 函数。为 <code dir="ltr" translate="no">times</code> 参数传入 <code dir="ltr" translate="no">4</code>，并为 <code dir="ltr" translate="no">action</code> 函数使用尾随 lambda 语法。您无需为 lambda 表达式的 <code dir="ltr" translate="no">Int</code> 参数提供名称。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treatFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">it</span><span class="devsite-syntax-s"> quarters"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">treatFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trickFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">4</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>将对 <code dir="ltr" translate="no">treatFunction()</code> 函数的调用移到 <code dir="ltr" translate="no">repeat()</code> 函数的 lambda 表达式中。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">treatFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">it</span><span class="devsite-syntax-s"> quarters"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trickFunction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trickOrTreat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">4</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">treatFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">trickFunction</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行您的代码。<code dir="ltr" translate="no">"Have a treat"</code> 字符串应输出 4 次。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>5 quarters
+Have a treat!
+Have a treat!
+Have a treat!
+Have a treat!
+No treats!
+</pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="6" label="总结">
+          
+          <h2 class="step-title" data-text="               7. 总结           " id="6" tabindex="-1">
+              7. 总结
+          </h2>
+          
+          <p>恭喜！您已经学习了函数类型和 lambda 表达式的基础知识。熟悉这些概念有助于您深入学习 Kotlin 语言。对函数类型、高阶函数和简写语法的运用还能让您的代码变得更简洁、更易读。</p>
+<h2 data-text="摘要" id="summary" is-upgraded="" tabindex="-1"><strong>摘要</strong></h2>
+<ul>
+<li>Kotlin 中的函数是一级结构，可以视为数据类型。</li>
+<li>lambda 表达式提供了一种用于编写函数的简写语法。</li>
+<li>您可以将函数类型传入其他函数。</li>
+<li>对于一个函数类型，您可以从另一个函数返回它。</li>
+<li>lambda 表达式会返回最后一个表达式的值。</li>
+<li>如果只有一个参数的 lambda 表达式中省略了某个参数标签，系统会使用 <code dir="ltr" translate="no">it</code> 标识符来引用它。</li>
+<li>lambda 可以内嵌方式编写，无需使用变量名称。</li>
+<li>在您调用某个函数时，如果该函数的最后一个参数是函数类型，您可以使用尾随 lambda 语法将 lambda 表达式移至最后一个圆括号后面。</li>
+<li>高阶函数是指接受函数作为参数或返回函数的函数。</li>
+<li><code dir="ltr" translate="no">repeat()</code> 函数是一个高阶函数，其工作方式与 <code dir="ltr" translate="no">for</code> 循环类似。</li>
+</ul>
+<h2 data-text="了解详情" id="learn-more" is-upgraded="" tabindex="-1"><strong>了解详情</strong></h2>
+<ul>
+<li><a href="https://kotlinlang.org/docs/lambdas.html" target="_blank">高阶函数和 lambda</a></li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-x_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-x.svg?hl=zh-cn"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-youtube_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="//www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-linkedin_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-linkedin.svg?hl=zh-cn"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="Ec8javBbsxo/M22zzmxfb3iAU4G1l1">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/android/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","https://fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["Profiles__enable_awarding_url","DevPro__enable_nvidia_credits_card","DevPro__enable_google_payments_buyflow","MiscFeatureFlags__developers_footer_dark_image","Concierge__enable_actions_menu","Profiles__enable_developer_profiles_callout","Cloud__fast_free_trial","DevPro__enable_code_assist","Profiles__enable_stripe_subscription_management","DevPro__enable_cloud_innovators_plus","MiscFeatureFlags__developers_footer_image","Profiles__enable_developer_profile_benefits_ui_redesign","Profiles__enable_playlist_community_acl","DevPro__enable_payments_first_batch","Cloud__enable_cloud_shell","Cloud__enable_cloud_dlp_service","DevPro__enable_firebase_workspaces_card","Search__enable_ai_eligibility_checks","Search__enable_page_map","MiscFeatureFlags__fix_lower_breadcrumbs","Profiles__require_profile_eligibility_for_signin","DevPro__enable_free_benefits","Search__enable_ai_search_summaries","Profiles__enable_user_type","MiscFeatureFlags__enable_variable_operator","Analytics__enable_clearcut_logging","MiscFeatureFlags__enable_appearance_cookies","Profiles__enable_developer_profile_pages_as_content","Concierge__enable_remove_info_panel_tags","CloudShell__cloud_code_overflow_menu","Profiles__enable_completecodelab_endpoint","Analytics__enable_devpro_interaction_logging","Search__enable_ai_search_summaries_for_all","MiscFeatureFlags__enable_view_transitions","Concierge__enable_pushui","Profiles__enable_recognition_badges","MiscFeatureFlags__enable_llms_txt","Profiles__enable_dashboard_curated_recommendations","DevPro__enable_devsite_captcha","Profiles__enable_release_notes_notifications","MiscFeatureFlags__enable_explain_this_code","Cloud__cache_serialized_dynamic_content","DevPro__enable_credits_banner","Cloud__enable_free_trial_server_call","MiscFeatureFlags__enable_framebox_badge_methods","MiscFeatureFlags__enable_dark_theme","Cloud__enable_cloudx_experiment_ids","DevPro__enable_vertex_credit_card","Concierge__enable_devsite_llm_tools","Profiles__enable_targeted_hero","EngEduTelemetry__enable_engedu_telemetry","MiscFeatureFlags__enable_firebase_utm","DevPro__enable_g1_integration","Profiles__enable_purchase_prompts","Search__enable_suggestions_from_borg","CloudShell__cloud_shell_button","Cloud__enable_llm_concierge_chat","DevPro__enable_devpro_offers","MiscFeatureFlags__enable_project_variables","TpcFeatures__enable_unmirrored_page_left_nav","BookNav__enable_tenant_cache_key","TpcFeatures__proxy_prod_host","MiscFeatureFlags__enable_explicit_template_dependencies","DevPro__remove_eu_tax_intake_form","MiscFeatureFlags__remove_cross_domain_tracking_params","Cloud__enable_cloud_shell_fte_user_flow","DevPro__enable_google_one_card","MiscFeatureFlags__enable_variable_operator_index_yaml","Profiles__enable_join_program_group_endpoint","DevPro__enable_embed_profile_creation","Significatio__enable_by_tenant","Profiles__enable_callout_notifications","Profiles__enable_profile_collections","SignIn__enable_l1_signup_flow","Search__enable_dynamic_content_confidential_banner","DevPro__enable_enterprise","Profiles__enable_auto_apply_credits","Profiles__enable_public_developer_profiles","Cloud__enable_legacy_calculator_redirect","Experiments__reqs_query_experiments","DevPro__enable_developer_subscriptions","Profiles__enable_page_saving","Profiles__enable_completequiz_endpoint","MiscFeatureFlags__gdp_dashboard_reskin_enabled","Profiles__enable_complete_playlist_endpoint"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[1,1],[2,2]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

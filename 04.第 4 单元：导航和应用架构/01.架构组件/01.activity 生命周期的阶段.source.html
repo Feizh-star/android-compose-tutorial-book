@@ -1,0 +1,2105 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=vi" /><title>activity 生命周期的阶段 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="activity 生命周期的阶段 &nbsp;|&nbsp; Android Developers"><meta name="description" content="在此 Codelab 中，您将了解 activity 生命周期和日志记录。">
+  <meta property="og:description" content="在此 Codelab 中，您将了解 activity 生命周期和日志记录。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      activity 生命周期的阶段<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="1xlR76vx1ufWKonT4WT2oH1IJpYZ1BWu0odsYaiXRt5k" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dessert-clicker/issues/new?assignees=&amp;labels=&amp;template=stages-of-activity-lifecycle-template.md&amp;title=Stages&#43;of&#43;the&#43;Activity&#43;Lifecycle%3A&#43;Android&#43;Basics&#43;with&#43;Compose" id="basic-android-kotlin-compose-activity-lifecycle" layout="paginated" no-tooltip="" title="activity 生命周期的阶段">
+      
+        <google-codelab-step duration="0" step="0" label="开始前须知">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2024-04-27T00:40:52Z" codelab-title="activity 生命周期的阶段">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 前言           " id="0" tabindex="-1">
+              1. 前言
+          </h2>
+          
+          <p>在此 Codelab 中，您将了解 Android 的基本组成部分：activity 生命周期。<em></em></p>
+<p>activity 在生命过程中会转换多种状态，并且有时会恢复之前的状态。这种状态转换称为 activity 生命周期。</p>
+<p>在 Android 中，activity 是与用户交互的入口点。</p>
+<p>过去，一个 activity 在一个应用中仅显示一个屏幕。根据当前的最佳实践，一个 activity 可以根据需要在不同屏幕间切换，从而显示多个屏幕。</p>
+<p>activity 生命周期从其创建一直持续到销毁。在销毁时，系统将收回 activity 的资源。当用户进入和退出 activity 时，每个 activity 都会在其生命周期的不同状态之间转换。</p>
+<p>作为 Android 开发者，您需要了解 activity 生命周期。如果您的 activity 无法正确响应生命周期状态变化，则您的应用可能会生成奇怪的 bug、出现让您的用户感到困惑的行为，或使用过多的 Android 系统资源。了解 Android 生命周期并正确响应生命周期状态变化是 Android 开发的重要环节。</p>
+<h2 data-text="前提条件" id="prerequisites" is-upgraded="" tabindex="-1">前提条件</h2>
+<ul>
+<li>了解 activity 是什么，以及如何在应用中创建 activity</li>
+<li>了解 activity 的 <code dir="ltr" translate="no">onCreate()</code> 方法的用途，以及该方法中执行的操作的类型</li>
+</ul>
+<h2 class="checklist" data-text="学习内容" id="what-youll-learn" is-upgraded="" tabindex="-1">学习内容</h2>
+<ul class="checklist">
+<li>如何将日志记录信息输出到 Logcat</li>
+<li><code dir="ltr" translate="no">Activity</code> 生命周期的基础知识，以及当 activity 在不同状态之间切换时调用的回调</li>
+<li>如何替换生命周期回调方法，以便在 activity 生命周期的不同时间执行操作</li>
+</ul>
+<h2 data-text="构建内容" id="what-youll-build" is-upgraded="" tabindex="-1">构建内容</h2>
+<ul>
+<li>修改名为 Dessert Clicker 的起始应用，以添加在 Logcat 中显示的日志记录信息。</li>
+<li>替换生命周期回调方法并记录对 activity 状态的更改。</li>
+<li>运行应用，并记下 activity 启动、停止和恢复时显示的日志记录信息。</li>
+<li>实现 <code dir="ltr" translate="no">rememberSaveable</code> 以保留在设备配置发生变更时可能丢失的应用数据。</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="应用概览">
+          
+          <h2 class="step-title" data-text="               2. 应用概览           " id="1" tabindex="-1">
+              2. 应用概览
+          </h2>
+          
+          <p>在此 Codelab 中，您将使用一款名为 Dessert Clicker 的起始应用。在 Dessert Clicker 中，每当用户点按屏幕上的甜点时，该应用就会为用户“购买”相应甜点。应用会在布局中更新以下值：</p>
+<ul>
+<li>“已购买”甜品的数量</li>
+<li>“已购买”甜品的总收入</li>
+</ul>
+<p class="image-container"><img alt="245d0bdfc09f4d54.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_2880.png?hl=zh-cn 2880w" style="width: 264.00px" /></p>
+<p>该应用存在多个与 Android 生命周期相关的 bug。例如，在某些情况下，该应用会将甜点数量值重置为 0。了解 Android 生命周期可以帮助您理解这些问题发生的原因以及解决方法。</p>
+<h2 data-text="下载起始代码" id="download-the-starter-code" is-upgraded="" tabindex="-1"><strong>下载起始代码</strong></h2>
+<p>在 Android Studio 中，打开 <code dir="ltr" translate="no">basic-android-kotlin-compose-training-dessert-clicker</code> 文件夹。</p>
+<aside class="special"><p><strong>起始代码网址：</strong><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dessert-clicker/tree/starter" target="_blank"><code dir="ltr" translate="no">https://github.com/google-developer-training/basic-android-kotlin-compose-training-dessert-clicker</code></a></p>
+<p><strong>分支名称</strong>：<code dir="ltr" translate="no">starter</code></p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="探索生命周期方法并添加基本日志记录">
+          
+          <h2 class="step-title" data-text="               3. 探索生命周期方法并添加基本日志记录           " id="2" tabindex="-1">
+              3. 探索生命周期方法并添加基本日志记录
+          </h2>
+          
+          <p>每个 activity 都具有生命周期<em></em>。“生命周期”一词源于植物和动物的生命周期，比如蝴蝶的生命周期：蝴蝶的不同状态显示了其从卵、幼虫、蛹到蝴蝶再到死亡的成长过程。</p>
+<p class="image-container"><img alt="蝴蝶生命周期 - 从卵、幼虫、蛹到蝴蝶再到死亡。" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_2880.png?hl=zh-cn 2880w" style="width: 334.50px" /></p>
+<p>同样，activity 生命周期由 activity 可能会经历的不同状态组成：从 activity 首次初始化一直到销毁，在销毁时，操作系统 (OS) 将收回其内存。通常，程序的入口点是 <code dir="ltr" translate="no">main()</code> 方法。不过，Android 的 activity 从 <code dir="ltr" translate="no">onCreate()</code> 方法开始；此方法等同于上述示例中的蝴蝶卵阶段。您在本课程中已经使用过许多 activity，或许已经认识 <code dir="ltr" translate="no">onCreate()</code> 方法。当用户启动您的应用、在 activity 之间导航、在应用内外部导航时，activity 会切换状态。</p>
+<p>下图显示了 activity 生命周期的所有状态。顾名思义，这些状态表示 activity 所处的状态。请注意，与蝴蝶生命周期不同，activity 在其整个生命周期内可以在不同状态之间来回切换，而不是仅向一个方向移动。</p>
+<aside class="special"><p><strong>注意</strong>：一个 Android 应用可以有多个 activity。不过，建议仅使用一个 activity，这也是本课程到目前为止所实现的内容。</p>
+</aside>
+<p class="image-container"><img alt="ca808edb1c95f07a.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_2880.png?hl=zh-cn 2880w" style="width: 285.50px" /></p>
+<p>在 activity 生命周期状态发生变化时，您通常需要更改某些行为，或者运行一些代码。因此，<code dir="ltr" translate="no">Activity</code> 类本身以及 <code dir="ltr" translate="no">Activity</code> 的任何子类（例如 <code dir="ltr" translate="no">ComponentActivity</code>）都会实现一组生命周期回调方法。Android 会在 activity 从一种状态切换为另一种状态时调用这些回调，而您可以在自己的 activity 中替换这些方法，通过执行任务来响应这些生命周期状态变化。下图显示了生命周期状态以及可用的可替换回调。</p>
+<p class="image-container"><img alt="activity 生命周期方案" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_2880.png?hl=zh-cn 2880w" style="width: 279.50px" /></p>
+<aside class="special"><p><strong>注意</strong>：<code dir="ltr" translate="no">onRestart()</code> 方法上的星号表示，每次状态在 <strong>Created</strong> 和 <strong>Started</strong> 之间转换时，系统都不会调用此方法。仅当调用 <code dir="ltr" translate="no">onStop()</code> 并且随后重启 activity 时，系统才会调用此方法。</p>
+</aside>
+<p>请务必了解 Android 何时调用可替换回调以及每个回调方法中应执行什么操作，但这两个图都很复杂并且可能会让人感到困惑。在此 Codelab 中，您不仅要了解每种状态和回调的含义，还要进行一些检测工作，并逐渐理解 Android 的 activity 生命周期。</p>
+<h2 data-text="第 1 步：检查 onCreate() 方法并添加日志记录" id="step-1:-examine-the-oncreate-method-and-add-logging" is-upgraded="" tabindex="-1">第 1 步：检查 <code dir="ltr" translate="no">onCreate()</code> 方法并添加日志记录</h2>
+<p>为了弄清 Android 生命周期的一些情况，了解何时调用各种生命周期方法会很有帮助。了解这些信息有助于您发现 Dessert Clicker 应用中的问题。</p>
+<p>确定这些信息的一种简单方法是使用 Android 日志记录功能。通过日志记录功能，您可以在应用运行期间向控制台写入简短的消息，并利用它们来显示不同回调的触发时间。</p>
+<ol type="1">
+<li>运行 Dessert Clicker 应用，并在某款甜点的图片上点按多次。请注意 <strong>Desserts sold</strong> 的值与美元总金额发生的变化。</li>
+<li>打开 <code dir="ltr" translate="no">MainActivity.kt</code> 并检查此 activity 的 <code dir="ltr" translate="no">onCreate()</code> 方法：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>在 activity 生命周期图中，您可能认出了 <code dir="ltr" translate="no">onCreate()</code> 方法，因为您之前使用过此回调。这便是每个 activity 都必须实现的方法。您可使用 <code dir="ltr" translate="no">onCreate()</code> 方法为 activity 执行所有一次性初始化。例如，在 <code dir="ltr" translate="no">onCreate()</code> 中，调用 <code dir="ltr" translate="no">setContent()</code> 以指定 activity 的界面布局。</p>
+<p class="image-container"><img alt="onCreate 生命周期方法" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_2880.png?hl=zh-cn 2880w" style="width: 359.50px" /></p>
+<p>系统会在 activity 初始化（OS 在内存中创建新的 <code dir="ltr" translate="no">Activity</code> 对象）之后立即调用一次 <code dir="ltr" translate="no">onCreate()</code> 生命周期方法。<em></em>执行 <code dir="ltr" translate="no">onCreate()</code> 后，相应 activity 会被视为“已创建”<em></em>。</p>
+<aside class="special"><p><strong>注意</strong>：替换 <code dir="ltr" translate="no">onCreate()</code> 方法时，您必须调用父类实现来完成 activity 的创建，因此您必须立即调用 <code dir="ltr" translate="no">super.onCreate()</code>。这也适用于其他生命周期回调方法。</p>
+</aside>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity.kt</code> 的顶层（类声明 <code dir="ltr" translate="no">class MainActivity</code> 的上方）添加以下常量。</li>
+</ol>
+<p>一种比较好的做法是在文件中声明 <code dir="ltr" translate="no">TAG</code> 常量，因为该值不会更改。</p>
+<p>若要将其标记为编译时常量，请在声明变量时使用 <code dir="ltr" translate="no">const</code>。编译时常量是在编译期间已知的值。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">TAG</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"MainActivity"</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">onCreate()</code> 方法中，在对 <code dir="ltr" translate="no">super.onCreate()</code> 的调用后，紧接着添加下面一行代码：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onCreate Called"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>根据需要导入 <code dir="ltr" translate="no">Log</code> 类（按 <code dir="ltr" translate="no">Alt+Enter</code>，或者在 Mac 上按 <code dir="ltr" translate="no">Option+Enter</code>，然后选择 <strong>Import</strong>）。如果您启用了自动导入功能，系统应该会自动执行此操作。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.util.Log</span>
+</code></pre></devsite-code>
+<p><a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Log</code></a> 类会将消息写入 <strong>Logcat</strong>。<strong>Logcat</strong> 是用于记录消息的控制台。来自 Android 的关于您应用的消息会出现在这里，包括您使用 <code dir="ltr" translate="no">Log.d()</code> 方法或其他 <code dir="ltr" translate="no">Log</code> 类方法显式发送到日志的消息。</p>
+<p><code dir="ltr" translate="no">Log</code> 指令有三个重要方面：</p>
+<ul>
+<li>日志消息的<strong>优先级<em></em></strong>，即消息的重要性。在本示例中，<a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn#v_1" target="_blank"><code dir="ltr" translate="no">Log.v()</code></a> 会记录详细消息。<a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn#d" target="_blank"><code dir="ltr" translate="no">Log.d()</code></a> 方法会写入调试消息。<code dir="ltr" translate="no">Log</code> 类中的其他方法包括 <a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn#i_1" target="_blank"><code dir="ltr" translate="no">Log.i()</code></a>（表示信息性消息）、<a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn#w(kotlin.String,%20kotlin.String)" target="_blank"><code dir="ltr" translate="no">Log.w()</code></a>（表示警告）和<a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn#e(kotlin.String,%20kotlin.String)" target="_blank"><code dir="ltr" translate="no">Log.e()</code></a>（表示错误消息）。</li>
+<li>日志 <code dir="ltr" translate="no">tag</code>（第一个参数），在本示例中为 <code dir="ltr" translate="no">"MainActivity"</code>。该标签是一个字符串，可让您更轻松地在 Logcat 中找到自己的日志消息。该标签通常是类的名称。</li>
+<li>实际的日志消息称为 <code dir="ltr" translate="no">msg</code>（第二个参数），它是一个简短的字符串，在本示例中为 <code dir="ltr" translate="no">"onCreate Called"</code>。</li>
+</ul>
+<p class="image-container"><img alt="a4ff4aa74384ff6.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_2880.png?hl=zh-cn 2880w" style="width: 617.00px" /></p>
+<ol start="6" type="1">
+<li>编译并运行 Dessert Clicker 应用。当您点按甜点后，应用行为没有出现任何变化。在 Android Studio 中，点击屏幕底部的 <strong>Logcat</strong> 标签页。</li>
+</ol>
+<p class="image-container"><img alt="cedcce52592c6665.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_2880.png?hl=zh-cn 2880w" style="width: 432.00px" /></p>
+<ol start="7" type="1">
+<li>在 <strong>Logcat</strong> 窗口的搜索字段中输入 <code dir="ltr" translate="no">tag:MainActivity</code>。</li>
+</ol>
+<p class="image-container"><img alt="37080c4e00561b0.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>Logcat 可能包含很多消息，但大多数消息对您而言都没有用处。您可以通过多种方式来过滤 Logcat 条目，但搜索是最简单的方式。由于您在代码中使用了 <code dir="ltr" translate="no">MainActivity</code> 作为日志标签，因此您可以使用该标签来过滤日志。您的日志消息包含日期、时间、日志标签、软件包名称 (<code dir="ltr" translate="no">com.example.dessertclicker</code>) 以及实际消息。由于此消息出现在日志中，所以您会知道 <code dir="ltr" translate="no">onCreate()</code> 已执行。</p>
+<h2 data-text="第 2 步：实现 onStart() 方法" id="step-2:-implement-the-onstart-method" is-upgraded="" tabindex="-1">第 2 步：实现 <code dir="ltr" translate="no">onStart()</code> 方法</h2>
+<p>系统会在调用 <code dir="ltr" translate="no">onCreate()</code> 之后立即调用 <code dir="ltr" translate="no">onStart()</code> 生命周期方法。<code dir="ltr" translate="no">onStart()</code> 运行后，您的 activity 会显示在屏幕上。与为初始化 activity 而仅调用一次的 <code dir="ltr" translate="no">onCreate()</code> 不同，<code dir="ltr" translate="no">onStart()</code> 可在 activity 的生命周期内由系统多次调用。</p>
+<p class="image-container"><img alt="a357d2291de472d9.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_2880.png?hl=zh-cn 2880w" style="width: 379.50px" /></p>
+<p>请注意，<code dir="ltr" translate="no">onStart()</code> 需要与相应的 <code dir="ltr" translate="no">onStop()</code> 生命周期方法配对使用。如果用户启动您的应用后又返回设备的主屏幕，相应 activity 会停止，并且不会再在屏幕上显示。</p>
+<ol type="1">
+<li>在 Android Studio 中，打开 <code dir="ltr" translate="no">MainActivity.kt</code> 并将光标移到 <code dir="ltr" translate="no">MainActivity</code> 类中，依次选择 <strong>Code > Override Methods</strong>，或按 <code dir="ltr" translate="no">Control+O</code>。此时，系统会显示一个对话框，其中包含您可以在此类中替换的所有方法的长列表。</li>
+</ol>
+<p class="image-container"><img alt="20c34cbad8dce892.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_2880.png?hl=zh-cn 2880w" style="width: 384.00px" /></p>
+<ol start="2" type="1">
+<li>开始输入 <code dir="ltr" translate="no">onStart</code> 以搜索正确的方法。如需滚动到下一个匹配项，请使用向下箭。从列表中选择 <code dir="ltr" translate="no">onStart()</code>，然后点击 <strong>OK</strong> 插入样板替换代码。代码如以下示例所示：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onStart</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onStart</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">onStart()</code> 方法中，添加一条日志消息：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onStart</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onStart</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onStart Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>编译并运行 Dessert Clicker 应用，然后打开 <strong>Logcat</strong> 窗格。</li>
+<li>在搜索字段中输入 <code dir="ltr" translate="no">tag:MainActivity</code>，以过滤日志。请注意，<code dir="ltr" translate="no">onCreate()</code> 和 <code dir="ltr" translate="no">onStart()</code> 方法会依次调用，并且您的 activity 会显示在屏幕上。</li>
+<li>按设备上的<strong>主屏幕</strong>按钮，然后使用“最近用过”屏幕返回相应 activity。请注意，activity 会从上次停止的位置恢复，同时使用所有相同的值，并且 <code dir="ltr" translate="no">onStart()</code> 会再次记录到 Logcat 中。另请注意，系统不会再次调用 <code dir="ltr" translate="no">onCreate()</code> 方法。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>2024-04-26 14:54:48.721  5386-5386  MainActivity            com.example.dessertclicker           D  onCreate Called
+2024-04-26 14:54:48.756  5386-5386  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 14:55:41.674  5386-5386  MainActivity            com.example.dessertclicker           D  onStart Called
+</pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：在尝试使用设备并观察生命周期回调时，您可能会发现在设备旋转时出现了异常行为。此 Codelab 后面会介绍此行为。</p>
+</aside>
+<h2 data-text="第 3 步：添加更多日志语句" id="step-3:-add-more-log-statements" is-upgraded="" tabindex="-1">第 3 步：添加更多日志语句</h2>
+<p>在此步骤中，您将为所有其他生命周期方法实现日志记录功能。</p>
+<ol type="1">
+<li>替换 <code dir="ltr" translate="no">MainActivity</code> 中其余的生命周期方法，然后为每种方法添加日志语句，如以下代码所示：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onResume</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onResume</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onResume Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onRestart</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onRestart</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onRestart Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onPause</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onPause</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onPause Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onStop</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onStop</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onStop Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onDestroy</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onDestroy</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onDestroy Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>再次编译并运行 Dessert Clicker，然后检查 Logcat。</li>
+</ol>
+<p>请注意，除了 <code dir="ltr" translate="no">onCreate()</code> 和 <code dir="ltr" translate="no">onStart()</code> 之外，还有一条有关 <code dir="ltr" translate="no">onResume()</code> 生命周期回调的日志消息。</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>2024-04-26 14:56:48.684  5484-5484  MainActivity            com.example.dessertclicker           D  onCreate Called
+2024-04-26 14:56:48.709  5484-5484  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 14:56:48.713  5484-5484  MainActivity            com.example.dessertclicker           D  onResume Called
+</pre></devsite-code>
+<p>当 activity 从头开始启动时，您会看到系统按顺序调用以下三个生命周期回调：</p>
+<ul>
+<li><code dir="ltr" translate="no">onCreate()</code>，在系统创建应用时调用。</li>
+<li><code dir="ltr" translate="no">onStart()</code>，使应用显示在屏幕上，但用户无法与应用进行交互。</li>
+<li><code dir="ltr" translate="no">onResume()</code>，将应用置于前台，用户现在可以与应用交互。</li>
+</ul>
+<p><code dir="ltr" translate="no">onResume()</code> 方法尽管名称是这样，但会在启动时调用，即使没有要恢复的 activity 也是如此。</p>
+<p class="image-container"><img alt="activity 生命周期方案" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_2880.png?hl=zh-cn 2880w" style="width: 373.50px" /></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="探索生命周期用例">
+          
+          <h2 class="step-title" data-text="               4. 探索生命周期用例           " id="3" tabindex="-1">
+              4. 探索生命周期用例
+          </h2>
+          
+          <p>现在，您已经完成了 Dessert Clicker 应用的日志记录设置，接下来可以开始使用应用，并探索生命周期回调是如何触发的了。</p>
+<h2 data-text="用例 1：打开和关闭 activity" id="use-case-1:-opening-and-closing-the-activity" is-upgraded="" tabindex="-1">用例 1：打开和关闭 activity</h2>
+<p>您可以先从最基本的用例入手，也就是首次启动您的应用，然后关闭应用。</p>
+<ol type="1">
+<li>编译并运行 Dessert Clicker 应用（如果该应用尚未运行）。正如您所看到的，当 activity 首次启动时，系统会调用 <code dir="ltr" translate="no">onCreate()</code>、<code dir="ltr" translate="no">onStart()</code> 和 <code dir="ltr" translate="no">onResume()</code> 回调。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>2024-04-26 14:56:48.684  5484-5484  MainActivity            com.example.dessertclicker           D  onCreate Called
+2024-04-26 14:56:48.709  5484-5484  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 14:56:48.713  5484-5484  MainActivity            com.example.dessertclicker           D  onResume Called
+</pre></devsite-code>
+<ol start="2" type="1">
+<li>多次点按纸杯蛋糕。</li>
+<li>点按设备上的<strong>返回</strong>按钮。</li>
+</ol>
+<p>请注意，在 Logcat 中，系统将按上述顺序调用 <code dir="ltr" translate="no">onPause()</code> 和 <code dir="ltr" translate="no">onStop()</code>。</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>2024-04-26 14:58:19.984  5484-5484  MainActivity            com.example.dessertclicker           D  onPause Called
+2024-04-26 14:58:20.491  5484-5484  MainActivity            com.example.dessertclicker           D  onStop Called
+2024-04-26 14:58:20.517  5484-5484  MainActivity            com.example.dessertclicker           D  onDestroy Called
+</pre></devsite-code>
+<p>在本示例中，使用<strong>返回</strong>按钮会导致 activity（和应用）从屏幕中移除并移至 activity 堆栈的后侧。</p>
+<p>如果您的代码手动调用 activity 的 <a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#finish()" target="_blank"><code dir="ltr" translate="no">finish()</code></a> 方法，或者用户强制退出应用，Android OS 可能会关闭该 activity。例如，用户可以在“最近使用的应用”屏幕中强制退出或关闭应用。如果应用长时间没有在屏幕上显示，OS 也可能会自行关闭您的 activity。Android 这样做是为了延长电池续航时间，并回收应用正在使用的资源，以供其他应用使用。以上只是举例说明 Android 系统销毁 activity 的原因。在其他一些情况下，Android 系统会在不发出警告的情况下销毁您的 activity。</p>
+<aside class="special"><p><strong>注意：</strong><code dir="ltr" translate="no">onCreate()</code> 和 <code dir="ltr" translate="no">onDestroy()</code> 在单个 activity 实例的生命周期内只会调用一次：<code dir="ltr" translate="no">onCreate()</code> 用于首次初始化应用，<code dir="ltr" translate="no">onDestroy()</code> 用于作废、关闭或销毁 activity 可能一直在使用的对象，使其不会继续使用资源（如内存）。此 Codelab 将在稍后介绍这两个调用。</p>
+</aside>
+<h2 data-text="用例 2：离开和返回 activity" id="use-case-2:-navigating-away-from-and-back-to-the-activity" is-upgraded="" tabindex="-1">用例 2：离开和返回 activity</h2>
+<p>现在，您已经启动了应用并将其关闭，在此过程中，您看到了 activity 首次创建时经历的大部分生命周期状态。此外，您还看到了 activity 关闭时所经历的大多数生命周期状态。但当用户与其 Android 设备交互时，他们需要在应用之间切换、返回主屏幕、启动新应用以及处理由通话等其他 activity 导致的中断。</p>
+<p>每次用户离开您的 activity 时，它都不会关闭：</p>
+<ul>
+<li>当 activity 不再在屏幕上可见时，就说明该 activity 已置于后台<em></em>。反之，activity 位于前台或屏幕上。<em></em></li>
+<li>当用户返回您的应用时，相应 activity 会重启并再次可见。这部分生命周期称为应用的可见生命周期。<em></em></li>
+</ul>
+<p>当您的应用位于后台时，为了保留系统资源和电池续航时间，应用通常不应活跃运行。您可以使用 <code dir="ltr" translate="no">Activity</code> 生命周期及其回调来了解应用何时切换到后台，以便您暂停任何正在进行的操作。然后，在您的应用进入前台时重启相应操作。</p>
+<p>在这一步中，您将查看当应用进入后台以及返回前台时的 activity 生命周期。</p>
+<ol type="1">
+<li>在 Dessert Clicker 应用运行时，点击几次纸杯蛋糕。</li>
+<li>按设备上的<strong>主屏幕</strong>按钮，然后在 Android Studio 中观察 Logcat。返回主屏幕的操作会将您的应用置于后台，而不是完全关闭应用。请注意，系统会调用 <code dir="ltr" translate="no">onPause()</code> 和 <code dir="ltr" translate="no">onStop()</code> 方法。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>2024-04-26 15:00:04.905  5590-5590  MainActivity            com.example.dessertclicker           D  onPause Called
+2024-04-26 15:00:05.430  5590-5590  MainActivity            com.example.dessertclicker           D  onStop Called
+</pre></devsite-code>
+<p>在调用 <code dir="ltr" translate="no">onPause()</code> 后，该应用不会再获得焦点。在 <code dir="ltr" translate="no">onStop()</code> 之后，该应用将不再显示在屏幕上。虽然该 activity 已停止，但 <code dir="ltr" translate="no">Activity</code> 对象仍位于后台内存中。Android OS 尚未销毁 activity。用户可能会返回该应用，因此 Android 会保留您的 activity 资源。</p>
+<p class="image-container"><img alt="c470ee28ab7f8a1a.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_2880.png?hl=zh-cn 2880w" style="width: 285.50px" /></p>
+<ol start="3" type="1">
+<li>使用“最近使用的应用”屏幕返回该应用。在模拟器上，您可以通过下图中所示的方形系统按钮访问“最近使用的应用”屏幕。</li>
+</ol>
+<p>请注意，在 Logcat 中，activity 使用 <code dir="ltr" translate="no">onRestart()</code> 和 <code dir="ltr" translate="no">onStart()</code> 重启，然后使用 <code dir="ltr" translate="no">onResume()</code> 恢复。</p>
+<p class="image-container"><img alt="bc156252d977e5ae.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_2880.png?hl=zh-cn 2880w" style="width: 264.00px" /></p>
+<aside class="special"><p><strong>注意：</strong><code dir="ltr" translate="no">onRestart()</code> 只有在 activity 已经创建之后才会被系统调用，并且会在系统调用 <code dir="ltr" translate="no">onStop()</code> 时最终进入 <strong>Created</strong> 状态，但是会返回 <strong>Started</strong> 状态，而不是进入 <strong>Destroyed</strong> 状态。<code dir="ltr" translate="no">onRestart()</code> 方法用于放置仅在 activity <strong>不</strong>是首次启动时才需要调用的代码。</p>
+</aside>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>2024-04-26 15:00:39.371  5590-5590  MainActivity            com.example.dessertclicker           D  onRestart Called
+2024-04-26 15:00:39.372  5590-5590  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 15:00:39.374  5590-5590  MainActivity            com.example.dessertclicker           D  onResume Called
+</pre></devsite-code>
+<p>当该 activity 返回前台时，系统不会再次调用 <code dir="ltr" translate="no">onCreate()</code> 方法。相应 activity 对象未被销毁，因此不需要重新创建。系统会调用 <code dir="ltr" translate="no">onRestart()</code> 方法，而不是 <code dir="ltr" translate="no">onCreate()</code>。请注意，这一次该 activity 返回前台时，系统会保留 <strong>Desserts sold</strong> 数值。</p>
+<ol start="4" type="1">
+<li>除 Dessert Clicker 以外，至少启动一个应用，这样设备的“最近使用的应用”屏幕中就会有一些应用。</li>
+<li>启动“最近使用的应用”屏幕，打开另外一个近期 activity。然后，返回最近用过的应用并让 Dessert Clicker 返回前台。</li>
+</ol>
+<p>请注意，您在 Logcat 这里看到的回调与按<strong>主屏幕</strong>按钮后看到的相同。当应用进入后台时，系统会调用 <code dir="ltr" translate="no">onPause()</code> 和 <code dir="ltr" translate="no">onStop()</code>，并在应用返回时调用 <code dir="ltr" translate="no">onRestart()</code>、<code dir="ltr" translate="no">onStart()</code> 和 <code dir="ltr" translate="no">onResume()</code>。</p>
+<aside class="special"><p><strong>注意 </strong>：当用户导航到该 activity 或离开该 activity 时，系统会多次调用 <code dir="ltr" translate="no">onStart()</code> 和 <code dir="ltr" translate="no">onStop()</code>。</p>
+</aside>
+<p>当应用停止并进入后台，或应用重启并返回前台时，系统会调用这些方法。在这些情况下，如果您需要在应用中执行一些工作，则可以替换相关的生命周期回调方法。</p>
+<h2 data-text="用例 3：隐藏部分 activity" id="use-case-3:-partially-hide-the-activity" is-upgraded="" tabindex="-1">用例 3：隐藏部分 activity</h2>
+<p>您已了解，在应用启动并且系统调用 <code dir="ltr" translate="no">onStart()</code> 后，该应用将在屏幕上变得可见。当系统调用 <code dir="ltr" translate="no">onResume()</code> 时，应用会获得用户焦点，即用户可以与应用交互。应用在屏幕上完全显示并且具有用户焦点的这部分生命周期称为<a href="https://developer.android.com/reference/android/app/Activity?hl=zh-cn#activity-lifecycle" target="_blank">前台生命周期</a>。</p>
+<p>当应用进入后台后，焦点在 <code dir="ltr" translate="no">onPause()</code> 后便会丢失，并且在 <code dir="ltr" translate="no">onStop()</code> 后，该应用将不再可见。</p>
+<p>区分焦点与可见性之间的差异很重要。某个 activity 有可能在屏幕上部分可见，但没有用户焦点。<em></em>在这一步，您将查看 activity 处于部分可见状态，但没有用户焦点的情况。</p>
+<ol type="1">
+<li>在 Dessert Clicker 应用运行时，点击屏幕右上角的<strong>共享</strong>按钮。</li>
+</ol>
+<p>共享 activity 出现在屏幕的下半部分，但相应 activity 在上半部分仍然可见。</p>
+<p class="image-container"><img alt="677c190d94e57447.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_2880.png?hl=zh-cn 2880w" style="width: 384.00px" /><img alt="ca6285cbbe3801cf.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_2880.png?hl=zh-cn 2880w" style="width: 264.00px" /></p>
+<ol start="2" type="1">
+<li>检查 Logcat，您会注意到，系统仅调用了 <code dir="ltr" translate="no">onPause()</code>。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>2024-04-26 15:01:49.535  5590-5590  MainActivity            com.example.dessertclicker           D  onPause Called
+</pre></devsite-code>
+<p>在此用例中，系统没有调用 <code dir="ltr" translate="no">onStop()</code>，因为相应 activity 仍然部分可见。但是，该 activity 没有用户焦点，并且用户无法与之交互；位于前台的“共享”activity 具有用户焦点。</p>
+<p>为什么这种区别至关重要？单纯的 <code dir="ltr" translate="no">onPause()</code> 导致的中断通常仅持续很短的时间，然后用户就会返回您的 activity，或者导航到另一个 activity 或应用。通常，您需要持续更新界面，使应用的其余部分不会卡顿。</p>
+<p>在 <code dir="ltr" translate="no">onPause()</code> 中运行的任何代码都会阻止其他内容显示，因此请使 <code dir="ltr" translate="no">onPause()</code> 中的代码保持轻量级。例如，当有来电时，<code dir="ltr" translate="no">onPause()</code> 中的代码可能会延迟来电通知。</p>
+<ol start="3" type="1">
+<li>在共享对话框之外点击一下，返回应用，您会注意到系统调用了 <code dir="ltr" translate="no">onResume()</code>。</li>
+</ol>
+<p><code dir="ltr" translate="no">onResume()</code> 和 <code dir="ltr" translate="no">onPause()</code> 都必须处理焦点。当相应 activity 获得焦点时，系统会调用 <code dir="ltr" translate="no">onResume()</code> 方法；当该 activity 失去焦点时，系统会调用 <code dir="ltr" translate="no">onPause()</code>。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="探索配置变更">
+          
+          <h2 class="step-title" data-text="               5. 探索配置变更           " id="4" tabindex="-1">
+              5. 探索配置变更
+          </h2>
+          
+          <p>activity 生命周期管理中的另一个用例也很重要：配置变更会如何影响 activity 生命周期。</p>
+<p>当设备的状态发生了根本性改变，以至于系统解决改变的最简单方式就是完全关闭并重建 activity 时，就会发生配置变更。<em></em>例如，如果用户更改了设备语言，整个布局可能就需要更改为适应不同的文本方向和字符串长度。如果用户将设备插入基座或添加物理键盘，应用布局可能需要利用不同的显示尺寸或布局。如果设备屏幕方向发生变化，比如设备从竖屏旋转为横屏或反过来，布局可能需要改为适应新的屏幕方向。让我们看看应用在这种情况下的行为。</p>
+<p>演示的最后一个生命周期回调是 <code dir="ltr" translate="no">onDestroy()</code>，它会在 <code dir="ltr" translate="no">onStop()</code> 之后调用。系统会在销毁 activity 之前调用此方法。当应用的代码调用 <code dir="ltr" translate="no">finish()</code>，或者因配置变更而需要销毁并重新创建 activity 时，可能会发生这种情况。</p>
+<h2 data-text="配置变更会导致系统调用 onDestroy()" id="configuration-change-causes-ondestroy-to-be-called" is-upgraded="" tabindex="-1">配置变更会导致系统调用 <code dir="ltr" translate="no">onDestroy()</code></h2>
+<p>屏幕旋转是导致 activity 关闭并重启的一种配置变更类型。如需模拟此配置变更并检查其影响，请完成以下步骤：</p>
+<ol type="1">
+<li>编译并运行您的应用。</li>
+<li>确保已停用模拟器中的屏幕旋转锁定功能。</li>
+<li>将设备或模拟器旋转为横屏模式。您可以使用旋转按钮向左或向右旋转模拟器。</li>
+<li>检查 Logcat，注意当 activity 关闭时，它会依次调用 <code dir="ltr" translate="no">onPause()</code>、<code dir="ltr" translate="no">onStop()</code> 和 <code dir="ltr" translate="no">onDestroy()</code>。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>2024-04-26 15:03:32.183  5716-5716  MainActivity            com.example.dessertclicker           D  onPause Called
+2024-04-26 15:03:32.185  5716-5716  MainActivity            com.example.dessertclicker           D  onStop Called
+2024-04-26 15:03:32.205  5716-5716  MainActivity            com.example.dessertclicker           D  onDestroy Called
+</pre></devsite-code>
+<h2 data-text="设备旋转时出现数据丢失情况" id="data-loss-on-device-rotation" is-upgraded="" tabindex="-1">设备旋转时出现数据丢失情况</h2>
+<ol type="1">
+<li>编译并运行您的应用，然后打开 Logcat。</li>
+<li>点击几次纸杯蛋糕，请注意，所售甜点的数量和总收入并不为零。</li>
+<li>确保已停用模拟器中的屏幕旋转锁定功能。</li>
+<li>将设备或模拟器旋转为横屏模式。您可以使用旋转按钮向左或向右旋转模拟器。</li>
+</ol>
+<p class="image-container"><img alt="11c9d83a11651608.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_2880.png?hl=zh-cn 2880w" style="width: 408.00px" /></p>
+<ol start="5" type="1">
+<li>检查 Logcat 中的输出。用 <code dir="ltr" translate="no">MainActivity</code> 过滤输出。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>2024-04-26 15:04:29.356  5809-5809  MainActivity            com.example.dessertclicker           D  onCreate Called
+2024-04-26 15:04:29.378  5809-5809  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 15:04:29.382  5809-5809  MainActivity            com.example.dessertclicker           D  onResume Called
+2024-04-26 15:06:52.168  5809-5809  MainActivity            com.example.dessertclicker           D  onPause Called
+2024-04-26 15:06:52.183  5809-5809  MainActivity            com.example.dessertclicker           D  onStop Called
+2024-04-26 15:06:52.219  5809-5809  MainActivity            com.example.dessertclicker           D  onDestroy Called
+2024-04-26 15:06:52.302  5809-5809  MainActivity            com.example.dessertclicker           D  onCreate Called
+2024-04-26 15:06:52.308  5809-5809  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 15:06:52.312  5809-5809  MainActivity            com.example.dessertclicker           D  onResume Called
+</pre></devsite-code>
+<p>请注意，设备或模拟器旋转屏幕时，系统会调用所有生命周期回调来关闭相应 activity。然后，在重新创建 activity 时，系统会调用所有生命周期回调来启动相应 activity。</p>
+<p>当设备旋转，而相应 activity 被关闭并重新创建时，该 activity 会使用默认值重新启动 - 甜点图片、已售甜点的数量和总收入会重置为零。</p>
+<p>如需了解这些值被重置的原因以及如何纠正这些值，您需要了解可组合项的生命周期，以及可组合项如何知晓要观察并保留其状态。</p>
+<h2 data-text="可组合项的生命周期" id="lifecycle-of-a-composable" is-upgraded="" tabindex="-1">可组合项的生命周期</h2>
+<p>应用的界面最初是通过在名称为 Composition 的进程中运行可组合函数而构建的。</p>
+<p>当应用的状态发生更改时，系统会安排重组。重组是指 Compose 重新执行状态可能已发生变化的可组合函数，并创建更新后的界面。系统会更新 Composition 以反映这些更改。</p>
+<p>创建或更新 Composition 的唯一方法是通过其初始组合和后续重组。</p>
+<p>可组合函数有自己的生命周期，并且其生命周期独立于 activity 生命周期。其生命周期由多个事件组成：进入 Composition，重组 0 次或多次，然后退出 Composition。</p>
+<p>为了让 Compose 能够跟踪和触发重组，它需要知晓状态何时发生了更改。如需向 Compose 指示它应当跟踪某个对象的状态，该对象的类型必须为 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/State?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">State</code></a> 或 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">MutableState</code></a>。<code dir="ltr" translate="no">State</code> 类型不可变，仅允许读取。<code dir="ltr" translate="no">MutableState</code> 类型是可变的，并且允许读取和写入。</p>
+<p>在之前的 Codelab 中，您已在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-lemonade" target="_blank">Lemonade 应用</a>和 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-tip-calculator" target="_blank">Tip Time 应用</a>中看到和使用过 <code dir="ltr" translate="no">MutableState</code>。</p>
+<p>如需创建可变变量 <code dir="ltr" translate="no">revenue</code>，请使用 <code dir="ltr" translate="no">mutableStateOf</code> 声明该变量。<code dir="ltr" translate="no">0</code> 是它的初始默认值。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">revenue</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>尽管这足以让 Compose 在收入值发生更改时触发重组，但保留更新后的值是不够的。每次重新执行可组合项时，该收入值都会重新初始化为初始默认值 <code dir="ltr" translate="no">0</code>。</p>
+<p>如需指示 Compose 在重组期间保留并重复使用其值，您需要使用 <code dir="ltr" translate="no">remember</code> API 进行声明。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">revenue</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>如果 <code dir="ltr" translate="no">revenue</code> 的值发生更改，Compose 会安排读取此值的所有可组合函数进行重组。</p>
+<p>尽管 Compose 会在重组期间记住收入状态，但在配置变更期间不会保留此状态。为了让 Compose 在配置更改期间保留状态，您必须使用 <code dir="ltr" translate="no">rememberSaveable</code>。</p>
+<p>如需了解其他做法和信息，请参阅 <a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-using-state?hl=zh-cn" target="_blank">Compose 中的状态简介</a> Codelab。</p>
+<h2 data-text="在配置变量期间使用 rememberSaveable 保存值" id="use-remembersaveable-to-save-values-across-configuration-changes" is-upgraded="" tabindex="-1">在配置变量期间使用 <code dir="ltr" translate="no">rememberSaveable</code> 保存值</h2>
+<p>当 Android OS 销毁并重新创建 activity 时，您可以使用 <code dir="ltr" translate="no">rememberSaveable</code> 函数保存所需的值。</p>
+<p>如需在重组期间保存值，您需要使用 <code dir="ltr" translate="no">remember</code>。在重组和配置更改期间使用 <code dir="ltr" translate="no">rememberSaveable</code> 保存值。</p>
+<aside class="special"><p><strong>注意</strong>：有时，Android 会关闭整个应用进程，包括与应用相关联的每个 activity。Android 会在系统承受压力并面临视觉延迟风险时执行此类关闭操作，因此此时不会运行额外的回调或代码。应用的进程只会在后台静默地关闭。但对用户来说，应用似乎并没有关闭。当用户返回 Android 系统已关闭的应用时，Android 会重启相应应用。您需要确保发生这种情况时不会对用户造成任何数据损失。</p>
+</aside>
+<p>使用 <code dir="ltr" translate="no">rememberSaveable</code> 保存值可确保该值在 activity 恢复时可用（如果需要的话）。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity</code> 中，将当前使用 <code dir="ltr" translate="no">remember</code> 的五个变量更新为 <code dir="ltr" translate="no">rememberSaveable</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">revenue</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentDessertImageId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">desserts</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">currentDessertIndex</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imageId</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">revenue</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">rememberSaveable</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentDessertImageId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">rememberSaveable</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">desserts</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">currentDessertIndex</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imageId</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>编译并运行您的应用。</li>
+<li>点击几次纸杯蛋糕，请注意，所售甜点的数量和总收入并不为零。</li>
+<li>将设备或模拟器旋转为横屏模式。</li>
+<li>请注意，在销毁并重新创建 activity 后，甜点图片、已售甜点和总收入将恢复为之前的值。</li>
+</ol>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="5" label="解决方案代码">
+          
+          <h2 class="step-title" data-text="               6. 解决方案代码           " id="5" tabindex="-1">
+              6. 解决方案代码
+          </h2>
+          
+          <aside class="special"><p><strong>解决方案代码网址</strong>：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dessert-clicker" target="_blank"><code dir="ltr" translate="no">https://github.com/google-developer-training/basic-android-kotlin-compose-training-dessert-clicker</code></a></p>
+<p><strong>分支名称</strong>：<code dir="ltr" translate="no">main</code></p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="6" label="摘要">
+          
+          <h2 class="step-title" data-text="               7. 总结           " id="6" tabindex="-1">
+              7. 总结
+          </h2>
+          
+          <h2 data-text="activity 生命周期" id="activity-lifecycle" is-upgraded="" tabindex="-1">activity 生命周期</h2>
+<ul>
+<li>activity 生命周期是 activity 会转换的一组状态。<em></em>activity 生命周期从 Android OS 首次创建 activity 时开始，在 Android OS 销毁 activity 时结束。</li>
+<li>当用户在 activity 之间以及应用内外导航时，每个 activity 会在 activity 生命周期中的状态之间切换。</li>
+<li>activity 生命周期中的每种状态都有一个对应的回调方法，您可以在 <code dir="ltr" translate="no">Activity</code> 类中替换此类方法。核心的生命周期方法集合包括：<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onCreate(android.os.Bundle)" target="_blank"><code dir="ltr" translate="no">onCreate()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onRestart()" target="_blank"><code dir="ltr" translate="no">onRestart()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onStart()" target="_blank"><code dir="ltr" translate="no">onStart()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onResume()" target="_blank"><code dir="ltr" translate="no">onResume()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onPause()" target="_blank"><code dir="ltr" translate="no">onPause()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onStop()" target="_blank"><code dir="ltr" translate="no">onStop()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onDestroy()" target="_blank"><code dir="ltr" translate="no">onDestroy()</code></a>。</li>
+<li>如需添加要在 activity 转换为某种生命周期状态时发生的行为，请替换相应状态的回调方法。</li>
+<li>如需在 Android Studio 中为类添加框架替换方法，请依次选择 <strong>Code > Override Methods</strong>，或按 <code dir="ltr" translate="no">Control+O</code>。</li>
+</ul>
+<h2 data-text="使用日志进行记录" id="logging-with-log" is-upgraded="" tabindex="-1">使用日志进行记录</h2>
+<ul>
+<li>借助 Android 日志记录 API（具体而言是 <a href="https://developer.android.com/reference/android/util/Log?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Log</code></a> 类），您可以写入要在 Android Studio 内的 Logcat 中显示的简短消息。</li>
+<li>使用 <code dir="ltr" translate="no">Log.d()</code> 可写入调试消息。此方法采用两个参数：日志标签（通常是类的名称）和日志消息（一个简短的字符串）。<em></em><em></em></li>
+<li>使用 Android Studio 中的 <strong>Logcat</strong> 窗口可查看系统日志，包括您写入的消息。</li>
+</ul>
+<h2 data-text="配置变更" id="configuration-changes" is-upgraded="" tabindex="-1">配置变更</h2>
+<ul>
+<li>当设备的状态发生了根本性改变，以至于系统解决改变的最简单方式就是销毁并重建 activity 时，就会发生配置变更。<em></em></li>
+<li>最常见的配置变更示例是用户将设备从竖屏模式旋转为横屏模式，或者从横屏模式旋转为竖屏模式。当设备语言发生变化或用户插入硬件键盘时，也可能会发生配置更改。</li>
+<li>当发生配置变更时，Android 会调用所有 activity 生命周期的关闭回调。然后，Android 会从头开始重启相应 activity，同时运行所有生命周期启动回调。</li>
+<li>当 Android 因配置变更而关闭某个应用时，它会使用 <code dir="ltr" translate="no">onCreate()</code> 重启 activity。</li>
+<li>如需保存需要在配置更改后继续存在的值，请使用 <code dir="ltr" translate="no">rememberSaveable</code> 声明其变量。</li>
+</ul>
+<h2 data-text="了解更多内容" id="learn-more" is-upgraded="" tabindex="-1">了解更多内容</h2>
+<ul>
+<li><a href="https://developer.android.com/reference/android/util/Log?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Log</code></a> 类</li>
+<li><a href="https://developer.android.com/studio/debug/am-logcat?hl=zh-cn" target="_blank">使用 Logcat 查看日志</a></li>
+<li><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/package-summary?hl=zh-cn" target="_blank">Saveable API</a></li>
+<li><a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Activity</code> 类</a></li>
+<li><a href="https://developer.android.com/reference/androidx/activity/ComponentActivity?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">ComponentActivity</code> 类</a></li>
+<li><a href="https://developer.android.com/guide/components/activities/intro-activities?hl=zh-cn#kotlin" target="_blank">activity 开发者指南</a></li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-x_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-x.svg?hl=zh-cn"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-youtube_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="//www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-linkedin_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-linkedin.svg?hl=zh-cn"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="gV4QMybLh2qGbsbOMRo/TyV539RaN6">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/android/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","https://fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["MiscFeatureFlags__enable_view_transitions","DevPro__enable_credits_banner","Profiles__enable_targeted_hero","Profiles__enable_purchase_prompts","DevPro__enable_code_assist","Analytics__enable_devpro_interaction_logging","Concierge__enable_devsite_llm_tools","Significatio__enable_by_tenant","MiscFeatureFlags__enable_variable_operator","Profiles__enable_public_developer_profiles","Concierge__enable_remove_info_panel_tags","Search__enable_ai_search_summaries","DevPro__enable_google_payments_buyflow","Cloud__enable_cloud_dlp_service","Cloud__enable_cloud_shell_fte_user_flow","Experiments__reqs_query_experiments","Profiles__enable_join_program_group_endpoint","MiscFeatureFlags__enable_appearance_cookies","MiscFeatureFlags__enable_explicit_template_dependencies","Cloud__enable_cloudx_experiment_ids","Profiles__enable_complete_playlist_endpoint","Profiles__enable_stripe_subscription_management","Cloud__enable_free_trial_server_call","DevPro__enable_g1_integration","Cloud__fast_free_trial","Profiles__enable_developer_profile_pages_as_content","Cloud__enable_cloud_shell","DevPro__remove_eu_tax_intake_form","DevPro__enable_cloud_innovators_plus","EngEduTelemetry__enable_engedu_telemetry","Cloud__enable_legacy_calculator_redirect","DevPro__enable_firebase_workspaces_card","DevPro__enable_vertex_credit_card","Profiles__enable_developer_profiles_callout","Profiles__enable_recognition_badges","DevPro__enable_embed_profile_creation","Profiles__enable_playlist_community_acl","Profiles__enable_profile_collections","Cloud__enable_llm_concierge_chat","Search__enable_ai_search_summaries_for_all","SignIn__enable_l1_signup_flow","MiscFeatureFlags__gdp_dashboard_reskin_enabled","MiscFeatureFlags__enable_project_variables","Profiles__enable_user_type","Profiles__enable_release_notes_notifications","Search__enable_ai_eligibility_checks","TpcFeatures__enable_unmirrored_page_left_nav","Profiles__enable_callout_notifications","Profiles__enable_awarding_url","DevPro__enable_developer_subscriptions","DevPro__enable_google_one_card","Profiles__enable_auto_apply_credits","Concierge__enable_pushui","Profiles__enable_completecodelab_endpoint","Profiles__enable_completequiz_endpoint","MiscFeatureFlags__fix_lower_breadcrumbs","MiscFeatureFlags__developers_footer_dark_image","MiscFeatureFlags__enable_variable_operator_index_yaml","DevPro__enable_devpro_offers","MiscFeatureFlags__enable_firebase_utm","DevPro__enable_enterprise","CloudShell__cloud_code_overflow_menu","Cloud__cache_serialized_dynamic_content","CloudShell__cloud_shell_button","Search__enable_page_map","MiscFeatureFlags__enable_explain_this_code","DevPro__enable_free_benefits","Profiles__enable_page_saving","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__enable_dark_theme","Concierge__enable_actions_menu","BookNav__enable_tenant_cache_key","TpcFeatures__proxy_prod_host","MiscFeatureFlags__remove_cross_domain_tracking_params","Profiles__require_profile_eligibility_for_signin","MiscFeatureFlags__enable_framebox_badge_methods","DevPro__enable_payments_first_batch","Search__enable_suggestions_from_borg","DevPro__enable_nvidia_credits_card","MiscFeatureFlags__developers_footer_image","MiscFeatureFlags__enable_llms_txt","Analytics__enable_clearcut_logging","Profiles__enable_dashboard_curated_recommendations","Profiles__enable_developer_profile_benefits_ui_redesign","DevPro__enable_devsite_captcha"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[2,2],[1,1]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

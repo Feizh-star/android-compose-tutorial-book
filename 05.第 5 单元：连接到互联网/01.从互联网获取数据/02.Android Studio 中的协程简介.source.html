@@ -1,0 +1,2252 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=vi" /><title>Android Studio 中的协程简介 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="Android Studio 中的协程简介 &nbsp;|&nbsp; Android Developers"><meta name="description" content="了解如何在 Android 应用中使用 Kotlin 协程以及如何测试协程。">
+  <meta property="og:description" content="了解如何在 Android 应用中使用 Kotlin 协程以及如何测试协程。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Android Studio 中的协程简介<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="1XditEy3Pubc-AFmnpzbQmhIfET7hCKmKdX7wYqfLbSE" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-race-tracker/issues/new?assignees=&amp;labels=&amp;template=android-basics–introduction-to-coroutines-in-android-studio.md&amp;title=Android&#43;Basics%3A&#43;Introduction&#43;to&#43;Coroutines&#43;in&#43;Android&#43;Studio" id="basic-android-kotlin-compose-coroutines-android-studio" layout="paginated" no-tooltip="" title="Android Studio 中的协程简介">
+      
+        <google-codelab-step duration="0" step="0" label="使用前须知">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2024-05-22T00:43:33Z" codelab-title="Android Studio 中的协程简介">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 前言           " id="0" tabindex="-1">
+              1. 前言
+          </h2>
+          
+          <p>在上一个 Codelab 中，您学习了协程的相关知识。您通过 Kotlin 园地使用协程编写了并发代码。在此 Codelab 中，您将在一个 Android 应用及其生命周期内运用所学的协程知识。您将添加代码，以并发方式启动新协程，并了解如何测试这些协程。</p>
+<h2 data-text="前提条件" id="prerequisites" is-upgraded="" tabindex="-1">前提条件</h2>
+<ul>
+<li>了解 Kotlin 语言的基础知识，包括函数和 lambda</li>
+<li>能够在 Jetpack Compose 中构建布局</li>
+<li>能够使用 Kotlin 编写单元测试（请参考<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=zh-cn#0" target="_blank">为 ViewModel 编写单元测试 Codelab</a>）</li>
+<li>了解线程和并发的工作原理</li>
+<li>具备协程和协程作用域方面的基础知识</li>
+</ul>
+<h2 data-text="构建内容" id="what-youll-build" is-upgraded="" tabindex="-1"><strong>构建内容</strong></h2>
+<ul>
+<li>用于模拟两位选手之间的比赛进度的 Race Tracker 应用。在构建此应用的过程中，您可以借机进行试验，详细了解协程的不同方面。</li>
+</ul>
+<h2 class="checklist" data-text="学习内容" id="what-youll-learn" is-upgraded="" tabindex="-1">学习内容</h2>
+<ul class="checklist">
+<li>如何在 Android 应用生命周期中使用协程。</li>
+<li>结构化并发的原则。</li>
+<li>如何编写单元测试来对协程进行测试。</li>
+</ul>
+<h2 data-text="所需条件" id="what-youll-need" is-upgraded="" tabindex="-1">所需条件</h2>
+<ul>
+<li>最新的稳定版 Android Studio</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="应用概览">
+          
+          <h2 class="step-title" data-text="               2. 应用概览           " id="1" tabindex="-1">
+              2. 应用概览
+          </h2>
+          
+          <p>Race Tracker 应用可模拟两位选手赛跑。应用界面中包含两个按钮：<strong>Start</strong>/<strong>Pause</strong> 和 <strong>Reset</strong>，以及两个用于显示赛跑者进度的进度条。选手 1 和 2 被设置为以不同的速度“奔跑”。比赛开始后，选手 2 的进度是选手 1 的两倍。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p class="image-container"><img sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_2880.png?hl=zh-cn 2880w" /></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e2104fd6ef629969_2880.png?hl=zh-cn 2880w" /></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/74dd6c68328224e7_2880.png?hl=zh-cn 2880w" /></p>
+</td></tr>
+</tbody></table>
+<p>您将在应用中使用协程，以确保：</p>
+<ul>
+<li>两位选手同时“开跑”。</li>
+<li>应用界面响应迅速，并且进度条会在比赛过程中不断增加。</li>
+</ul>
+<p>起始代码已包含 Race Tracker 应用的界面代码。这一部分 Codelab 的主要重点是帮助您熟悉 Android 应用中的 Kotlin 协程。</p>
+<h2 data-text="获取起始代码" id="get-the-starter-code" is-upgraded="" tabindex="-1">获取起始代码</h2>
+<p>首先，请下载起始代码：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-race-tracker/archive/refs/heads/starter.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>或者，您也可以克隆该代码的 GitHub 代码库：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-race-tracker.git
+$ cd basic-android-kotlin-compose-training-race-tracker
+$ git checkout starter
+</pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：起始代码位于所下载代码库的 <code dir="ltr" translate="no">starter</code> 分支中。</p>
+</aside>
+<p>您可以在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-race-tracker" target="_blank">Race Tracker</a> GitHub 代码库中浏览起始代码。</p>
+<h2 data-text="起始代码演示" id="starter-code-walkthrough" is-upgraded="" tabindex="-1">起始代码演示</h2>
+<p>您可以点按 <strong>Start</strong> 按钮，开始比赛。比赛过程中，<strong>Start</strong> 按钮上的文字将变为 <strong>Pause</strong>。</p>
+<p class="image-container"><img alt="2ee492f277625f0a.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/2ee492f277625f0a_2880.png?hl=zh-cn 2880w" style="width: 340.00px" /></p>
+<p>您可以随时使用此按钮暂停或继续比赛。</p>
+<p class="image-container"><img alt="50e992f4cf6836b7.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/50e992f4cf6836b7_2880.png?hl=zh-cn 2880w" style="width: 339.00px" /></p>
+<p>比赛开始后，您可以通过状态指示器查看每位选手的进度。<code dir="ltr" translate="no">StatusIndicator</code> 可组合函数会显示每位选手的进度状态。该函数使用 <code dir="ltr" translate="no">LinearProgressIndicator</code> 可组合项来显示进度条。您将使用协程来更新进度值。</p>
+<p class="image-container"><img alt="79cf74d82eacae6f.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/79cf74d82eacae6f_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p><code dir="ltr" translate="no">RaceParticipant</code> 可提供进度增量数据。此类是每位选手的状态容器，会保留参赛者的 <code dir="ltr" translate="no">name</code>、完成比赛需要达到的 <code dir="ltr" translate="no">maxProgress</code>、两次进度增加之间的延迟时间、比赛的 <code dir="ltr" translate="no">currentProgress</code> 以及 <code dir="ltr" translate="no">initialProgress</code>。</p>
+<p>在下一部分中，您将使用协程实现相关功能，在不屏蔽应用界面的情况下模拟比赛进度。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="实现比赛进度">
+          
+          <h2 class="step-title" data-text="               3. 实现比赛进度           " id="2" tabindex="-1">
+              3. 实现比赛进度
+          </h2>
+          
+          <p>您需要使用 <code dir="ltr" translate="no">run()</code> 函数来比较选手的 <code dir="ltr" translate="no">currentProgress</code> 和 <code dir="ltr" translate="no">maxProgress</code>，后者反映的是比赛的总进度；并使用 <code dir="ltr" translate="no">delay()</code> 挂起函数，在两次进度增加之间添加短暂的延迟。此函数必须是一个 <code dir="ltr" translate="no">suspend</code> 函数，因为它会调用另一个挂起函数 <code dir="ltr" translate="no">delay()</code>。此外，您稍后还会在 Codelab 中通过协程调用此函数。请按照以下步骤操作，实现该函数：</p>
+<ol type="1">
+<li>打开起始代码中的 <code dir="ltr" translate="no">RaceParticipant</code> 类。</li>
+<li>在 <code dir="ltr" translate="no">RaceParticipant</code> 类中，定义一个名为 <code dir="ltr" translate="no">run()</code> 的新 <code dir="ltr" translate="no">suspend</code> 函数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">RaceParticipant</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">initialProgress</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">set</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>为了模拟比赛进度，添加一个 <code dir="ltr" translate="no">while</code> 循环，在 <code dir="ltr" translate="no">currentProgress</code> 达到 <code dir="ltr" translate="no">maxProgress</code> 值（设置为 <code dir="ltr" translate="no">100</code>）之前，该循环会一直运行。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">RaceParticipant</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">maxProgress</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">initialProgress</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">set</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">while</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentProgress</span><span class="devsite-syntax-w"> &lt; </span><span class="devsite-syntax-n">maxProgress</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li><code dir="ltr" translate="no">currentProgress</code> 的值被设置为 <code dir="ltr" translate="no">initialProgress</code>，即 <code dir="ltr" translate="no">0</code>。在 while 循环内，用 <code dir="ltr" translate="no">currentProgress</code> 的值加上 <code dir="ltr" translate="no">progressIncrement</code> 属性的值，以模拟参赛者的进度。请注意，<code dir="ltr" translate="no">progressIncrement</code> 的默认值为 <code dir="ltr" translate="no">1</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">RaceParticipant</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">maxProgress</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">progressIncrement</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">initialProgress</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">initialProgress</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">set</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">while</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentProgress</span><span class="devsite-syntax-w"> &lt; </span><span class="devsite-syntax-n">maxProgress</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">currentProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">progressIncrement</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>使用 <code dir="ltr" translate="no">delay()</code> 挂起函数，模拟比赛中的不同进度间隔。以参数形式传递 <code dir="ltr" translate="no">progressDelayMillis</code> 属性的值。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">while</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentProgress</span><span class="devsite-syntax-w"> &lt; </span><span class="devsite-syntax-n">maxProgress</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">progressDelayMillis</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">currentProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">progressIncrement</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>当您查看刚刚添加的代码时，会在 Android Studio 中调用 <code dir="ltr" translate="no">delay()</code> 函数的代码左侧看到一个图标，如以下屏幕截图所示：<img alt="11b5df57dcb744dc.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/11b5df57dcb744dc_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>此图标表示挂起点，相应函数可能会挂起，稍后再恢复运行。</p>
+<p>在协程等待延迟时间完成的过程中，主线程不会阻塞，如下图所示：</p>
+<p class="image-container"><img alt="a3c314fb082a9626.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/a3c314fb082a9626_2880.png?hl=zh-cn 2880w" style="width: 535.50px" /></p>
+<p>协程在调用带有所需间隔值的 <code dir="ltr" translate="no">delay()</code> 函数后，会挂起（但不会阻止）执行。延迟完成后，协程将继续执行，并更新 <code dir="ltr" translate="no">currentProgress</code> 属性的值。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="开始比赛">
+          
+          <h2 class="step-title" data-text="               4. 开始比赛           " id="3" tabindex="-1">
+              4. 开始比赛
+          </h2>
+          
+          <p>当用户按 <strong>Start</strong> 按钮时，您需要对每个选手实例调用 <code dir="ltr" translate="no">run()</code> 挂起函数，从而“开始比赛”。为此，您需要启动一个协程来调用 <code dir="ltr" translate="no">run()</code> 函数。</p>
+<p>启动协程以触发比赛时，您需要针对两位参赛者确保以下方面：</p>
+<ul>
+<li>当用户点按 <strong>Start</strong> 按钮时（即启动协程之时），他们都会立即开跑。</li>
+<li>当用户点按 <strong>Pause</strong> 或 <strong>Reset</strong> 按钮时（即取消协程之时），他们分别会暂停或停止奔跑。</li>
+<li>当用户关闭应用时，系统会妥善管理取消操作，即取消所有协程并将其绑定到一个生命周期。</li>
+</ul>
+<p>在第一个 Codelab 中，您了解到您只能通过另一个挂起函数调用挂起函数。如需从可组合项内安全地调用挂起函数，您需要使用 <code dir="ltr" translate="no">LaunchedEffect()</code> 可组合项。只要还在组合中，<code dir="ltr" translate="no">LaunchedEffect()</code> 可组合项就会运行提供的挂起函数。您可以使用 <code dir="ltr" translate="no">LaunchedEffect()</code> 可组合函数实现下述所有目标：</p>
+<ul>
+<li>借助 <code dir="ltr" translate="no">LaunchedEffect()</code> 可组合项，您可以安全地从可组合项调用挂起函数。</li>
+<li>当 <code dir="ltr" translate="no">LaunchedEffect()</code> 函数进入组合时，它会启动一个协程，并将代码块作为参数传递。只要还在组合中，它就会运行提供的挂起函数。当用户点按 RaceTracker 应用中的 <strong>Start</strong> 按钮时，<code dir="ltr" translate="no">LaunchedEffect()</code> 会进入组合并启动一个协程来更新进度。</li>
+<li>当 <code dir="ltr" translate="no">LaunchedEffect()</code> 退出组合时，协程会被取消。在应用中，如果用户点按 <strong>Reset</strong>/<strong>Pause</strong> 按钮，系统会从组合中移除 <code dir="ltr" translate="no">LaunchedEffect()</code>，并取消底层协程。</li>
+</ul>
+<p>对于 Race tracker 应用，您无需明确提供调度程序，因为 <code dir="ltr" translate="no">LaunchedEffect()</code> 会负责。</p>
+<p>如需开始比赛，请对每位参赛者调用 <code dir="ltr" translate="no">run()</code> 函数，并执行以下步骤：</p>
+<ol type="1">
+<li>打开位于 <code dir="ltr" translate="no">com.example.racetracker.ui</code> 软件包中的 <code dir="ltr" translate="no">RaceTrackerApp.kt</code> 文件。</li>
+<li>找到 <code dir="ltr" translate="no">RaceTrackerApp()</code> 可组合项，在 <code dir="ltr" translate="no">raceInProgress</code> 定义后的行中添加对 <code dir="ltr" translate="no">LaunchedEffect()</code> 可组合项的调用。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">RaceTrackerApp</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">raceInProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">LaunchedEffect</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">RaceTrackerScreen</span><span class="devsite-syntax-p">(...)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>为了确保当 <code dir="ltr" translate="no">playerOne</code> 或 <code dir="ltr" translate="no">playerTwo</code> 实例被替换为其他实例时，<code dir="ltr" translate="no">LaunchedEffect()</code> 必须取消相应底层协程并重新启动新的底层协程，请将 <code dir="ltr" translate="no">playerOne</code> 和 <code dir="ltr" translate="no">playerTwo</code> 对象作为 <code dir="ltr" translate="no">key</code> 添加到 <code dir="ltr" translate="no">LaunchedEffect</code>。与 <code dir="ltr" translate="no">Text()</code> 可组合项在其文本值变化时进行重组类似，如果 <code dir="ltr" translate="no">LaunchedEffect()</code> 的任何关键实参发生变化，系统会取消相应底层协程并重新启动新的底层协程。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">LaunchedEffect</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>添加对 <code dir="ltr" translate="no">playerOne.run()</code> 和 <code dir="ltr" translate="no">playerTwo.run()</code> 函数的调用。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">RaceTrackerApp</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">raceInProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">LaunchedEffect</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">RaceTrackerScreen</span><span class="devsite-syntax-p">(...)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>使用 <code dir="ltr" translate="no">if</code> 条件封装 <code dir="ltr" translate="no">LaunchedEffect()</code> 代码块。此状态的初始值为 <code dir="ltr" translate="no">false</code>。当用户点按 <strong>Start</strong> 按钮及 <code dir="ltr" translate="no">LaunchedEffect()</code> 开始执行时，<code dir="ltr" translate="no">raceInProgress</code> 状态的值会更新为 <code dir="ltr" translate="no">true</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">raceInProgress</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">LaunchedEffect</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>将 <code dir="ltr" translate="no">raceInProgress</code> 标志更新为 <code dir="ltr" translate="no">false</code>，以完成比赛。当用户点按 <strong>Pause</strong> 时，该值也会设置为 <code dir="ltr" translate="no">false</code>。当此值设置为 <code dir="ltr" translate="no">false</code> 时，<code dir="ltr" translate="no">LaunchedEffect()</code> 可确保所有已启动的协程都会取消。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">LaunchedEffect</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">raceInProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="7" type="1">
+<li>运行应用，然后点按 <strong>Start</strong>。您应该看到选手 1 在选手 2 开跑之前就完成了比赛，如以下视频所示：</li>
+</ol>
+<p class="image-container"><img alt="fa0630395ee18f21.gif" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/fa0630395ee18f21.gif?hl=zh-cn" style="width: 374.40px" /></p>
+<p>这样的比赛看起来并不公平！在下一部分中，您将学习如何启动并发任务，使两位选手可以同时开跑，您还将了解相关概念并实现此行为。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="结构化并发">
+          
+          <h2 class="step-title" data-text="               5. 结构化并发           " id="4" tabindex="-1">
+              5. 结构化并发
+          </h2>
+          
+          <p>使用协程编写代码的方式称为结构化并发。这种编程方式可以提高代码的可读性，并缩短开发时间。结构化并发的思路是，协程具有层次结构，任务可以启动子任务，子任务可以再启动子任务。这种层次结构的单位称为协程作用域。协程作用域应始终与生命周期相关联。</p>
+<p>协程 API 在设计上遵循这种结构化并发机制。您不能通过未标记为“挂起”的函数调用挂起函数。此限制可确保您从协程构建器中（例如 <code dir="ltr" translate="no">launch</code>）调用挂起函数。这些构建器反过来又会与 <code dir="ltr" translate="no">CoroutineScope</code> 相关联。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="5" label="启动并发任务">
+          
+          <h2 class="step-title" data-text="               6. 启动并发任务           " id="5" tabindex="-1">
+              6. 启动并发任务
+          </h2>
+          
+          <ol type="1">
+<li>为了让两位参赛者同时开跑，您需要启动两个单独的协程，并将对 <code dir="ltr" translate="no">run()</code> 函数的每次调用都移到这些协程中。使用 <code dir="ltr" translate="no">launch</code> 构建器封装对 <code dir="ltr" translate="no">playerOne.run()</code> 的调用。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">LaunchedEffect</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">raceInProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>同样，使用 <code dir="ltr" translate="no">launch</code> 构建器封装对 <code dir="ltr" translate="no">playerTwo.run()</code> 函数的调用。进行此更改后，应用会启动两个并发执行的协程。现在，两位选手可以同时开跑了。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">LaunchedEffect</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">raceInProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行应用，然后点按 <strong>Start</strong>。虽然您认为比赛会开始，但按钮文字立即意外地变回了 <strong>Start</strong>。</li>
+</ol>
+<p class="image-container"><img alt="c46c2aa7c580b27b.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c46c2aa7c580b27b_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>Race Tracker 应用应该在两位选手都跑完后才将 <strong>Pause</strong> 按钮的文字重置为 <strong>Start</strong>。不过，现在该应用在启动协程后立即就更新了 <code dir="ltr" translate="no">raceInProgress</code>，而不是等待选手完成比赛：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">LaunchedEffect</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">raceInProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-c1">// This will update the state immediately, without waiting for players to finish run() execution.</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p><code dir="ltr" translate="no">raceInProgress</code> 标志之所以立即更新，原因如下：</p>
+<ul>
+<li><code dir="ltr" translate="no">launch</code> 构建器函数会启动一个协程来执行 <code dir="ltr" translate="no">playerOne.run()</code>，然后立即返回，以执行代码块中的下一行。</li>
+<li>执行 <code dir="ltr" translate="no">playerTwo.run()</code> 函数的第二个 <code dir="ltr" translate="no">launch</code> 构建器函数也会发生相同的执行流程。</li>
+<li>第二个 <code dir="ltr" translate="no">launch</code> 构建器返回后，<code dir="ltr" translate="no">raceInProgress</code> 标志就会立即更新。这会立即将按钮文字更改为 <strong>Start</strong>，而比赛并未开始。</li>
+</ul>
+<h3 data-text="协程作用域" id="coroutine-scope" is-upgraded="" tabindex="-1">协程作用域</h3>
+<p><code dir="ltr" translate="no">coroutineScope</code> 挂起函数会创建一个 <code dir="ltr" translate="no">CoroutineScope</code>，并通过当前作用域调用指定的挂起代码块。该作用域会继承 <code dir="ltr" translate="no">LaunchedEffect()</code> 作用域中的 <code dir="ltr" translate="no">coroutineContext</code>。</p>
+<p>当指定代码块及其所有子协程完成后，作用域会立即返回。对于 <code dir="ltr" translate="no">RaceTracker</code> 应用，它会在两位参赛者对象都完成 <code dir="ltr" translate="no">run()</code> 函数的执行后立即返回。</p>
+<ol type="1">
+<li>为了确保 <code dir="ltr" translate="no">playerOne</code> 和 <code dir="ltr" translate="no">playerTwo</code> 的 <code dir="ltr" translate="no">run()</code> 函数在更新 <code dir="ltr" translate="no">raceInProgress</code> 标志之前完成执行，请使用 <code dir="ltr" translate="no">coroutineScope</code> 代码块封装这两个启动构建器。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">LaunchedEffect</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerOne</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">playerTwo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">raceInProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>在模拟器/Android 设备上运行应用。您应该会看到以下屏幕：</li>
+</ol>
+<p class="image-container"><img alt="598ee57f8ba58a52.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/598ee57f8ba58a52_2880.png?hl=zh-cn 2880w" style="width: 194.00px" /></p>
+<ol start="3" type="1">
+<li>点按 <strong>Start</strong> 按钮。选手 2 的奔跑速度比选手 1 快。比赛完成（即双方均达到 100% 进度）后，<strong>Pause</strong> 按钮的标签会更改为 <strong>Start</strong>。您可以点按 <strong>Reset</strong> 按钮，重置比赛并重新执行模拟。以下视频展示了比赛过程。</li>
+</ol>
+<p class="image-container"><img alt="c1035eecc5513c58.gif" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/c1035eecc5513c58.gif?hl=zh-cn" style="width: 374.40px" /></p>
+<p>执行流程如下图所示：</p>
+<p class="image-container"><img alt="cf724160fd66ff21.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/cf724160fd66ff21_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<ul>
+<li>当 <code dir="ltr" translate="no">LaunchedEffect()</code> 代码块执行时，控制权转移到 <code dir="ltr" translate="no">coroutineScope{..}</code> 代码块。</li>
+<li><code dir="ltr" translate="no">coroutineScope</code> 代码块以并发方式启动两个协程，然后等待它们完成执行。</li>
+<li>执行完成后，<code dir="ltr" translate="no">raceInProgress</code> 标志会更新。</li>
+</ul>
+<p><code dir="ltr" translate="no">coroutineScope</code> 代码块只会在代码块内的所有代码均完成执行后才会返回并继续执行。对于代码块之外的代码，是否存在并发仅仅是一个实现细节。这种编码方式为并发编程提供了一种结构化的方法，被称为结构化并发。</p>
+<p>当您在比赛结束后击按 <strong>Reset</strong> 按钮时，系统会取消协程，并将两位选手的进度都重置为 <code dir="ltr" translate="no">0</code>。</p>
+<p>若要查看协程在用户点按 <strong>Reset</strong> 按钮时如何被取消，请按以下步骤操作：</p>
+<ol type="1">
+<li>将 <code dir="ltr" translate="no">run()</code> 方法的主体封装在 try-catch 代码块中，如以下代码所示：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">while</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentProgress</span><span class="devsite-syntax-w"> &lt; </span><span class="devsite-syntax-n">maxProgress</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">progressDelayMillis</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">currentProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">progressIncrement</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">catch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">CancellationException</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">e</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"RaceParticipant"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-s">: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">message</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">throw</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-c1">// Always re-throw CancellationException.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>运行应用，然后点按 <strong>Start</strong> 按钮。</li>
+<li>完成一些进度增量后，点按 <strong>Reset</strong> 按钮。</li>
+<li>确保您在 Logcat 中看到以下消息：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Player 1: StandaloneCoroutine was cancelled
+Player 2: StandaloneCoroutine was cancelled
+</pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="6" label="编写单元测试以测试协程">
+          
+          <h2 class="step-title" data-text="               7. 编写单元测试以测试协程           " id="6" tabindex="-1">
+              7. 编写单元测试以测试协程
+          </h2>
+          
+          <p>需要特别留意使用协程的单元测试代码，因为其执行可能是异步的，并且可能发生在多个线程中。</p>
+<p>如需在测试中调用挂起函数，您必须位于协程中。由于 JUnit 测试函数本身并不是挂起函数，因此您需要使用 <code dir="ltr" translate="no">runTest</code> 协程构建器。此构建器是 <code dir="ltr" translate="no">kotlinx-coroutines-test</code> 库的一部分，旨在用来执行测试。构建器会在新协程中执行测试主体。</p>
+<aside class="special"><p><strong>注意</strong>：协程不仅可以直接在测试主体中启动，还可以使用 <code dir="ltr" translate="no">runTest</code> 通过测试中使用的对象启动。</p>
+</aside>
+<p>由于 <code dir="ltr" translate="no">runTest</code> 是 <code dir="ltr" translate="no">kotlinx-coroutines-test</code> 库的一部分，因此您需要添加其依赖项。</p>
+<p>请完成以下步骤，添加依赖项：</p>
+<ol type="1">
+<li>打开应用模块的 <strong><code dir="ltr" translate="no">build.gradle.kts</code></strong> 文件，该文件位于 <strong>Project</strong> 窗格的 <strong><code dir="ltr" translate="no">app</code></strong> 目录中。</li>
+</ol>
+<p class="image-container"><img alt="e7c9e573c41199c6.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/e7c9e573c41199c6_2880.png?hl=zh-cn 2880w" style="width: 412.00px" /></p>
+<ol start="2" type="1">
+<li>在文件内，向下滚动，直到找到 <code dir="ltr" translate="no">dependencies{}</code> 代码块。</li>
+<li>使用 <code dir="ltr" translate="no">testImplementation</code> 配置向 <code dir="ltr" translate="no">kotlinx-coroutines-test</code> 库添加依赖项。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">plugins</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-n">android</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-n">dependencies</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">testImplementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>在 <strong>build.gradle</strong> 文件顶部的通知栏中，点击 <strong>Sync Now</strong>，这将完成导入和构建，如以下屏幕截图所示：</li>
+</ol>
+<p class="image-container"><img alt="1c20fc10750ca60c.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-android-studio/img/1c20fc10750ca60c_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>待构建完成后，您就可以开始编写测试了。</p>
+<h2 data-text="实现针对开始和结束比赛的单元测试" id="implement-unit-tests-for-starting-and-finishing-the-race" is-upgraded="" tabindex="-1">实现针对开始和结束比赛的单元测试</h2>
+<p>为确保在比赛的不同阶段正确更新比赛进度，您的单元测试需要涵盖不同场景。在此 Codelab 中，我们将介绍两种场景：</p>
+<ul>
+<li>比赛开始后的进度。</li>
+<li>比赛结束后的进度。</li>
+</ul>
+<p>如需检查比赛开始后比赛进度是否正确更新，您需要断言当前进度在 <code dir="ltr" translate="no">raceParticipant.progressDelayMillis</code> 持续时间过后被设置为 1。</p>
+<p>按以下步骤操作，以实现测试场景：</p>
+<ol type="1">
+<li>找到位于测试源代码集下的 <code dir="ltr" translate="no">RaceParticipantTest.kt</code> 文件。</li>
+<li>在 <code dir="ltr" translate="no">raceParticipant</code> 定义之后创建一个 <code dir="ltr" translate="no">raceParticipant_RaceStarted_ProgressUpdated()</code> 函数，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解，以定义测试。由于测试代码块需要放在 <code dir="ltr" translate="no">runTest</code> 构建器中，因此请使用表达式语法将 <code dir="ltr" translate="no">runTest()</code> 代码块作为测试结果返回。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">RaceParticipantTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">raceParticipant</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">RaceParticipant</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceStarted_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>添加只读的 <code dir="ltr" translate="no">expectedProgress</code> 变量，并将其设置为 <code dir="ltr" translate="no">1</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceStarted_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>使用 <code dir="ltr" translate="no">launch</code> 构建器启动新协程并调用 <code dir="ltr" translate="no">raceParticipant.run()</code> 函数，以模拟比赛开始的场景。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceStarted_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：您可以直接在 <code dir="ltr" translate="no">runtTest</code> 构建器中调用 <code dir="ltr" translate="no">raceParticipant.run()</code>，但默认的测试实现会忽略对 <code dir="ltr" translate="no">delay()</code> 的调用。因此，需要等到 <code dir="ltr" translate="no">run()</code> 完成执行后，您才能分析进度。</p>
+</aside>
+<p><code dir="ltr" translate="no">raceParticipant.progressDelayMillis</code> 属性的值决定了多长时间后比赛进度才会更新。为了在 <code dir="ltr" translate="no">progressDelayMillis</code> 时间过后测试进度，您需要在测试中添加某种形式的延迟。</p>
+<ol start="5" type="1">
+<li>使用 <code dir="ltr" translate="no">advanceTimeBy()</code> 辅助函数将时间提前 <code dir="ltr" translate="no">raceParticipant.progressDelayMillis</code> 的值。<code dir="ltr" translate="no">advanceTimeBy()</code> 函数有助于缩短测试执行时间。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceStarted_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">advanceTimeBy</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressDelayMillis</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>由于 <code dir="ltr" translate="no">advanceTimeBy()</code> 不会运行原定在给定持续时间运行的任务，因此您需要调用 <code dir="ltr" translate="no">runCurrent()</code> 函数。此函数会在当前时间执行所有待处理的任务。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceStarted_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">advanceTimeBy</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressDelayMillis</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runCurrent</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="7" type="1">
+<li>添加一个对 <code dir="ltr" translate="no">assertEquals()</code> 函数的调用，以检查 <code dir="ltr" translate="no">raceParticipant.currentProgress</code> 属性的值是否与 <code dir="ltr" translate="no">expectedProgress</code> 变量的值匹配，以确保进度正确更新。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceStarted_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">advanceTimeBy</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressDelayMillis</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runCurrent</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">expectedProgress</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentProgress</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="8" type="1">
+<li>运行测试并确认测试通过。</li>
+</ol>
+<p>如需检查比赛结束后比赛进度是否正确更新，您需要断言当前进度在比赛结束后被设置为 <code dir="ltr" translate="no">100</code>。</p>
+<p>请按照以下步骤操作，实现该测试：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">raceParticipant_RaceStarted_ProgressUpdated()</code> 测试函数后，创建一个 <code dir="ltr" translate="no">raceParticipant_RaceFinished_ProgressUpdated()</code> 函数，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解。此函数应从 <code dir="ltr" translate="no">runTest{}</code> 代码块返回测试结果。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">RaceParticipantTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceStarted_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceFinished_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>使用 <code dir="ltr" translate="no">launch</code> 构建器启动新协程，并在其中添加对 <code dir="ltr" translate="no">raceParticipant.run()</code> 函数的调用。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceFinished_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>使用 <code dir="ltr" translate="no">advanceTimeBy()</code> 函数将调度程序的时间提前 <code dir="ltr" translate="no">raceParticipant.maxProgress * raceParticipant.progressDelayMillis</code>，以模拟比赛结束的场景：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceFinished_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">advanceTimeBy</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">maxProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">*</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressDelayMillis</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>添加对 <code dir="ltr" translate="no">runCurrent()</code> 函数的调用，以执行所有待处理的任务。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceFinished_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">advanceTimeBy</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">maxProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">*</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressDelayMillis</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runCurrent</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>添加一个对 <code dir="ltr" translate="no">assertEquals()</code> 函数的调用，以检查 <code dir="ltr" translate="no">raceParticipant.currentProgress</code> 属性的值是否等于 <code dir="ltr" translate="no">100</code>，以确保进度正确更新。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">raceParticipant_RaceFinished_ProgressUpdated</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">run</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">advanceTimeBy</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">maxProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">*</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressDelayMillis</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runCurrent</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">100</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">raceParticipant</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentProgress</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>运行测试并确认测试通过。</li>
+</ol>
+<h2 data-text="尝试新的挑战" id="try-this-challenge" is-upgraded="" tabindex="-1"><strong>尝试新的挑战</strong></h2>
+<p>应用<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=zh-cn#0" target="_blank">为 ViewModel 编写单元测试</a> Codelab 中介绍的测试策略。添加测试，以涵盖理想路径测试、错误案例测试和边界案例测试。</p>
+<p>将您编写的测试与解决方案代码中提供的测试进行比较。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="7" label="获取解决方案代码">
+          
+          <h2 class="step-title" data-text="               8. 获取解决方案代码           " id="7" tabindex="-1">
+              8. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，您可以使用以下 Git 命令：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-race-tracker.git 
+cd basic-android-kotlin-compose-training-race-tracker
+</pre></devsite-code>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-race-tracker/archive/refs/heads/main.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意</strong>：解决方案代码位于代码库的 <code dir="ltr" translate="no">main</code> 分支中。</p>
+</aside>
+<p>如果您想查看解决方案代码，请<a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-race-tracker" target="_blank">前往 GitHub 查看</a>。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="8" label="总结">
+          
+          <h2 class="step-title" data-text="               9. 总结           " id="8" tabindex="-1">
+              9. 总结
+          </h2>
+          
+          <p>恭喜！您刚刚学习了如何使用协程来处理并发。协程有助于管理长时间运行的任务，如果管理不当，这些任务可能会阻塞主线程并导致应用无响应。您还学习了如何编写单元测试，以便对协程进行测试。</p>
+<p>以下是协程的一些优点：</p>
+<ul>
+<li><strong>可读性</strong>：使用协程编写的代码可让您清楚了解执行代码行的顺序。</li>
+<li><strong>Jetpack 集成</strong>：许多 Jetpack 库（例如 Compose 和 ViewModel）都包含提供全面协程支持的扩展。某些库还提供自己的协程作用域，可供您用于结构化并发。</li>
+<li><strong>结构化并发</strong>：协程使得并发代码安全且易于实现，消除了不必要的样板代码，可确保应用启动的协程不会丢失或继续浪费资源。</li>
+</ul>
+<h2 data-text="摘要" id="summary" is-upgraded="" tabindex="-1"><strong>摘要</strong></h2>
+<ul>
+<li>借助协程，您无需学习新的编程方式，即可编写以并发方式长时间运行的代码。协程的执行按照设计顺序进行。</li>
+<li><code dir="ltr" translate="no">suspend</code> 关键字用于标记函数或函数类型，以指示其可以执行、暂停和恢复一组代码指令。</li>
+<li><code dir="ltr" translate="no">suspend</code> 函数只能通过其他挂起函数进行调用。</li>
+<li>您可以使用 <code dir="ltr" translate="no">launch</code> 或 <code dir="ltr" translate="no">async</code> 构建器函数启动新协程。</li>
+<li>协程上下文、协程构建器、Job、协程作用域和调度程序是实现协程的主要组件。</li>
+<li>协程使用调度程序来确定用于其执行的线程。</li>
+<li>Job 可管理协程的生命周期并维护父子关系，在确保结构化并发方面发挥着重要作用。</li>
+<li><code dir="ltr" translate="no">CoroutineContext</code> 使用 Job 和协程调度程序来定义协程的行为。</li>
+<li><code dir="ltr" translate="no">CoroutineScope</code> 通过其 Job 来控制协程的生命周期，并以递归方式对其子级和子级的子级执行取消和其他规则。</li>
+<li>启动、完成、取消和失败是协程执行中的四个常见操作。</li>
+<li>协程遵循结构化并发的原则。</li>
+</ul>
+<h2 data-text="了解更多内容" id="learn-more" is-upgraded="" tabindex="-1">了解更多内容</h2>
+<ul>
+<li><a href="https://developer.android.com/kotlin/coroutines?hl=zh-cn" target="_blank">Android 上的 Kotlin 协程</a></li>
+<li><a href="https://developer.android.com/kotlin/coroutines/additional-resources?hl=zh-cn" target="_blank">有关 Kotlin 协程和数据流的其他资源</a></li>
+<li><a href="https://medium.com/androiddevelopers/exceptions-in-coroutines-ce8da1ec060c" target="_blank">协程中的异常</a></li>
+<li><a href="https://medium.com/androiddevelopers/coroutines-on-android-part-i-getting-the-background-3e0e54d20bb" target="_blank">Android 上的协程（第 1 部分）</a></li>
+<li><a href="https://www.youtube.com/watch?v=ZTDXo0-SKuU&t=2s&sa=D&source=docs&ust=1664866751197807&usg=AOvVaw19xcRyp5y7Sdx1dzcf-YQP&hl=zh-cn" target="_blank">Kotlin 协程 101</a></li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-x_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-x.svg?hl=zh-cn"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-youtube_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="//www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-linkedin_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-linkedin.svg?hl=zh-cn"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="t88w4E9TzFCPyPXdqZNnL3GN4fEEFr">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/android/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","https://fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["MiscFeatureFlags__enable_explain_this_code","DevPro__remove_eu_tax_intake_form","Profiles__enable_awarding_url","DevPro__enable_cloud_innovators_plus","Profiles__enable_join_program_group_endpoint","BookNav__enable_tenant_cache_key","DevPro__enable_google_payments_buyflow","SignIn__enable_l1_signup_flow","Cloud__fast_free_trial","DevPro__enable_credits_banner","Profiles__enable_dashboard_curated_recommendations","Profiles__enable_complete_playlist_endpoint","TpcFeatures__enable_unmirrored_page_left_nav","MiscFeatureFlags__enable_llms_txt","Profiles__enable_callout_notifications","Profiles__enable_stripe_subscription_management","MiscFeatureFlags__fix_lower_breadcrumbs","DevPro__enable_vertex_credit_card","DevPro__enable_devsite_captcha","MiscFeatureFlags__remove_cross_domain_tracking_params","Cloud__enable_free_trial_server_call","Profiles__enable_completecodelab_endpoint","Concierge__enable_devsite_llm_tools","Experiments__reqs_query_experiments","Significatio__enable_by_tenant","Profiles__enable_public_developer_profiles","MiscFeatureFlags__enable_view_transitions","Profiles__enable_user_type","Cloud__enable_cloud_dlp_service","CloudShell__cloud_code_overflow_menu","MiscFeatureFlags__enable_firebase_utm","DevPro__enable_enterprise","MiscFeatureFlags__enable_explicit_template_dependencies","Profiles__require_profile_eligibility_for_signin","Profiles__enable_developer_profile_pages_as_content","TpcFeatures__proxy_prod_host","MiscFeatureFlags__enable_variable_operator","Cloud__enable_legacy_calculator_redirect","DevPro__enable_firebase_workspaces_card","MiscFeatureFlags__enable_project_variables","Search__enable_dynamic_content_confidential_banner","Search__enable_ai_eligibility_checks","Profiles__enable_purchase_prompts","Profiles__enable_targeted_hero","Cloud__enable_cloud_shell","Analytics__enable_clearcut_logging","Search__enable_page_map","DevPro__enable_payments_first_batch","MiscFeatureFlags__developers_footer_dark_image","Profiles__enable_profile_collections","Profiles__enable_page_saving","Profiles__enable_playlist_community_acl","Profiles__enable_developer_profiles_callout","CloudShell__cloud_shell_button","DevPro__enable_embed_profile_creation","MiscFeatureFlags__gdp_dashboard_reskin_enabled","MiscFeatureFlags__enable_framebox_badge_methods","MiscFeatureFlags__developers_footer_image","DevPro__enable_code_assist","Profiles__enable_auto_apply_credits","Search__enable_suggestions_from_borg","EngEduTelemetry__enable_engedu_telemetry","Cloud__cache_serialized_dynamic_content","DevPro__enable_devpro_offers","DevPro__enable_developer_subscriptions","Profiles__enable_completequiz_endpoint","Search__enable_ai_search_summaries","Profiles__enable_release_notes_notifications","Cloud__enable_llm_concierge_chat","Profiles__enable_recognition_badges","DevPro__enable_g1_integration","Profiles__enable_developer_profile_benefits_ui_redesign","Concierge__enable_pushui","Concierge__enable_remove_info_panel_tags","Cloud__enable_cloudx_experiment_ids","Cloud__enable_cloud_shell_fte_user_flow","Analytics__enable_devpro_interaction_logging","MiscFeatureFlags__enable_dark_theme","MiscFeatureFlags__enable_variable_operator_index_yaml","Search__enable_ai_search_summaries_for_all","DevPro__enable_free_benefits","DevPro__enable_google_one_card","DevPro__enable_nvidia_credits_card","MiscFeatureFlags__enable_appearance_cookies","Concierge__enable_actions_menu"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[1,1],[2,2]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

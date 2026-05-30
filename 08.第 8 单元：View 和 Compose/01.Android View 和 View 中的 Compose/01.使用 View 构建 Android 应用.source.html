@@ -1,0 +1,2082 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="robots" content="noindex"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=vi" /><title>使用 View 构建 Android 应用 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="使用 View 构建 Android 应用 &nbsp;|&nbsp; Android Developers"><meta name="description" content="了解如何使用 Fragment 和 View 构建界面。">
+  <meta property="og:description" content="了解如何使用 Fragment 和 View 构建界面。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      使用 View 构建 Android 应用<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="1ZISD2mfiSWlzzNPsonRCkJnEa-u8m1g10TK-TmogBYM" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker/issues/new?assignees=&amp;labels=&amp;template=build_an_android_app_with_views.md&amp;title=Build&#43;an&#43;Android&#43;App&#43;with&#43;Views" id="basic-android-kotlin-compose-app-with-views" layout="paginated" no-tooltip="" title="使用 View 构建 Android 应用">
+      
+        <google-codelab-step duration="0" step="0" label="开始前须知">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2024-03-04T17:15:07Z" codelab-title="使用 View 构建 Android 应用">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 前言           " id="0" tabindex="-1">
+              1. 前言
+          </h2>
+          
+          <h2 data-text="简介" id="introduction" is-upgraded="" tabindex="-1">简介</h2>
+<p>至此，您已经全面学习了如何使用 Compose 构建 Android 应用。这非常有用！Compose 是一款可以简化开发流程的强大工具。不过，Android 应用并非总是使用声明性界面构建的。在 Android 应用的历史长河中，Compose 是一款非常新的工具。Android 界面最初是使用 View 构建的。因此，随着您继续从事 Android 开发工作，您很可能会遇到 View。在此 Codelab 中，您将学习与在 Compose 问世之前如何构建 Android 应用相关的基础知识（使用 XML、View、View 绑定和 Fragment）。</p>
+<h2 data-text="前提条件：" id="prerequisites:" is-upgraded="" tabindex="-1">前提条件：</h2>
+<ul>
+<li>已完成“Android 之 Compose 开发基础”课程作业的前 <a href="https://developer.android.com/courses/android-basics-compose/unit-7?hl=zh-cn" target="_blank">7 个单元</a>。</li>
+</ul>
+<h2 data-text="所需条件" id="what-youll-need" is-upgraded="" tabindex="-1">所需条件</h2>
+<ul>
+<li>一台连接到互联网并安装了 Android Studio 的电脑</li>
+<li>一台设备或模拟器</li>
+<li>Juice Tracker 应用的起始代码</li>
+</ul>
+<h2 data-text="构建内容" id="what-youll-build" is-upgraded="" tabindex="-1">构建内容</h2>
+<p>在此 Codelab 中，您将完成 Juice Tracker 应用。借助这款应用，您可以构建一个包含详细项的列表，以便跟踪各种重要的果汁。您将添加并修改 Fragment 和 XML，以完成界面和起始代码。具体来说，您将构建用于创建新果汁的条目表单，包括界面和任何相关的逻辑或导航。完成后，您将得到一个包含空列表的应用，您可以向其中添加自己的果汁。</p>
+<p class="image-container"><img alt="d6dc43171ae62047.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_2880.png?hl=zh-cn 2880w" style="width: 192.00px" /> <img alt="87b2ca7b49e814cb.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_2880.png?hl=zh-cn 2880w" style="width: 192.00px" /> <img alt="2d630489477e216e.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_2880.png?hl=zh-cn 2880w" style="width: 192.00px" /></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="获取起始代码">
+          
+          <h2 class="step-title" data-text="               2. 获取起始代码           " id="1" tabindex="-1">
+              2. 获取起始代码
+          </h2>
+          
+          <aside class="special"><p><strong>起始代码网址</strong>：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker/tree/views-starter" target="_blank"><code dir="ltr" translate="no">https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker</code></a></p>
+<p><strong>包含起始代码的分支名称：</strong><code dir="ltr" translate="no">views-starter</code></p>
+</aside>
+<ol type="1">
+<li>在 Android Studio 中，打开 <code dir="ltr" translate="no">basic-android-kotlin-compose-training-juice-tracker</code> 文件夹。</li>
+<li>在 Android Studio 中，打开 Juice Tracker 应用代码。</li>
+</ol>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="创建布局">
+          
+          <h2 class="step-title" data-text="               3. 创建布局           " id="2" tabindex="-1">
+              3. 创建布局
+          </h2>
+          
+          <p>使用 <a href="https://developer.android.com/reference/android/view/View?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Views</code></a> 构建应用时，您将在<a href="https://developer.android.com/develop/ui/views/layout/declaring-layout?hl=zh-cn" target="_blank">布局</a>中构建界面。布局通常使用 XML 进行声明。这些 XML 布局文件位于资源目录中的 <strong>res > layout</strong> 下。布局包含组成界面的组件；这些组件称为 <code dir="ltr" translate="no">View</code>。XML 语法由标记、元素和属性组成。如需详细了解 XML 语法，请参阅<a href="https://developer.android.com/codelabs/basic-android-kotlin-training-xml-layouts?hl=zh-cn" target="_blank">为 Android 创建 XML 布局</a> Codelab。</p>
+<p>在本部分中，您将为如图所示的 <strong>Type of juice</strong> 条目对话框构建 XML 布局。</p>
+<p class="image-container"><img alt="87b2ca7b49e814cb.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_2880.png?hl=zh-cn 2880w" style="width: 264.00px" /></p>
+<ol type="1">
+<li>在 <strong>main > res > layout</strong> 目录中创建一个名为 <code dir="ltr" translate="no">fragment_entry_dialog</code> 的新<strong>布局资源文件</strong>。</li>
+</ol>
+<p class="image-container"><img alt="打开的 Android Studio 项目窗格上下文窗格，其中显示了用于创建布局资源文件的选项。" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p class="image-container"><img alt="6adb279d6e74ab13.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p><code dir="ltr" translate="no">fragment_entry_dialog.xml</code> 布局包含应用向用户显示的界面组件。</p>
+<p>请注意，<strong>根元素</strong>是 <code dir="ltr" translate="no">ConstraintLayout</code>。此类布局是一种 <code dir="ltr" translate="no">ViewGroup</code>，可让您使用约束条件灵活地设置 View 的位置和大小。<code dir="ltr" translate="no">ViewGroup</code> 是一种 <code dir="ltr" translate="no">View</code>，其中包含其他 <code dir="ltr" translate="no">View</code>（称为子 <code dir="ltr" translate="no">View</code>）。下面的步骤更详细地介绍了这一主题，但如需详细了解 <code dir="ltr" translate="no">ConstraintLayout</code>，请参阅<a href="https://developer.android.com/develop/ui/views/layout/constraint-layout?hl=zh-cn" target="_blank">使用 ConstraintLayout 构建自适应界面</a>。</p>
+<ol start="2" type="1">
+<li>创建文件后，在 <code dir="ltr" translate="no">ConstraintLayout</code> 中定义应用名称空间。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">androidx</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">constraintlayout</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">widget</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ConstraintLayout</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">xmlns</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"http://schemas.android.com/apk/res/android"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">xmlns</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"http://schemas.android.com/apk/res-auto"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"match_parent"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"match_parent"</span>&gt;
+&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">androidx</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">constraintlayout</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">widget</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ConstraintLayout</span>&gt;
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>将以下准则添加到 <code dir="ltr" translate="no">ConstraintLayout</code> 中。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">androidx</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">constraintlayout</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">widget</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Guideline</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_left"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">orientation</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"vertical"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintGuide_begin</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"16dp"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+&lt;<span class="devsite-syntax-n">androidx</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">constraintlayout</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">widget</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Guideline</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_middle"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">orientation</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"vertical"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintGuide_percent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"0.5"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+&lt;<span class="devsite-syntax-n">androidx</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">constraintlayout</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">widget</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Guideline</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_top"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">orientation</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"horizontal"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintGuide_begin</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"16dp"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+</code></pre></devsite-code>
+<p>这些 <code dir="ltr" translate="no">Guideline</code> 将用作其他 View 的内边距。这些准则将约束 <strong>Type of juice</strong> 标题文本。</p>
+<ol start="4" type="1">
+<li>创建一个 <code dir="ltr" translate="no">TextView</code> 元素。此 <code dir="ltr" translate="no">TextView</code> 表示详情 fragment 的标题。</li>
+</ol>
+<p class="image-container"><img alt="110cad4ae809e600.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_2880.png?hl=zh-cn 2880w" style="width: 264.00px" /></p>
+<ol start="5" type="1">
+<li>将 <code dir="ltr" translate="no">TextView</code> 的 <code dir="ltr" translate="no">id</code> 设置为 <code dir="ltr" translate="no">header_title</code>。</li>
+<li>将 <code dir="ltr" translate="no">layout_width</code> 设置为 <code dir="ltr" translate="no">0dp</code>。布局约束条件最终定义此 <code dir="ltr" translate="no">TextView</code> 的宽度。因此，定义宽度只会在绘制界面时增加不必要的计算；定义 <code dir="ltr" translate="no">0dp</code> 的宽度可以避免额外的计算。</li>
+<li>将 <code dir="ltr" translate="no">TextView text</code> 属性设置为 <code dir="ltr" translate="no">@string/juice_type</code>。</li>
+<li>将 <code dir="ltr" translate="no">textAppearance</code> 设置为 <code dir="ltr" translate="no">@style/TextAppearance.MaterialComponents.Headline5</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">TextView</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/header_title"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"0dp"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@string/juice_type"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">textAppearance</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@style/TextAppearance.MaterialComponents.Headline5"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+</code></pre></devsite-code>
+<p>最后，您需要定义约束条件。与使用维度作为约束条件的 <code dir="ltr" translate="no">Guideline</code> 不同，这些准则本身就能约束此 <code dir="ltr" translate="no">TextView</code>。为了实现此结果，您可以引用要用来约束 View 的 <code dir="ltr" translate="no">Guideline</code> 的 ID。</p>
+<ol start="9" type="1">
+<li>将标题顶部约束为 <code dir="ltr" translate="no">guideline_top</code> 的底部。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">TextView</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/header_title"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"0dp"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@string/juice_type"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">textAppearance</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@style/TextAppearance.MaterialComponents.Headline5"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintTop_toBottomOf</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_top"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+</code></pre></devsite-code>
+<ol start="10" type="1">
+<li>将结束位置约束为 <code dir="ltr" translate="no">guideline_middle</code> 的起始位置，并将其起始位置约束为 <code dir="ltr" translate="no">guideline_left</code> 的起始位置，以完成 <code dir="ltr" translate="no">TextView</code> 的放置。请注意，给定 View 的约束方式完全取决于您预期的界面外观。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">TextView</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/header_title"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"0dp"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@string/juice_type"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">textAppearance</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@style/TextAppearance.MaterialComponents.Headline5"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintTop_toBottomOf</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_top"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintEnd_toStartOf</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_middle"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintStart_toStartOf</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_left"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+</code></pre></devsite-code>
+<p>尝试根据屏幕截图构建界面的其余部分。您可以在<a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker/tree/views" target="_blank">解决方案</a>中找到完整的 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker/blob/views/app/src/main/res/layout/fragment_entry_dialog.xml" target="_blank"><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></a> 文件。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="创建包含 View 的 Fragment">
+          
+          <h2 class="step-title" data-text="               4. 创建包含 View 的 Fragment           " id="3" tabindex="-1">
+              4. 创建包含 View 的 Fragment
+          </h2>
+          
+          <p>在 Compose 中，您可以使用 Kotlin 或 Java 以声明方式构建布局。通过导航到不同的可组合项（通常在同一 activity 中），您可以访问不同的“界面”。使用 View 构建应用时，托管 XML 布局的 Fragment 将取代可组合项“界面”的概念。</p>
+<p>在本部分中，您将创建一个 <code dir="ltr" translate="no">Fragment</code> 来托管 <code dir="ltr" translate="no">fragment_entry_dialog</code> 布局并向界面提供数据。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">juicetracker</code> 软件包中，新建一个名为 <code dir="ltr" translate="no">EntryDialogFragment</code> 的类。</li>
+<li>使 <code dir="ltr" translate="no">EntryDialogFragment</code> 扩展 <code dir="ltr" translate="no">BottomSheetDialogFragment</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.android.material.bottomsheet.BottomSheetDialogFragment</span>
+
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">EntryDialogFragment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">BottomSheetDialogFragment</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p><code dir="ltr" translate="no">DialogFragment</code> 是用于显示浮动对话框的 <code dir="ltr" translate="no">Fragment</code>。<code dir="ltr" translate="no">BottomSheetDialogFragment</code> 继承自 <code dir="ltr" translate="no">DialogFragment</code> 类，但其会显示与固定在屏幕底部的界面等宽的工作表。这种方法与上图中的设计相符。</p>
+<ol start="3" type="1">
+<li>重新构建项目，这会使系统自动生成基于 <code dir="ltr" translate="no">fragment_entry_dialog</code> 的 View 绑定文件。通过 View 绑定，您可以访问 XML 声明的 <code dir="ltr" translate="no">View</code> 并与之互动。如需了解详情，请参阅 <a href="https://developer.android.com/topic/libraries/view-binding?hl=zh-cn" target="_blank">View 绑定</a>文档。</li>
+<li>在 <code dir="ltr" translate="no">EntryDialogFragment</code> 类中，实现 <code dir="ltr" translate="no">onCreateView()</code> 函数。顾名思义，此函数将为该 <code dir="ltr" translate="no">Fragment</code> 创建 <code dir="ltr" translate="no">View</code>。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：与 <code dir="ltr" translate="no">Activity</code> 类似，<code dir="ltr" translate="no">Fragment</code> 也具有不同的<a href="https://developer.android.com/guide/fragments/lifecycle?hl=zh-cn" target="_blank">生命周期状态</a>以及对应的生命周期方法。</p>
+</aside>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.os.Bundle</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.view.LayoutInflater</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.view.View</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.view.ViewGroup</span>
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreateView</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LayoutInflater</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ViewGroup?,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?</span>
+<span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View? </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onCreateView</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p><code dir="ltr" translate="no">onCreateView()</code> 函数会返回 <code dir="ltr" translate="no">View</code>，但目前它不会返回有用的 <code dir="ltr" translate="no">View</code>。</p>
+<ol start="5" type="1">
+<li>返回通过膨胀 <code dir="ltr" translate="no">FragmentEntryDialogViewBinding</code> 生成的 <code dir="ltr" translate="no">View</code>（而非返回 <code dir="ltr" translate="no">super.onCreateView()</code>）。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.juicetracker.databinding.FragmentEntryDialogBinding</span>
+
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreateView</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LayoutInflater</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ViewGroup?,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?</span>
+<span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View? </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FragmentEntryDialogBinding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">inflate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">root</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>在 <code dir="ltr" translate="no">onCreateView()</code> 函数之外（但在 <code dir="ltr" translate="no">EntryDialogFragment</code> 类内），创建 <code dir="ltr" translate="no">EntryViewModel</code> 的实例。</li>
+<li>实现 <code dir="ltr" translate="no">onViewCreated()</code> 函数。</li>
+</ol>
+<p>膨胀 View 绑定后，您可以访问和修改布局中的 <code dir="ltr" translate="no">View</code>。系统会在生命周期中的 <code dir="ltr" translate="no">onCreateView()</code> 之后调用 <code dir="ltr" translate="no">onViewCreated()</code> 方法。建议您使用 <code dir="ltr" translate="no">onViewCreated()</code> 方法在布局中访问和修改 <code dir="ltr" translate="no">View</code>。</p>
+<ol start="8" type="1">
+<li>对 <code dir="ltr" translate="no">FragmentEntryDialogBinding</code> 调用 <code dir="ltr" translate="no">bind()</code> 方法，以创建 View 绑定的实例。</li>
+</ol>
+<p>此时，您的代码应如以下示例所示：</p>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.fragment.app.viewModels</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.juicetracker.ui.AppViewModelProvider</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.juicetracker.ui.EntryViewModel</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">EntryDialogFragment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">BottomSheetDialogFragment</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">entryViewModel</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModels&lt;EntryViewModel&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AppViewModelProvider</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Factory</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreateView</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LayoutInflater</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ViewGroup?,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FragmentEntryDialogBinding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">inflate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">root</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onViewCreated</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">binding</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FragmentEntryDialogBinding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">bind</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>您可以通过绑定访问和设置 View。例如，您可以通过 <code dir="ltr" translate="no">setText()</code> 方法设置 <code dir="ltr" translate="no">TextView</code>。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Apple juice"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：为简单起见，在上面的示例中使用了硬编码字符串 <strong>Apple juice</strong>。在生产环境中，应使用字符串资源。</p>
+</aside>
+<p>条目对话框界面是供用户新建项的地方，但您也可以使用它来修改现有项。因此，Fragment 需要检索被点击的项。Navigation 组件有助于导航到 <code dir="ltr" translate="no">EntryDialogFragment</code> 并检索被点击的项。</p>
+<p><code dir="ltr" translate="no">EntryDialogFragment</code> 尚未完成，但不用担心！现在，请继续学习下一部分，详细了解如何在包含 <code dir="ltr" translate="no">View</code> 的应用中使用 Navigation 组件。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="修改 Navigation 组件">
+          
+          <h2 class="step-title" data-text="               5. 修改 Navigation 组件           " id="4" tabindex="-1">
+              5. 修改 Navigation 组件
+          </h2>
+          
+          <p>在本部分中，您将使用 Navigation 组件启动条目对话框并检索某个项（如果适用）。</p>
+<p>Compose 让您只需进行调用即可呈现不同的可组合项。不过，Fragment 的运作方式有所不同。<a href="https://developer.android.com/guide/navigation/navigation-getting-started?hl=zh-cn" target="_blank">Navigation 组件</a>会协调 Fragment“目的地”，从而方便在不同 Fragment 及其包含的 View 之间移动。</p>
+<p>使用 Navigation 组件协调导航到您的 <code dir="ltr" translate="no">EntryDialogFragment</code>。</p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">nav_graph.xml</code> 文件，并确保已选择 <strong>Design</strong> 标签页。<img alt="783cb5d7ff0ba127.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></li>
+<li>点击 <img alt="93401bf098936c15.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_2880.png?hl=zh-cn 2880w" style="width: 30.07px" /> 图标以添加新的目的地。</li>
+</ol>
+<p class="image-container"><img alt="d5410c90e408b973.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<ol start="3" type="1">
+<li>选择 <code dir="ltr" translate="no">EntryDialogFragment</code> 目的地。此操作将在导航图中声明 <code dir="ltr" translate="no">entryDialogFragment</code>，使其可供导航操作访问。</li>
+</ol>
+<p class="image-container"><img alt="418feed425072ea4.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_2880.png?hl=zh-cn 2880w" style="width: 520.00px" /></p>
+<aside class="special"><p><strong>注意</strong>：<code dir="ltr" translate="no">entryDialogFragment</code> 屏幕可能会显示在 <code dir="ltr" translate="no">nav_graph.xml</code> 显示屏中的随机位置。您可以拖动目的地，让显示屏更加井然有序。</p>
+</aside>
+<p>您需要从 <code dir="ltr" translate="no">TrackerFragment</code> 启动 <code dir="ltr" translate="no">EntryDialogFragment</code>。因此，导航操作需要完成此任务。</p>
+<ol start="4" type="1">
+<li>将光标拖动到 <code dir="ltr" translate="no">trackerFragment</code> 上方。选择灰点，然后将线条拖动到 <code dir="ltr" translate="no">entryDialogFragment</code>。<img alt="85decb6fcddec713.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></li>
+<li>借助 nav_graph Design 视图，您可以通过以下方式声明目的地参数：选择相应目的地，然后点击 <strong>Arguments</strong> 下拉菜单旁边的 <img alt="a0d73140a20e4348.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_2880.png?hl=zh-cn 2880w" style="width: 24.41px" /> 图标。使用此功能将类型为 <code dir="ltr" translate="no">Long</code> 的 <code dir="ltr" translate="no">itemId</code> 参数添加到 <code dir="ltr" translate="no">entryDialogFragment</code>；默认值应为 <code dir="ltr" translate="no">0L</code>。</li>
+</ol>
+<p class="image-container"><img alt="555cf791f64f62b8.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p class="image-container"><img alt="840105bd52f300f7.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>请注意，<code dir="ltr" translate="no">TrackerFragment</code> 包含 <code dir="ltr" translate="no">Juice</code> 项列表。如果您点击其中一个项，<code dir="ltr" translate="no">EntryDialogFragment</code> 就会启动。</p>
+<ol start="6" type="1">
+<li>重新构建项目。现在可以在 <code dir="ltr" translate="no">EntryDialogFragment</code> 中访问 <code dir="ltr" translate="no">itemId</code> 参数了。</li>
+</ol>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="5" label="完成 Fragment">
+          
+          <h2 class="step-title" data-text="               6. 完成 Fragment           " id="5" tabindex="-1">
+              6. 完成 Fragment
+          </h2>
+          
+          <p>使用导航参数中的数据，完成条目对话框。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">EntryDialogFragment</code> 的 <code dir="ltr" translate="no">onViewCreated()</code> 方法中检索 <code dir="ltr" translate="no">navArgs()</code>。</li>
+<li>从 <code dir="ltr" translate="no">navArgs()</code> 检索 <code dir="ltr" translate="no">itemId</code>。</li>
+<li>实现 <code dir="ltr" translate="no">saveButton</code> 以使用 <code dir="ltr" translate="no">ViewModel</code> 保存新的/经过修改的果汁。</li>
+</ol>
+<p>回想一下默认颜色值为 red 的条目对话框界面。目前，将其作为占位符进行传递。</p>
+<p>调用 <code dir="ltr" translate="no">saveJuice()</code> 时，从参数中传递项 ID。</p>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.navigation.fragment.navArgs</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.juicetracker.data.JuiceColor</span>
+
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">EntryDialogFragment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">BottomSheetDialogFragment</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">selectedColor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">JuiceColor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">JuiceColor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Red</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onViewCreated</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">binding</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FragmentEntryDialogBinding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">bind</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">args</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">EntryDialogFragmentArgs</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">navArgs</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">juiceId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">args</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">itemId</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">saveButton</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setOnClickListener</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">entryViewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">saveJuice</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">juiceId</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">text</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toString</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">text</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toString</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">selectedColor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ratingBar</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">rating</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toInt</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>保存数据后，使用 <code dir="ltr" translate="no">dismiss()</code> 方法关闭对话框。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">EntryDialogFragment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">BottomSheetDialogFragment</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">selectedColor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">JuiceColor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">JuiceColor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Red</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">//...</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onViewCreated</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">binding</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FragmentEntryDialogBinding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">bind</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">args</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">EntryDialogFragmentArgs</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">navArgs</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">saveButton</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setOnClickListener</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">entryViewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">saveJuice</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">juiceId</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">text</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toString</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">text</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toString</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">selectedColor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ratingBar</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">rating</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toInt</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">dismiss</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>请注意，上述代码无法完成 <code dir="ltr" translate="no">EntryDialogFragment</code>。您仍然需要实现诸多操作，例如使用现有 <code dir="ltr" translate="no">Juice</code> 数据填充字段（如果适用）、从 <code dir="ltr" translate="no">colorSpinner</code> 中选择颜色、实现 <code dir="ltr" translate="no">cancelButton</code>，等等。不过，此代码不是 <code dir="ltr" translate="no">Fragment</code> 独有的，您可以自行实现此代码。尝试实现其余功能。万不得已时，您可以参考此 Codelab 的解决方案代码。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="6" label="启动条目对话框">
+          
+          <h2 class="step-title" data-text="               7. 启动条目对话框           " id="6" tabindex="-1">
+              7. 启动条目对话框
+          </h2>
+          
+          <p>最后一个任务是使用 Navigation 组件启动条目对话框。当用户点击悬浮操作按钮 (<strong>FAB</strong>) 时，条目对话框必须启动。此外，当用户点击某个项时，它也必须启动并传递相应 ID。</p>
+<ol type="1">
+<li>在 FAB 的 <code dir="ltr" translate="no">onClickListener()</code> 中，对导航控制器调用 <code dir="ltr" translate="no">navigate()</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">TrackerFragment.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.navigation.findNavController</span>
+
+
+<span class="devsite-syntax-c1">//...</span>
+
+<span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fab</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setOnClickListener</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">fabView</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">fabView</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">findNavController</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">navigate</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-c1">//...</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>在导航函数中，传递从跟踪器导航到条目对话框的操作。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">TrackerFragment.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">//...</span>
+
+<span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fab</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setOnClickListener</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">fabView</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">fabView</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">findNavController</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">navigate</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-n">TrackerFragmentDirections</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">actionTrackerFragmentToEntryDialogFragment</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-c1">//...</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>在 lambda 正文中为 <code dir="ltr" translate="no">JuiceListAdapter</code> 中的 <code dir="ltr" translate="no">onEdit()</code> 方法重复此操作，但这次要传递 <code dir="ltr" translate="no">Juice</code> 的 <code dir="ltr" translate="no">id</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">TrackerFragment.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">//...</span>
+
+<span class="devsite-syntax-n">onEdit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">drink</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">findNavController</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">navigate</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">TrackerFragmentDirections</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">actionTrackerFragmentToEntryDialogFragment</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">drink</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">id</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">},</span>
+
+<span class="devsite-syntax-c1">//...</span>
+</code></pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="7" label="获取解决方案代码">
+          
+          <h2 class="step-title" data-text="               8. 获取解决方案代码           " id="7" tabindex="-1">
+              8. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，您可以使用以下 Git 命令：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker.git
+$ cd basic-android-kotlin-compose-training-juice-tracker
+$ git checkout views
+</pre></devsite-code>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker/archive/refs/heads/views.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">views</code> 分支中。</p>
+</aside>
+<p>如果您想查看解决方案代码，请<a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker/tree/views" target="_blank">前往 GitHub 查看</a>。</p>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-x_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-x.svg?hl=zh-cn"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-youtube_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="//www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-linkedin_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-linkedin.svg?hl=zh-cn"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="3otFVGEPLo0kT/L9scnCJHcmTMrFJo">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/android/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","https://fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["CloudShell__cloud_shell_button","Cloud__cache_serialized_dynamic_content","BookNav__enable_tenant_cache_key","EngEduTelemetry__enable_engedu_telemetry","DevPro__enable_free_benefits","MiscFeatureFlags__enable_firebase_utm","Search__enable_page_map","MiscFeatureFlags__enable_variable_operator","Search__enable_dynamic_content_confidential_banner","DevPro__remove_eu_tax_intake_form","TpcFeatures__proxy_prod_host","Concierge__enable_actions_menu","Search__enable_ai_eligibility_checks","Profiles__enable_developer_profile_benefits_ui_redesign","Profiles__enable_dashboard_curated_recommendations","MiscFeatureFlags__fix_lower_breadcrumbs","Cloud__enable_cloud_shell","DevPro__enable_developer_subscriptions","Search__enable_ai_search_summaries_for_all","Concierge__enable_pushui","Experiments__reqs_query_experiments","DevPro__enable_vertex_credit_card","MiscFeatureFlags__developers_footer_image","Cloud__enable_free_trial_server_call","Cloud__enable_cloud_shell_fte_user_flow","Profiles__enable_profile_collections","Profiles__enable_awarding_url","Cloud__enable_llm_concierge_chat","Cloud__enable_legacy_calculator_redirect","MiscFeatureFlags__gdp_dashboard_reskin_enabled","Profiles__enable_callout_notifications","Profiles__enable_page_saving","DevPro__enable_google_one_card","DevPro__enable_google_payments_buyflow","Profiles__enable_stripe_subscription_management","Profiles__enable_complete_playlist_endpoint","DevPro__enable_cloud_innovators_plus","Search__enable_suggestions_from_borg","DevPro__enable_g1_integration","DevPro__enable_payments_first_batch","Profiles__enable_recognition_badges","MiscFeatureFlags__enable_appearance_cookies","Analytics__enable_clearcut_logging","DevPro__enable_code_assist","Analytics__enable_devpro_interaction_logging","Profiles__enable_playlist_community_acl","Cloud__fast_free_trial","Cloud__enable_cloudx_experiment_ids","MiscFeatureFlags__enable_llms_txt","DevPro__enable_embed_profile_creation","CloudShell__cloud_code_overflow_menu","DevPro__enable_devsite_captcha","MiscFeatureFlags__enable_explicit_template_dependencies","DevPro__enable_enterprise","Profiles__enable_targeted_hero","Concierge__enable_devsite_llm_tools","DevPro__enable_credits_banner","Profiles__enable_join_program_group_endpoint","Cloud__enable_cloud_dlp_service","MiscFeatureFlags__enable_view_transitions","Profiles__enable_release_notes_notifications","Profiles__enable_developer_profiles_callout","Significatio__enable_by_tenant","DevPro__enable_devpro_offers","MiscFeatureFlags__enable_variable_operator_index_yaml","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_user_type","DevPro__enable_firebase_workspaces_card","SignIn__enable_l1_signup_flow","MiscFeatureFlags__enable_dark_theme","Profiles__enable_auto_apply_credits","Concierge__enable_remove_info_panel_tags","DevPro__enable_nvidia_credits_card","TpcFeatures__enable_unmirrored_page_left_nav","Profiles__enable_completequiz_endpoint","MiscFeatureFlags__enable_framebox_badge_methods","MiscFeatureFlags__remove_cross_domain_tracking_params","Search__enable_ai_search_summaries","MiscFeatureFlags__developers_footer_dark_image","Profiles__enable_developer_profile_pages_as_content","Profiles__enable_purchase_prompts","Profiles__require_profile_eligibility_for_signin","MiscFeatureFlags__enable_project_variables","Profiles__enable_public_developer_profiles","Profiles__enable_completecodelab_endpoint"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[2,2],[1,1]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

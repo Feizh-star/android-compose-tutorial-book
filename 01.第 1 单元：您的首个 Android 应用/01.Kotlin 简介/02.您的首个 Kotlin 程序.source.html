@@ -1,0 +1,2151 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=vi" /><title>您的首个 Kotlin 程序 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="您的首个 Kotlin 程序 &nbsp;|&nbsp; Android Developers"><meta name="description" content="了解如何创建和修改简单的 Kotlin 程序。">
+  <meta property="og:description" content="了解如何创建和修改简单的 Kotlin 程序。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      您的首个 Kotlin 程序<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="android,kotlin" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="1Mz6YHGsbPevlzJ6fa-ppoP-CcLR6zSoHoGnKusQAZA8" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-birthday-card-app/issues/new?assignees=&amp;labels=&amp;template=your_first_program.md&amp;title=Your&#43;first&#43;program%3A&#43;Android&#43;Basics&#43;with&#43;Compose" id="basic-android-kotlin-compose-first-program" layout="paginated" no-tooltip="" title="您的首个 Kotlin 程序">
+      
+        <google-codelab-step duration="0" step="0" label="准备工作">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2023-09-29T17:53:48Z" codelab-title="您的首个 Kotlin 程序">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 前言           " id="0" tabindex="-1">
+              1. 前言
+          </h2>
+          
+          <p class="image-container"><img alt="Android 和 Kotlin 的徽标" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/840cee8b164c10b_2880.png?hl=zh-cn 2880w" style="width: 385.50px" title="Android 和 Kotlin 的徽标" /></p>
+<p>在此课程中，您将使用 Kotlin 编程语言编写代码，从而构建各种应用。Kotlin 是 Google 推荐在创建新 Android 应用时使用的语言。</p>
+<p>Kotlin 是一种现代编程语言，可帮助开发者提高工作效率。例如，与其他编程语言相比，使用 Kotlin，您能够用更简洁的代码实现同样的功能，减少代码的行数。此外，使用 Kotlin 构建的应用不容易发生崩溃，能够为用户带来更稳定、更可靠的应用体验。从本质上讲，使用 Kotlin，您可以花更短的时间编写出更好的 Android 应用。因此 Kotlin 在业界方兴未艾，是大多数专业 Android 开发者使用的语言。</p>
+<p>若要开始用 Kotlin 构建 Android 应用，首先必须在 Kotlin 编程概念方面打下坚实基础。通过此开发者在线课程中的 Codelab，您将在深入学习应用创建之前先了解 Kotlin 编程的基础知识。</p>
+<h2 data-text="构建内容" id="what-youll-build" is-upgraded="" tabindex="-1"><strong>构建内容</strong></h2>
+<ul>
+<li>用 Kotlin 编写的简短程序，在运行时可显示消息。</li>
+</ul>
+<h2 class="checklist" data-text="学习内容" id="what-youll-learn" is-upgraded="" tabindex="-1"><strong>学习内容</strong></h2>
+<ul class="checklist">
+<li>如何编写和运行简单的 Kotlin 程序。</li>
+<li>如何修改简单的程序来更改输出。</li>
+</ul>
+<h2 data-text="所需条件" id="what-youll-need" is-upgraded="" tabindex="-1"><strong>所需条件</strong></h2>
+<ul>
+<li>可连接到互联网的计算机和网络浏览器。</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="开始使用">
+          
+          <h2 class="step-title" data-text="               2. 开始           " id="1" tabindex="-1">
+              2. 开始
+          </h2>
+          
+          <p>在此 Codelab 中，您将探索和修改用 Kotlin 编写的简单程序。您可以将程序视为一系列指示计算机或移动设备执行某项操作的指令，例如指示设备向用户显示消息或计算购物车中商品的费用。<em></em>针对计算机应执行的操作所提供的分步说明称为代码<em></em>。如果您修改程序中的代码，输出可能会发生变化。</p>
+<p>您可以使用名为代码编辑器的工具编写和修改代码。<em></em>它与文本编辑器类似，您可以在其中编写和修改文本，但代码编辑器还提供了可帮助您更准确地编写代码的功能。例如，代码编辑器会在您输入内容时显示自动补全建议，还会在代码不正确时显示错误消息。</p>
+<p>若要练习 Kotlin 语言的基本编程方法，您可以使用名为“Kotlin 园地”的交互式代码编辑器。您可以通过网络浏览器访问此工具，因此无需在计算机上安装任何软件。您可以直接在 Kotlin 园地中修改和运行 Kotlin 代码，然后查看输出。</p>
+<p>请注意，您无法在 Kotlin 园地中构建 Android 应用。在后续的衔接课程中，您将安装名为 Android Studio 的工具，并使用该工具编写和修改 Android 应用代码。</p>
+<p>现在，您已经了解了 Kotlin 的一些相关知识，接下来我们看看您的第一个程序！</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="打开 Kotlin 园地">
+          
+          <h2 class="step-title" data-text="               3. 打开 Kotlin 园地           " id="2" tabindex="-1">
+              3. 打开 Kotlin 园地
+          </h2>
+          
+          <p>在计算机上通过网络浏览器打开 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a>。</p>
+<p>您应该会看到类似下图的网页：</p>
+<p class="image-container"><img alt="此图显示了 Kotlin 园地的屏幕截图。该代码编辑器显示了输出以下内容的简单程序" hello,="" output."="" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7844a522159be53c_2880.png?hl=zh-cn 2880w" style="width: 661.02px" the="" title="Kotlin 游乐场的屏幕截图" to="" world!"="" /></p>
+<p>代码编辑器中已填充了一些默认代码。这三行代码构成了一个简单的程序：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Hello, world!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>虽然您从未编写过程序，但能否猜出这个程序会做什么？</p>
+<p>请继续阅读下一部分，看看您的猜测是否正确！</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="运行您的第一个程序">
+          
+          <h2 class="step-title" data-text="               4. 运行您的第一个程序           " id="3" tabindex="-1">
+              4. 运行您的第一个程序
+          </h2>
+          
+          <p>点击 <img alt="“Run”按钮" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/35cd601a27edda82_2880.png?hl=zh-cn 2880w" style="width: 21.54px" title="“Run”按钮" /> 运行程序。</p>
+<p>点击“运行”按钮后，后台会执行很多操作。用 Kotlin 编程语言编写的代码具有人类可读懂的特点，因此人们可以更轻松地读、写 Kotlin 程序及就这类程序展开协作。但是，计算机无法直接理解该语言。</p>
+<p>您需要使用名为 Kotlin 编译器的工具，该工具可接受您编写的 Kotlin 代码，逐行查看，并将其转换成计算机可理解的代码。<em></em>此过程称为代码编译<em></em>。</p>
+<p>如果您的代码能够成功编译，程序就会运行（即执行）。当计算机执行您的程序时，它会执行您的每条指令。我们可以把这比作照着食谱做美食，按照食谱完成每个步骤的操作就是在执行每条指令。</p>
+<p>以下屏幕截图显示了运行程序时您应该会看到的内容。</p>
+<p class="image-container"><img "="" alt="此屏幕截图显示了 Kotlin 园地网页的部分内容。代码编辑器显示了 Hello World 程序的代码。代码编辑器下方是一个输出窗格，其中显示了以下语句" hello,="" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/bddc4519d348bd25_2880.png?hl=zh-cn 2880w" style="width: 624.00px" title="此屏幕截图显示了 Kotlin 园地网页的部分内容。" world!".="" /></p>
+<p>在代码编辑器的底部，您应该会看到一个显示程序输出（即结果）的窗格：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Hello, world!
+</pre></devsite-code>
+<p>棒极了！此程序的目的是输出或显示内容为 <code dir="ltr" translate="no">Hello, world!</code> 的消息。</p>
+<aside class="warning"><p><strong>警告</strong>：如果您没有看到此结果，请复制上一部分中的三行代码并将其粘贴到 Kotlin 园地中，然后重试。</p>
+</aside>
+<p>运作方式是怎样的？Kotlin 程序必须具有主函数，这是代码中程序开始运行的特定位置。<em></em>主函数是程序的入口点，或者说是起点。</p>
+<p class="image-container"><img "="" alt="这里有一个箭头，它指向一个简单程序的主函数的第一行，还有一个标签标着" here".="" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83ab3fdb0a8c2304_2880.png?hl=zh-cn 2880w" start="" style="width: 624.00px" title="一个简单程序的 main 函数" /></p>
+<p>现在您可能想知道，函数是什么？</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="函数的组成部分">
+          
+          <h2 class="step-title" data-text="               5. 函数的组成部分           " id="4" tabindex="-1">
+              5. 函数的组成部分
+          </h2>
+          
+          <p>函数是程序中用于执行特定任务的部分。<em></em>您的程序可以包含一个或多个函数。</p>
+<h2 data-text="定义函数与调用函数" id="define-versus-call-a-function" is-upgraded="" tabindex="-1"><strong>定义函数与调用函数</strong></h2>
+<p>在代码中，您首先要定义函数。<em></em>也就是说，您需要指定执行该任务所需的所有指令。</p>
+<p>定义函数后，您就可以调用该函数，以便可以执行该函数中的指令。<em></em></p>
+<p>我们打个比方。假如您编写了巧克力蛋糕烘焙方法的分步说明。您可以为这组指令命名：<code dir="ltr" translate="no">bakeChocolateCake</code>。每次您想要烤蛋糕时，都可以执行 <code dir="ltr" translate="no">bakeChocolateCake</code> 指令。如果您想烤 3 个蛋糕，则需要执行 3 次 <code dir="ltr" translate="no">bakeChocolateCake</code> 指令。第一步是定义步骤并指定名称，这就相当于定义函数。然后，您可以随时参考想要执行的步骤，这就相当于调用函数。</p>
+<aside class="special"><p><strong>注意</strong>：您可能还会听到“声明函数”的说法。“声明”和“定义”这两个词可以互换使用，含义相同。您还可能会听到“函数定义”或“函数声明”的说法，它们是指定义某个函数的确切代码。在一些其他编程语言中，“声明”和“定义”有不同的含义。</p>
+</aside>
+<h2 data-text="定义函数" id="define-a-function" is-upgraded="" tabindex="-1"><strong>定义函数</strong></h2>
+<p>以下是定义函数所需的关键部分：</p>
+<ul>
+<li>函数需要有<strong>名称</strong>，这样您以后才能调用它。</li>
+<li>函数还可能需要一些<strong>输入</strong>或需要在调用函数时提供的信息。函数要利用这些输入来实现其目的。输入并非硬性要求，有些函数不需要输入。</li>
+<li>函数还要有<strong>主体</strong>，其中包含执行任务的指令。</li>
+</ul>
+<p class="image-container"><img a="" also="" alt="在此图中，黑框部分表示函数，其中包含标签" an="" are="" arrow="" black="" body="" body,="" box="" box,="" called="" function="" function.="" function."="" indicating="" inputs="" into="" is="" it,="" label="" name"="" name.="" on="" passed="" pointing="" representing="" sizes="(max-width: 840px) 100vw, 856px" smaller="" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/7132067d45048b93_2880.png?hl=zh-cn 2880w" style="width: 384.00px" that="" the="" there="" title="图解：表示一个函数" which="" with="" within="" /></p>
+<p>若要将上图转换为 Kotlin 代码，请使用以下语法或格式来定义函数。这些元素的顺序很重要。单词“<code dir="ltr" translate="no">fun</code>”必须放在最前面，接着是函数名称，之后是用圆括号括起的输入，再之后是用花括号括起的主体。</p>
+<p class="image-container"><img a="" after="" alt="此图显示了在 Kotlin 代码中声明函数的语法（或格式）。该函数的起始单词为" an="" and="" at="" body,="" bottom="" box="" brace.="" brace."="" by="" closing="" curly="" fun".="" function,="" indented="" inputs="" inputs,="" is="" it="" it's="" labeled="" line,="" name="" name.="" next="" of="" on="" opening="" parentheses.="" right="" right.="" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e8b488369268e737_2880.png?hl=zh-cn 2880w" style="width: 384.00px" surrounded="" the="" there="" title="图解：函数语法" to="" which="" /></p>
+<p>请注意您在 Kotlin 园地中看到的 <code dir="ltr" translate="no">main</code> 函数示例中函数的关键部分：</p>
+<ul>
+<li>该函数定义以单词 <code dir="ltr" translate="no">fun</code> 开头。</li>
+<li>然后，该函数的名称为 <code dir="ltr" translate="no">main</code>。</li>
+<li>该函数没有输入，因此圆括号内是空的。</li>
+<li>函数主体 <code dir="ltr" translate="no">println("Hello, world!")</code> 中有一行代码，位于函数的左花括号和右花括号之间。</li>
+</ul>
+<p class="image-container"><img a="" alt="图片中显示以下主函数代码：fun main() {     println(" and="" body="" called="" closing="" code."="" hello,="" inputs="" is="" label="" line="" main.="" name="" of="" opening="" parentheses="" points="" println("hello,="" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_2880.png?hl=zh-cn 2880w" style="width: 480.00px" symbols.="" that="" the="" there="" title="main 函数说明" to="" word="" world!")="" }="" /></p>
+<p>下文更详细地介绍了该函数的各个部分。</p>
+<h3 data-text="函数关键字" id="function-keyword" is-upgraded="" tabindex="-1"><strong>函数关键字</strong></h3>
+<p>为了指明您即将使用 Kotlin 定义函数，请在新行中输入特殊单词 <code dir="ltr" translate="no">fun</code>（函数的缩写）。您输入的 <code dir="ltr" translate="no">fun</code> 必须与此处所示的单词完成相同，所有字母均为小写形式。您不能使用“func”、“function”或其他拼写，因为 Kotlin 编译器会无法识别其含义。</p>
+<p>这些特殊单词在 Kotlin 中称为关键字，专用于特定用途，例如在 Kotlin 中创建新函数。<em></em></p>
+<h3 data-text="函数名称" id="function-name" is-upgraded="" tabindex="-1"><strong>函数名称</strong></h3>
+<p>函数需要用名称来区分彼此，正如人们要有名字作为称呼一样。函数的名称位于 <code dir="ltr" translate="no">fun</code> 关键字后面。</p>
+<p class="image-container"><img a="" after="" alt="此图显示了在 Kotlin 代码中声明函数的语法（或格式）。该函数的起始单词为" an="" and="" at="" background="" body,="" border="" bottom="" box="" brace.="" brace."="" bring="" by="" closing="" curly="" definition.="" emphasis="" fun".="" function="" function,="" green="" highlighted="" indented="" inputs="" inputs,="" is="" it="" it's="" labeled="" line,="" name="" name.="" next="" of="" on="" opening="" parentheses.="" part="" right="" right.="" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/ba432607f21752f4_2880.png?hl=zh-cn 2880w" style="width: 384.00px" surrounded="" the="" there="" this="" title="语法：用于声明一个函数" to="" which="" with="" /></p>
+<p>您应根据函数的用途为函数选择合适的名称。名称通常是动词或动词短语。建议不要使用 <a href="https://kotlinlang.org/docs/keyword-reference.html" target="_blank">Kotlin 关键字</a>作为函数名称。</p>
+<p>函数名称应遵循驼峰式大小写的规范，函数名称中的第一个单词应采用全小写形式。<em></em>如果名称中包含多个单词，则各个单词之间不应有空格，所有其他单词的首字母都应大写。</p>
+<p>函数名称示例：</p>
+<ul>
+<li><code dir="ltr" translate="no">calculateTip</code></li>
+<li><code dir="ltr" translate="no">displayErrorMessage</code></li>
+<li><code dir="ltr" translate="no">takePhoto</code></li>
+</ul>
+<h3 data-text="函数输入" id="function-inputs" is-upgraded="" tabindex="-1"><strong>函数输入</strong></h3>
+<p>请注意，函数名称后面始终应跟着括号。函数的输入应列在这对圆括号内。</p>
+<p class="image-container"><img a="" after="" alt="此图显示了在 Kotlin 代码中声明函数的语法（或格式）。该函数的起始单词为" an="" and="" at="" background="" body,="" border="" bottom="" box="" brace.="" brace."="" bring="" by="" closing="" curly="" emphasis="" fun".="" function,="" function.="" green="" highlighted="" indented="" inputs="" inputs,="" is="" it="" it's="" labeled="" line,="" name="" name.="" next="" of="" on="" opening="" parentheses.="" part="" right="" right.="" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/6d0b9acf98a9d2e8_2880.png?hl=zh-cn 2880w" style="width: 384.00px" surrounded="" the="" there="" this="" title="语法：用于声明一个函数" to="" which="" with="" /></p>
+<p>输入是函数实现自身用途所需的数据。在定义函数时，您可以要求在调用该函数时传入某些输入。如果函数不需要输入，圆括号就是空的 <code dir="ltr" translate="no">()</code>。</p>
+<p>以下示例展示了具有不同数量的输入的函数：</p>
+<p>下图显示了一个名为 <code dir="ltr" translate="no">addOne</code> 的函数。该函数的作用是为给定数值加上 1。该函数中有一个输入，即给定的数字。在函数主体内部，有代码为传入到函数中的数字加上 1。</p>
+<p class="image-container"><img "="" "number="" "number"="" +="" 1".="" a="" addone"="" alt="在此图中，黑框部分表示函数，其中包含标签" an="" arrow="" black="" body="" body.="" box="" box,="" box.="" function="" function.="" input="" inside="" into="" is="" it,="" labeled="" name.="" number="" on="" outside="" pointing="" representing="" says="" sizes="(max-width: 840px) 100vw, 856px" smaller="" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2aacdc39be4dafc8_2880.png?hl=zh-cn 2880w" style="width: 624.00px" text="" that="" the="" there="" title="图解：表示一个函数" to="" which="" with="" within="" /></p>
+<p>在下一个示例中，有一个名为 <code dir="ltr" translate="no">printFullName</code> 的函数。该函数需要两个输入：一个是名字，另一个是姓氏。该函数主体会输出在输出部分指定的名字和姓氏，从而显示这个人的全名。</p>
+<p class="image-container"><img "="" "firstname"="" "lastname"="" "print="" a="" alt="在此图中，黑框部分表示函数，其中包含标签" and="" are="" arrows="" black="" body="" body.="" box="" box,="" box.="" boxes="" firstname="" from="" function="" function.="" in="" inputs="" inside="" into="" is="" it,="" labeled="" lastname="" name.="" on="" output".="" outside="" pointing="" printfullname"="" representing="" respectively.="" says="" sizes="(max-width: 840px) 100vw, 856px" smaller="" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/51f4d1b94b208dfe_2880.png?hl=zh-cn 2880w" style="width: 624.00px" text="" that="" the="" there="" title="图解：表示一个带有两个实参的函数" to="" two="" which="" within="" /></p>
+<p>最后一个示例展示了在调用函数时无需传入任何输入的函数。当您调用 <code dir="ltr" translate="no">displayHello()</code> 函数时，会输出一条“Hello”消息。</p>
+<p class="image-container"><img "="" "print="" a="" alt="在此图中，黑框部分表示函数，其中包含标签" body="" body.="" box="" box,="" displayhello"="" function="" hello="" in="" inside="" is="" it,="" name.="" on="" output".="" representing="" says="" sizes="(max-width: 840px) 100vw, 856px" smaller="" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/2d4050e223850fcf_2880.png?hl=zh-cn 2880w" style="width: 384.00px" text="" that="" the="" there="" title="图解：表示一个不带任何实参的函数" which="" within="" /></p>
+<h3 data-text="函数主体" id="function-body" is-upgraded="" tabindex="-1"><strong>函数主体</strong></h3>
+<p>函数主体包含实现函数用途所需的指令。<em></em>您可以通过查找由左花括号和右花括号括起来的代码行，找到函数主体。</p>
+<p class="image-container"><img a="" after="" alt="此图显示了在 Kotlin 代码中声明函数的语法（或格式）。该函数的起始单词为" an="" and="" at="" background="" body="" body,="" border="" bottom="" box="" brace.="" brace."="" bring="" by="" closing="" curly="" emphasis="" fun".="" function,="" function.="" green="" highlighted="" indented="" inputs="" inputs,="" is="" it="" it's="" labeled="" line,="" name="" name.="" next="" of="" on="" opening="" parentheses.="" part="" right="" right.="" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/e012dd6fe687506a_2880.png?hl=zh-cn 2880w" style="width: 384.00px" surrounded="" the="" there="" this="" title="函数的语法" to="" which="" with="" /></p>
+<h2 data-text="简单程序说明" id="simple-program-explained" is-upgraded="" tabindex="-1"><strong>简单程序说明</strong></h2>
+<p>我们来回顾您在本 Codelab 的前面部分看到的简单程序。</p>
+<p class="image-container"><img a="" alt="图片中显示以下主函数代码：fun main() {     println(" and="" body="" called="" closing="" code."="" hello,="" inputs="" is="" label="" line="" main.="" name="" of="" opening="" parentheses="" points="" println("hello,="" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/59fb37516122697d_2880.png?hl=zh-cn 2880w" style="width: 480.00px" symbols.="" that="" the="" there="" title="main 函数解析" to="" word="" world!")="" }="" /></p>
+<p>该程序包含一个函数：<code dir="ltr" translate="no">main</code> 函数。<code dir="ltr" translate="no">main</code> 是 Kotlin 中的一个特殊函数名称。当您在 Kotlin 园地中编写代码时，您的代码应在 <code dir="ltr" translate="no">main()</code> 函数内编写或从 <code dir="ltr" translate="no">main()</code> 函数调用。</p>
+<p>此 <code dir="ltr" translate="no">main()</code> 函数的主体中只有一行代码：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Hello, world!"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>这行代码是一个语句，因为它执行特定操作，即在输出窗格中输出 <code dir="ltr" translate="no">Hello, world!</code> 文本。<em></em>更具体地说，我们在这行代码中调用了 <code dir="ltr" translate="no">println()</code> 函数。<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html" target="_blank"><code dir="ltr" translate="no">println()</code></a> 是已在 Kotlin 语言中定义的函数。也就是说，创建 Kotlin 语言的工程师团队已经编写了 <code dir="ltr" translate="no">println()</code> 函数的函数声明。该函数需要一个输入，即应该输出的消息。</p>
+<p>如果您调用 <code dir="ltr" translate="no">println()</code> 函数，请将消息文本放置在函数名称后的圆括号内。请务必在显示的文本两边添加引号，例如 <code dir="ltr" translate="no">"Hello, world!"</code>。</p>
+<p>当您执行该程序后，它就会输出传递到 <code dir="ltr" translate="no">println()</code> 函数的消息：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Hello, world!
+</pre></devsite-code>
+<h2 data-text="试试看" id="try-it" is-upgraded="" tabindex="-1"><strong>试试看</strong></h2>
+<p>现在，再来看看该程序中的原始代码。您能否在 Kotlin 园地中修改代码，让输出改为显示此消息？</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Hello, Android!
+</pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="5" label="修改您的程序">
+          
+          <h2 class="step-title" data-text="               6. 修改程序           " id="5" tabindex="-1">
+              6. 修改程序
+          </h2>
+          
+          <ol type="1">
+<li>若要更改输出显示的消息，请修改程序第二行中的 <code dir="ltr" translate="no">println()</code> 函数调用。将 <code dir="ltr" translate="no">println()</code> 函数中的 <code dir="ltr" translate="no">world</code> 替换为 <code dir="ltr" translate="no">Android</code>。确保 <code dir="ltr" translate="no">"Hello, Android!"</code> 仍在引号内和圆括号内。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Hello, Android!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>运行该程序。</li>
+<li>输出应显示以下消息：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Hello, Android!
+</pre></devsite-code>
+<p>太棒了，您已修改自己的第一个程序！</p>
+<p>现在，您能通过更改代码让该消息输出两次吗？查看所需的输出：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Hello, Android!
+Hello, Android!
+</pre></devsite-code>
+<h2 data-text="输出多条消息" id="print-more-than-one-message" is-upgraded="" tabindex="-1"><strong>输出多条消息</strong></h2>
+<p>您可以根据任务需求，在函数内添加任意行指令。但请注意，在 Kotlin 中，每行应该只有一个语句。如果您要新增语句，则应在函数中另起一行进行编写。</p>
+<p>若要更改程序以输出多行文本，请按以下方法操作：</p>
+<ol type="1">
+<li>复制初始的 <code dir="ltr" translate="no">println()</code> 语句，并将复制的语句粘贴到函数主体中该语句的下方。这两个 <code dir="ltr" translate="no">println()</code> 语句都必须位于主函数的花括号内。现在，函数主体中有两个语句。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Hello, Android!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Hello, Android!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>运行该程序。</li>
+<li>当您运行该程序时，输出应如下所示：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Hello, Android!
+Hello, Android!
+</pre></devsite-code>
+<p>您可以看到代码更改对输出有何影响。</p>
+<ol start="4" type="1">
+<li>更改代码，使其显示 <code dir="ltr" translate="no">Hello,</code> <em></em><code dir="ltr" translate="no">YOUR_NAME</code><code dir="ltr" translate="no">!</code>。</li>
+</ol>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="6" label="Kotlin 样式指南">
+          
+          <h2 class="step-title" data-text="               7. Kotlin 样式指南           " id="6" tabindex="-1">
+              7. Kotlin 样式指南
+          </h2>
+          
+          <p>在本课程中，您将了解 Android 开发者在编码方面应遵循的良好做法。一种做法是遵循 Google 针对使用 Kotlin 进行编码制定的 Android 编码标准。完整的指南称为样式指南，它从视觉外观和编码规范角度说明了代码应采用的格式。例如，样式指南包括关于使用空格、缩进及命名等方面的建议。</p>
+<p>遵循风格指南的目的是使您的代码更易读，并且与其他 Android 开发者的编码方式更加一致。在大型项目的协作中，这种一致性非常重要，它可以确保项目的所有文件都采用相同的代码样式。</p>
+<p>针对您目前为止学到的 Kotlin 知识，下面给出了一些相关样式指南：</p>
+<ul>
+<li>函数名称应采用驼峰命名法，并且应该是动词或动词短语。</li>
+<li>每个语句都应单独占一行。</li>
+<li>左花括号应出现在函数开始行的末尾。</li>
+<li>左花括号前应有一个空格。</li>
+</ul>
+<p class="image-container"><img a="" after="" alt="图片中显示以下主函数代码：fun main() {     println(" and="" before="" brace."="" called="" curly="" hello,="" is="" label="" opening="" parentheses="" points="" sizes="(max-width: 840px) 100vw, 856px" space="" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/83759a94e8b6622e_2880.png?hl=zh-cn 2880w" style="width: 432.00px" symbols="" that="" the="" there="" title="函数格式设置" to="" world!")="" }="" /></p>
+<ul>
+<li>函数主体应缩进 4 个空格。请勿使用制表符缩进代码，而应输入 4 个空格。</li>
+</ul>
+<p class="image-container"><img 4="" a="" alt="图片中显示以下主函数代码：fun main() {     println(" an="" arrow="" body:="" by="" code="" function="" has="" hello,="" in="" indent="" is="" label="" line="" of="" points="" println("hello,="" says:="" sizes="(max-width: 840px) 100vw, 856px" spaces."="" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/3f24b3fe1eda0302_2880.png?hl=zh-cn 2880w" style="width: 432.00px" that="" the="" there="" title="函数格式设置" to="" world!")="" world!").="" }="" /></p>
+<ul>
+<li>右花括号位于函数主体中的末行代码之后，单独占一行。右花括号应与函数开头的 <code dir="ltr" translate="no">fun</code> 关键字对齐。</li>
+</ul>
+<p class="image-container"><img "="" a="" aligned="" aligned.="" all="" alt="图片中显示以下主函数代码：fun main() {     println(" and="" appears="" be="" brace="" closing="" code.="" curly="" down="" edge="" extends="" fun="" function="" function.="" has="" hello,="" indicate="" is="" it="" label="" left="" line="" located="" meant="" of="" on="" past="" says:="" should="" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/22350528401a32f1_2880.png?hl=zh-cn 2880w" style="width: 412.80px" that="" the="" there="" title="函数格式设置" to="" vertical="" vertically="" vertically.="" way="" word="" world!")="" }="" /></p>
+<p>在进一步学习 Kotlin 知识的过程中，您将了解到更多 Android 编码规范。您可在<a href="https://developer.android.com/kotlin/style-guide?hl=zh-cn" target="_blank">此处</a>查看完整的样式指南，不过如果您看到其中涵盖尚未学到的其他主题，也无需着急。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="7" label="修正代码中的错误">
+          
+          <h2 class="step-title" data-text="               8. 修正代码中的错误           " id="7" tabindex="-1">
+              8. 修正代码中的错误
+          </h2>
+          
+          <p>在学习人类语言时，我们知道针对单词的正确使用和句子的正确构成都有句法和语法规则。同样，在编程语言中，也有特定的规则来规范有效代码（即能成功编译的代码）。</p>
+<p>在编码过程中，出错及无意中编写出无效代码是正常情况。新手在出现这类错误时往往会感到迷茫或沮丧。不过您不必担心，这是正常现象。代码很少编写一次就能完美无瑕。正如撰写文档需要打多版草稿一样，编写代码也可能需要多次迭代，直到代码达到预期的运行效果。</p>
+<p>如果代码无法成功编译，则表示存在错误。例如，如果有缺少引号或圆括号之类的输入错误，编译器将无法识别您的代码，也无法将其转换为由计算机执行的步骤。如果您的代码未按预期运行，或者您在代码编辑器中看到错误消息，则必须检查代码，修正错误。修正这些错误的过程称为问题排查。<em></em></p>
+<ol type="1">
+<li>复制以下代码段并将其粘贴到 Kotlin 园地中，然后运行该程序。您看到了什么？</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Today is sunny!)</span>
+<span class="devsite-syntax-s">}</span>
+</code></pre></devsite-code>
+<p>理想情况下，您会希望看到显示 <code dir="ltr" translate="no">Today is sunny!</code> 消息。然而，实际上您在输出窗格中看到的是带有错误消息的感叹号图标。</p>
+<p class="image-container"><img )="" a="" alt="这里显示了运行程序时出现的 2 条错误消息：Expecting" an="" circle="" each="" error."="" exclamation="" expecting="" is="" left="" mark="" next="" of="" on="" red="" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-first-program/img/f811068764fa4aeb_2880.png?hl=zh-cn 2880w" style="width: 243.50px" the="" there="" title="错误消息" to="" /></p>
+<p>Kotlin 园地中的错误消息<em></em></p>
+<p>错误消息以“Expecting”（预期）一词开头，因为 Kotlin 编译器“预期”识别到某个内容，但在代码中却找不到该内容。在这个示例中，编译器预期在程序的第二行代码中识别到右引号和右圆括号。</p>
+<p>请注意，在 <code dir="ltr" translate="no">println()</code> 语句中，显示的消息有左引号，但没有右引号。即使代码中有右圆括号，编译器也会认为要输出的文本包括圆括号，因为圆括号前面没有右引号。</p>
+<ol start="2" type="1">
+<li>在感叹号与右圆括号之间添加右引号。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Today is sunny!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>主函数包含一行代码（<code dir="ltr" translate="no">println()</code> 语句），其中的文本用引号引起来，再用圆括号括起：<code dir="ltr" translate="no">"Today is sunny!"</code>。</p>
+<ol start="3" type="1">
+<li>再次运行该程序。</li>
+</ol>
+<p>现在应该没有任何错误了，输出窗格应显示以下文本：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Today is sunny!
+</pre></devsite-code>
+<p>错误已修正，做的不错！当您在代码编写和错误排查方面拥有更多经验后，就会认识到在输入代码时注意大小写、拼写、空格、符号和名称极其重要。</p>
+<p>在下一部分中，您将通过一系列练习来操练所学内容。本 Codelab 的结尾会提供解决方法，但请先尽力独立探索答案。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="8" label="练习">
+          
+          <h2 class="step-title" data-text="               9. 练习           " id="8" tabindex="-1">
+              9. 练习
+          </h2>
+          
+          <ol type="1">
+<li>您能否读懂这个程序的代码并猜出其输出内容（不要在 Kotlin 园地中运行）？</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"1"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"2"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"3"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>在您做出猜测后，请复制此代码并将其粘贴到 Kotlin 园地中，看看您的猜测是否正确。</p>
+<ol start="2" type="1">
+<li>通过 Kotlin 园地创建一个输出以下消息的程序：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>I&#39;m
+learning
+Kotlin!
+</pre></devsite-code>
+<ol start="3" type="1">
+<li>复制此程序并将其粘贴到 Kotlin 园地中。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Tuesday"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Thursday"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Wednesday"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Friday"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Monday"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>修正程序，使其输出以下信息：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+</pre></devsite-code>
+<p>现在来做些初级的问题排查练习，请修正以下练习中的错误。对于每个练习，请在浏览器中将代码复制到 Kotlin 园地。尝试运行该程序，然后您会看到一条错误消息。</p>
+<ol start="4" type="1">
+<li>修正此程序中的错误，使其能生成所需的输出。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Tomorrow is rainy"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>所需的输出：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Tomorrow is rainy
+</pre></devsite-code>
+<ol start="5" type="1">
+<li>修正此程序中的错误，使其能生成所需的输出。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">printLine</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"There is a chance of snow"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>所需的输出：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>There is a chance of snow
+</pre></devsite-code>
+<ol start="6" type="1">
+<li>修正此程序中的错误，使其能生成所需的输出。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Cloudy"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Partly Cloudy"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Windy"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>所需的输出：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Cloudy
+Partly Cloudy
+Windy
+</pre></devsite-code>
+<ol start="7" type="1">
+<li>修正此程序中的错误，使其能生成所需的输出。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"How's the weather today?"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>所需的输出：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>How&#39;s the weather today?
+</pre></devsite-code>
+<p>完成这些练习后，请根据下一部分中给出的解决方法检查您的答案。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="9" label="解决方案">
+          
+          <h2 class="step-title" data-text="               10. 解决方法           " id="9" tabindex="-1">
+              10. 解决方法
+          </h2>
+          
+          <ol type="1">
+<li>该程序的输出是：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>1
+2
+3
+</pre></devsite-code>
+<ol start="2" type="1">
+<li>该程序中的代码应如下所示：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"I'm"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"learning"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Kotlin!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>该程序的正确代码如下：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Monday"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Tuesday"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Wednesday"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Thursday"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Friday"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>该程序的第三行缺少指示 <code dir="ltr" translate="no">main</code> 函数的函数主体结束的右花括号。</li>
+</ol>
+<p>正确代码：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Tomorrow is rainy"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>输出：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Tomorrow is rainy
+</pre></devsite-code>
+<ol start="5" type="1">
+<li>在运行该程序时，您会看到 <code dir="ltr" translate="no">Unresolved reference: printLine</code> 错误。这是因为在 Kotlin 中 <code dir="ltr" translate="no">printLine()</code> 不是可识别的函数。您还可以在 Kotlin 园地中查看代码中导致该错误的部分，这部分代码会以红色突出显示。将函数名称更改为 <code dir="ltr" translate="no">println</code>，使程序在输出中显示一行文本，即可修正错误。</li>
+</ol>
+<p>正确代码：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"There is a chance of snow"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>输出：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>There is a chance of snow
+</pre></devsite-code>
+<ol start="6" type="1">
+<li>在运行该程序时，您会看到 <code dir="ltr" translate="no">Unresolved reference: println</code> 错误。此消息并未直接说明如何解决问题。在排查错误时，有时确实可能会出现这种情况，您需要深入检查代码以解决意外行为问题。</li>
+</ol>
+<p>仔细看一下，代码中的第二个 <code dir="ltr" translate="no">println()</code> 函数调用为红色，表示这里存在问题。在 Kotlin 中，每行应该只有一个语句。在这种情况下，您可以将第二个和第三个 <code dir="ltr" translate="no">println()</code> 函数调用移到新行，各自单独占一行，从而解决该问题。</p>
+<p>正确代码：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Cloudy"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Partly Cloudy"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Windy"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>输出：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Cloudy
+Partly Cloudy
+Windy
+</pre></devsite-code>
+<ol start="7" type="1">
+<li>如果您运行该程序，会看到错误消息：<code dir="ltr" translate="no">Function 'main' must have a body</code>。函数主体应该用一对花括号 { } 括起，而不是圆括号 ( )。</li>
+</ol>
+<p>正确代码：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"How's the weather today?"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>输出：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>How&#39;s the weather today?
+</pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="10" label="总结">
+          
+          <h2 class="step-title" data-text="               11. 总结           " id="10" tabindex="-1">
+              11. 总结
+          </h2>
+          
+          <p>太棒了，您完成了本次 Kotlin 入门课程！</p>
+<p>您创建了简单的 Kotlin 程序，然后运行程序来查看输出的文本。您以不同方式修改了程序，并观察这些更改对输出有何影响。编程时出错是很正常的，因此您还开始学习了如何排查和修正代码中的错误；这是非常重要的技巧，会对您以后的编程工作很有帮助。</p>
+<p>欢迎继续学习下一个 Codelab，了解如何使用 Kotlin 中的变量，从而创建更有趣的程序！</p>
+<h2 data-text="摘要" id="summary" is-upgraded="" tabindex="-1">摘要</h2>
+<ul>
+<li>Kotlin 程序需要有一个 <code dir="ltr" translate="no">main</code> 函数作为程序的入口点。</li>
+<li>若要在 Kotlin 中定义函数，请使用 <code dir="ltr" translate="no">fun</code> 关键字，后跟函数名称，用圆括号括起全部输入，后跟用花括号括起来的函数主体。</li>
+<li>函数名称应遵循驼峰命名法，并以小写字母开头。</li>
+<li>使用 <code dir="ltr" translate="no">println()</code> 函数调用输出一些文本。</li>
+<li>参阅 Kotlin 样式指南，了解使用 Kotlin 进行编码时应遵循的格式和代码规范。</li>
+<li>问题排查是解决代码错误的过程。</li>
+</ul>
+<h2 data-text="了解更多内容" id="learn-more" is-upgraded="" tabindex="-1">了解更多内容</h2>
+<ul>
+<li><a href="https://play.kotlinlang.org/byExample/01_introduction/01_Hello%20world" target="_blank">Hello World</a></li>
+<li><a href="https://kotlinlang.org/docs/basic-syntax.html#program-entry-point" target="_blank">程序入口点</a></li>
+<li><a href="https://kotlinlang.org/docs/basic-syntax.html#print-to-the-standard-output" target="_blank">显示标准输出</a></li>
+<li><a href="https://kotlinlang.org/docs/basic-syntax.html#functions" target="_blank">函数的基本语法</a></li>
+<li><a href="https://kotlinlang.org/docs/keyword-reference.html" target="_blank">关键字和运算符</a></li>
+<li><a href="https://kotlinlang.org/docs/functions.html" target="_blank">函数概念</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html" target="_blank"><code dir="ltr" translate="no">println()</code></a></li>
+<li><a href="https://developer.android.com/kotlin/style-guide?hl=zh-cn" target="_blank">Kotlin 样式指南</a></li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-x_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-x.svg?hl=zh-cn"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-youtube_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="//www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-linkedin_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-linkedin.svg?hl=zh-cn"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="q9ujIusm5//cN7AQrIB+ydhWb2anck">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/android/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","https://fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["DevPro__remove_eu_tax_intake_form","Profiles__enable_targeted_hero","Profiles__enable_awarding_url","MiscFeatureFlags__enable_variable_operator_index_yaml","Profiles__enable_page_saving","Profiles__enable_purchase_prompts","MiscFeatureFlags__enable_llms_txt","Profiles__enable_developer_profiles_callout","Concierge__enable_pushui","DevPro__enable_credits_banner","DevPro__enable_free_benefits","Cloud__enable_cloud_dlp_service","MiscFeatureFlags__enable_explicit_template_dependencies","DevPro__enable_payments_first_batch","Search__enable_ai_search_summaries","MiscFeatureFlags__enable_variable_operator","Significatio__enable_by_tenant","EngEduTelemetry__enable_engedu_telemetry","Profiles__enable_playlist_community_acl","DevPro__enable_cloud_innovators_plus","Cloud__enable_llm_concierge_chat","DevPro__enable_embed_profile_creation","Cloud__enable_cloud_shell","Profiles__enable_join_program_group_endpoint","Profiles__enable_completequiz_endpoint","Cloud__fast_free_trial","SignIn__enable_l1_signup_flow","DevPro__enable_nvidia_credits_card","MiscFeatureFlags__remove_cross_domain_tracking_params","Profiles__enable_public_developer_profiles","Cloud__cache_serialized_dynamic_content","DevPro__enable_devpro_offers","DevPro__enable_google_payments_buyflow","Cloud__enable_cloud_shell_fte_user_flow","Experiments__reqs_query_experiments","CloudShell__cloud_shell_button","Profiles__enable_recognition_badges","Profiles__require_profile_eligibility_for_signin","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_stripe_subscription_management","DevPro__enable_g1_integration","Search__enable_ai_search_summaries_for_all","MiscFeatureFlags__enable_project_variables","DevPro__enable_code_assist","Analytics__enable_devpro_interaction_logging","DevPro__enable_devsite_captcha","Profiles__enable_dashboard_curated_recommendations","Profiles__enable_complete_playlist_endpoint","Profiles__enable_callout_notifications","Search__enable_ai_eligibility_checks","Profiles__enable_developer_profile_pages_as_content","Profiles__enable_developer_profile_benefits_ui_redesign","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__fix_lower_breadcrumbs","DevPro__enable_developer_subscriptions","Concierge__enable_devsite_llm_tools","DevPro__enable_google_one_card","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_user_type","Profiles__enable_release_notes_notifications","Concierge__enable_actions_menu","MiscFeatureFlags__enable_view_transitions","Search__enable_suggestions_from_borg","MiscFeatureFlags__developers_footer_dark_image","DevPro__enable_vertex_credit_card","DevPro__enable_firebase_workspaces_card","Cloud__enable_free_trial_server_call","Profiles__enable_profile_collections","Analytics__enable_clearcut_logging","MiscFeatureFlags__enable_framebox_badge_methods","MiscFeatureFlags__developers_footer_image","TpcFeatures__enable_unmirrored_page_left_nav","Concierge__enable_remove_info_panel_tags","Cloud__enable_legacy_calculator_redirect","TpcFeatures__proxy_prod_host","MiscFeatureFlags__gdp_dashboard_reskin_enabled","Profiles__enable_completecodelab_endpoint","Profiles__enable_auto_apply_credits","BookNav__enable_tenant_cache_key","CloudShell__cloud_code_overflow_menu","DevPro__enable_enterprise","MiscFeatureFlags__enable_appearance_cookies","MiscFeatureFlags__enable_dark_theme","Cloud__enable_cloudx_experiment_ids","Search__enable_page_map"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[2,2],[1,1]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

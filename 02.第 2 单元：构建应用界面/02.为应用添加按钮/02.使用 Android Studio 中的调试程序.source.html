@@ -1,0 +1,1902 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=vi" /><title>使用 Android Studio 中的调试程序 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="使用 Android Studio 中的调试程序 &nbsp;|&nbsp; Android Developers"><meta name="description" content="了解如何使用 Android Studio 中的调试程序在运行时检查和调试应用的状态。">
+  <meta property="og:description" content="了解如何使用 Android Studio 中的调试程序在运行时检查和调试应用的状态。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-debugger?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      使用 Android Studio 中的调试程序<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="1VS0Q_wzoEwpJH45_UgEeTaTeYW2AFOiDozYcqOjpqdE" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dice-roller/issues/new?assignees=&amp;labels=&amp;template=&amp;title=Use&#43;the&#43;debugger&#43;in&#43;Android&#43;Studio%3A&#43;Android&#43;Basics&#43;with&#43;Compose" id="basic-android-kotlin-compose-intro-debugger" layout="paginated" no-tooltip="" title="使用 Android Studio 中的调试程序">
+      
+        <google-codelab-step duration="0" step="0" label="开始前须知">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2024-04-23T20:39:29Z" codelab-title="使用 Android Studio 中的调试程序">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 前言           " id="0" tabindex="-1">
+              1. 前言
+          </h2>
+          
+          <p>在此 Codelab 中，您将学习如何使用 Android Studio 中的调试程序来检查 Dice Roller 应用在运行时会发生什么。</p>
+<p>调试程序是一个重要的工具，可让您检查为 Android 应用提供支持的代码的执行情况，以便修复其中的所有 bug。借助该工具，您可以指定何时暂停代码执行，并与变量、方法和代码的其他方面进行手动交互。</p>
+<h2 data-text="前提条件" id="prerequisites" is-upgraded="" tabindex="-1">前提条件</h2>
+<ul>
+<li>基本熟悉 Android Studio</li>
+<li>能够在 Android Studio 中创建和运行基本 Jetpack Compose 应用</li>
+<li>完成<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-build-a-dice-roller-app?hl=zh-cn" target="_blank">“创建交互式 Dice Roller 应用”Codelab</a></li>
+</ul>
+<h2 class="checklist" data-text="学习内容" id="what-youll-learn" is-upgraded="" tabindex="-1">学习内容</h2>
+<ul class="checklist">
+<li>如何将调试程序连接到 Android 应用。</li>
+<li>如何在连接了调试程序的情况下启动应用。</li>
+<li>如何使用调试程序的一些基本功能。</li>
+<li>调试程序通常有什么用途。</li>
+</ul>
+<h2 data-text="所需条件" id="what-youll-need" is-upgraded="" tabindex="-1">所需条件</h2>
+<ul>
+<li>一台安装了 Android Studio 的计算机</li>
+<li>Compose 中 Dice Roller 应用的解决方案代码</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="观看配套代码演示视频（可选）">
+          
+          <h2 class="step-title" data-text="               2. 观看配套代码演示视频（可选）           " id="1" tabindex="-1">
+              2. 观看配套代码演示视频（可选）
+          </h2>
+          
+          <p>如果您想要观看某位课程讲师完成此 Codelab 的过程，请播放以下视频。</p>
+<p>建议将视频全屏展开（使用视频右下角的 <img alt="此符号显示了一个方形，其中的 4 个角是突出显示的，表示全屏模式。" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_2880.png?hl=zh-cn 2880w" style="width: 28.80px" /> 图标），以便更清楚地查看 Android Studio 和相关代码。</p>
+<p>这是可选步骤。您也可以跳过视频，立即开始按照此 Codelab 中的说明操作。</p>
+<devsite-youtube video-id="kjEmRCFgn0M"></devsite-youtube>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="获取起始代码">
+          
+          <h2 class="step-title" data-text="               3. 获取起始代码           " id="2" tabindex="-1">
+              3. 获取起始代码
+          </h2>
+          
+          <p>首先，请下载代码：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dice-roller/archive/refs/heads/main.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>或者，您也可以克隆代码的 GitHub 代码库：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-dice-roller.git
+$ cd basic-android-kotlin-compose-training-dice-roller
+</pre></devsite-code>
+<aside class="special"><p><strong>注意：</strong>起始代码位于所下载代码库的 <code dir="ltr" translate="no">main</code> 分支中。</p>
+</aside>
+<p>您可以在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dice-roller" target="_blank"><strong>GitHub 代码库</strong></a>中浏览代码。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="运行调试程序">
+          
+          <h2 class="step-title" data-text="               4. 运行调试器           " id="3" tabindex="-1">
+              4. 运行调试器
+          </h2>
+          
+          <p>您可以通过以下两种方式将调试程序与应用一起运行：</p>
+<ul>
+<li>将调试程序连接到在设备或模拟器上运行的现有应用进程。</li>
+<li>在连接了调试程序的情况下运行应用。</li>
+</ul>
+<p>无论采用哪种方式，均可在一定程度上实现相同的效果。熟悉这两种方式后，您可以选择您喜欢的方法，也可以视需要选择任一方法。</p>
+<h2 data-text="将调试程序连接到应用进程" id="attach-the-debugger-to-an-app-process" is-upgraded="" tabindex="-1">将调试程序连接到应用进程</h2>
+<p>如果您的应用已在运行，您可以将调试程序连接到该应用。</p>
+<p>如需将调试程序连接到应用进程，请按以下步骤操作：</p>
+<ol type="1">
+<li>点击 <img alt="608818eddd06d35d.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_2880.png?hl=zh-cn 2880w" style="width: 24.00px" /> <strong>Attach Debugger to Android Process</strong>。</li>
+</ol>
+<p class="image-container"><img alt="9bd4c917bad56baa.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>此时将打开 <strong>Choose Process</strong> 对话框，您可以从中选择要将调试程序连接到的进程。</p>
+<ol start="2" type="1">
+<li>选择 <strong><code dir="ltr" translate="no">com.example.diceroller</code></strong>，然后点击 <strong>OK</strong>。</li>
+</ol>
+<p class="image-container"><img alt="a4c65b5bc972bd46.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_2880.png?hl=zh-cn 2880w" style="width: 408.00px" /></p>
+<p>Android Studio 底部会显示 <strong>Debug</strong> 窗格，其中包含一条消息，指出调试程序已连接到目标设备或模拟器。</p>
+<p class="image-container"><img alt="adad34e172cbc49a.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>您已将调试程序连接到您的应用！无需担心这意味着什么，亦或是您可以使用调试程序执行哪些操作，此 Codelab 稍后将对此进行介绍。接下来，您将了解如何启动连接了调试程序的应用。</p>
+<h2 data-text="在连接了调试程序的情况下运行应用" id="run-the-app-with-the-debugger" is-upgraded="" tabindex="-1">在<strong>连接了调试程序</strong>的情况下运行应用</h2>
+<p>如果您从一开始就确定要使用调试程序，可以在连接了调试程序的情况下运行应用，这样能节省一些时间。此外，如果您想调试仅在应用启动时才运行的代码，则需要在连接了调试程序的情况下启动应用。</p>
+<p>如需在连接了调试程序的情况下运行应用，请按以下步骤操作：</p>
+<ol type="1">
+<li>在 <strong>Debug</strong> 窗格中，点击 <img alt="ca283f38f21b0cb7.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_2880.png?hl=zh-cn 2880w" style="width: 36.00px" /> <strong>Stop</strong>，然后在设备或模拟器上关闭应用。</li>
+</ol>
+<p class="image-container"><img alt="3c82e7f80c6c174d.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<ol start="2" type="1">
+<li>点击 <img alt="67f9548b52d797b7.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_2880.png?hl=zh-cn 2880w" style="width: 24.00px" /> <strong>Debug 'app'</strong>。</li>
+</ol>
+<p class="image-container"><img alt="cbf915fde4e6b443.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>Android Studio 底部也显示相同的 <strong>Debug</strong> 窗格，其中包含一些控制台输出。</p>
+<p class="image-container"><img alt="f69e0370c2b5ad0e.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>现在，您已了解如何启动调试程序！接下来，您将了解如何使用调试程序。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="使用调试程序">
+          
+          <h2 class="step-title" data-text="               5. 使用调试程序           " id="4" tabindex="-1">
+              5. 使用调试程序
+          </h2>
+          
+          <h2 data-text="Debug 窗格" id="the-debug-pane" is-upgraded="" tabindex="-1"><strong>Debug</strong> <strong>窗格</strong></h2>
+<p>您可能已经注意到，<strong>Debug</strong> 窗格顶部有不少按钮，但这些按钮现在意义不大，大多数按钮呈灰显状态，无法点击。本部分将介绍调试程序中的常用功能。对于其他按钮，此 Codelab 会在与所学知识相关时进行介绍。</p>
+<p>首次启动调试程序时，您会在 <strong>Debug</strong> 窗格中看到多个按钮。在 <strong>Debug</strong> 窗格的顶部，您会看到 <strong>Debugger</strong> 和 <strong>Console</strong> 按钮。</p>
+<p class="image-container"><img alt="5f35f4c555240598.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>点击 <strong>Console</strong> 按钮会显示应用的 logcat 输出。如果您的代码中有任何日志语句，则输出会在执行这段代码时显示。</p>
+<p>点击 <strong>Debugger</strong> 按钮会显示三个单独的窗格，这些窗格目前是空的，因为您未使用调试程序：</p>
+<ol type="1">
+<li>Frames 显示</li>
+<li>求值和监视表达式条目</li>
+<li>“Variables”窗格</li>
+</ol>
+<p class="image-container"><img alt="3752c14cdd27b8c4.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<h2 data-text="使用常用的调试程序功能" id="use-common-debugger-features" is-upgraded="" tabindex="-1">使用常用的调试程序功能</h2>
+<h3 data-text="设置断点" id="set-a-breakpoint" is-upgraded="" tabindex="-1">设置断点</h3>
+<p>调试程序的一个主要功能是，可让您使用断点让特定代码行停止执行。</p>
+<p>如需在 Android Studio 中设置断点，您需要进入特定代码行，然后点击行号旁边的间距区域。如需取消设置某个断点，您需要点击间距区域中的现有断点以使其消失。</p>
+<ul>
+<li>如需自行尝试，请在设置 <code dir="ltr" translate="no">imageResource</code> 变量的位置设置一个断点。</li>
+</ul>
+<p class="image-container"><img alt="添加和移除断点" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/4e2a6dba91f67ab1.gif?hl=zh-cn" style="width: 414.00px" /></p>
+<h3 data-text="使用“Resume Program”按钮" id="use-the-resume-program-button" is-upgraded="" tabindex="-1">使用“Resume Program”<strong>按钮</strong></h3>
+<p>在上一部分中，您在设置 <code dir="ltr" translate="no">imageResource</code> 变量的位置设置了一个断点。该断点会导致执行在遇到此指令时暂停。使用调试程序暂停代码执行后，您可能需要继续执行，以便继续运行应用。为此，最直接的方法就是使用 <strong>Resume Program</strong> 按钮。</p>
+<p>如需让程序继续运行，请按以下步骤操作：</p>
+<ol type="1">
+<li>点击 <img alt="67f9548b52d797b7.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_2880.png?hl=zh-cn 2880w" style="width: 24.00px" /> <strong>Debug 'app'</strong>。应用启动后，您应该会看到如下图所示的内容：</li>
+</ol>
+<p class="image-container"><img alt="c8a1660c4209458c.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>在让程序继续运行之前，我们有必要对调试程序暂停执行时屏幕上显示的一些内容加以说明：</p>
+<ul>
+<li>现在，<strong>Debug</strong> 窗格中的许多按钮都是可点击的。</li>
+<li><strong>Frames</strong> 窗格会显示大量信息，其中会突出显示对设置了断点的代码行的引用。</li>
+<li><strong>Variables</strong> 窗格会显示许多项，但此应用的变量并不多，因此目前没有大量在此 Codelab 讨论范围内的相关信息。但是，检查变量是调试程序的一项重要功能，因为它可以反映代码在运行时发生的情况。稍后，此 Codelab 会详细介绍如何检查变量。</li>
+</ul>
+<p>如果您在设备或模拟器上查看应用，就会发现屏幕是空白的，因为应用在一行代码处暂停运行了。更具体地说，就是执行在断点处停止了，并且界面尚未呈现。</p>
+<p>请注意，仅仅是设置了断点，并不一定能让应用立即停止运行。这取决于您在代码中放置断点的位置。在本例中，您将断点放置在了应用启动时执行的代码行中。</p>
+<p>切记，只有在尝试执行设置了断点的代码行时，应用才会在断点处暂停运行。您可以通过多种方式让调试程序继续运行，但目前您要使用 <strong>Resume Program</strong> 按钮。</p>
+<ol start="2" type="1">
+<li>点击 <img alt="937f070d95764107.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_2880.png?hl=zh-cn 2880w" style="width: 24.00px" /> <strong>Resume Program</strong>。</li>
+</ol>
+<p class="image-container"><img alt="7d664cd5dd8a2d9b.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_2880.png?hl=zh-cn 2880w" style="width: 432.00px" /></p>
+<p>现在，您应该会看到如下图所示的内容：</p>
+<p class="image-container"><img alt="388c58b0f31f797e.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>大部分信息都会消失，按钮也会重新变为无法点击的状态。在您的设备或模拟器上，应用也会照常显示。这是因为代码在断点处已不再处于暂停状态，并且应用处于正常运行状态。调试程序已连接，但在尝试执行设置了断点的代码行之前，它不会执行很多操作。请保留该断点，因为它在后面的示例中有用。</p>
+<h3 data-text="使用“Step Into”按钮" id="use-the-step-into-button" is-upgraded="" tabindex="-1">使用“Step Into”<strong>按钮</strong></h3>
+<p>借助调试程序的 <strong>Step Into</strong> 按钮，您可以非常方便地在运行时深入探究代码。如果某个指令调用了方法或其他代码段，您可以通过 <strong>Step Into</strong> 按钮进入相应代码，而无需在启动调试程序以设置断点之前手动进入相应位置。</p>
+<p>如需使用 <strong>Step Into</strong> 按钮，请按以下步骤操作：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity</code> 类的 <code dir="ltr" translate="no">onCreate()</code> 函数的 <code dir="ltr" translate="no">setContent</code> lambda 正文（此处会调用 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数）中创建一个断点。</li>
+</ol>
+<p class="image-container"><img alt="aa4337eabccc85d.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<ol start="2" type="1">
+<li>点击 <img alt="67f9548b52d797b7.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_2880.png?hl=zh-cn 2880w" style="width: 24.00px" /> <strong>Debug ‘app'</strong>，在连接了调试程序的情况下重新运行应用。执行会在调用 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数的代码行处暂停。</li>
+<li>点击 <img alt="1e7236e85d113e8f.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_2880.png?hl=zh-cn 2880w" style="width: 24.00px" /> <strong>Step Into</strong>。</li>
+</ol>
+<p class="image-container"><img alt="73a80d2b10caea5f.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>现在，系统会突出显示第 40 行，<strong>Debug</strong> 窗格中的 <strong>Frames</strong> 窗格也会指示代码已在第 40 行暂停。</p>
+<p class="image-container"><img alt="ece32a03703a0531.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>如果展开 <strong>Frames</strong> 窗格，您会看到突出显示的代码行后面的代码行以 <code dir="ltr" translate="no">invoke:</code> 开头，后跟行号（在上一张图片中为“32”）。这称为“调用堆栈”。<em></em>实质上，它显示的是引导代码执行到当前代码行的调用链。在本例中，第 32 行包含用于调用 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数的指令。</p>
+<p>当调试程序在相应函数调用中设置的断点处停止时，如果您点击 <strong>Step Into</strong> 按钮，调试程序会步入到相应函数，这会导致系统执行到第 40 行代码（即声明该函数的位置）。<em></em>突出显示的代码行指示执行暂停的位置。如果突出显示的代码行后面的各代码行有关联的行号，则表示执行路径。在本示例中，调试程序会指明第 32 行中的指令已将您带到第 40 行。</p>
+<ol start="4" type="1">
+<li>点击 <img alt="937f070d95764107.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_2880.png?hl=zh-cn 2880w" style="width: 24.00px" /> <strong>Resume Program</strong>。</li>
+</ol>
+<p>这应该会引导您前往您设置的原始断点。您或许能够进一步了解您在第一个示例中停止执行时看到的内容。下图与 <strong>Resume program</strong> 部分中第 6 步的图片相同：</p>
+<p class="image-container"><img alt="76a1bef8e6cdf656.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>在调用堆栈中，您可以看到 <code dir="ltr" translate="no">DiceWithButtonAndImage()</code> 函数在第 50 行暂停执行，并且该函数是从 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数的第 41 行调用的，而后者是从第 32 行调用的。借助调用堆栈功能，您可以了解执行路径。如果应用中的许多不同位置都会调用某个函数，函数堆栈非常有用。</p>
+<p>借助 <strong>Step Into</strong> 按钮，您可以进入某个函数并暂停执行，而无需在函数本身内设置断点。在本例中，您是在对 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数的调用中设置了断点。当您点击 <strong>Step Into</strong> 按钮时，执行会在 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数中暂停。</p>
+<p>Dice Roller 是一款相当小的应用，因为文件、类或函数的数量都不多。当您处理大型应用时，调试程序的 <strong>Step Into</strong> 功能会变得更加实用，因为借助该功能，您可以详细展开代码，而无需自行浏览代码。</p>
+<h3 data-text="使用“Step Over”按钮" id="use-the-step-over-button" is-upgraded="" tabindex="-1">使用“Step Over”<strong>按钮</strong></h3>
+<p>借助 <strong>Step Over</strong> 按钮，您可以通过另一种方式在运行时逐步检查应用代码。它会将执行移至下一行代码，然后让调试程序继续执行。</p>
+<p>如需使用 <strong>Step Over</strong> 按钮，请按以下步骤操作：</p>
+<ul>
+<li>点击 <img alt="21e306488908a0f3.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_2880.png?hl=zh-cn 2880w" style="width: 24.00px" /> <strong>Step Over</strong>。</li>
+</ul>
+<p class="image-container"><img alt="25b1ea30948cfc31.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>现在，您会看到调试程序在执行下一代码行（即第 51 行）时暂停执行代码。您可以依次逐步检查每行代码。</p>
+<p class="image-container"><img alt="17e5998c76809c62.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<h3 data-text="使用“Step Out”按钮" id="use-the-step-out-button" is-upgraded="" tabindex="-1">使用“Step Out”<strong>按钮</strong></h3>
+<p><strong>Step Out</strong> 按钮的作用与 <strong>Step Into</strong> 按钮相反。<strong>Step Out</strong> 按钮用于在调用堆栈中上移，而非展开调用堆栈的细目。</p>
+<p>如需使用 <strong>Step Out</strong> 按钮，请按以下步骤操作：</p>
+<ol type="1">
+<li>点击 <img alt="fbe8baec2ab73e94.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_2880.png?hl=zh-cn 2880w" style="width: 24.00px" /> <strong>Step Out</strong>。</li>
+</ol>
+<p>您能否猜出程序会在哪个代码行暂停？</p>
+<p class="image-container"><img alt="9e7ce3969c28f091.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<ol start="2" type="1">
+<li>请注意，调试程序已退出 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数，并已回到调用该函数的代码行。</li>
+</ol>
+<p class="image-container"><img alt="fd19d30216463877.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>当您发现自己在方法调用堆栈中的位置过深时，<strong>Step Out</strong> 按钮是一个非常有用的工具。借助该按钮，您可以在调用堆栈中逐步上移，无需逐步检查您单步进入的每个方法的所有代码。</p>
+<h2 data-text="检查变量" id="inspect-variables" is-upgraded="" tabindex="-1"><strong>检查变量</strong></h2>
+<p>此 Codelab 前面的部分简要介绍了 <strong>Variables</strong> 窗格，该窗格更深入地说明了如何检查其中所示的变量，帮助您调试应用中的问题。</p>
+<p>如需检查变量，请按以下步骤操作：</p>
+<ol type="1">
+<li>点击断点以将其从调用 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数的位置移除，但应将断点保留在设置 <code dir="ltr" translate="no">imageResource</code> 变量的位置。</li>
+<li>点击 <img alt="67f9548b52d797b7.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_2880.png?hl=zh-cn 2880w" style="width: 24.00px" /> <strong>Debug 'app'</strong>。您应该会看到，<code dir="ltr" translate="no">result$delegate</code> 变量处于 <code dir="ltr" translate="no">MutableState</code> 并且值为 1。这是因为，在定义该变量时，系统将其实例化为值为 1 的 <code dir="ltr" translate="no">mutableStateOf</code>。<code dir="ltr" translate="no">MutableState</code> 表示结果变量具有可以更改的状态。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：<strong>Variables</strong> 窗格中的 <code dir="ltr" translate="no">result$delegate</code> 变量是指代码中的 <code dir="ltr" translate="no">result</code> 变量。之所以使用 <code dir="ltr" translate="no">$delegate</code> 表示法，是因为 <code dir="ltr" translate="no">result</code> 变量是 <code dir="ltr" translate="no">remember</code> 代理。</p>
+</aside>
+<p class="image-container"><img alt="ac37c7436b5235c0.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<ol start="3" type="1">
+<li>点击 <img alt="937f070d95764107.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_2880.png?hl=zh-cn 2880w" style="width: 24.00px" /> <strong>Resume Program</strong>。</li>
+<li>在应用中，点击 <strong>Roll</strong>。您的代码将再次在断点处暂停，并且您可能会看到 <code dir="ltr" translate="no">result$delegate</code> 变量变为其他值。</li>
+</ol>
+<p>在此图中，<code dir="ltr" translate="no">result$delegate</code> 变量的可变状态值为 2，演示了如何在运行时使用调试程序检查变量。在功能更齐全的应用中，变量的值可能会导致崩溃。使用调试程序检查变量时，您可以更深入地了解崩溃详情，从而修复 bug。</p>
+<p class="image-container"><img alt="a869ec4ba3b66fbf.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="5" label="总结">
+          
+          <h2 class="step-title" data-text="               6. 总结           " id="5" tabindex="-1">
+              6. 总结
+          </h2>
+          
+          <p>恭喜！您使用了 Android Studio 中的调试程序。</p>
+<h2 data-text="摘要" id="summary" is-upgraded="" tabindex="-1">摘要</h2>
+<ul>
+<li>将调试程序连接到应用。</li>
+<li>在连接了调试程序的情况下启动应用。</li>
+<li>熟悉调试程序窗格。</li>
+<li>设置断点。</li>
+<li>从调试程序继续运行程序。</li>
+<li>使用 <strong>Step Into</strong> 按钮。</li>
+<li>使用 <strong>Step Over</strong> 按钮。</li>
+<li>使用 <strong>Step Out</strong> 按钮。</li>
+<li>使用调试程序检查变量。</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-x_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-x.svg?hl=zh-cn"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-youtube_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="//www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-linkedin_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-linkedin.svg?hl=zh-cn"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="GtAN++pM6BIrcuQU3GdP/9z+TcXDqg">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/android/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","https://fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["DevPro__remove_eu_tax_intake_form","Cloud__enable_cloud_shell","Concierge__enable_actions_menu","Experiments__reqs_query_experiments","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_awarding_url","DevPro__enable_free_benefits","MiscFeatureFlags__enable_variable_operator_index_yaml","Analytics__enable_devpro_interaction_logging","Profiles__enable_callout_notifications","MiscFeatureFlags__enable_dark_theme","Profiles__enable_developer_profile_pages_as_content","Profiles__enable_release_notes_notifications","TpcFeatures__proxy_prod_host","MiscFeatureFlags__remove_cross_domain_tracking_params","Concierge__enable_remove_info_panel_tags","Profiles__enable_completequiz_endpoint","DevPro__enable_devsite_captcha","Profiles__enable_developer_profiles_callout","MiscFeatureFlags__enable_framebox_badge_methods","CloudShell__cloud_code_overflow_menu","Profiles__enable_purchase_prompts","MiscFeatureFlags__developers_footer_image","Search__enable_ai_search_summaries_for_all","DevPro__enable_devpro_offers","SignIn__enable_l1_signup_flow","Search__enable_page_map","Profiles__enable_stripe_subscription_management","DevPro__enable_g1_integration","Concierge__enable_devsite_llm_tools","Search__enable_ai_search_summaries","MiscFeatureFlags__enable_variable_operator","MiscFeatureFlags__fix_lower_breadcrumbs","DevPro__enable_code_assist","MiscFeatureFlags__enable_llms_txt","DevPro__enable_credits_banner","CloudShell__cloud_shell_button","MiscFeatureFlags__enable_view_transitions","Profiles__enable_recognition_badges","DevPro__enable_embed_profile_creation","Profiles__enable_dashboard_curated_recommendations","MiscFeatureFlags__developers_footer_dark_image","DevPro__enable_google_payments_buyflow","DevPro__enable_cloud_innovators_plus","Profiles__enable_targeted_hero","DevPro__enable_google_one_card","Cloud__cache_serialized_dynamic_content","Profiles__enable_auto_apply_credits","Cloud__enable_cloud_dlp_service","Cloud__fast_free_trial","Profiles__require_profile_eligibility_for_signin","DevPro__enable_nvidia_credits_card","Profiles__enable_public_developer_profiles","BookNav__enable_tenant_cache_key","MiscFeatureFlags__enable_project_variables","Cloud__enable_free_trial_server_call","Significatio__enable_by_tenant","Cloud__enable_cloud_shell_fte_user_flow","EngEduTelemetry__enable_engedu_telemetry","Cloud__enable_cloudx_experiment_ids","Cloud__enable_legacy_calculator_redirect","Concierge__enable_pushui","Profiles__enable_user_type","Profiles__enable_profile_collections","MiscFeatureFlags__enable_appearance_cookies","Cloud__enable_llm_concierge_chat","DevPro__enable_payments_first_batch","DevPro__enable_enterprise","DevPro__enable_developer_subscriptions","Profiles__enable_complete_playlist_endpoint","MiscFeatureFlags__enable_explain_this_code","TpcFeatures__enable_unmirrored_page_left_nav","Profiles__enable_completecodelab_endpoint","Search__enable_ai_eligibility_checks","Search__enable_dynamic_content_confidential_banner","DevPro__enable_vertex_credit_card","Search__enable_suggestions_from_borg","Profiles__enable_playlist_community_acl","Profiles__enable_developer_profile_benefits_ui_redesign","MiscFeatureFlags__enable_explicit_template_dependencies","Profiles__enable_join_program_group_endpoint","DevPro__enable_firebase_workspaces_card","Profiles__enable_page_saving","Analytics__enable_clearcut_logging","MiscFeatureFlags__gdp_dashboard_reskin_enabled"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[2,2],[1,1]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

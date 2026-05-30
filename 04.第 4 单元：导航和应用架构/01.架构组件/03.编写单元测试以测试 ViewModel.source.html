@@ -1,0 +1,2381 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=vi" /><title>为 ViewModel 编写单元测试 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="为 ViewModel 编写单元测试 &nbsp;|&nbsp; Android Developers"><meta name="description" content="了解如何测试 ViewModel 以验证应用的正确性、功能行为和易用性。">
+  <meta property="og:description" content="了解如何测试 ViewModel 以验证应用的正确性、功能行为和易用性。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      为 ViewModel 编写单元测试<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="1AkpTrgdfwCgTFMn3Yg-ZvK8NQZUNhimgNOdPjuoQ8RI" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-unscramble/issues/new?assignees=&amp;labels=&amp;template=android-basics–viewmodel-and-state-in-compose.md&amp;title=Android&#43;Basics%3A&#43;Viewmodel&#43;and&#43;State&#43;with&#43;Compose" id="basic-android-kotlin-compose-test-viewmodel" layout="paginated" no-tooltip="" title="为 ViewModel 编写单元测试">
+      
+        <google-codelab-step duration="0" step="0" label="准备工作">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2024-06-18T01:00:32Z" codelab-title="为 ViewModel 编写单元测试">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 前言           " id="0" tabindex="-1">
+              1. 前言
+          </h2>
+          
+          <p>在此 Codelab 中，您将学习如何编写单元测试来测试 <code dir="ltr" translate="no">ViewModel</code> 组件。您将为 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-unscramble.git" target="_blank">Unscramble</a> 游戏应用添加单元测试。Unscramble 应用是一款有趣的文字游戏，玩家需要猜测一个乱序词，猜对将获得积分。下图显示了应用的预览：</p>
+<p class="image-container"><img alt="bb1e97c357603a27.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bb1e97c357603a27_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>在<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-write-automated-tests?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-2-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-write-automated-tests&hl=zh-cn#0" target="_blank">编写自动化测试</a> Codelab 中，您了解了什么是自动化测试以及自动化测试为何如此重要。您还学习了如何实现单元测试。</p>
+<p>您已完成以下内容的学习：</p>
+<ul>
+<li>自动化测试是一段代码，用于验证另一段代码的准确性。</li>
+<li>测试是应用开发流程的一个重要环节。通过持续对应用运行测试，您可以在公开发布应用之前验证其功能行为和易用性。</li>
+<li>借助单元测试，您可以测试函数、类和属性。</li>
+<li>本地单元测试在您的工作站上执行，这意味着它们可以在开发环境中运行，不需要使用 Android 设备或模拟器。换句话说，本地测试是在您的计算机上运行的。</li>
+</ul>
+<p>在继续之前，请确保您已完成以下 Codelab：<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-write-automated-tests?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-2-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-write-automated-tests&hl=zh-cn#0" target="_blank">编写自动化测试</a>和 <a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-viewmodel-and-state?hl=zh-cn" target="_blank">Compose 中的 ViewModel 和状态</a>。</p>
+<h2 data-text="前提条件" id="prerequisites" is-upgraded="" tabindex="-1">前提条件</h2>
+<ul>
+<li>了解 Kotlin，包括函数、lambda 和无状态可组合函数</li>
+<li>具备在 Jetpack Compose 中构建布局的基础知识</li>
+<li>具备有关 Material Design 的基础知识</li>
+<li>具备有关如何实现 ViewModel 的基础知识</li>
+</ul>
+<h2 class="checklist" data-text="学习内容" id="what-youll-learn" is-upgraded="" tabindex="-1">学习内容</h2>
+<ul class="checklist">
+<li>如何在应用模块的 <strong><code dir="ltr" translate="no">build.gradle.kts</code></strong> 文件中为单元测试添加依赖项</li>
+<li>如何创建测试策略以实现单元测试</li>
+<li>如何使用 JUnit4 编写单元测试并理解测试实例生命周期</li>
+<li>如何运行、分析和改进代码覆盖率</li>
+</ul>
+<h2 data-text="构建内容" id="what-youll-build" is-upgraded="" tabindex="-1">构建内容</h2>
+<ul>
+<li>针对 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-unscramble.git" target="_blank">Unscramble</a> 游戏应用的单元测试</li>
+</ul>
+<h2 data-text="所需条件" id="what-youll-need" is-upgraded="" tabindex="-1">所需条件</h2>
+<ul>
+<li>最新版本的 Android Studio</li>
+</ul>
+<h2 data-text="获取起始代码" id="get-the-starter-code" is-upgraded="" tabindex="-1">获取起始代码</h2>
+<p>首先，请下载起始代码：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-unscramble/archive/refs/heads/viewmodel.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>或者，您也可以克隆该代码的 GitHub 代码库：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-unscramble.git
+$ cd basic-android-kotlin-compose-training-unscramble
+$ git checkout viewmodel
+</pre></devsite-code>
+<aside class="special"><p><strong>注意：</strong>起始代码位于所下载代码库的 <code dir="ltr" translate="no">viewmodel</code> 分支中。</p>
+</aside>
+<p>您可以在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-unscramble/tree/viewmodel" target="_blank"><code dir="ltr" translate="no">Unscramble</code></a> GitHub 代码库中浏览该代码。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="起始代码概览">
+          
+          <h2 class="step-title" data-text="               2. 起始代码概览           " id="1" tabindex="-1">
+              2. 起始代码概览
+          </h2>
+          
+          <p>在第 2 单元中，您学习了如何将单元测试代码放在 <strong>src</strong> 文件夹下的 <strong>test</strong> 源代码集内，如下图所示：</p>
+<p class="image-container"><img alt="1a2dceb0dd9c618d.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1a2dceb0dd9c618d_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>起始代码包含以下文件：</p>
+<ul>
+<li><strong><code dir="ltr" translate="no">WordsData.kt</code></strong><strong></strong>：此文件包含要用于测试的字词列表，以及用于从乱序词中获取拼写正确的单词的 <code dir="ltr" translate="no">getUnscrambledWord()</code> 辅助函数。您无需修改此文件。</li>
+</ul>
+<aside class="special"><p><strong>注意</strong>：<code dir="ltr" translate="no">GameViewModel</code> 将使用测试源代码集 <code dir="ltr" translate="no">WordsData.kt</code> 文件中的 <code dir="ltr" translate="no">allWords</code> 属性。运行测试时，此属性会替换应用源代码集 <code dir="ltr" translate="no">WordsData.kt</code> 文件中提供的 <code dir="ltr" translate="no">allWords</code> 属性。</p>
+<p>在下一单元中，您将了解一项叫作“依赖项注入”的新方法，该方法可促进松散耦合，并帮助您在运行测试时使用不同的资源。</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="添加测试依赖项">
+          
+          <h2 class="step-title" data-text="               3. 添加测试依赖项           " id="2" tabindex="-1">
+              3. 添加测试依赖项
+          </h2>
+          
+          <p>在此 Codelab 中，您将使用 JUnit 框架来编写单元测试。如需使用该框架，您需要将其作为依赖项添加到应用模块的 <strong><code dir="ltr" translate="no">build.gradle.kts</code></strong> 文件中。</p>
+<p>您可以使用 <code dir="ltr" translate="no">implementation</code> 配置来指定应用所需的依赖项。例如，如需在应用中使用 <code dir="ltr" translate="no">ViewModel</code> 库，您必须向 <code dir="ltr" translate="no">androidx.lifecycle:lifecycle-viewmodel-compose</code> 添加依赖项，如以下代码段所示：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">dependencies</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>现在，您可以在应用的源代码中使用该库，Android Studio 会帮助您将其添加到生成的应用软件包 (APK) 文件中。但是，不推荐将单元测试代码嵌入到 APK 文件中。测试代码不会添加用户会使用的任何功能，并且还会对 APK 大小产生影响。测试代码所需的依赖项也是如此；您应将它们分开。为此，您可以使用 <code dir="ltr" translate="no">testImplementation</code> 配置，这表示该配置适用于本地测试源代码，而非应用代码。</p>
+<aside class="special"><p><strong>注意</strong>：每个 Android 应用都会经过编译并打包到一个文件中，即所谓的应用软件包 (APK)，该文件包含应用的所有代码、资源、资产和清单文件。为方便起见，应用软件包文件通常称为 APK，其扩展名为 <strong>.apk</strong>。搭载 Android 的设备使用此文件安装应用。</p>
+</aside>
+<p>如需向您的项目添加依赖项，请在 <strong><code dir="ltr" translate="no">build.gradle.kts</code></strong> 文件的依赖项代码块中指定依赖项配置（例如 <code dir="ltr" translate="no">implementation</code> 或 <code dir="ltr" translate="no">testImplementation</code>）。每种依赖项配置都向 Gradle 提供了有关如何使用相应依赖项的不同说明。</p>
+<p>如需添加依赖项，请执行以下操作：</p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">app</code> 模块的 <strong><code dir="ltr" translate="no">build.gradle.kts</code></strong> 文件，该文件位于 <strong>Project</strong> 窗格的 <strong><code dir="ltr" translate="no">app</code></strong> 目录中。</li>
+</ol>
+<p class="image-container"><img alt="bc235c0754e4e0f2.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/bc235c0754e4e0f2_2880.png?hl=zh-cn 2880w" style="width: 480.62px" /></p>
+<ol start="2" type="1">
+<li>在文件内，向下滚动，直到找到 <code dir="ltr" translate="no">dependencies{}</code> 代码块。使用 <code dir="ltr" translate="no">testImplementation</code> 配置为 <code dir="ltr" translate="no">junit</code> 添加依赖项。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">plugins</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-n">android</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-n">dependencies</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">testImplementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"junit:junit:4.13.2"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>在 <strong>build.gradle.kts</strong> 文件顶部的通知栏中，点击 <strong>Sync Now</strong>，这将完成导入和构建，如以下屏幕截图所示：</li>
+</ol>
+<p class="image-container"><img alt="1c20fc10750ca60c.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c20fc10750ca60c_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<h2 data-text="Compose 物料清单 (BoM)" id="compose-bill-of-materials-bom" is-upgraded="" tabindex="-1"><strong>Compose 物料清单 (BoM)</strong></h2>
+<p>建议使用 Compose 物料清单 (BoM) 管理 Compose 库版本。借助 BoM，您只需指定 BoM 的版本，即可管理所有 Compose 库版本。</p>
+<p>请注意 <code dir="ltr" translate="no">app</code> 模块的 <code dir="ltr" translate="no">build.gradle.kts</code> 文件中的依赖项部分。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy over</span>
+<span class="devsite-syntax-c1">// This is part of starter code</span>
+<span class="devsite-syntax-n">dependencies</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-c1">// Import the Compose BOM</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">platform</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose:compose-bom:2023.06.01"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose.material3:material3"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose.ui:ui"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose.ui:ui-graphics"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose.ui:ui-tooling-preview"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>请注意以下几点：</p>
+<ul>
+<li>未指定 Compose 库版本号。</li>
+<li>BoM 是使用 <code dir="ltr" translate="no">implementation platform("androidx.compose:compose-bom:2023.06.01")</code> 导入的</li>
+</ul>
+<p>这是因为 BoM 本身包含指向不同 Compose 库的最新稳定版的链接，以便它们能够很好地协同工作。在应用中使用 BoM 时，您无需向 Compose 库依赖项本身添加任何版本。更新 BoM 版本时，您使用的所有库都会自动更新到新版本。</p>
+<p>如需将 BoM 与 Compose 测试库（插桩测试）搭配使用，您需要导入 <code dir="ltr" translate="no">androidTestImplementation platform("androidx.compose:compose-bom:xxxx.xx.xx")</code>。您可以创建一个变量，并将其重复用于 <code dir="ltr" translate="no">implementation</code> 和 <code dir="ltr" translate="no">androidTestImplementation</code>，如下所示。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Example, not need to copy over</span>
+<span class="devsite-syntax-n">dependencies</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-c1">// Import the Compose BOM</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">platform</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose:compose-bom:2023.06.01"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose.material:material"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose.ui:ui"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose.ui:ui-tooling-preview"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">androidTestImplementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">platform</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose:compose-bom:2023.06.01"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">androidTestImplementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose.ui:ui-test-junit4"</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：Compose BoM 仅适用于 Compose 库，而不适用于生命周期 <code dir="ltr" translate="no">androidx.lifecycle</code> 库等其他库。</p>
+</aside>
+<p>太好了！您已成功将测试依赖项添加到应用中，并了解了 BoM。现在，您可以添加一些单元测试了。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="测试策略">
+          
+          <h2 class="step-title" data-text="               4. 测试策略           " id="3" tabindex="-1">
+              4. 测试策略
+          </h2>
+          
+          <p>良好的测试策略应围绕代码的不同路径和边界。在最基本的层面上，您可以将测试分类为三种场景：成功路径、错误路径和边界情况。</p>
+<ul>
+<li><strong>成功路径：</strong>成功路径测试（也称为理想路径测试）侧重于测试正向流的功能。正向流是指不存在任何异常或错误情况的流。与错误路径和边界情况场景相比，创建成功路径场景的详尽列表是很容易的，因为它们关注的是应用的预期行为。</li>
+</ul>
+<p>Unscramble 应用中的成功路径示例如下：当用户输入正确的单词并点击 <strong>Submit</strong> 按钮时，系统会正确更新得分、单词数和乱序词。</p>
+<ul>
+<li><strong>错误路径</strong>：错误路径测试侧重于测试负向流的功能，即检查应用如何响应错误情况或无效用户输入。确定所有可能的错误流是一项极具挑战性的任务，因为如果未实现预期行为，则会有许多可能的结果。</li>
+</ul>
+<p>一项一般性建议是列出所有可能的错误路径，针对这些错误编写测试，并随着您发现不同的场景而不断改进单元测试。</p>
+<p>Unscramble 应用中的错误路径示例如下：当用户输入错误的单词并点击 <strong>Submit</strong> 按钮时，这会导致系统显示错误消息，并且不会更新得分和单词数。</p>
+<ul>
+<li><strong>边界情况</strong>：边界情况侧重于测试应用中的边界条件。在 Unscramble 应用中，边界会检查应用加载时的界面状态，以及用户达到单词数量上限后的界面状态。</li>
+</ul>
+<p>围绕这些类别创建测试场景，可以作为测试计划的准则。</p>
+<h2 data-text="创建测试" id="create-tests" is-upgraded="" tabindex="-1">创建测试</h2>
+<p>有效的单元测试通常具有以下四个属性：</p>
+<ul>
+<li><strong>有针对性</strong>：测试应侧重于某个单元，例如一段代码，通常是某个类或方法。测试应有针对性并侧重于验证单段代码的正确性，而不是同时验证多段代码。</li>
+<li><strong>易于理解</strong>：当您阅读代码时，代码应当简单且易于理解。开发者应当能够立即一目了然地了解测试背后的意图。</li>
+<li><strong>确定性</strong>：应保持一致的通过或失败结果。如果您运行测试多次且没有更改任何代码，测试应得到相同的结果。测试应避免不可靠性，也就是在未修改代码的情况下，不得在一个实例中测试失败，而在另一个实例中测试通过。</li>
+<li><strong>独立性</strong>：测试不需要任何人为互动或设置，即可独立运行。</li>
+</ul>
+<h3 data-text="成功路径" id="success-path" is-upgraded="" tabindex="-1"><strong>成功路径</strong></h3>
+<p>如需为成功路径编写单元测试，您需要做出以下断言 - 在 <code dir="ltr" translate="no">GameViewModel</code> 的实例已初始化的情况下，如果用正确的猜测词调用 <code dir="ltr" translate="no">updateUserGuess()</code>，随后调用 <code dir="ltr" translate="no">checkUserGuess()</code> 方法，则：</p>
+<ul>
+<li>系统会将正确的猜测结果传递给 <code dir="ltr" translate="no">updateUserGuess()</code> 方法。</li>
+<li>调用 <code dir="ltr" translate="no">checkUserGuess()</code> 方法。</li>
+<li>系统正确更新 <code dir="ltr" translate="no">score</code> 和 <code dir="ltr" translate="no">isGuessedWordWrong</code> 状态的值。</li>
+</ul>
+<p>完成下列步骤来创建测试：</p>
+<ol type="1">
+<li>在测试源代码集下创建一个新的软件包 <code dir="ltr" translate="no">com.example.android.unscramble.ui.test</code> 并添加文件，如以下屏幕截图所示：</li>
+</ol>
+<p class="image-container"><img alt="57d004ccc4d75833.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/57d004ccc4d75833_2880.png?hl=zh-cn 2880w" style="width: 292.49px" /></p>
+<p class="image-container"><img alt="f98067499852bdce.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/f98067499852bdce_2880.png?hl=zh-cn 2880w" style="width: 624.00px" title="Android Studio“Project”视图，显示了新建的 ui.test 软件包和 GameViewModel 文件" /></p>
+<p>若要为 <code dir="ltr" translate="no">GameViewModel</code> 类编写单元测试，您需有该类的一个实例，以便调用该类的方法并验证状态。</p>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">GameViewModelTest</code> 类的主体中，声明 <code dir="ltr" translate="no">viewModel</code> 属性并为其分配 <code dir="ltr" translate="no">GameViewModel</code> 类的实例。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">GameViewModelTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">viewModel</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GameViewModel</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>若要为成功路径编写单元测试，请创建一个 <code dir="ltr" translate="no">gameViewModel_CorrectWordGuessed_ScoreUpdatedAndErrorFlagUnset()</code> 函数，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">GameViewModelTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">viewModel</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GameViewModel</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_CorrectWordGuessed_ScoreUpdatedAndErrorFlagUnset</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>导入以下代码：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">org.junit.Test</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：以上代码使用 <code dir="ltr" translate="no">thingUnderTest_TriggerOfTest_ResultOfTest</code> 格式来命名测试函数：</p>
+<ul>
+<li><code dir="ltr" translate="no">thingUnderTest</code> = <code dir="ltr" translate="no">gameViewModel</code></li>
+<li><code dir="ltr" translate="no">TriggerOfTest</code> = <code dir="ltr" translate="no">CorrectWordGuessed</code></li>
+<li><code dir="ltr" translate="no">ResultOfTest</code>  = <code dir="ltr" translate="no">ScoreUpdatedAndErrorFlagUnset</code></li>
+</ul>
+</aside>
+<p>如需将正确的玩家单词传递给 <code dir="ltr" translate="no">viewModel.updateUserGuess()</code> 方法，您需要从 <code dir="ltr" translate="no">GameUiState</code> 中的乱序词中获取字母顺序正确的相应单词。为此，请先获取当前的游戏界面状态。</p>
+<ol start="5" type="1">
+<li>在函数主体中，创建一个 <code dir="ltr" translate="no">currentGameUiState</code> 变量并为其分配 <code dir="ltr" translate="no">viewModel.uiState.value</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_CorrectWordGuessed_ScoreUpdatedAndErrorFlagUnset</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<aside class="warning"><p><strong>警告</strong>：这种检索 uiState 的方式是可行的，因为您使用了 <code dir="ltr" translate="no">MutableStateFlow</code>。在接下来的单元中，您将学习用于创建数据流的 <code dir="ltr" translate="no">StateFlow</code> 的高级用法，您需要做出响应来处理数据流。对于这些场景，您将使用不同的方法和方式来编写单元测试。</p>
+</aside>
+<ol start="6" type="1">
+<li>如需获取正确的玩家猜测词，请使用 <code dir="ltr" translate="no">getUnscrambledWord()</code> 函数，该函数接受 <code dir="ltr" translate="no">currentGameUiState.currentScrambledWord</code> 作为参数并返回字母顺序正确的单词。将此返回值存储在名称为 <code dir="ltr" translate="no">correctPlayerWord</code> 的新只读变量中，并分配 <code dir="ltr" translate="no">getUnscrambledWord()</code> 函数返回的值。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_CorrectWordGuessed_ScoreUpdatedAndErrorFlagUnset</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="7" type="1">
+<li>如需验证猜测的单词是否正确，请添加对 <code dir="ltr" translate="no">viewModel.updateUserGuess()</code> 方法的调用，并将 <code dir="ltr" translate="no">correctPlayerWord</code> 变量作为参数传递。然后添加对 <code dir="ltr" translate="no">viewModel.checkUserGuess()</code> 方法的调用，以验证猜测结果。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_CorrectWordGuessed_ScoreUpdatedAndErrorFlagUnset</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">updateUserGuess</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">correctPlayerWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">checkUserGuess</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>现在，您可以断言游戏状态符合您的预期了。</p>
+<ol start="8" type="1">
+<li>从 <code dir="ltr" translate="no">viewModel.uiState</code> 属性的值中获取 <code dir="ltr" translate="no">GameUiState</code> 类的实例，并将其存储在 <code dir="ltr" translate="no">currentGameUiState</code> 变量中。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_CorrectWordGuessed_ScoreUpdatedAndErrorFlagUnset</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">updateUserGuess</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">correctPlayerWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">checkUserGuess</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="9" type="1">
+<li>如需检查猜测的单词是否正确以及得分是否已更新，请使用 <code dir="ltr" translate="no">assertFalse()</code> 函数来验证 <code dir="ltr" translate="no">currentGameUiState.isGuessedWordWrong</code> 属性为 <code dir="ltr" translate="no">false</code>，并使用 <code dir="ltr" translate="no">assertEquals()</code> 函数来验证 <code dir="ltr" translate="no">currentGameUiState.score</code> 属性的值等于 <code dir="ltr" translate="no">20</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_CorrectWordGuessed_ScoreUpdatedAndErrorFlagUnset</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">updateUserGuess</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">correctPlayerWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">checkUserGuess</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that checkUserGuess() method updates isGuessedWordWrong is updated correctly.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertFalse</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">isGuessedWordWrong</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that score is updated correctly.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">20</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">score</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="10" type="1">
+<li>导入以下代码：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">org.junit.Assert.assertEquals</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">org.junit.Assert.assertFalse</span>
+</code></pre></devsite-code>
+<ol start="11" type="1">
+<li>若要使值 <code dir="ltr" translate="no">20</code> 可读且可重复使用，请创建一个伴生对象，并将 <code dir="ltr" translate="no">20</code> 分配给名称为 <code dir="ltr" translate="no">SCORE_AFTER_FIRST_CORRECT_ANSWER</code> 的 <code dir="ltr" translate="no">private</code> 常量。使用新创建的常量更新测试。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">GameViewModelTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_CorrectWordGuessed_ScoreUpdatedAndErrorFlagUnset</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// Assert that score is updated correctly.</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">SCORE_AFTER_FIRST_CORRECT_ANSWER</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">score</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">companion</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-err">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">SCORE_AFTER_FIRST_CORRECT_ANSWER</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">SCORE_INCREASE</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="12" type="1">
+<li>运行测试。</li>
+</ol>
+<p>测试应当通过，因为所有断言均有效，如以下屏幕截图所示：</p>
+<p class="image-container"><img alt="c412a2ac3fbefa57.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c412a2ac3fbefa57_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<h3 data-text="错误路径" id="error-path" is-upgraded="" tabindex="-1">错误路径</h3>
+<p>如需为错误路径编写单元测试，您需要做以下断言 - 当不正确的单词作为参数传递给 <code dir="ltr" translate="no">viewModel.updateUserGuess()</code> 方法并调用 <code dir="ltr" translate="no">viewModel.checkUserGuess()</code> 方法时，会发生以下情况：</p>
+<ul>
+<li><code dir="ltr" translate="no">currentGameUiState.score</code> 属性的值保持不变。</li>
+<li>由于猜测错误，因此 <code dir="ltr" translate="no">currentGameUiState.isGuessedWordWrong</code> 属性的值会设置为 <code dir="ltr" translate="no">true</code>。</li>
+</ul>
+<p>完成下列步骤来创建测试：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">GameViewModelTest</code> 类的主体中，创建一个 <code dir="ltr" translate="no">gameViewModel_IncorrectGuess_ErrorFlagSet()</code> 函数，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_IncorrectGuess_ErrorFlagSet</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>定义一个 <code dir="ltr" translate="no">incorrectPlayerWord</code> 变量并为其分配 <code dir="ltr" translate="no">"and"</code> 值，该值不应存在于单词列表中。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_IncorrectGuess_ErrorFlagSet</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Given an incorrect word as input</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">incorrectPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"and"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>添加对 <code dir="ltr" translate="no">viewModel.updateUserGuess()</code> 方法的调用，并将 <code dir="ltr" translate="no">incorrectPlayerWord</code> 变量作为参数传递。</li>
+<li>添加对 <code dir="ltr" translate="no">viewModel.checkUserGuess()</code> 方法的调用以验证猜测结果。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_IncorrectGuess_ErrorFlagSet</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Given an incorrect word as input</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">incorrectPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"and"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">updateUserGuess</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">incorrectPlayerWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">checkUserGuess</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>添加 <code dir="ltr" translate="no">currentGameUiState</code> 变量并为其分配 <code dir="ltr" translate="no">viewModel.uiState.value</code> 状态的值。</li>
+<li>使用断言函数断言 <code dir="ltr" translate="no">currentGameUiState.score</code> 属性的值为 <code dir="ltr" translate="no">0</code>，并将 <code dir="ltr" translate="no">currentGameUiState.isGuessedWordWrong</code> 属性的值设置为 <code dir="ltr" translate="no">true</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_IncorrectGuess_ErrorFlagSet</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Given an incorrect word as input</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">incorrectPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"and"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">updateUserGuess</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">incorrectPlayerWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">checkUserGuess</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that score is unchanged</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">score</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that checkUserGuess() method updates isGuessedWordWrong correctly</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertTrue</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">isGuessedWordWrong</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="7" type="1">
+<li>导入以下代码：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">org.junit.Assert.assertTrue</span>
+</code></pre></devsite-code>
+<ol start="8" type="1">
+<li>运行测试并确认测试通过。</li>
+</ol>
+<h3 data-text="边界情况" id="boundary-case" is-upgraded="" tabindex="-1"><strong>边界情况</strong></h3>
+<p>如需测试界面的初始状态，您需要为 <code dir="ltr" translate="no">GameViewModel</code> 类编写单元测试。测试必须做出以下断言：当初始化 <code dir="ltr" translate="no">GameViewModel</code> 时，以下情况是正确的。</p>
+<ul>
+<li><code dir="ltr" translate="no">currentWordCount</code> 属性设置为 <code dir="ltr" translate="no">1</code>。</li>
+<li><code dir="ltr" translate="no">score</code> 属性设置为 <code dir="ltr" translate="no">0</code>。</li>
+<li><code dir="ltr" translate="no">isGuessedWordWrong</code> 属性设置为 <code dir="ltr" translate="no">false</code>。</li>
+<li><code dir="ltr" translate="no">isGameOver</code> 属性设置为 <code dir="ltr" translate="no">false</code>。</li>
+</ul>
+<p>如需添加测试，请完成以下步骤：</p>
+<ol type="1">
+<li>创建 <code dir="ltr" translate="no">gameViewModel_Initialization_FirstWordLoaded()</code> 方法，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_Initialization_FirstWordLoaded</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>访问 <code dir="ltr" translate="no">viewModel.uiState.value</code> 属性以获取 <code dir="ltr" translate="no">GameUiState</code> 类的初始实例。将其分配给新的 <code dir="ltr" translate="no">gameUiState</code> 只读变量。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_Initialization_FirstWordLoaded</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">gameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>如需获取正确的玩家单词，请使用 <code dir="ltr" translate="no">getUnscrambledWord()</code> 函数，该函数会接受 <code dir="ltr" translate="no">gameUiState.currentScrambledWord</code> 单词并返回字母顺序正确的相应单词。将返回值分配给名称为 <code dir="ltr" translate="no">unScrambledWord</code> 的新只读变量。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_Initialization_FirstWordLoaded</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">gameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">unScrambledWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">gameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>如需验证状态是否正确，请添加 <code dir="ltr" translate="no">assertTrue()</code> 函数以断言 <code dir="ltr" translate="no">currentWordCount</code> 属性设置为 <code dir="ltr" translate="no">1</code> 且 <code dir="ltr" translate="no">score</code> 属性设置为 <code dir="ltr" translate="no">0</code>。</li>
+<li>添加 <code dir="ltr" translate="no">assertFalse()</code> 函数，以验证 <code dir="ltr" translate="no">isGuessedWordWrong</code> 属性为 <code dir="ltr" translate="no">false</code> 以及 <code dir="ltr" translate="no">isGameOver</code> 属性已设置为 <code dir="ltr" translate="no">false</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_Initialization_FirstWordLoaded</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">gameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">unScrambledWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">gameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that current word is scrambled.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertNotEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">unScrambledWord</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">gameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that current word count is set to 1.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertTrue</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">gameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentWordCount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">==</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that initially the score is 0.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertTrue</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">gameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">score</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">==</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that the wrong word guessed is false.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertFalse</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">gameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">isGuessedWordWrong</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that game is not over.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertFalse</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">gameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">isGameOver</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>导入以下代码：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">org.junit.Assert.assertNotEquals</span>
+</code></pre></devsite-code>
+<ol start="7" type="1">
+<li>运行测试并确认测试通过。</li>
+</ol>
+<p>另一种边界情况是，在用户猜测所有单词后测试界面状态。您需要做出以下断言：当用户猜对所有单词时，以下情况是正确的。</p>
+<ul>
+<li>得分是最新的；</li>
+<li><code dir="ltr" translate="no">currentGameUiState.currentWordCount</code> 属性等于 <code dir="ltr" translate="no">MAX_NO_OF_WORDS</code> 常量的值；</li>
+<li>属性 <code dir="ltr" translate="no">currentGameUiState.isGameOver</code> 设置为 <code dir="ltr" translate="no">true</code>。</li>
+</ul>
+<p>如需添加测试，请完成以下步骤：</p>
+<ol type="1">
+<li>创建 <code dir="ltr" translate="no">gameViewModel_AllWordsGuessed_UiStateUpdatedCorrectly()</code> 方法，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解。在该方法中，创建一个 <code dir="ltr" translate="no">expectedScore</code> 变量并为其分配 <code dir="ltr" translate="no">0</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_AllWordsGuessed_UiStateUpdatedCorrectly</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedScore</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>如需获取初始状态，请添加一个 <code dir="ltr" translate="no">currentGameUiState</code> 变量，并将 <code dir="ltr" translate="no">viewModel.uiState.value</code> 属性的值分配给该变量。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_AllWordsGuessed_UiStateUpdatedCorrectly</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedScore</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>如需获取正确的玩家单词，请使用 <code dir="ltr" translate="no">getUnscrambledWord()</code> 函数，该函数会接受 <code dir="ltr" translate="no">currentGameUiState.currentScrambledWord</code> 单词并返回字母顺序正确的相应单词。将此返回值存储在名称为 <code dir="ltr" translate="no">correctPlayerWord</code> 的新只读变量中，并分配 <code dir="ltr" translate="no">getUnscrambledWord()</code> 函数返回的值。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_AllWordsGuessed_UiStateUpdatedCorrectly</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedScore</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>如需测试用户是否猜测出所有答案，请使用 <code dir="ltr" translate="no">repeat</code> 代码块重复执行 <code dir="ltr" translate="no">viewModel.updateUserGuess()</code> 方法和 <code dir="ltr" translate="no">viewModel.checkUserGuess()</code> 方法 <code dir="ltr" translate="no">MAX_NO_OF_WORDS</code> 次。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_AllWordsGuessed_UiStateUpdatedCorrectly</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedScore</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">MAX_NO_OF_WORDS</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>在 <code dir="ltr" translate="no">repeat</code> 代码块中，将 <code dir="ltr" translate="no">SCORE_INCREASE</code> 常量的值添加到 <code dir="ltr" translate="no">expectedScore</code> 变量，以断言每次猜出正确答案后得分都会增加。</li>
+<li>添加对 <code dir="ltr" translate="no">viewModel.updateUserGuess()</code> 方法的调用，并将 <code dir="ltr" translate="no">correctPlayerWord</code> 变量作为参数传递。</li>
+<li>添加对 <code dir="ltr" translate="no">viewModel.checkUserGuess()</code> 方法的调用以触发检查用户猜测结果。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_AllWordsGuessed_UiStateUpdatedCorrectly</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedScore</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">MAX_NO_OF_WORDS</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">expectedScore</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">SCORE_INCREASE</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">updateUserGuess</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">correctPlayerWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">checkUserGuess</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="8" type="1">
+<li>使用 <code dir="ltr" translate="no">getUnscrambledWord()</code> 函数更新当前玩家单词，该函数接受 <code dir="ltr" translate="no">currentGameUiState.currentScrambledWord</code> 作为参数并返回字母顺序正确的单词。将此返回值存储在名为 <code dir="ltr" translate="no">correctPlayerWord.</code> 的新只读变量中。如需验证状态是否正确，请添加 <code dir="ltr" translate="no">assertEquals()</code> 函数，以检查 <code dir="ltr" translate="no">currentGameUiState.score</code> 属性的值是否等于 <code dir="ltr" translate="no">expectedScore</code> 变量的值。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_AllWordsGuessed_UiStateUpdatedCorrectly</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedScore</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">MAX_NO_OF_WORDS</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">expectedScore</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">SCORE_INCREASE</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">updateUserGuess</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">correctPlayerWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">checkUserGuess</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// Assert that after each correct answer, score is updated correctly.</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">expectedScore</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">score</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="9" type="1">
+<li>添加 <code dir="ltr" translate="no">assertEquals()</code> 函数以断言 <code dir="ltr" translate="no">currentGameUiState.currentWordCount</code> 属性的值等于 <code dir="ltr" translate="no">MAX_NO_OF_WORDS</code> 常量的值，并将 <code dir="ltr" translate="no">currentGameUiState.isGameOver</code> 属性的值设置为 <code dir="ltr" translate="no">true</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_AllWordsGuessed_UiStateUpdatedCorrectly</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expectedScore</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">MAX_NO_OF_WORDS</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">expectedScore</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">SCORE_INCREASE</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">updateUserGuess</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">correctPlayerWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">checkUserGuess</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// Assert that after each correct answer, score is updated correctly.</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">expectedScore</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">score</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that after all questions are answered, the current word count is up-to-date.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">MAX_NO_OF_WORDS</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentWordCount</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that after 10 questions are answered, the game is over.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertTrue</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">isGameOver</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="10" type="1">
+<li>导入以下代码：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.unscramble.data.MAX_NO_OF_WORDS</span>
+</code></pre></devsite-code>
+<ol start="11" type="1">
+<li>运行测试并确认测试通过。</li>
+</ol>
+<h2 data-text="测试实例生命周期概览" id="test-instance-lifecycle-overview" is-upgraded="" tabindex="-1"><strong>测试实例生命周期概览</strong></h2>
+<p>如果仔细观察 <code dir="ltr" translate="no">viewModel</code> 在测试中的初始化方式，您可能会注意到 <code dir="ltr" translate="no">viewModel</code> 仅初始化了一次，尽管所有测试都使用它。此代码段显示了 <code dir="ltr" translate="no">viewModel</code> 属性的定义。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">GameViewModelTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">viewModel</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GameViewModel</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_Initialization_FirstWordLoaded</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">gameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>您可能想知道以下问题的答案：</p>
+<ul>
+<li>这是否意味着所有测试都会重复使用同一 <code dir="ltr" translate="no">viewModel</code> 实例？</li>
+<li>这会造成任何问题吗？例如，如果 <code dir="ltr" translate="no">gameViewModel_Initialization_FirstWordLoaded</code> 测试方法在 <code dir="ltr" translate="no">gameViewModel_CorrectWordGuessed_ScoreUpdatedAndErrorFlagUnset</code> 测试方法之后执行，会发生什么情况？初始化测试会失败吗？</li>
+</ul>
+<p>这两个问题的答案都是否。测试方法会单独执行，以避免可变的测试实例状态产生意外的副作用。默认情况下，在执行每个测试方法之前，JUnit 都会创建测试类的一个新实例。</p>
+<p>由于到目前为止，您的 <code dir="ltr" translate="no">GameViewModelTest</code> 类中有四种测试方法，因此 <code dir="ltr" translate="no">GameViewModelTest</code> 会实例化四次。每个实例都有自己的 <code dir="ltr" translate="no">viewModel</code> 属性副本。因此，测试执行的顺序无关紧要。</p>
+<aside class="special"><p><strong>注意</strong>：从 JUnit4 开始，这种“基于方法的”测试实例生命周期是默认行为。</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="代码覆盖率简介">
+          
+          <h2 class="step-title" data-text="               5. 代码覆盖率简介           " id="4" tabindex="-1">
+              5. 代码覆盖率简介
+          </h2>
+          
+          <p>代码覆盖率对于确定您是否对组成应用的类、方法和代码行进行了充分测试至关重要。</p>
+<p>Android Studio 为本地单元测试提供了测试覆盖率工具，用于跟踪单元测试所覆盖的应用代码的百分比和区域。</p>
+<h2 data-text="使用 Android Studio 运行覆盖率测试" id="run-test-with-coverage-using-android-studio" is-upgraded="" tabindex="-1"><strong>使用 Android Studio 运行覆盖率测试</strong></h2>
+<p>如需运行覆盖率测试，请执行以下操作：</p>
+<ol type="1">
+<li>右键点击“Project”窗格中的 <code dir="ltr" translate="no">GameViewModelTest.kt</code> 文件，然后选择 <img alt="cf4c5adfe69a119f.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/cf4c5adfe69a119f_2880.png?hl=zh-cn 2880w" style="width: 31.00px" /> <strong>Run 'GameViewModelTest' with Coverage</strong>。</li>
+</ol>
+<p class="image-container"><img alt="73545d5ade3851df.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/73545d5ade3851df_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<ol start="2" type="1">
+<li>测试执行完成后，点击右侧“Coverage”面板中的 <strong>Flatten Packages</strong> 选项。</li>
+</ol>
+<p class="image-container"><img alt="90e2989f8b58d254.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/90e2989f8b58d254_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<ol start="3" type="1">
+<li>请注意 <strong><code dir="ltr" translate="no">com.example.android.unscramble.ui</code></strong> 软件包，如下图所示。</li>
+</ol>
+<p class="image-container"><img alt="1c755d17d19c6f65.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/1c755d17d19c6f65_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<ol start="4" type="1">
+<li>双击软件包 <strong><code dir="ltr" translate="no">com.example.android.unscramble.ui</code></strong> 名称，以显示 <code dir="ltr" translate="no">GameViewModel</code> 的覆盖率，如下图所示：</li>
+</ol>
+<p class="image-container"><img alt="14cf6ca3ffb557c4.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/14cf6ca3ffb557c4_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<h2 data-text="分析测试报告" id="analyze-test-report" is-upgraded="" tabindex="-1"><strong>分析测试报告</strong></h2>
+<p>下图所示的报告分为两个方面：</p>
+<ul>
+<li><strong>单元测试覆盖的方法百分比</strong>：在示例图中，到目前为止所编写的测试覆盖了 8 种方法中的 7 种。这占方法总数的 87%。</li>
+<li><strong>单元测试覆盖的行数百分比</strong>：在示例图中，您编写的测试覆盖了 41 行代码中的 39 行。这占代码行的 95%。</li>
+</ul>
+<aside class="special"><p><strong>注意</strong>：代码覆盖率指标跟踪测试执行期间执行的行数。因此，即使 <code dir="ltr" translate="no">GameUiState</code> 未经验证，覆盖率也会显示为 100%。</p>
+</aside>
+<p>报告显示，到目前为止，您编写的单元测试遗漏了某些代码部分。如需确定遗漏的部分，请完成以下步骤：</p>
+<ul>
+<li>双击 <strong>GameViewModel</strong>。</li>
+</ul>
+<p class="image-container"><img alt="c934ba14e096bddd.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/c934ba14e096bddd_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>Android Studio 会在窗口左侧显示带有额外颜色编码的 <code dir="ltr" translate="no">GameViewModel.kt</code> 文件。亮绿色表示已覆盖这些代码行。</p>
+<p class="image-container"><img alt="edc4e5faf352119b.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/edc4e5faf352119b_2880.png?hl=zh-cn 2880w" style="width: 619.50px" /></p>
+<p>在 <code dir="ltr" translate="no">GameViewModel</code> 中向下滚动时，您可能会注意到有几条线标为浅粉色。此颜色表示单元测试未覆盖这些代码行。</p>
+<p class="image-container"><img alt="6df985f713337a0c.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/6df985f713337a0c_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<h2 data-text="提高覆盖率" id="improve-coverage" is-upgraded="" tabindex="-1"><strong>提高覆盖率</strong></h2>
+<p>如需提高覆盖率，您需要编写覆盖遗漏路径的测试。您需要添加一项测试，以断言当用户跳过某个单词时，以下情况是正确的：</p>
+<ul>
+<li><code dir="ltr" translate="no">currentGameUiState.score</code> 属性保持不变。</li>
+<li><code dir="ltr" translate="no">currentGameUiState.currentWordCount</code> 属性递增 1，如以下代码段所示。</li>
+</ul>
+<p>作为提高覆盖率的准备工作，请将以下测试方法添加到 <code dir="ltr" translate="no">GameViewModelTest</code> 类中。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">gameViewModel_WordSkipped_ScoreUnchangedAndWordCountIncreased</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">correctPlayerWord</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getUnscrambledWord</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentScrambledWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">updateUserGuess</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">correctPlayerWord</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">checkUserGuess</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">lastWordCount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentWordCount</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">skipWord</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">uiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that score remains unchanged after word is skipped.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">SCORE_AFTER_FIRST_CORRECT_ANSWER</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">score</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Assert that word count is increased by 1 after word is skipped.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lastWordCount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">currentGameUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentWordCount</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>请完成以下步骤以重新运行覆盖率：</p>
+<ol type="1">
+<li>右键点击 <code dir="ltr" translate="no">GameViewModelTest.kt</code> 文件，然后从菜单中选择 <strong>Run ‘GameViewModelTest' with Coverage</strong>。</li>
+<li>构建成功后，再次找到 <strong>GameViewModel</strong> 元素，并确认覆盖率百分比为 100%。最终覆盖率报告如下图所示。</li>
+</ol>
+<p class="image-container"><img alt="145781df2c68f71c.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/145781df2c68f71c_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<ol start="3" type="1">
+<li>找到 <code dir="ltr" translate="no">GameViewModel.kt</code> 文件并向下滚动，看看之前遗漏的路径是否已被覆盖。</li>
+</ol>
+<p class="image-container"><img alt="357263bdb9219779.png" sizes="(max-width: 840px) 100vw, 856px" src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779.png?hl=zh-cn" srcset="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779_36.png?hl=zh-cn 36w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779_48.png?hl=zh-cn 48w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779_72.png?hl=zh-cn 72w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779_96.png?hl=zh-cn 96w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779_480.png?hl=zh-cn 480w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779_720.png?hl=zh-cn 720w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779_856.png?hl=zh-cn 856w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779_960.png?hl=zh-cn 960w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779_1440.png?hl=zh-cn 1440w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779_1920.png?hl=zh-cn 1920w,https://developer.android.com/static/codelabs/basic-android-kotlin-compose-test-viewmodel/img/357263bdb9219779_2880.png?hl=zh-cn 2880w" style="width: 624.00px" /></p>
+<p>您学习了如何运行、分析和改进应用代码的代码覆盖率。</p>
+<p>代码覆盖率较高是否意味着应用代码的质量较高？<em></em>否。代码覆盖率表示单元测试所覆盖或执行的代码占全部代码的百分比。这并不表示该代码已通过验证。如果您从单元测试代码中移除所有断言并运行代码覆盖率，它仍会显示 100% 覆盖率。</p>
+<p>覆盖率较高并不表示测试设计正确，也不表示测试可以验证应用的行为。您需要确保在所编写的测试中包含一些断言，并通过这些断言来验证待测试类的行为。您也不必费力编写单元测试，让整个应用实现 100% 的测试覆盖率，而应改用界面测试来测试应用代码的某些部分（例如 activity）。</p>
+<p>不过，覆盖率较低意味着代码的大部分内容都未经测试。请利用代码覆盖率来查找测试未覆盖的代码部分，而不是利用代码覆盖率来衡量代码质量。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="5" label="获取解决方案代码">
+          
+          <h2 class="step-title" data-text="               6. 获取解决方案代码           " id="5" tabindex="-1">
+              6. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，您可以使用以下 Git 命令：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-unscramble.git
+$ cd basic-android-kotlin-compose-training-unscramble
+$ git checkout main
+</pre></devsite-code>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-unscramble/archive/refs/heads/main.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">main</code> 分支中。</p>
+</aside>
+<p>如果您想查看解决方案代码，请<a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-unscramble" target="_blank">前往 GitHub 查看</a>。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="6" label="总结">
+          
+          <h2 class="step-title" data-text="               7. 总结           " id="6" tabindex="-1">
+              7. 总结
+          </h2>
+          
+          <p>恭喜！您学习了如何定义测试策略并实现了在 Unscramble 应用中测试 <code dir="ltr" translate="no">ViewModel</code> 和 <code dir="ltr" translate="no">StateFlow</code> 的单元测试。在继续构建 Android 应用的过程中，务必在编写应用功能的同时编写测试，确保您的应用在整个开发过程中都能正常运行。</p>
+<h3 data-text="摘要" id="summary" is-upgraded="" tabindex="-1"><strong>摘要</strong></h3>
+<ul>
+<li>使用 <code dir="ltr" translate="no">testImplementation</code> 配置来指示依赖项适用于本地测试源代码，而不是应用代码。</li>
+<li>根据以下三种场景中对测试进行分类：成功路径、错误路径和边界情况。</li>
+<li>有效的单元测试应至少具备四个特征：有针对性、易于理解、确定性和独立性。</li>
+<li>测试方法会单独执行，以避免可变的测试实例状态产生意外的副作用。</li>
+<li>默认情况下，在执行每个测试方法之前，JUnit 都会创建测试类的一个新实例。</li>
+<li>代码覆盖率对于确定您是否对组成应用的类、方法和代码行进行了充分测试至关重要。</li>
+</ul>
+<h3 data-text="了解详情" id="learn-more" is-upgraded="" tabindex="-1"><strong>了解详情</strong></h3>
+<ul>
+<li><a href="https://developer.android.com/training/testing/fundamentals?hl=zh-cn#benefits" target="_blank">Android 应用测试基础知识</a></li>
+<li><a href="https://developer.android.com/jetpack/compose/bom/bom?hl=zh-cn" target="_blank">使用物料清单 | Jetpack Compose | Android 开发者</a></li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-x_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-x.svg?hl=zh-cn"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-youtube_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="//www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="https://developer.android.com/_static/android/images/logo-linkedin_dt.svg?hl=zh-cn"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="https://developer.android.com/_static/android/images/logo-linkedin.svg?hl=zh-cn"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="2jLJ/i6ojyZXpc4K8U41YvdM3ZCo23">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/android/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","https://www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","https://fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["Concierge__enable_actions_menu","DevPro__enable_firebase_workspaces_card","MiscFeatureFlags__enable_llms_txt","Profiles__enable_targeted_hero","DevPro__enable_devsite_captcha","DevPro__enable_cloud_innovators_plus","DevPro__enable_google_one_card","TpcFeatures__proxy_prod_host","Profiles__enable_awarding_url","MiscFeatureFlags__enable_view_transitions","DevPro__enable_credits_banner","Profiles__enable_user_type","DevPro__enable_enterprise","Profiles__enable_complete_playlist_endpoint","Profiles__enable_page_saving","MiscFeatureFlags__developers_footer_image","Profiles__enable_auto_apply_credits","Cloud__enable_cloud_shell_fte_user_flow","EngEduTelemetry__enable_engedu_telemetry","Search__enable_suggestions_from_borg","MiscFeatureFlags__enable_framebox_badge_methods","Cloud__enable_cloudx_experiment_ids","DevPro__enable_free_benefits","Cloud__cache_serialized_dynamic_content","Profiles__enable_developer_profiles_callout","Profiles__enable_recognition_badges","Search__enable_ai_eligibility_checks","MiscFeatureFlags__enable_variable_operator_index_yaml","Profiles__enable_developer_profile_pages_as_content","DevPro__enable_developer_subscriptions","Profiles__enable_join_program_group_endpoint","Search__enable_page_map","MiscFeatureFlags__gdp_dashboard_reskin_enabled","Profiles__require_profile_eligibility_for_signin","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_callout_notifications","Concierge__enable_devsite_llm_tools","MiscFeatureFlags__enable_dark_theme","Concierge__enable_pushui","MiscFeatureFlags__enable_explicit_template_dependencies","Profiles__enable_release_notes_notifications","CloudShell__cloud_shell_button","Profiles__enable_dashboard_curated_recommendations","Profiles__enable_public_developer_profiles","Analytics__enable_devpro_interaction_logging","TpcFeatures__enable_unmirrored_page_left_nav","DevPro__enable_embed_profile_creation","CloudShell__cloud_code_overflow_menu","Cloud__enable_cloud_shell","MiscFeatureFlags__enable_firebase_utm","MiscFeatureFlags__enable_appearance_cookies","Significatio__enable_by_tenant","Search__enable_ai_search_summaries_for_all","MiscFeatureFlags__remove_cross_domain_tracking_params","MiscFeatureFlags__enable_variable_operator","Experiments__reqs_query_experiments","Profiles__enable_stripe_subscription_management","BookNav__enable_tenant_cache_key","DevPro__enable_google_payments_buyflow","DevPro__remove_eu_tax_intake_form","DevPro__enable_code_assist","Search__enable_dynamic_content_confidential_banner","Profiles__enable_profile_collections","DevPro__enable_devpro_offers","MiscFeatureFlags__enable_project_variables","Cloud__enable_free_trial_server_call","Cloud__enable_legacy_calculator_redirect","Concierge__enable_remove_info_panel_tags","Profiles__enable_completequiz_endpoint","Profiles__enable_purchase_prompts","DevPro__enable_g1_integration","MiscFeatureFlags__developers_footer_dark_image","SignIn__enable_l1_signup_flow","DevPro__enable_nvidia_credits_card","Cloud__fast_free_trial","DevPro__enable_payments_first_batch","Profiles__enable_completecodelab_endpoint","Profiles__enable_developer_profile_benefits_ui_redesign","DevPro__enable_vertex_credit_card","Search__enable_ai_search_summaries","MiscFeatureFlags__fix_lower_breadcrumbs","Profiles__enable_playlist_community_acl","Analytics__enable_clearcut_logging","Cloud__enable_llm_concierge_chat","Cloud__enable_cloud_dlp_service"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[2,2],[1,1]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>
