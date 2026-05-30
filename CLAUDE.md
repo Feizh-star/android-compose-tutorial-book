@@ -25,7 +25,7 @@ NN.单元目录/NN.章节目录/NN.笔记.md
 - md 文件中图片以相对路径引用，从笔记文件到 `image/` 需要两级 `../`：
 
   ```
-  ../../image/NN.标题/图片文件名.png
+  ../../image/N.N.N.标题/图片文件名.png
   ```
 
   因为路径结构为 `unit/chapter/note.md`，往上两级才到根目录，`image/` 在根目录下。
@@ -36,7 +36,7 @@ NN.单元目录/NN.章节目录/NN.笔记.md
 
   ```html
   <div align="center">
-  <img src="../../image/NN.标题/xxx.png" width="网页中实际宽度">
+  <img src="../../image/N.N.N.标题/图片文件名.png" width="网页中实际宽度">
   </div>
   ```
   
@@ -58,12 +58,14 @@ NN.单元目录/NN.章节目录/NN.笔记.md
    () => { const a = document.querySelector('article'); const c = a.cloneNode(true); c.querySelectorAll('nav, script, style').forEach(e => e.remove()); return c.innerText; }
    ```
 3. `browser_evaluate` 提取 `<article>` 内所有图片的 URL（保存到 `.playwright-mcp/page-imgs.txt`）。
-4. **批量并行下载图片**：每轮并行 3 张图片——
+4. **逐个下载图片**：每轮 3 张图片——
    - 并行调用 3 次 `browser_evaluate`（各 fetch 一张图并 base64 编码）；
-   - 再并行调用 `node download-image.js` 保存这 3 张（分别调用，不得使用任何批量处理参数，避免反复请求权限）。
+   - 再逐个调用 `node download-image.js` 保存这 3 张（分别调用，不得使用任何批量处理参数，避免反复请求权限）。
    - 重复至全部下载完。重复 URL 的图片（同一张图被引用多次）只下载一次，后续跳过。
 5. 运行 `node .claude/skills/fetch-tutorial-images/download-image.js <临时文件> <目标图片路径>` 保存图片。
-6. 编写 md 笔记文件，图片引用使用 `../../image/xxx.png` 相对路径。
+   - 临时文件示例：`.playwright-mcp/page-imgs.txt`。必须使用相对路径。
+   - 目标图片路径示例：`image/N.N.N.标题/图片文件名.png`。必须使用相对路径。
+6. 编写 md 笔记文件，图片引用使用 `../../image/N.N.N.标题/图片文件名.png` 相对路径。
 
 ## 效率提示
 
