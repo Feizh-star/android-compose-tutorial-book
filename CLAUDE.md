@@ -22,11 +22,11 @@ NN.单元目录/NN.章节目录/NN.笔记.md
 
 ## 图片规范
 
-- 图片按笔记文件分类管理，每个 md 笔记的图片存放在 `image/NN.标题/` 子目录中。
+- 图片按笔记文件分类管理，每个 md 笔记的图片存放在 `image/m.n.k.标题/` 子目录中，其中 `m.n.k` 为菜单层级序号（如 `1.3.4` 对应第 1 单元第 3 章节第 4 小节）。
 - md 文件中图片以相对路径引用，从笔记文件到 `image/` 需要两级 `../`：
 
   ```
-  ../../image/N.N.N.标题/图片文件名.png
+  ../../image/m.n.k.标题/图片文件名.png
   ```
 
   因为路径结构为 `unit/chapter/note.md`，往上两级才到根目录，`image/` 在根目录下。
@@ -37,7 +37,7 @@ NN.单元目录/NN.章节目录/NN.笔记.md
 
   ```html
   <div align="center">
-  <img src="../../image/N.N.N.标题/图片文件名.png" width="网页中实际宽度">
+  <img src="../../image/m.n.k.标题/图片文件名.png" width="网页中实际宽度">
   </div>
   ```
   
@@ -65,8 +65,8 @@ NN.单元目录/NN.章节目录/NN.笔记.md
    - 重复至全部下载完。重复 URL 的图片（同一张图被引用多次）只下载一次，后续跳过。
 5. 运行 `node .claude/skills/fetch-tutorial-images/download-image.js <临时文件> <目标图片路径>` 保存图片。
    - 临时文件示例：`.playwright-mcp/page-imgs.txt`。必须使用相对路径。
-   - 目标图片路径示例：`image/N.N.N.标题/图片文件名.png`。必须使用相对路径。
-6. 编写 md 笔记文件，图片引用使用 `../../image/N.N.N.标题/图片文件名.png` 相对路径。
+   - 目标图片路径示例：`image/m.n.k.标题/图片文件名.png`。必须使用相对路径。
+6. 编写 md 笔记文件，图片引用使用 `../../image/m.n.k.标题/图片文件名.png` 相对路径。
 
 ## 效率提示
 
