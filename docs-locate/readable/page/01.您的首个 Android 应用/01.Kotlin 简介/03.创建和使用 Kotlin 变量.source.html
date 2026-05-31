@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>在 Kotlin 中创建和使用变量</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="./01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="./02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a class="active" href="./03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="./04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">创建和使用 Kotlin 函数</a></li>
+<li><a href="./05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Compose 基础知识</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件语句</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">Compose 中的状态简介</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">项目：创建艺术空间应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题效果</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 实现简单动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">在 Kotlin 中创建和使用变量</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <p>在手机应用中，有些部分会保持不变，而其他部分则会发生变化（或者是可变的）。</p>
+<p>例如，在“设置”应用中，“网络和互联网”“已连接的设备”“应用”等类别名称会保持不变。</p>
+<p class="image-container"><img alt="72302735e50d7d85.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/72302735e50d7d85_2880.029cc721e4.png 2880w" style="width: 264.00px" loading="lazy" decoding="async"></p>
+<p>另一方面，如果您浏览新闻应用就会发现，其中显示的报道会经常变动。比方说，报道的名称、来源、发布时间和图片就会发生变化。</p>
+<p>怎样编写代码，才能让内容随着时间而变化呢？每天、每小时甚至每分钟都会有新报道需要发布，您总不能在每次发布新的报道时都重写应用中的代码吧！</p>
+<p>在本 Codelab 中，您将学习如何编写使用变量的代码，以便让程序的某些部分可以更改，而不必编写一套全新的指令。与上一个 Codelab 一样，您将会使用 Kotlin 园地。</p>
+<h2 id="what-youll-build"><strong>构建内容</strong></h2>
+<ul>
+<li>使用变量的简短 Kotlin 程序。</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn"><strong>学习内容</strong></h2>
+<ul class="checklist">
+<li>如何定义变量并更新其值。</li>
+<li>如何从 Kotlin 的基本数据类型中为变量选择合适的数据类型。</li>
+<li>如何在代码中添加注释。</li>
+</ul>
+<h2 id="what-youll-need"><strong>所需条件</strong></h2>
+<ul>
+<li>可连接到互联网的计算机和网络浏览器。</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 变量和数据类型
+          </h2>
+          
+          <p>在计算机编程中，“变量”这个概念表示单项数据的容器。<em></em>您可以将“变量”想象成一个包含值的盒子，并且盒子上带有标签（也就是变量的名称）。您可以通过盒子名称来引用这个盒子，从而访问存储在其中的值。</p>
+<p class="image-container"><img alt="此图显示了变量如何能像盒子存储物品那样存储数据。这里有一个标着“name”（名称）的盒子。盒子外面有一个标着“value”（值）的标签。有一个箭头正从值指向盒子，表示这个值会放入盒内。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/3284dfd6d8e70a60_2880.029cc721e4.png 2880w" style="width: 288.00px" title="存储值（例如变量）的盒子" loading="lazy" decoding="async"></p>
+<p>如果能直接使用值，为什么还要将值存储在盒子里，然后通过盒子名称来引用这个盒子呢？这是因为，如果代码在所有指令中直接使用值，程序就只会在特定情况下运行。</p>
+<p>让我们来打个比方，这样您就可以更轻松地了解变量为什么有用了。下面是给您最近会晤的人的一封信。</p>
+<p><em>尊敬的 Lauren：</em></p>
+<p><em>您好！很高兴今天能在办公室与您会晤。希望周五还能见到您。</em></p>
+<p><em>祝您天天好心情！</em></p>
+<p>这封信写得很好，但只适用于您遇到 Lauren 的这种特定情况。如果您发现自己需要多次撰写同样的信，只是因为对象不同，内容而略有变化，该怎么办？在这种情况下，建议您创建一个信函模板，并将可能变化的部分留空。</p>
+<p><em>尊敬的____：</em></p>
+<p><em>您好！很高兴今天能在_____与您会晤。希望____还能见到您。</em></p>
+<p><em>祝您天天好心情！</em></p>
+<p>您还可以指定每个空白区域所包含信息的类型，从而确保信函模板达到您的预期用途。</p>
+<p><em>尊敬的 { name }：</em></p>
+<p><em>您好！很高兴今天能在 {location} 与您会晤。希望 { date } 还能见到您。</em></p>
+<p><em>祝您天天好心情！</em></p>
+<p>从概念上讲，您可以采用类似的方式来构建应用；也就是，用占位符代替某些数据，同时让应用的其他部分保持不变。</p>
+<p class="image-container"><img "view="" a="" alt="此图示显示了一个新闻应用示例。屏幕内容以欢迎消息开头，其中的名称部分是用户实际名称的占位符。后面是一段文本，内容为" and="" app.="" are="" article's="" article,="" articles="" articles.""="" at="" bottom="" button="" change="" date,="" doesn't="" each="" for="" image,="" in="" is="" latest="" list="" loaded="" more="" name,="" new="" news="" of="" placeholder="" regardless="" rows="" says="" source.="" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/df27215a9b673eb6_2880.029cc721e4.png 2880w" style="width: 288.00px" text="" that="" the="" then="" there="" this="" title="示例新闻应用的图示" where="" you."="" loading="lazy" decoding="async"></p>
+<p>在上面的新闻应用图示中，“Welcome”（欢迎）文本、“Latest news for you”（为您推荐的最新消息）标题以及“View more articles”（查看更多报道）按钮文本始终保持不变。与之相反，用户的名称和每篇报道的内容将会发生变化，因此可以使用变量存储每一条信息。</p>
+<p class="image-container"><img "alex"="" "june="" "new="" 9"="" 9".="" a="" alex".="" alt="此图示并排显示了 3 个盒子。第一个盒子名为“name”（名称）。盒子旁边有一个标签，内容为" an="" arrow="" article1date.="" article1date."="" article1name.="" being="" beside="" box="" box,="" box.="" called="" coming="" from="" in="" into="" is="" it="" label="" meaning="" means="" movie="" name.="" out"="" out".="" says="" second="" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/ce8ced6770622864_2880.029cc721e4.png 2880w" stored="" string="" style="width: 624.00px" that="" the="" there's="" third="" this="" title="代表三个变量的三个盒子" value="" loading="lazy" decoding="async"></p>
+<p>您没有必要在新闻应用中专门针对名叫 Alex 的用户或始终具有相同标题和发布日期的新闻报道编写适用的代码（或指令）。相反，您可以在编写代码时通过引用 <code dir="ltr" translate="no">name</code>、<code dir="ltr" translate="no">article1Name</code>、<code dir="ltr" translate="no">article1Date</code> 等变量名称，增加应用的灵活性。如此一来，您的代码在通常情况下便足以适用许多不同的用例，例如不同的用户名称、不同的报道详情。</p>
+<h2 id="example-app-with-variables"><strong>使用变量的示例应用</strong></h2>
+<p>下面我们来看一个应用示例，了解其中可能使用变量的位置。</p>
+<p class="image-container"><img alt="a7e1f5184e4e3b15.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_2880.029cc721e4.png 2880w" style="width: 264.00px" loading="lazy" decoding="async"></p>
+<p>地图应用可能会显示各个营业地点（如餐馆或商家）的详情屏幕。上面的 Google 地图应用屏幕截图显示的就是 Google 公司总部（名为 Googleplex）的详细信息。您不妨想一想，哪几项数据会在该应用中存储为变量？</p>
+<ul>
+<li>营业地点的<strong>名称</strong></li>
+<li>营业地点的<strong>星级</strong></li>
+<li>营业地点的<strong>评价数量</strong></li>
+<li>用户是否<strong>已保存</strong>此营业地点（即已为其添加书签）</li>
+<li>营业地点的<strong>地址</strong></li>
+</ul>
+<p>通过更改存储在这些变量中的数据，您可以让地图应用保持足够的灵活性，使其也能显示其他营业地点的详细信息。</p>
+<h2 id="data-types">数据类型</h2>
+<p>在决定应用的哪些部分可变时，请务必指定可在这些变量中存储的数据类型<em></em>。在 Kotlin 中，有一些常见的基本数据类型。下表逐行列明了各种不同的数据类型，并针对每种数据类型提供了可存储数据类型的说明和示例值。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p><strong>Kotlin 数据类型</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>可包含的数据类型</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>字面量值示例</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">String</code></p>
+</td><td colspan="1" rowspan="1"><p>文本</p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">"Add contact"</code><br><code dir="ltr" translate="no">"Search"</code><br><code dir="ltr" translate="no">"Sign in"</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">Int</code></p>
+</td><td colspan="1" rowspan="1"><p>整数</p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">32</code><br><code dir="ltr" translate="no">1293490</code><br><code dir="ltr" translate="no">-59281</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">Double</code></p>
+</td><td colspan="1" rowspan="1"><p>小数</p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">2.0</code><br><code dir="ltr" translate="no">501.0292</code><br><code dir="ltr" translate="no">-31723.99999</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">Float</code></p>
+</td><td colspan="1" rowspan="1"><p>小数（不如 <code dir="ltr" translate="no">Double</code> 精确），数字末尾带有 <code dir="ltr" translate="no">f</code> 或 <code dir="ltr" translate="no">F</code>。</p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">5.0f</code><br><code dir="ltr" translate="no">-1630.209f</code><br><code dir="ltr" translate="no">1.2940278F</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">Boolean</code></p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">true</code> 或 <code dir="ltr" translate="no">false</code>。当只有两个可能的值时，可使用此数据类型。请注意，<code dir="ltr" translate="no">true</code> 和 <code dir="ltr" translate="no">false</code> 是 Kotlin 中的关键字。</p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">true</code><br><code dir="ltr" translate="no">false</code></p>
+</td></tr>
+</tbody></table>
+<aside class="special"><p><strong>注意</strong>：如需了解数值数据类型（<code dir="ltr" translate="no">Int</code>、<code dir="ltr" translate="no">Double</code> 和 <code dir="ltr" translate="no">Float</code>）的有效范围，请参阅<a href="https://kotlinlang.org/docs/numbers.html" target="_blank">数字</a>部分中的说明。如需详细了解 <code dir="ltr" translate="no">Double</code> 和 <code dir="ltr" translate="no">Float</code> 之间的区别，请查看<a href="https://kotlinlang.org/docs/numbers.html#floating-point-types" target="_blank">这个表格</a>中对这两种数据类型进行的对比。</p>
+</aside>
+<p>现在，您已经了解了一些常见的 Kotlin 数据类型，那么对于在您之前所见营业地点详情页面中确定的各个变量，哪种数据类型会比较合适？</p>
+<p class="image-container"><img alt="a7e1f5184e4e3b15.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a7e1f5184e4e3b15_2880.029cc721e4.png 2880w" style="width: 264.00px" loading="lazy" decoding="async"></p>
+<ul>
+<li>地点的<strong>名称</strong>属于文本，可存储在数据类型为 <code dir="ltr" translate="no">String</code> 的变量中。</li>
+<li>营业地点的<strong>星级</strong>属于小数（例如 4.2 颗星），可存储为 <code dir="ltr" translate="no">Double</code>。</li>
+<li>营业地点的<strong>评价数量</strong>属于整数，应存储为 <code dir="ltr" translate="no">Int</code>。</li>
+<li>涉及用户是否<strong>已保存</strong>此营业地点的数据只会有两个可能的值（即“已保存”或“未保存”），因此该数据存储为 <code dir="ltr" translate="no">Boolean</code>，可用 <code dir="ltr" translate="no">true</code> 和 <code dir="ltr" translate="no">false</code> 来代表各个状态。</li>
+<li>营业地点的<strong>地址</strong>属于文本，应为 <code dir="ltr" translate="no">String</code>。</li>
+</ul>
+<p>让我们再从下面的两个场景中练习一下。请确定在以下应用中使用的变量及其数据类型。</p>
+<ol type="1">
+<li>在用来观看视频的应用（如 YouTube 应用）中，有一个视频详情屏幕。变量可能会在何处使用？这些变量的数据类型是什么？</li>
+</ol>
+<p class="image-container"><img alt="a1688b9b297c7501.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/a1688b9b297c7501_2880.029cc721e4.png 2880w" style="width: 264.00px" loading="lazy" decoding="async"></p>
+<p>正确答案不止一个，而在视频观看应用中，变量可用于以下几项数据：</p>
+<ul>
+<li>视频的<strong>名称</strong> (<code dir="ltr" translate="no">String</code>)</li>
+<li>频道的<strong>名称</strong> (<code dir="ltr" translate="no">String</code>)</li>
+<li>视频的<strong>观看次数</strong> (<code dir="ltr" translate="no">Int</code>)</li>
+<li>视频的<strong>顶的次数</strong> (<code dir="ltr" translate="no">Int</code>)</li>
+<li>视频的<strong>评论数</strong> (<code dir="ltr" translate="no">Int</code>)</li>
+</ul>
+<ol start="2" type="1">
+<li>在类似“信息”的应用中，界面上会列出最近收到的短信。变量可能会在何处使用？这些变量的数据类型是什么？</li>
+</ol>
+<p class="image-container"><img alt="f515a6481cc91bf2.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f515a6481cc91bf2_2880.029cc721e4.png 2880w" style="width: 264.00px" loading="lazy" decoding="async"></p>
+<p>同样，正确答案不止一个。在短信应用中，可以为以下几项数据使用变量：</p>
+<ul>
+<li>发送者的<strong>电话号码</strong> (<code dir="ltr" translate="no">String</code>)</li>
+<li>短信的<strong>时间戳</strong> (<code dir="ltr" translate="no">String</code>)</li>
+<li>短信内容的<strong>预览</strong> (<code dir="ltr" translate="no">String</code>)</li>
+<li>短信是否<strong>未读</strong> (<code dir="ltr" translate="no">Boolean</code>)</li>
+</ul>
+<h2 id="try-it"><strong>试试看</strong></h2>
+<ol type="1">
+<li>在手机上打开您喜爱的应用。</li>
+<li>在应用的特定屏幕上找到您认为会使用变量的位置。</li>
+<li>猜猜这些变量的数据类型。</li>
+<li>在社交媒体上，提供应用的<a href="https://support.google.com/pixelphone/answer/2811098?hl=zh-cn" target="_blank">屏幕截图</a>、说明您认为变量会用在何处，并使用 #AndroidBasics 标签来分享您的回答。</li>
+</ol>
+<p>到目前为止，您在本 Codelab 中学得非常不错！请继续学习下一部分，详细了解如何在代码中使用变量和数据类型。</p>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 定义和使用变量
+          </h2>
+          
+          <h2 id="define-versus-use-a-variable">定义与使用变量</h2>
+<p>您必须先在代码中定义变量，然后才能使用该变量。这与您在上一个 Codelab 中学到的关于在调用函数之前对其进行定义的做法类似。</p>
+<p><em></em>定义变量时，您需要指定名称来对变量进行唯一标识，还需要指定数据类型来决定变量可以存储哪类数据。此外，您可以视需要提供将存储在变量中的初始值。</p>
+<aside class="special"><p><strong>注意</strong>：您可能会听到“声明变量”的说法。“声明”和“定义”这两个词可以互换使用，含义相同。您还可能会听到“变量定义”或“变量声明”的说法，它们是指定义某个变量的确切代码。 在其他编程语言中，“声明”和“定义”有不同的含义。</p>
+</aside>
+<p>定义变量后，您便可以在程序中使用该变量。<em></em>若要使用变量，请在代码中输入变量名称，指示 Kotlin 编译器在代码中的那个位置使用变量的值。</p>
+<p>例如，为用户收件箱中的未读邮件数量定义一个变量。该变量的名称可以是 <code dir="ltr" translate="no">count</code>。将一个值（例如 <code dir="ltr" translate="no">2</code>）存储在变量中，代表用户收件箱中有 <code dir="ltr" translate="no">2</code> 封未读邮件。（您可以选择其他数字来存入变量，但就本例而言，我们使用数字 <code dir="ltr" translate="no">2</code>。）</p>
+<p class="image-container"><img alt="这里有一个在标着“count”（数量）的盒子。盒子外面有一个标着“2”的标签。有一个箭头正从值指向盒子，表示这个值会放入盒内。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_2880.029cc721e4.png 2880w" style="width: 288.00px" title="用于表示变量的盒子" loading="lazy" decoding="async"></p>
+<p>每当代码需要访问未读邮件的数量时，请在代码中输入 <code dir="ltr" translate="no">count</code>。执行指令时，Kotlin 编译器就会在代码中找到对应的变量名称，并使用变量值来代替它。</p>
+<p>从技术角度而言，我们可以用更具体的术语来描述这个过程：</p>
+<p><em></em>“表达式”是用于求值的一小段代码。可以由变量、函数调用等元素组成。在下例中，<em></em>表达式由一个变量（即 <code dir="ltr" translate="no">count</code> 变量）组成。该表达式的求值结果为 <code dir="ltr" translate="no">2</code>。</p>
+<p class="image-container"><img alt="此图显示了一个表达式，旁边还有它的值。这里有一个“expression”（表达式）标签，下面写着“count”（计数）；右侧有一个“value”（值）标签，下面写着“2”。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/e399b1ba43c613c9_2880.029cc721e4.png 2880w" style="width: 384.00px" title="此图显示了一个表达式，旁边还有它的值。" loading="lazy" decoding="async"></p>
+<p><em></em>“求值”的意思是确定表达式的值。在本例中，表达式的求值结果为 <code dir="ltr" translate="no">2</code>。编译器会对代码中的表达式求值，并在执行程序中的指令时使用这些值。</p>
+<p class="image-container"><img "="" alt="此图旨在显示表达式 count 的求值结果为 2。count 变量的名称 (count) 就显示在它的值 (2) 旁边。count 变量已用圆圈圈出，并有一个箭头从该 count 变量指向值 2。箭头标有以下内容：" evaluates="" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/24ccc51828dbb8c8_2880.029cc721e4.png 2880w" style="width: 336.00px" title="此图显示表达式 count 的求值结果为 2" to".="" loading="lazy" decoding="async"></p>
+<p>若要在 Kotlin 园地中观察此行为，请在下一部分运行该程序。</p>
+<h2 id="example"><strong>示例</strong></h2>
+<ol type="1">
+<li>在网络浏览器中打开 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a>。</li>
+<li>将 Kotlin 园地中的现有代码替换为以下程序。</li>
+</ol>
+<p>此程序会创建一个名为 <code dir="ltr" translate="no">count</code> 且初始值为 <code dir="ltr" translate="no">2</code> 的变量，并通过输出 <code dir="ltr" translate="no">count</code> 变量的值来使用该值。如果您还不熟悉代码语法的各个方面，不用担心，后面几部分会对此做进一步说明。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>运行程序，输出内容应如下所示：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">2
+</pre>
+<h2 id="variable-declaration"><strong>变量声明</strong></h2>
+<p>在运行的程序中，第二行代码如下：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span>
+</code></pre>
+<p>此语句会创建一个名为 <code dir="ltr" translate="no">count</code> 且存储数字 <code dir="ltr" translate="no">2</code> 的整数变量。</p>
+<p class="image-container"><img alt="这里有一个在标着“count”（数量）的盒子。盒子外面有一个标着“2”的标签。有一个箭头正从值指向盒子，表示这个值会放入盒内。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/2e4abc418a62b510_2880.029cc721e4.png 2880w" style="width: 288.00px" title="表示带有值的变量的盒子" loading="lazy" decoding="async"></p>
+<p>若要通晓在 Kotlin 中声明变量的语法（或格式），您可能需要花费一些时间。下图显示了变量应处位置的各个细节，以及空格和符号的位置。</p>
+<p class="image-container"><img alt="此图显示了在 Kotlin 中声明变量的语法。变量声明以单词“val”开头，后跟一个空格。接下来是一个标着“name”（名称）的方框。名称框右侧是冒号。冒号后面先后跟着一个空格和一个标着“data type”（数据类型）的方框。之后，依次是一个空格、等号和另一个空格。最后是一个标着“initial value”（初始值）的方框。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/dfcab30373610cbb_2880.029cc721e4.png 2880w" style="width: 624.00px" title="用于声明变量的语法" loading="lazy" decoding="async"></p>
+<p>在下面的 <code dir="ltr" translate="no">count</code> 变量示例中，您可以看到以单词 <code dir="ltr" translate="no">val</code> 开头的变量声明。该变量的名称为 <code dir="ltr" translate="no">count</code>，数据类型为 <code dir="ltr" translate="no">Int</code>，初始值为 <code dir="ltr" translate="no">2</code>。</p>
+<p class="image-container"><img alt="此图显示了一行代码（内容为：val count: Int = 2）、几个指向代码各部分的箭头（用于指明这些部分各自的含义）、指向代码中“count”一词的“name”（名称）标签、指向代码中“Int”一词的“data type”（数据类型）标签，以及指向代码中数字 2 的“initial value”（初始值）标签。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/50906b878985720e_2880.029cc721e4.png 2880w" style="width: 480.00px" title="使用值初始化的变量" loading="lazy" decoding="async"></p>
+<p>接下来，让我们进一步了解变量声明的各个部分。</p>
+<h3 id="keyword-to-define-new-variable">用于定义新变量的关键字</h3>
+<p>若要定义新变量，请以 Kotlin 关键字 <code dir="ltr" translate="no">val</code>（表示值的意思）开头。然后，Kotlin 编译器就会知道这个语句中包含变量声明。</p>
+<h3 id="variable-name"><strong>变量名称</strong></h3>
+<p>和函数一样，您也要为变量命名。在变量声明中，变量名称跟在 <code dir="ltr" translate="no">val</code> 关键字后面。</p>
+<p class="image-container"><img alt="此图显示了在 Kotlin 中声明变量的语法。变量声明以单词“val”开头，后跟一个空格。接下来是一个标着“name”（名称）的方框。名称框使用绿色的边框和背景突出显示，以吸引大家注意变量声明中的这部分内容。名称框右侧是冒号。冒号后面先后跟着一个空格和一个标着“data type”（数据类型）的方框。之后，依次是一个空格、等号和另一个空格。最后是一个标着“initial value”（初始值）的方框。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f978656666936b4f_2880.029cc721e4.png 2880w" style="width: 624.00px" title="用于声明变量的语法" loading="lazy" decoding="async"></p>
+<p>您可以选择任意变量名称，但最佳做法是避免使用 Kotlin <a href="https://kotlinlang.org/docs/keyword-reference.html" target="_blank">关键字</a>作为变量名称。</p>
+<p>建议选择能够描述变量所存储数据的名称，以便让代码更易于理解。</p>
+<p>与您在函数名称中学到的一样，变量名称应遵循驼峰命名法惯例。变量名称中的第一个单词全部小写。如果名称中包含多个单词，则各个单词之间不应有空格，所有其他单词的首字母都应大写。</p>
+<p>变量名称示例：</p>
+<ul>
+<li><code dir="ltr" translate="no">numberOfEmails</code></li>
+<li><code dir="ltr" translate="no">cityName</code></li>
+<li><code dir="ltr" translate="no">bookPublicationDate</code></li>
+</ul>
+<p>在前面显示的代码示例中，<code dir="ltr" translate="no">count</code> 就是变量名称。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span>
+</code></pre>
+<h3 id="variable-data-type"><strong>变量数据类型</strong></h3>
+<p>在变量名称后，需依次添加冒号、空格和变量的数据类型。如前所述，<code dir="ltr" translate="no">String</code>、<code dir="ltr" translate="no">Int</code>、<code dir="ltr" translate="no">Double</code>、<code dir="ltr" translate="no">Float,</code> 和 <code dir="ltr" translate="no">Boolean</code> 是一些基本的 Kotlin 数据类型。本课程后面的内容会对这些数据类型进行详细介绍。请务必准确拼写数据类型（如下所示），并以大写字母开头。</p>
+<p class="image-container"><img alt="此图显示了在 Kotlin 中声明变量的语法。变量声明以单词“val”开头，后跟一个空格。接下来是一个标着“name”（名称）的方框。名称框右侧是冒号。冒号后面先后跟着一个空格和一个标着“data type”（数据类型）的方框。数据类型框使用绿色的边框和背景突出显示，以吸引大家注意变量声明中的这部分内容。在数据类型框的右侧，依次是一个空格、等号和另一个空格。最后是一个标着“initial value”（初始值）的方框。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/96e070df465b32c6_2880.029cc721e4.png 2880w" style="width: 624.00px" title="用于声明变量的语法" loading="lazy" decoding="async"></p>
+<p>在 <code dir="ltr" translate="no">count</code> 变量示例中，<code dir="ltr" translate="no">Int</code> 就是该变量的数据类型。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span>
+</code></pre>
+<h3 id="assignment-operator"><strong>赋值运算符</strong></h3>
+<p>在变量声明中，等号 (<code dir="ltr" translate="no">=</code>) 跟在数据类型之后。等号被称为赋值运算符。<em></em>赋值运算符用于为变量赋值。换句话说，等号右侧的值会存储在等号左侧的变量中。</p>
+<p class="image-container"><img alt="此图显示了一行代码（内容为：val count: Int = 2）、一个从 2（位于等号右侧）指向“count”一词（位于等号左侧）的箭头。这表示值 2 存储在 count 变量中。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/31056b7a9891d9a5_2880.029cc721e4.png 2880w" style="width: 288.00px" title="初始化为 2 的变量" loading="lazy" decoding="async"></p>
+<h3 id="variable-initial-value"><strong>变量初始值</strong></h3>
+<p>变量值是存储在变量中的实际数据。</p>
+<p class="image-container"><img alt="此图显示了在 Kotlin 中声明变量的语法。变量声明以单词“val”开头，后跟一个空格。接下来是一个标着“name”（名称）的方框。名称框右侧是冒号。冒号后面先后跟着一个空格和一个标着“data type”（数据类型）的方框。在数据类型框的右侧，依次是一个空格、等号和另一个空格。最后是一个标着“initial value”（初始值）的方框。初始值框使用绿色的边框和背景突出显示，以吸引大家注意变量声明中的这部分内容。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/14c69d3231012a14_2880.029cc721e4.png 2880w" style="width: 624.00px" title="用于声明变量的语法" loading="lazy" decoding="async"></p>
+<p>在 <code dir="ltr" translate="no">count</code> 变量示例中，<code dir="ltr" translate="no">2</code> 就是该变量的初始值。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span>
+</code></pre>
+<p>您还可能会听到“<code dir="ltr" translate="no">count</code> 变量初始化为 <em></em><code dir="ltr" translate="no">2</code>”的说法。这表示，在声明变量时，其中存储的第一个值是 <code dir="ltr" translate="no">2</code>。</p>
+<p>初始值会因为变量声明的数据类型而异。</p>
+<p>请参阅下表。您可能会发现，该表在 Codelab 的前面部分中曾出现过。第三列显示了可在各自对应类型的变量中存储的示例值。这些值称为“字面量”<em></em>，因为它们是固定值或常量值（也就是保持不变的值）。举例来说，整数 32 的值始终是 32。相比之下，变量不是字面量，因为它的值可能会改变。您可能会听到以下根据各自类型来命名的字面量值：字符串字面量、整数字面量、布尔值字面量等。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p><strong>Kotlin 数据类型</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>可包含的数据类型</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>字面量值示例</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">String</code></p>
+</td><td colspan="1" rowspan="1"><p>文本</p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">"Add contact"</code><br><code dir="ltr" translate="no">"Search"</code><br><code dir="ltr" translate="no">"Sign in"</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">Int</code></p>
+</td><td colspan="1" rowspan="1"><p>整数</p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">32</code><br><code dir="ltr" translate="no">1293490</code><br><code dir="ltr" translate="no">-59281</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">Double</code></p>
+</td><td colspan="1" rowspan="1"><p>小数</p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">2.0</code><br><code dir="ltr" translate="no">501.0292</code><br><code dir="ltr" translate="no">-31723.99999</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">Float</code></p>
+</td><td colspan="1" rowspan="1"><p>小数（不如 <code dir="ltr" translate="no">Double</code> 精确），数字末尾带有 <code dir="ltr" translate="no">f</code> 或 <code dir="ltr" translate="no">F</code>。</p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">5.0f</code><br><code dir="ltr" translate="no">-1630.209f</code><br><code dir="ltr" translate="no">1.2940278F</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">Boolean</code></p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">true</code> 或 <code dir="ltr" translate="no">false</code>。当只有两个可能的值时，可使用此数据类型。请注意，<code dir="ltr" translate="no">true</code> 和 <code dir="ltr" translate="no">false</code> 是 Kotlin 中的关键字。</p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">true</code><br><code dir="ltr" translate="no">false</code></p>
+</td></tr>
+</tbody></table>
+<p>请务必根据变量的数据类型提供适当的有效值。举例来说，您不能在 <code dir="ltr" translate="no">Int</code> 类型的变量中存储字符串字面量（如 <code dir="ltr" translate="no">"Hello"</code>），因为这会导致 Kotlin 编译器抛出错误。</p>
+<h2 id="use-a-variable"><strong>使用变量</strong></h2>
+<p>以下是您在 Kotlin 园地中运行的原始程序。到目前为止，您已了解第二行代码会创建一个名为 <code dir="ltr" translate="no">count</code> 且值为 <code dir="ltr" translate="no">2</code> 的新整数变量。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>现在，让我们看看第三行代码。您将输出 <code dir="ltr" translate="no">count</code> 变量：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>请注意，<code dir="ltr" translate="no">count</code> 一词前后没有引号；它是变量名称，不是字符串字面量（如果是的话，则会用引号括起来）。运行程序时，Kotlin 编译器会依据 <code dir="ltr" translate="no">println()</code> 指令，对括号内的表达式（即 <code dir="ltr" translate="no">count</code>）进行求值。由于表达式的求值结果为 <code dir="ltr" translate="no">2</code>，因此系统会将 <code dir="ltr" translate="no">2</code> 作为输入来调用 <code dir="ltr" translate="no">println()</code> 方法：<code dir="ltr" translate="no">println(2)</code>。</p>
+<p>因此，程序的输出内容如下：</p>
+<div></div><pre translate="no" dir="ltr">2
+</pre>
+<p>输出数字本身并不是很有用。如果在输出内容中输出更详细的消息来解释 <code dir="ltr" translate="no">2</code> 所代表的含义，会更为实用。</p>
+<h3 id="string-template">字符串模板</h3>
+<p>以下是在输出内容中显示的更实用消息：</p>
+<div></div><pre translate="no" dir="ltr">You have 2 unread messages.
+</pre>
+<p>按照以下步骤操作，让程序输出更实用的消息。</p>
+<ol type="1">
+<li>在 Kotlin 园地中，使用以下代码更新您的程序。向 <code dir="ltr" translate="no">println()</code> 调用传入包含 <code dir="ltr" translate="no">count</code> 变量名称的字符串字面量。别忘了用引号括住该文本。请注意，目前您还不会获得预期结果。我们将在后续步骤中解决该问题。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have count unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行程序，输出内容应如下所示：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">You have count unread messages.
+</pre>
+<p>这句话不知所云！您应该在消息中显示 <code dir="ltr" translate="no">count</code> 变量的值，而不是变量名称。</p>
+<ol start="3" type="1">
+<li>如要修复输出，您需要使用字符串模板。<em></em><em></em>这是一个字符串模板，其中包含一个模板表达式，该模板表达式由美元符号 (<code dir="ltr" translate="no">$</code>) 后跟一个变量名组成。系统会对模板表达式求值，并将值换入到字符串中。</li>
+</ol>
+<p class="image-container"><img alt="使用字符串模板的字符串" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c9d83ec2fa51b2ff_2880.029cc721e4.png 2880w" style="width: 624.00px" title="使用字符串模板的字符串" loading="lazy" decoding="async"></p>
+<p>在 <code dir="ltr" translate="no">count</code> 变量前添加一个美元符号 <code dir="ltr" translate="no">$</code>。在此例中，模板表达式 <code dir="ltr" translate="no">$count</code> 的求值结果为 <code dir="ltr" translate="no">2</code>，并且 <code dir="ltr" translate="no">2</code> 会换入到表达式所在的字符串中。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>运行程序后，您将会获得所需的输出内容：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">You have 2 unread messages.
+</pre>
+<p>对于用户来说，这句话更容易理解！</p>
+<ol start="5" type="1">
+<li>现在，将 <code dir="ltr" translate="no">count</code> 变量的初始值更改为其他整数字面量（例如，您可以选择数字 <code dir="ltr" translate="no">10</code>），并让程序中的其余代码保持不变。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>运行程序。请注意，输出内容会相应地改变，您甚至不需要更改程序中的 <code dir="ltr" translate="no">println()</code> 语句。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">You have 10 unread messages.
+</pre>
+<p>看到字符串模板是多么有用了吧？您在代码 (<code dir="ltr" translate="no">"You have $count unread messages."</code>) 中只编写了一次字符串模板。即使更改 <code dir="ltr" translate="no">count</code> 变量的初始值，<code dir="ltr" translate="no">println()</code> 语句还是会正常发挥作用。现在，您的代码更加灵活啦！</p>
+<p>为了进一步强调这一点，接下来比较两个程序。第一个程序使用了一个字符串字面量，字符串中直接包含未读邮件的确切数量。在这种情况下，只有当用户收到 10 封未读邮件时，此程序才能正常运行。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have 10 unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>第二个程序使用了一个变量和一个字符串模板，因此代码可以适应更多场景。因此，第二个程序更加灵活！</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="type-inference"><strong>类型推断</strong></h2>
+<p>下面的提示可帮助您减少在声明变量时编写的代码。</p>
+<p>利用类型推断，当 Kotlin 编译器可以推断（或确定）变量应属的数据类型时，您不必在代码中写入确切类型。这意味着，如果您为变量提供了初始值，就可以在变量声明中省略数据类型。Kotlin 编译器会查看初始值的数据类型，并假定变量会存储该类型的数据。</p>
+<p>以下是使用类型推断来声明变量的语法：</p>
+<p class="image-container"><img alt="此图显示了使用类型推断在 Kotlin 中声明变量的语法。变量声明以单词“val”开头，后跟一个空格。接下来是一个标着“name”（名称）的方框。在名称框的右侧，依次是一个空格、等号和另一个空格。最后是一个标着“initial value”（初始值）的方框。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/8364ee0a12aca09_2880.029cc721e4.png 2880w" style="width: 480.00px" title="使用类型推理声明变量的语法" loading="lazy" decoding="async"></p>
+<p>在 <code dir="ltr" translate="no">count</code> 示例中，程序最初包含以下这行代码：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span>
+</code></pre>
+<p>不过，您还可以按如下方式编写这行代码。请注意，冒号 (<code dir="ltr" translate="no">:</code>) 和 <code dir="ltr" translate="no">Int</code> 数据类型已被省略。使用更新后的语法，您不但可以减少需要输入的单词，而且还能取得与创建名为 <code dir="ltr" translate="no">count</code> 且值为 <code dir="ltr" translate="no">2</code> 的 <code dir="ltr" translate="no">Int</code> 变量相同的结果。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span>
+</code></pre>
+<p>Kotlin 编译器知道您想将 <code dir="ltr" translate="no">2</code>（整数）存储到变量 <code dir="ltr" translate="no">count</code> 中，因此可以推断出 <code dir="ltr" translate="no">count</code> 变量的类型为 <code dir="ltr" translate="no">Int</code>。是不是很省事呀？下面这个示例就展示了如何编写更简洁的 Kotlin 代码！</p>
+<aside class="special"><p><strong>注意</strong>：如果您在声明变量时未提供初始值，就必须指定类型。</p>
+<p>下面这行代码未提供初始值，因此您必须指定数据类型：</p>
+<p><code dir="ltr" translate="no">val count: Int</code></p>
+<p>下面这行代码已提供赋值，因此您可以省略数据类型：</p>
+<p><code dir="ltr" translate="no">val count = 2</code></p>
+</aside>
+<p>虽然此示例只讨论了 <code dir="ltr" translate="no">Int</code> 类型的变量，但类型推断的概念适用于 Kotlin 中所有的数据类型。</p>
+<h2 id="basic-math-operations-with-integers"><strong>整数的基本数学运算</strong></h2>
+<p>值为 <code dir="ltr" translate="no">2</code> 的 <code dir="ltr" translate="no">Int</code> 变量与值为 <code dir="ltr" translate="no">"2"</code> 的 <code dir="ltr" translate="no">String</code> 变量有何区别？如果都看输出内容的话，两者一样。</p>
+<p>将整数存储为 <code dir="ltr" translate="no">Int</code>（而不是 <code dir="ltr" translate="no">String</code>）的优势在于，您可以使用 <code dir="ltr" translate="no">Int</code> 变量执行数学运算，例如加法、减法、除法和乘法（请参阅其他<a href="https://kotlinlang.org/docs/keyword-reference.html#operators-and-special-symbols" target="_blank">运算符</a>）。例如，可将两个整数变量相加，得出它们的总和。当然，在某些情况下，可以将整数存储为字符串；但本部分的目的是为了向您展示可以使用 <code dir="ltr" translate="no">Int</code> 变量来做些什么。</p>
+<ol type="1">
+<li>返回 Kotlin 园地，移除代码编辑器中的所有代码。</li>
+<li>创建一个新程序，在其中为收件箱中未读电子邮件的数量定义一个整数变量，并为其提供初始值（例如 <code dir="ltr" translate="no">5</code>）。您可以根据需要选择其他数字。为收件箱中的已读电子邮件数量定义第二个整数变量，并为其提供初始值（例如 <code dir="ltr" translate="no">100</code>）。您可以根据需要选择其他数字。接着，将两个整数相加后，输出收件箱中的邮件总数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">unreadCount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">5</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">readCount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">unreadCount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">readCount</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> total messages in your inbox."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>运行程序，它应该会显示收件箱中的邮件总数：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">You have 105 total messages in your inbox.
+</pre>
+<p>在学习字符串模板时，我们了解到，可以在单个变量名称前加上 <code dir="ltr" translate="no">$</code> 符号。但是，如果您使用更复杂的表达式，就必须用大括号将该表达式括起来，并在大括号前添加 <code dir="ltr" translate="no">$</code> 符号：<code dir="ltr" translate="no">${unreadCount + readCount}</code>。用大括号括起来的表达式（即 <code dir="ltr" translate="no">unreadCount + readCount</code>）的求值结果为 <code dir="ltr" translate="no">105</code>。然后，<code dir="ltr" translate="no">105</code> 这个值会替换到字符串字面量中。</p>
+<p class="image-container"><img alt="此图显示了一个表达式，旁边还有它的值。有一个“expression”（表达式）标签，它的下方写着“unreadCount + readCount”。右侧有一个“value”（值）标签，它的下方写着“105”。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f86b6ec34074392_2880.029cc721e4.png 2880w" style="width: 432.00px" loading="lazy" decoding="async"></p>
+<aside class="warning"><p><strong>警告</strong>：如果忘记用大括号将模板表达式括起来，您将无法获得预期结果。您可以在 Kotlin 园地中对此进行测试，只需将 <code dir="ltr" translate="no">println()</code> 语句更改为 <code dir="ltr" translate="no">println("You have $unreadCount + readCount total messages in your inbox.")</code> 并观察输出内容即可。</p>
+</aside>
+<ol start="4" type="1">
+<li>若要进一步了解这个主题，请创建具有不同名称和不同初始值的变量，然后使用模板表达式来输出信息。</li>
+</ol>
+<p>例如，修改您的程序以输出以下内容：</p>
+<div></div><pre translate="no" dir="ltr">100 photos
+10 photos deleted
+90 photos left
+</pre>
+<p>您可以按照下面这种方式编写程序，也可以采用其他正确方式进行编写！</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">numberOfPhotos</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">photosDeleted</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">numberOfPhotos</span><span class="devsite-syntax-s"> photos"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">photosDeleted</span><span class="devsite-syntax-s"> photos deleted"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">numberOfPhotos</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photosDeleted</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> photos left"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 更新变量
+          </h2>
+          
+          <p>应用在运行时，可能需要更新变量的值。例如，在购物应用中，如果用户向购物车添加商品，购物车总金额就会增加。</p>
+<p>让我们将购物用例简化成一个简单的程序。下面的逻辑是用人类语言（而非 Kotlin）编写的，属于伪代码，因为它只描述了代码编写方式的要点，并未包含代码的所有细节。<em></em></p>
+<aside class="special"><p><strong>注意</strong>：之所以称为“伪代码”，是因为它不是可以编译的有效代码。</p>
+</aside>
+<p>在程序的 main 函数中：</p>
+<ul>
+<li>创建一个从 <code dir="ltr" translate="no">0</code> 值开始的整数 <code dir="ltr" translate="no">cartTotal</code> 变量。</li>
+<li>用户在购物车中添加了一件 20 元的毛衣。</li>
+<li>将 <code dir="ltr" translate="no">cartTotal</code> 变量更新为 <code dir="ltr" translate="no">20</code>（即购物车中商品的当前费用）。</li>
+<li>输出购物车中商品的总费用（即 <code dir="ltr" translate="no">cartTotal</code> 变量）。</li>
+</ul>
+<p>为了进一步简化代码，您无需针对客户向购物车添加商品这种情况编写代码。（在后面的单元中，我们将会学习程序如何对用户输入做出响应。）请将重心放在创建、更新和输出 <code dir="ltr" translate="no">cartTotal</code> 变量的部分。</p>
+<ol type="1">
+<li>将 Kotlin 园地中的现有代码替换为以下程序。程序的第 2 行代码会将 <code dir="ltr" translate="no">cartTotal</code> 变量的初始值设为 <code dir="ltr" translate="no">0</code>。由于已经提供初始值，通过类型推断即可获知 <code dir="ltr" translate="no">Int</code> 数据类型，因此不必再指定该数据类型。程序的第 3 行代码会尝试使用赋值运算符 (<code dir="ltr" translate="no">=</code>) 将 <code dir="ltr" translate="no">cartTotal</code> 变量更新为 <code dir="ltr" translate="no">20</code>。程序的第 4 行代码会使用字符串模板来输出 <code dir="ltr" translate="no">cartTotal</code> 变量。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">cartTotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">cartTotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">20</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Total: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">cartTotal</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行程序，系统会抛出编译错误。</li>
+<li>注意该错误会指明无法对 <code dir="ltr" translate="no">val</code> 重新赋值。错在程序的第三行，该行代码会尝试将 <code dir="ltr" translate="no">cartTotal</code> 变量的值更改为 <code dir="ltr" translate="no">20.</code> 因为已经向 <code dir="ltr" translate="no">val</code> <code dir="ltr" translate="no">cartTotal</code> 赋予初始值 (<code dir="ltr" translate="no">0</code>)，所以不能再为该变量重新赋予其他值 (<code dir="ltr" translate="no">20</code>)。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Val cannot be reassigned
+</pre>
+<p>如果您需要更新变量的值，请使用 Kotlin 关键字 <code dir="ltr" translate="no">var</code>（而不是 <code dir="ltr" translate="no">val</code>）声明该变量。</p>
+<ul>
+<li><code dir="ltr" translate="no">val</code> 关键字 - 预计变量值不会变化时使用。</li>
+<li><code dir="ltr" translate="no">var</code> 关键字 - 预计变量值会发生变化时使用。</li>
+</ul>
+<p>如果使用 <code dir="ltr" translate="no">val</code>，变量只读<em></em>，也就是说您只能读取或访问变量的值。值一经设置，便无法再编辑或修改。如果使用 <code dir="ltr" translate="no">var</code>，变量可变<em></em>，也就是说值可被更改或调整，可以进行转变。</p>
+<p>若要记住区别，不妨将 <code dir="ltr" translate="no">val</code> 视为固定值，将 <code dir="ltr" translate="no">var</code> 视为变量。<em></em><em></em>在 Kotlin 中，建议尽量使用 <code dir="ltr" translate="no">val</code> 关键字，而不是 <code dir="ltr" translate="no">var</code> 关键字。</p>
+<ol start="4" type="1">
+<li>在程序第 2 行代码中，更新对 <code dir="ltr" translate="no">cartTotal</code> 的变量声明，以使用 <code dir="ltr" translate="no">var</code>，而不是 <code dir="ltr" translate="no">val</code>。该代码如下所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">cartTotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">cartTotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">20</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Total: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">cartTotal</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>注意程序中第 3 行代码的语法（用于更新变量）。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">cartTotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">20</span>
+</code></pre>
+<p>使用赋值运算符 (<code dir="ltr" translate="no">=</code>) 为现有变量 (<code dir="ltr" translate="no">cartTotal</code>) 赋予新值 (<code dir="ltr" translate="no">20</code>)。由于该变量已定义，因此您无需再次使用 <code dir="ltr" translate="no">var</code> 关键字。</p>
+<p class="image-container"><img alt="此图显示了一行代码（内容为：cartTotal = 20）、一个从 20（位于等号右侧）指向“cartTotal”一词（位于等号左侧）的箭头。这表示值 20 存储在 cartTotal 变量中。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c78c68b803cb53cb_2880.029cc721e4.png 2880w" style="width: 240.00px" title="将被赋值的变量" loading="lazy" decoding="async"></p>
+<p>以盒子为喻，想象 <code dir="ltr" translate="no">20</code> 这个值是存储在标着 <code dir="ltr" translate="no">cartTotal</code>（购物车总金额）的盒子里。</p>
+<p class="image-container"><img alt="这里有一个在标着“cartTotal”（购物车总金额）的盒子。盒子外面有一个标着“20”的标签。有一个箭头正从值指向盒子，表示这个值会放入盒内。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/74b153a08d38d640_2880.029cc721e4.png 2880w" style="width: 288.00px" title="用于表示变量的盒子" loading="lazy" decoding="async"></p>
+<p>下图显示了更新变量的一般语法，相关变量已在前一行代码中声明。以要更新的变量的名称为语句开头。之后，依次添加一个空格、等号和另一个空格。最后，写入变量的更新值。</p>
+<p class="image-container"><img alt="此图显示了在 Kotlin 中更新变量的语法。这行代码以标着“name”（名称）的方框开头。在名称框的右侧，依次是一个空格、等号和另一个空格。最后是一个标着“updated value”（更新值）的方框。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/c1fc5d800976e702_2880.029cc721e4.png 2880w" style="width: 432.00px" title="变量更新语法" loading="lazy" decoding="async"></p>
+<ol start="6" type="1">
+<li>运行程序，代码应该能成功编译。输出内容应如下所示：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Total: 20
+</pre>
+<ol start="7" type="1">
+<li>若要了解变量值在程序运行期间的变化情况，请在最初声明 <code dir="ltr" translate="no">cartTotal</code> 变量后输出该变量。更改后的代码如下所示。第 3 行添加了新的 <code dir="ltr" translate="no">println()</code> 语句。代码的第 4 行还添加了一个空行。空行不会对编译器理解代码的方式产生任何影响。通过添加空行来隔开相关代码块，可让代码更易于阅读。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">cartTotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Total: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">cartTotal</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">cartTotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">20</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Total: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">cartTotal</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="8" type="1">
+<li>再次运行程序，输出内容应如下所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Total</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-n">Total</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">20</span>
+</code></pre>
+<p>您可以看到，购物车总金额最初为 <code dir="ltr" translate="no">0</code>，之后更新为 <code dir="ltr" translate="no">20</code>。您成功更新变量啦！之所以成功，是因为您将 <code dir="ltr" translate="no">cartTotal</code> 从只读变量（使用 <code dir="ltr" translate="no">val</code>）改为了可变变量（使用 <code dir="ltr" translate="no">var</code>）。</p>
+<p>请注意，只有在预计值会发生变化时，才应使用 <code dir="ltr" translate="no">var</code> 声明变量；否则，应默认使用 <code dir="ltr" translate="no">val</code> 声明变量。这样做是为了提高代码的安全性。使用 <code dir="ltr" translate="no">val</code> 可防止变量在程序中意外更新。为 <code dir="ltr" translate="no">val</code> 赋值后，该值就会一直保持不变。</p>
+<aside class="special"><p><strong>注意</strong>：因为 val 是只读变量，所以熟悉其他编程语言的人可以把声明 <code dir="ltr" translate="no">val</code> 当作声明常量值来对待。在 Kotlin 中声明常量时，还需遵循一些其他规范，但这超出了本 Codelab 的范围，不过您可以在样式指南的<a href="https://developer.android.com/kotlin/style-guide?hl=zh-cn#constant_names" target="_blank">常量</a>部分找到它们。</p>
+</aside>
+<h2 id="increment-and-decrement-operators"><strong>增量运算符和减量运算符</strong></h2>
+<p>现在您已经知道，必须将变量声明为 <code dir="ltr" translate="no">var</code>，才能更新其值。让我们将这个知识应用到我们之前使用的电子邮件示例中。</p>
+<ol type="1">
+<li>使用以下程序替换 Kotlin 园地中的代码：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行程序，输出内容应如下所示：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">You have 10 unread messages.
+</pre>
+<ol start="3" type="1">
+<li>将 <code dir="ltr" translate="no">val</code> 关键字替换为 <code dir="ltr" translate="no">var</code> 关键字，使 <code dir="ltr" translate="no">count</code> 变量成为可变变量。运行程序后，输出内容应该没有变化。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>不过，现在您可以将 <code dir="ltr" translate="no">count</code> 更新为其他值。例如，当用户在收件箱中收到一封新的电子邮件时，您可以将 <code dir="ltr" translate="no">count</code> 加 1。（您无需针对收到电子邮件这种情况编写代码。我们会在后面的单元中，讨论从互联网获取数据这个更高级的主题。）此刻我们只需知道，以下这行代码会让 <code dir="ltr" translate="no">count</code> 变量加 <code dir="ltr" translate="no">1</code>：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span>
+</code></pre>
+<p>等号右侧的表达式 <code dir="ltr" translate="no">count + 1</code> 的求值结果为 <code dir="ltr" translate="no">11</code>，因为 <code dir="ltr" translate="no">count</code> 的当前值为 <code dir="ltr" translate="no">10</code>（程序的第 2 行），而 <code dir="ltr" translate="no">10 + 1</code> 等于 <code dir="ltr" translate="no">11</code>。然后，使用赋值运算符向 <code dir="ltr" translate="no">count</code> 变量赋予 <code dir="ltr" translate="no">11</code> 这个值（也就是让值存储在该变量中）。</p>
+<p class="image-container"><img alt="此图显示了一行代码，内容为：count = count + 1。“count + 1”表达式周围画有一个圆圈。有一个箭头从等号右侧带圆圈的表达式指向等号左侧“count”一词。这表示“count + 1”表达式的值存储在 count 变量中。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/d274bbe91769d766_2880.029cc721e4.png 2880w" style="width: 384.00px" title="递增的变量" loading="lazy" decoding="async"></p>
+<p>将下面这行代码添加到程序中 <code dir="ltr" translate="no">main()</code> 函数底部。您的代码应如下所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>如果您现在运行程序，输出内容会与之前一样，因为您在更新 <code dir="ltr" translate="no">count</code> 变量后未添加任何代码。</p>
+<ol start="5" type="1">
+<li>添加另一个输出语句，用于在变量更新后输出未读邮件的数量。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>运行程序。第二条消息应该会显示更新后的 <code dir="ltr" translate="no">count</code>（即 <code dir="ltr" translate="no">11</code> 封邮件）。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">You have 10 unread messages.
+You have 11 unread messages.
+</pre>
+<ol start="7" type="1">
+<li>如果您想让变量加 <code dir="ltr" translate="no">1</code>，可以使用由两个加号组成的增量运算符 (<code dir="ltr" translate="no">++</code>) 来简化代码。<em></em>只需直接在变量名称后面使用这些符号，便可指示编译器将变量的当前值加 1，然后将新值存储在变量中。下面两行代码是等效的，但使用 <code dir="ltr" translate="no">++</code> 增量运算符可减少输入。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span>
+</code></pre>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">count</span><span class="devsite-syntax-o">++</span>
+</code></pre>
+<p>修改您的代码，然后运行程序。变量名称和增量运算符之间不应有空格。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-o">++</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="8" type="1">
+<li>运行程序。虽然输出内容没变，但现在您了解了一个新的运算符！</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">You have 10 unread messages.
+You have 11 unread messages.
+</pre>
+<ol start="9" type="1">
+<li>接下来，修改程序的第 4 行，在 <code dir="ltr" translate="no">count</code> 变量名称后使用减量运算符 (<code dir="ltr" translate="no">--</code>)。<em></em>减量运算符由两个减号组成。您可以在变量名称后面放置减量运算符，指示编译器将变量的值减 <code dir="ltr" translate="no">1</code>，然后将新值存储在变量中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-o">--</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="10" type="1">
+<li>运行程序，输出内容应如下所示：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">You have 10 unread messages.
+You have 9 unread messages.
+</pre>
+<p>在这一部分中，我们学习了如何使用增量运算符 (<code dir="ltr" translate="no">++</code>) 和减量运算符 (<code dir="ltr" translate="no">--</code>) 更新可变变量。更具体地说，<code dir="ltr" translate="no">count++</code> 等同于 <code dir="ltr" translate="no">count = count + 1</code>，<code dir="ltr" translate="no">count--</code> 等同于 <code dir="ltr" translate="no">count = count - 1</code>。</p>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 探索其他数据类型
+          </h2>
+          
+          <p>在本 Codelab 前面的部分中，我们介绍了一些常见的基本数据类型（<code dir="ltr" translate="no">String</code>、<code dir="ltr" translate="no">Int</code>、<code dir="ltr" translate="no">Double</code> 和 <code dir="ltr" translate="no">Boolean</code>）；刚才也让您使用了 <code dir="ltr" translate="no">Int</code> 数据类型。现在，让我们来看看其他数据类型。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p><strong>Kotlin 数据类型</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>可包含的数据类型</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">String</code></p>
+</td><td colspan="1" rowspan="1"><p>文本</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">Int</code></p>
+</td><td colspan="1" rowspan="1"><p>整数</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">Double</code></p>
+</td><td colspan="1" rowspan="1"><p>小数</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">Boolean</code></p>
+</td><td colspan="1" rowspan="1"><p><code dir="ltr" translate="no">true</code> 或 <code dir="ltr" translate="no">false</code>（只有两个可能的值）</p>
+</td></tr>
+</tbody></table>
+<p>不妨在 Kotlin 园地中试试这些程序，看看会输出什么内容。</p>
+<h2 id="double">Double</h2>
+<p>如果您需要一个可以存储小数值的变量，请使用 <code dir="ltr" translate="no">Double</code> 变量。若要了解其有效范围，请参阅<a href="https://kotlinlang.org/docs/numbers.html#floating-point-types" target="_blank">这个表格</a>，看看该变量可以存储的小数位数示例。</p>
+<aside class="special"><p><strong>注意</strong>：<code dir="ltr" translate="no">Double</code> 数据类型之所以这样取名，是因为该数据类型的精度是 <code dir="ltr" translate="no">Float</code> 这个单精度数据类型的两倍。精度是指可以保留的小数位数。因此，<code dir="ltr" translate="no">Double</code> 变量可以存储更精确的值。如果您想详细了解 <code dir="ltr" translate="no">Double</code> 和 <code dir="ltr" translate="no">Float</code> 类型之间的具体差异，请参阅<a href="https://kotlinlang.org/docs/numbers.html#floating-point-types" target="_blank">这个表格</a>。这一部分的 Codelab 将重点介绍如何使用 <code dir="ltr" translate="no">Double</code> 来处理小数。</p>
+</aside>
+<p>假设您要导航到某个目的地，由于沿途需要停靠，因此您的行程被拆分成三个单独的部分。此程序会显示到达目的地所需的总距离。</p>
+<ol type="1">
+<li>在 Kotlin 园地中输入以下代码。您能明白每行代码的具体含义吗？</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trip1</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">3.20</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trip2</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">4.10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trip3</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1.72</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">totalTripLength</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0.0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">totalTripLength</span><span class="devsite-syntax-s"> miles left to destination"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在上述代码中，声明了三个名为 <code dir="ltr" translate="no">trip1</code>、<code dir="ltr" translate="no">trip2</code> 和 <code dir="ltr" translate="no">trip3</code> 的变量，用以指明每一段行程的距离。所有这些变量存储的都是小数值，因此它们属于 <code dir="ltr" translate="no">Double</code> 变量。之所以使用 <code dir="ltr" translate="no">val</code> 来声明每个变量，是因为它们的值在程序运行过程中不会改变。该程序还会创建第四个变量（名为 <code dir="ltr" translate="no">totalTripLength</code>），其当前初始值为 <code dir="ltr" translate="no">0.0</code>。程序的最后一行会输出一条消息，其中包含 <code dir="ltr" translate="no">totalTripLength</code> 变量的值。</p>
+<ol start="2" type="1">
+<li>修正代码，使 <code dir="ltr" translate="no">totalTripLength</code> 变量是所有三段行程长度的总和。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">totalTripLength</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trip1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trip2</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trip3</span>
+</code></pre>
+<p>等号右侧表达式的求值结果为 <code dir="ltr" translate="no">9.02</code>，因为 <code dir="ltr" translate="no">3.20 + 4.10 + 1.72</code> 等于 <code dir="ltr" translate="no">9.02</code>。<code dir="ltr" translate="no">9.02</code> 这个值会存储在 <code dir="ltr" translate="no">totalTripLength</code> 变量中。</p>
+<p class="image-container"><img alt="此图显示了一行代码，内容为：val totalTripLength: Double = trip1 + trip2 + trip3。“trip1 + trip2 + trip3”表达式周围画有一个圆圈。有一个箭头从等号右侧带圆圈的表达式指向等号左侧“totalTripLength”一词。这表示“trip1 + trip2 + trip3”表达式的值存储在 totalTripLength 变量中。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/9286c52fa350bb58_2880.029cc721e4.png 2880w" style="width: 432.00px" title="将被赋值的变量" loading="lazy" decoding="async"></p>
+<p>整个程序应如以下代码所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trip1</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">3.20</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trip2</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">4.10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trip3</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1.72</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">totalTripLength</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trip1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trip2</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trip3</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">totalTripLength</span><span class="devsite-syntax-s"> miles left to destination"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>运行程序，输出内容应如下所示：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">9.02 miles left to destination
+</pre>
+<ol start="4" type="1">
+<li>更新代码，以便从变量声明中移除由于类型推断而变得没必要使用的 <code dir="ltr" translate="no">Double</code> 数据类型。Kotlin 编译器可以根据初始值（提供的是小数）推断出这些变量属于 <code dir="ltr" translate="no">Double</code> 数据类型。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trip1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">3.20</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trip2</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">4.10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">trip3</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1.72</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">totalTripLength</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trip1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trip2</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">trip3</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">totalTripLength</span><span class="devsite-syntax-s"> miles left to destination"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>再次运行您的代码，确保该代码仍然可以编译。输出内容应该一样，但是现在代码变得更简单了！</li>
+</ol>
+<h2 id="string"><strong>字符串</strong></h2>
+<p>如果您需要一个可以存储文本的变量，请使用 <code dir="ltr" translate="no">String</code> 变量。请务必用引号引住 String 字面量值（如 <code dir="ltr" translate="no">"Hello Kotlin"</code>），但不要用引号引住 <code dir="ltr" translate="no">Int</code> 和 <code dir="ltr" translate="no">Double</code> 字面量值。</p>
+<ol type="1">
+<li>复制此程序并将其粘贴到 Kotlin 园地中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">nextMeeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Next meeting:"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">date</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"January 1"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">reminder</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">nextMeeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">date</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">reminder</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>请注意，在上述代码中，声明了 <code dir="ltr" translate="no">nextMeeting</code> 和 <code dir="ltr" translate="no">date</code> 这两个 <code dir="ltr" translate="no">String</code> 变量；然后，声明了名为 <code dir="ltr" translate="no">reminder</code> 的第三个 <code dir="ltr" translate="no">String</code> 变量，该变量被设为等于 <code dir="ltr" translate="no">nextMeeting</code> 变量加 <code dir="ltr" translate="no">date</code> 变量。</p>
+<p>您可以使用 + 号将两个字符串加在一起（这种做法称为“串联”）。<em></em>当两个字符串前后组合起来后，表达式 <code dir="ltr" translate="no">nextMeeting + date</code> 的结果即为 <code dir="ltr" translate="no">"Next meeting:January 1"</code>，如下图所示。</p>
+<p class="image-container"><img alt="两个串联的变量" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/b474317797c50bf_2880.029cc721e4.png 2880w" style="width: 624.00px" title="两个串联的变量" loading="lazy" decoding="async"></p>
+<p>然后，在程序第 4 行中，使用赋值运算符将值 <code dir="ltr" translate="no">"Next meeting:January 1"</code> 存储到 <code dir="ltr" translate="no">reminder</code> 变量中。</p>
+<ol start="2" type="1">
+<li>运行程序，输出内容应如下所示：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Next meeting:January 1
+</pre>
+<p>如果您将两个字符串串联在一起，这两个字符串之间不会添加任何额外的空格。如果您想让输出字符串中的冒号后面有空格，则需要在其中一个字符串中添加空格。</p>
+<ol start="3" type="1">
+<li>更新 <code dir="ltr" translate="no">nextMeeting</code> 变量，在字符串末尾右引号前面添加一个额外的空格（或者，您也可以在 <code dir="ltr" translate="no">date</code> 变量的开头添加了一个额外的空格）。程序应如下所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">nextMeeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Next meeting: "</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">date</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"January 1"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">reminder</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">nextMeeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">date</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">reminder</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>再次运行程序。现在，输出消息中的冒号后面应该会显示一个空格。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Next meeting: January 1
+</pre>
+<ol start="5" type="1">
+<li>修改代码，将另一段文本串联（或添加）到要存储在 <code dir="ltr" translate="no">reminder</code> 变量中的表达式后。</li>
+</ol>
+<p>使用 <code dir="ltr" translate="no">+</code> 号将字符串字面量 <code dir="ltr" translate="no">" at work"</code> 添加到 <code dir="ltr" translate="no">reminder</code> 字符串的末尾。</p>
+<ol start="6" type="1">
+<li>运行程序。</li>
+</ol>
+<p>输出内容应如下所示：</p>
+<div></div><pre translate="no" dir="ltr">Next meeting: January 1 at work
+</pre>
+<p>以下代码显示了实现该行为的一种方法。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">nextMeeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Next meeting: "</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">date</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"January 1"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">reminder</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">nextMeeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">date</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">" at work"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">reminder</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>请注意，不要用引号将 <code dir="ltr" translate="no">nextMeeting</code> 和 <code dir="ltr" translate="no">date</code> 括起来，因为它们是现有字符串变量的名称（各自值都是用引号括起来的文本）。与之相反，字面量 <code dir="ltr" translate="no">" at work"</code> 之前未在任何变量中定义，因此请用引号将这个文本引起来，以便让编译器知道这是一个应串联到其他字符串上的字符串。</p>
+<p>从技术层面来讲，您可以声明包含完整文本的单个 <code dir="ltr" translate="no">String</code> 变量（而不是使用单独的变量）来实现相同输出。不过，本练习的目的是为了说明如何声明和操纵 <code dir="ltr" translate="no">String</code> 变量，特别是如何串联单独的字符串。</p>
+<ol start="7" type="1">
+<li>读取包含字符串的代码时，您可能会遇到转义序列<em></em>。转义序列是指前面带有反斜杠符号（<code dir="ltr" translate="no">\</code>，也称为转义反斜杠）的字符。</li>
+</ol>
+<p>在下面的例子中，字符串字面量中出现了 <code dir="ltr" translate="no">\"</code>。请复制此代码并将其粘贴到 Kotlin 园地中。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Say \"hello\""</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>您之前已学习使用英文双引号将字符串字面量引起来。但是，如果您想在字符串中使用 <code dir="ltr" translate="no">"</code> 符号，该怎么办？在这种情况下，您需要在字符串中的英文引号前面添加反斜杠符号，表示为 <code dir="ltr" translate="no">\"</code>。请注意，整个字符串应仍使用英文双引号引起来。</p>
+<ol start="8" type="1">
+<li>运行该程序来查看输出，其中内容应如下所示：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Say "hello"
+</pre>
+<p>在输出中，<code dir="ltr" translate="no">hello</code> 会使用英文双引号引起来，因为我们在 <code dir="ltr" translate="no">println()</code> 语句中 <code dir="ltr" translate="no">hello</code> 的前后都添加了 <code dir="ltr" translate="no">\"</code>。</p>
+<p>如需了解 Kotlin 支持的其他转义序列，请参阅有关<a href="https://kotlinlang.org/docs/characters.html" target="_blank">转义序列</a>的文档页面。例如，如果要在字符串中另起一行，请在字符 n 前面使用 <code dir="ltr" translate="no">\</code> 符号，表示为 <code dir="ltr" translate="no">\n</code>。</p>
+<p>现在，您已经学习了如何串联字符串，以及如何在字符串中使用转义序列。让我们继续学习本 Codelab 涵盖的最后一个数据类型。</p>
+<h2 id="boolean"><strong>布尔值</strong></h2>
+<p>当变量只有两个可能的值（用 <code dir="ltr" translate="no">true</code> 或 <code dir="ltr" translate="no">false</code> 表示）时，<code dir="ltr" translate="no">Boolean</code> 数据类型会非常有用。</p>
+<p>例如，指示设备的飞行模式是处于开启还是关闭状态的变量，或者指示应用的通知功能是处于启用还是停用状态的变量。</p>
+<ol type="1">
+<li>在 Kotlin 园地中输入以下代码。此程序的第 2 行代码会声明一个名为 <code dir="ltr" translate="no">notificationsEnabled</code> 的 <code dir="ltr" translate="no">Boolean</code> 变量，并提供初始化值 <code dir="ltr" translate="no">true</code>。从技术上讲，可在声明中省略 <code dir="ltr" translate="no">: Boolean</code>。因此，如果需要的话，您可以移除该变量。程序的第 3 行代码会输出 <code dir="ltr" translate="no">notificationsEnabled</code> 变量的值。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">notificationsEnabled</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">notificationsEnabled</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>运行程序，输出内容应如下所示：</p>
+<div></div><pre translate="no" dir="ltr">true
+</pre>
+<ol start="2" type="1">
+<li>在程序的第 2 行代码中，将 <code dir="ltr" translate="no">Boolean</code> 的初始值更改为 false。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">notificationsEnabled</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">notificationsEnabled</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>运行程序，输出内容应如下所示：</p>
+<div></div><pre translate="no" dir="ltr">false
+</pre>
+<ol start="3" type="1">
+<li>其他数据类型可以串联到 <code dir="ltr" translate="no">Strings</code> 上。例如，您可以将 <code dir="ltr" translate="no">Booleans</code> 串联到 <code dir="ltr" translate="no">Strings</code> 上。请使用 <code dir="ltr" translate="no">+</code> 号将 <code dir="ltr" translate="no">notificationsEnabled</code> 布尔值变量的值串联（或附加）到 <code dir="ltr" translate="no">"Are notifications enabled? "</code> 字符串的末尾。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">notificationsEnabled</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Are notifications enabled? "</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">notificationsEnabled</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>运行程序来查看串联的结果。程序应输出以下内容：</p>
+<div></div><pre translate="no" dir="ltr">Are notifications enabled? false
+</pre>
+<p>您可以看到，<code dir="ltr" translate="no">Boolean</code> 变量的值能设为 <code dir="ltr" translate="no">true</code> 或 <code dir="ltr" translate="no">false</code>。有了 <code dir="ltr" translate="no">Boolean</code> 变量，您就可以用代码表示更加复杂的场景。在 <code dir="ltr" translate="no">Boolean</code> 变量的值为 <code dir="ltr" translate="no">true</code> 时，执行一组指令；在 <code dir="ltr" translate="no">Boolean</code> 变量的值为 false 时，跳过这些指令。在后续的 Codelab 中，我们会对 <code dir="ltr" translate="no">Booleans</code> 进行详细说明。</p>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 编码规范
+          </h2>
+          
+          <p>在上一个 Codelab 中，我们为您介绍了 Kotlin 样式指南，这是 Google 推荐使用并且其他专业开发者也在遵循的一种 Android 代码统一编写方式。</p>
+<p>对于所学的新主题，您还需遵循其他一些格式设置和编码规范：</p>
+<ul>
+<li>变量名称应采用驼峰命名法，并以小写字母开头。</li>
+<li>在变量声明中指定数据类型时，应在冒号后面添加一个空格。</li>
+</ul>
+<p class="image-container"><img alt="此图显示了一行代码，内容为：val discount: Double = .20。有一个箭头在指向冒号和 Double 数据类型之间的那个空格，上面是一个内容为“space”的标签。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/932144819db18c30_2880.029cc721e4.png 2880w" style="width: 384.00px" title="变量样式指南" loading="lazy" decoding="async"></p>
+<ul>
+<li>赋值运算符 (<code dir="ltr" translate="no">=</code>)、加号 (<code dir="ltr" translate="no">+</code>)、减号 (<code dir="ltr" translate="no">-</code>)、乘号 (<code dir="ltr" translate="no">*</code>)、除号 (<code dir="ltr" translate="no">/</code>) 等运算符的前后应有空格。</li>
+</ul>
+<p class="image-container"><img a="" after="" alt="此图显示了一行代码，内容为：var pet = " and="" are="" arrows="" before="" bird"="" equal="" label="" pointing="" says="" sign="" space="" space."="" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/f4ee4d292ec7a78a_2880.029cc721e4.png 2880w" style="width: 288.00px" symbol,="" that="" the="" there="" title="变量样式指南" to="" with="" loading="lazy" decoding="async"></p>
+<p class="image-container"><img alt="此图显示了一行代码，内容为：val sum = 1 + 2。有几个箭头在指向加号前后的那些空格，上面是一个内容为“space”的标签。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-variables/img/34f053ecba5f5a0b_2880.029cc721e4.png 2880w" style="width: 288.00px" title="变量样式指南" loading="lazy" decoding="async"></p>
+<ul>
+<li>如果是编写更为复杂的程序，<a href="https://developer.android.com/kotlin/style-guide?hl=zh-cn#line_wrapping" target="_blank">建议每行不要超过 100 个字符</a>。这样一来，您无需水平滚动计算机屏幕，便可轻松阅读程序中的所有代码。</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 在代码中添加注释
+          </h2>
+          
+          <p>编写代码时，另一个建议遵循的较好做法是添加注释来说明代码的用途。<em></em>这样做可帮助读者更轻松地理解代码。您可以使用两个正斜杠符号 (<code dir="ltr" translate="no">//</code>) 来指明将相应行中该符号后面的剩余文本视为注释，而不要解释为代码。通常的做法是在两个正斜杠符号后添加一个空格。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// This is a comment.</span>
+</code></pre>
+<p>您也可以在一行代码的中间位置插入注释。在下面的示例中，<code dir="ltr" translate="no">height = 1</code> 是正常的编码语句。<code dir="ltr" translate="no">// Assume the height is 1 to start with</code> 会被解释为注释，而不会被视为代码。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">height</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-c1">// Assume the height is 1 to start with</span>
+</code></pre>
+<p>如果您想用一行超过 100 个字符的长注释来详细说明代码，不妨使用多行注释。具体方法为：使用由正斜杠 (<code dir="ltr" translate="no">/</code>) 和星号 (<code dir="ltr" translate="no">*</code>) 组成的 <code dir="ltr" translate="no">/*</code> 作为多行注释的开头，在注释的每个新行开头添加一个星号，最后使用由星号和正斜杠符号组成的 <code dir="ltr" translate="no">*/</code> 作为结尾。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-cm">/*</span>
+<span class="devsite-syntax-cm"> * This is a very long comment that can</span>
+<span class="devsite-syntax-cm"> * take up multiple lines.</span>
+<span class="devsite-syntax-cm"> */</span>
+</code></pre>
+<p>以下程序包含描述代码行为的单行注释和多行注释：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-cm">/*</span>
+<span class="devsite-syntax-cm"> * This program displays the number of messages</span>
+<span class="devsite-syntax-cm"> * in the user's inbox.</span>
+<span class="devsite-syntax-cm"> */</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Create a variable for the number of unread messages.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">count</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Decrease the number of messages by 1.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-o">--</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">count</span><span class="devsite-syntax-s"> unread messages."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>如前所述，您可以在代码中添加空行来对相关语句进行分组，让代码更易于阅读。</p>
+<ol type="1">
+<li>在之前使用的代码段中添加一些注释。</li>
+<li>运行程序，确认行为未发生变化（注释不应该影响输出）。</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 总结
+          </h2>
+          
+          <p>做得很好！您已经了解了 Kotlin 中的变量、变量为什么在编程中大有用处，以及如何创建、更新和使用变量。您尝试了 Kotlin 中不同的基本数据类型（包括 <code dir="ltr" translate="no">Int</code>、<code dir="ltr" translate="no">Double</code>、<code dir="ltr" translate="no">String</code> 和 <code dir="ltr" translate="no">Boolean</code> 数据类型），同时还了解了 <code dir="ltr" translate="no">val</code> 和 <code dir="ltr" translate="no">var</code> 关键字之间的区别。</p>
+<p>在成为开发者的旅程中，所有这些概念都是您前进道路上的重要基石。</p>
+<p>期待与您相会于下一个 Codelab！</p>
+<h2 id="summary"><strong>摘要</strong></h2>
+<ul>
+<li>变量是存储单项数据的容器。</li>
+<li>必须先声明变量，然后才能使用它。</li>
+<li><code dir="ltr" translate="no">val</code> 关键字用于定义只读变量；其中的变量一旦赋值，就不能再更改。</li>
+<li><code dir="ltr" translate="no">var</code> 关键字用于定义可变变量。</li>
+<li>在 Kotlin 中，建议您尽可能使用 <code dir="ltr" translate="no">val</code>，而不是 <code dir="ltr" translate="no">var</code>。</li>
+<li>如需声明变量，请以 <code dir="ltr" translate="no">val</code> 或 <code dir="ltr" translate="no">var</code> 关键字开头，然后指定变量名称、数据类型和初始值。例如：<code dir="ltr" translate="no">val count: Int = 2</code>。</li>
+<li>使用类型推断时，如果提供了初始值，则可以在变量声明中省略数据类型。</li>
+<li>一些常见的基本 Kotlin 数据类型包括：<code dir="ltr" translate="no">Int</code>、<code dir="ltr" translate="no">String</code>、<code dir="ltr" translate="no">Boolean</code>、<code dir="ltr" translate="no">Float</code> 和 <code dir="ltr" translate="no">Double</code>。</li>
+<li>在声明或更新变量时，请使用赋值运算符 (<code dir="ltr" translate="no">=</code>) 为变量赋值。</li>
+<li>只能更新通过 <code dir="ltr" translate="no">var</code> 声明为可变变量的变量。</li>
+<li>增量运算符 (<code dir="ltr" translate="no">++</code>) 用于为整数变量的值加 1，减量运算符 (<code dir="ltr" translate="no">--</code>) 用于为整数变量的值减 1。</li>
+<li><code dir="ltr" translate="no">+</code> 符号用于串联各个字符串，也可用于将其他数据类型的变量（如 <code dir="ltr" translate="no">Int</code> 和 <code dir="ltr" translate="no">Boolean</code>）串联到 <code dir="ltr" translate="no">Strings</code>。</li>
+</ul>
+<h2 id="learn-more"><strong>了解详情</strong></h2>
+<ul>
+<li><a href="https://play.kotlinlang.org/byExample/01_introduction/03_Variables" target="_blank">变量</a></li>
+<li><a href="https://kotlinlang.org/docs/basic-types.html" target="_blank">基本类型</a></li>
+<li><a href="https://kotlinlang.org/docs/basic-syntax.html#string-templates" target="_blank">字符串模板</a></li>
+<li><a href="https://kotlinlang.org/docs/keyword-reference.html" target="_blank">关键字和运算符</a></li>
+<li><a href="https://kotlinlang.org/docs/basic-syntax.html" target="_blank">基本语法</a></li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="./02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">上一节：您的首个 Kotlin 程序</a><a href="./04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">下一节：04.创建和使用 Kotlin 函数</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

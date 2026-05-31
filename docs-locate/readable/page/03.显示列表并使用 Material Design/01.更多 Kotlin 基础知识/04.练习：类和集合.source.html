@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>练习：类和集合</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">简介：Compose 中的状态</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">创建 Art Space 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="./01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="./02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="./03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将常用高阶函数与集合结合使用</a></li>
+<li><a class="active" href="./04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题效果</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 实现简单动画</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">练习：类和集合</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <p>在此开发者在线课程中，您学习了泛型、不同类型的类、集合以及高阶函数。为了练习所学的内容，您将帮助所在团队改进新的活动跟踪应用。每个步骤的说明都会描述应用的当前状态以及您应该完成的任务。</p>
+<p>建议使用 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a>来解答这些练习。</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>完成 <strong>Android 之 Compose 开发基础</strong>课程的<a href="https://developer.android.com/courses/pathways/android-basics-compose-unit-3-pathway-1?hl=zh-cn" target="_blank">第 3 单元在线课程 1</a> 及其之前的在线课程。</li>
+<li>熟悉 Kotlin 编程语言的基础知识，包括类、对象、集合和高阶函数。</li>
+</ul>
+<h2 id="what-youll-need">所需条件</h2>
+<ul>
+<li>一台可连接互联网的计算机</li>
+<li>能够访问 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a></li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 应用概览
+          </h2>
+          
+          <p>您是新加入活动跟踪应用团队的软件工程师。该应用旨在让用户能够跟踪他们的活动。您的任务是帮助构建应用的功能。</p>
+<p>每个任务结束时，您应将您的解决方案与所提供的解决方案进行比较。实现所需功能的方式有很多种，因此如果您的代码与所提供的解决方案代码不完全一致，大可不必担心。</p>
+<p>使用上一个任务中提供的解决方案代码作为下一个任务的起始代码，以便从共同的起点开始。</p>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 任务 1
+          </h2>
+          
+          <p>另一位软件工程师已经完成了该应用的一些主体工作，您将负责实现细节部分。</p>
+<p>您需要实现 <strong><code dir="ltr" translate="no">Event</code></strong> 类。此类用于存储用户输入的活动详细信息。（<strong>提示</strong>：此类不需要定义任何方法或执行任何操作。）</p>
+<p>对于此任务，您需要创建一个名为 <strong><code dir="ltr" translate="no">Event</code></strong> 的数据类。</p>
+<p>此类的实例应该能够存储：</p>
+<ul>
+<li>活动<strong>标题</strong>（以字符串表示）。</li>
+<li>活动<strong>说明</strong>（以字符串表示，可以为 null）。</li>
+<li>活动<a href="https://en.wikipedia.org/wiki/Dayparting" target="_blank"><strong>时段</strong></a>（以字符串表示）。我们只需跟踪活动在上午、下午还是晚上开始。</li>
+<li>活动<strong>时长</strong>（分钟，以整数表示）。</li>
+</ul>
+<p>在继续操作之前，请尝试自行编写代码。</p>
+<p>使用您的代码，根据以下信息创建实例：</p>
+<ul>
+<li><strong>标题</strong>：学习 Kotlin</li>
+<li><strong>说明</strong>：坚持每天至少学习 Kotlin 15 分钟。</li>
+<li><strong>时段</strong>：晚上</li>
+<li><strong>时长</strong>：15</li>
+</ul>
+<p>请尝试输出对象以验证您是否获得了以下输出：</p>
+<div></div><pre translate="no" dir="ltr">Event(title=Study Kotlin, description=Commit to studying Kotlin at least 15 minutes per day., daypart=Evening, durationInMinutes=15)
+</pre>
+<p>完成该任务或尽最大努力尝试该任务后，点击 <strong>Next</strong> 即可查看我们编写的代码。</p>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 任务 1 解决方案
+          </h2>
+          
+          <p>您的解决方案应类似于以下代码：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Event</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">title</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">description</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">daypart</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">durationInMinutes</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 任务 2
+          </h2>
+          
+          <p>为确保项目顺利进行，您的经理决定使用我们为数据类提供的代码。</p>
+<p>整个团队使用 <code dir="ltr" translate="no">Event</code> 类一段时间后，资深的团队成员意识到使用字符串表示时段效果并不理想。</p>
+<p>一些开发者存储了“Morning”值，还有一些使用了“morning”，另一些开发者使用了“MORNING”。</p>
+<p>这会导致许多问题。</p>
+<p>您的任务就是通过进行一些<a href="https://en.wikipedia.org/wiki/Code_refactoring" target="_blank">重构</a>来解决此问题。重构是改进代码而不改变其功能的过程。一些示例包括简化逻辑或将重复代码移到单独的函数中。</p>
+<p>哪种类型的类可用于对一组有限的不同值进行建模，以帮助纠正此问题？</p>
+<p>您的团队希望您将时段代码更改为使用枚举类。使用枚举类时，您的同事不得不选择所提供的时段值之一，这可以防止出现此类问题。</p>
+<p>枚举类应命名为 <code dir="ltr" translate="no">Daypart</code>。它应该有三个值：</p>
+<ul>
+<li><code dir="ltr" translate="no">MORNING</code></li>
+<li><code dir="ltr" translate="no">AFTERNOON</code></li>
+<li><code dir="ltr" translate="no">EVENING</code></li>
+</ul>
+<p>您将如何创建此枚举类？</p>
+<p>您如何重构 <code dir="ltr" translate="no">Event</code> 类以使用它？</p>
+<p>请尝试立即编写解决方案代码，然后再继续。</p>
+<p>点击 <strong>Next</strong> 即可查看我们编写的代码。</p>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 任务 2 解决方案
+          </h2>
+          
+          <div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">enum</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Daypart</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">MORNING</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">AFTERNOON</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">EVENING</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>重构后的 <code dir="ltr" translate="no">Event</code> 数据类现在使用枚举类：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Event</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">title</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">description</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">daypart</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Daypart</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">durationInMinutes</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 任务 3
+          </h2>
+          
+          <p>您的同事喜欢使用重构后的 <code dir="ltr" translate="no">Daypart</code>，但他们还会遇到其他问题。</p>
+<p>以下代码展示了他们当前如何创建和存储用户的活动。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">event1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Event</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">title</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Wake up"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">description</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Time to get up"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">daypart</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Daypart</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">MORNING</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">durationInMinutes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">event2</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Event</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">title</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Eat breakfast"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">daypart</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Daypart</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">MORNING</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">durationInMinutes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">15</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">event3</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Event</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">title</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Learn about Kotlin"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">daypart</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Daypart</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">AFTERNOON</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">durationInMinutes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">30</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">event4</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Event</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">title</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Practice Compose"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">daypart</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Daypart</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">AFTERNOON</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">durationInMinutes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">60</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">event5</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Event</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">title</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Watch latest DevBytes video"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">daypart</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Daypart</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">AFTERNOON</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">durationInMinutes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">event6</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Event</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">title</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Check out latest Android Jetpack library"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">daypart</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Daypart</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">EVENING</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">durationInMinutes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">45</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>他们创建了许多活动，目前每个活动都需要有自己的变量。随着创建的活动越来越多，跟踪这些活动变得更加困难。使用这种方法时，确定用户安排的活动数量有多难？</p>
+<p>您能想出更好的方法来整理这些活动的存储方式吗？</p>
+<p>如何将所有活动存储在一个变量中？（<strong>注意</strong>：此方案必须灵活，因为可能会添加更多活动）。还需要能够高效地返回存储在变量中的活动数。）</p>
+<p>您应使用哪种类或数据类型？可以通过哪种方法添加更多活动？</p>
+<p>现在，您该实现此功能了。请先编写代码，然后点击 <strong>Next</strong> 查看我们的解决方案。</p>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 任务 3 解决方案
+          </h2>
+          
+          <div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">events</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableListOf&lt;Event&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">event1</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">event2</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">event3</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">event4</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">event5</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">event6</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="8">
+              9. 任务 4
+          </h2>
+          
+          <p>您的经理很喜欢该应用目前的进展，但决定应该基于活动的时长向用户显示其<strong>短期</strong>活动的摘要。例如，“您有 5 个短期活动。”</p>
+<p>“短期”活动是指不到 60 分钟的活动。</p>
+<p>使用上一个任务的解决方案中的 <code dir="ltr" translate="no">events</code> 变量代码，您如何实现此结果？</p>
+<aside class="special"><p><strong>注意</strong>：您不妨通过多个步骤解决此问题。您如何根据活动时长过滤活动？过滤所需的活动之后，如何确定数量？</p>
+</aside>
+<p>点击 <strong>Next</strong> 继续查看我们的解决方案。</p>
+
+
+        
+          
+          <h2 class="" id="9">
+              10. 任务 4 解决方案
+          </h2>
+          
+          <p>可以通过多种方法实现此目的，我们决定使用如下方法：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">shortEvents</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">events</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">filter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">durationInMinutes</span><span class="devsite-syntax-w"> &lt; </span><span class="devsite-syntax-m">60</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You have </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">shortEvents</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> short events."</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="10">
+              11. 任务 5
+          </h2>
+          
+          <p>您的同事很喜欢该应用目前的进展，但他们希望用户能够看到所有活动及其时段的摘要。</p>
+<p>输出的内容应类似于以下文本：</p>
+<div></div><pre translate="no" dir="ltr">Morning: 3 events
+Afternoon: 4 events
+Evening: 2 events
+</pre>
+<p>使用上一步中的 <code dir="ltr" translate="no">events</code> 变量代码，您如何实现此效果？</p>
+<aside class="special"><p><strong>注意</strong>：您不妨通过多个步骤解决此问题。这与上一个任务类似，不同之处在于，您需要将活动拆分为多个组（而非两个组）。您如何按活动时段对活动进行分组？将这些活动分组后，如何统计每个时段的活动数量？</p>
+</aside>
+<p>点击 <strong>Next</strong> 查看解决方案代码。</p>
+
+
+        
+          
+          <h2 class="" id="11">
+              12. 任务 5 解决方案
+          </h2>
+          
+          <p>以下是我们的解决方案，但其他方案也可接受。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">groupedEvents</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">events</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">groupBy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">daypart</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-n">groupedEvents</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">daypart</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">events</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">daypart</span><span class="devsite-syntax-s">: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">events</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> events"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="12">
+              13. 任务 6
+          </h2>
+          
+          <p>目前，您的同事会通过索引查找并输出最后一项内容。所用的代码为：<code dir="ltr" translate="no">println("Last event of the day: ${events[events.size - 1].title}")</code>。</p>
+<p>您的经理建议查看 <a href="https://kotlinlang.org/docs/collection-elements.html#retrieve-by-position" target="_blank">Kotlin 文档</a>，寻找可以简化此代码的函数。</p>
+<p>您发现了什么函数？</p>
+<p>请尝试使用该函数来确认输出的结果是否相同。</p>
+<p>点击 <strong>Next</strong> 查看解决方案。</p>
+
+
+        
+          
+          <h2 class="" id="13">
+              14. 任务 6 解决方案
+          </h2>
+          
+          <div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Last event of the day: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">events</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">last</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">title</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="14">
+              15. 任务 7
+          </h2>
+          
+          <p>大家很喜欢您设计的数据类，但发现每次需要以字符串形式表示活动的时长时，都要重复编写代码：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">durationOfEvent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">events</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">durationInMinutes</span><span class="devsite-syntax-w"> &lt; </span><span class="devsite-syntax-m">60</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"short"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"long"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Duration of first event of the day: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">durationOfEvent</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>虽然您可以通过直接向类添加方法来解决这种重复问题，但这并不理想，因为其他团队已开始在他们的应用中使用您的活动类。如果该类发生变化，他们需要重新测试所有代码，以确保您所做的更改不会造成任何中断。</p>
+<p>如果不直接更改数据类，如何编写会返回与上述代码相同的值的扩展属性？</p>
+<p>正确实现后，您将能够使用以下代码，它将输出与此任务开头所显示的代码相同的消息。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Duration of first event of the day: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">events</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">durationOfEvent</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>点击 <strong>Next</strong> 继续查看解决方案。</p>
+
+
+        
+          
+          <h2 class="" id="15">
+              16. 任务 7 解决方案
+          </h2>
+          
+          <div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">Event</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">durationOfEvent</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">get</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-k">this</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">durationInMinutes</span><span class="devsite-syntax-w"> &lt; </span><span class="devsite-syntax-m">60</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"short"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"long"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="16">
+              17. 其他练习
+          </h2>
+          
+          <p>如需尝试 Kotlin 语言的更多练习，请查看 <a href="https://hyperskill.org/tracks/18" target="_blank">JetBrains Academy 的 Kotlin Core 课程</a>。如需跳转到特定主题，请前往<a href="https://hyperskill.org/knowledge-map" target="_blank">知识图谱</a>，查看上述课程涵盖的主题列表。</p>
+
+
+        
+        <nav class="pager"><a href="./03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">上一节：将常用高阶函数与集合结合使用</a><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">下一节：01.添加可滚动列表</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

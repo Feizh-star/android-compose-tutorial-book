@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>使用文本可组合项构建简单的应用</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a class="active" href="./01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="./02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="./03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Compose 基础知识</a></li>
+<li><a href="./04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件语句</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">Compose 中的状态简介</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">项目：创建艺术空间应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题效果</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 实现简单动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">使用文本可组合项构建简单的应用</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <p>在本 Codelab 中，您将使用 Jetpack Compose 构建一个会在屏幕上显示生日祝福语的简单 Android 应用。</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>了解如何在 Android Studio 中创建应用。</li>
+<li>了解如何在模拟器中或在 Android 设备上运行应用。</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>了解如何编写可组合函数，例如 <code dir="ltr" translate="no">Text</code>、<code dir="ltr" translate="no">Column</code> 和 <code dir="ltr" translate="no">Row</code> 可组合函数。</li>
+<li>如何在布局中显示应用里的文本。</li>
+<li>如何设置文本格式，例如更改文本大小。</li>
+</ul>
+<h2 id="what-youll-build">构建内容</h2>
+<ul>
+<li>一个以文本格式显示生日祝福的 Android 应用，完成后应如下面的屏幕截图所示：</li>
+</ul>
+<p class="image-container"><img alt="2ff181d48325023c.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_2880.029cc721e4.png 2880w" style="width: 266.40px" loading="lazy" decoding="async"></p>
+<h2 id="what-youll-need">所需条件</h2>
+<ul>
+<li>一台安装了 Android Studio 的计算机</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 设置 Happy Birthday 应用
+          </h2>
+          
+          <p>在此任务中，您将在 Android Studio 中使用 Empty Activity 模板设置一个项目，并将文本消息更改为个性化的生日祝福。</p>
+<h2 id="create-an-empty-activity-project">创建 Empty Activity 项目</h2>
+<ol type="1">
+<li>在 <strong>Welcome to Android Studio</strong> 对话框中，选择 <strong>New Project</strong>。</li>
+<li>在 <strong>New Project</strong> 对话框中，选择 <strong>Empty Activity</strong>，然后点击 <strong>Next</strong>。</li>
+<li>在 <strong>Name</strong> 字段中输入 <code dir="ltr" translate="no">Happy Birthday</code>，在 <strong>Minimum SDK</strong> 字段中选择最低 API 级别 24 (Nougat)，然后点击 <strong>Finish</strong>。</li>
+</ol>
+<p class="image-container"><img alt="b17b607847b0d0ab.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/b17b607847b0d0ab_2880.029cc721e4.png 2880w" style="width: 662.00px" loading="lazy" decoding="async"></p>
+<ol start="4" type="1">
+<li>等待 Android Studio 创建项目文件并构建项目。</li>
+<li>点击 <img alt="fd26b2e3c2870c3.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/fd26b2e3c2870c3_2880.029cc721e4.png 2880w" style="width: 21.00px" loading="lazy" decoding="async"> <strong>Run ‘app'</strong>。</li>
+</ol>
+<p>应用应如下面的屏幕截图所示：</p>
+<p class="image-container"><img alt="d8299bfc1a82cd57.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d8299bfc1a82cd57_2880.029cc721e4.png 2880w" style="width: 273.60px" loading="lazy" decoding="async"></p>
+<p>在您使用 Empty Activity 模板创建这个 Happy Birthday 应用时，Android Studio 会设置基本 Android 应用所需的各项资源，包括在屏幕上显示的 <strong>Hello Android!</strong> 消息。在本 Codelab 中，您将了解如何放置该消息、如何将其文本更改为生日祝福，以及如何添加额外的消息并为其设置格式。</p>
+<h2 id="what-is-a-user-interface-ui">什么是界面 (UI)？</h2>
+<p>应用的界面 (UI) 就是您在屏幕上所看到的内容（文本、图片、按钮和许多其他类型的元素）及其在屏幕上的布局方式。它既是应用向用户显示内容的方式，也是用户与应用展开互动的载体。</p>
+<p>下面的图片包含一个可点击的按钮、一则文本消息和一个可供用户输入数据的文本输入字段。</p>
+<p class="image-container"><img alt="9a2df39af4122803.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9a2df39af4122803_2880.029cc721e4.png 2880w" style="width: 634.00px" loading="lazy" decoding="async"></p>
+<p>可点击的按钮<em></em></p>
+<p class="image-container"><img alt="50a9b402fd9037c0.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/50a9b402fd9037c0_2880.029cc721e4.png 2880w" style="width: 310.00px" loading="lazy" decoding="async"></p>
+<p>卡片中的短信<em></em></p>
+<p class="image-container"><img alt="17794ea52cfb5473.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/17794ea52cfb5473_2880.029cc721e4.png 2880w" style="width: 630.54px" loading="lazy" decoding="async"></p>
+<p>文本输入字段<em></em></p>
+<p>上述各个元素就是所谓的界面组件。您在应用屏幕上看到的所有内容几乎均属于界面元素（也称为界面组件）。这些元素可以是互动元素（例如可点击的按钮或可修改的输入字段），也可以是装饰性图片。</p>
+<p>在下面的应用中，尝试找到尽可能多的界面组件。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="显示推荐的应用" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/dcb5e11ef39aa76d_2880.029cc721e4.png 2880w" title="手机屏幕，显示了 Play 商店" loading="lazy" decoding="async"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/f3835a9ffa17a7c_2880.029cc721e4.png 2880w" title="手机屏幕，显示了“通讯录”应用" loading="lazy" decoding="async"></p>
+</td></tr>
+</tbody></table>
+<p>在本 Codelab 中，您将使用一种用于显示文本的界面元素，即 <code dir="ltr" translate="no">Text</code> 元素。</p>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 什么是 Jetpack Compose？
+          </h2>
+          
+          <p>Jetpack Compose 是用于构建 Android 界面的新款工具包。Compose 使用更少的代码、强大的工具和直观的 Kotlin 功能，可以帮助您简化并加快 Android 界面开发。借助 Compose，您可以通过定义一组函数来构建界面，这些函数称为可组合函数，它们会接受数据并描述界面元素。</p>
+<h2 id="composable-functions">可组合函数</h2>
+<p>在 Compose 中，可组合函数是界面的基本构建块。可组合函数：</p>
+<ul>
+<li>描述界面中的某一部分。</li>
+<li>不会返回任何内容。</li>
+<li>接受一些输入并生成屏幕上显示的内容。</li>
+</ul>
+<h2 id="annotations">注释</h2>
+<p>注解是用于在代码中附加额外信息的方式。此类信息可以帮助 Jetpack Compose 编译器等工具和其他开发者理解应用的代码。</p>
+<p>若要应用注解，只需在您要注解的声明开头为其名称（注解）添加 <code dir="ltr" translate="no">@</code> 字符作为前缀即可。您可以为包括属性、函数和类在内的不同代码元素添加注解。本课程稍后会介绍类。</p>
+<p>下图是一个带有注解的函数示例：</p>
+<p class="image-container"><img alt="示意图，显示了可组合函数的详解，其中前缀字符 @ 注解是可组合项，后跟函数声明。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/87fe1e19ff89ee9c_2880.029cc721e4.png 2880w" style="width: 662.40px" loading="lazy" decoding="async"></p>
+<p>以下代码段中包含一些带有注解的属性示例。在后续 Codelab 中，您将用到这些属性。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Example code, do not copy it over</span>
+
+<span class="devsite-syntax-nd">@Json</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">imgSrcUrl</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+
+<span class="devsite-syntax-nd">@Volatile</span>
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">INSTANCE</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AppDatabase? </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+</code></pre>
+<h3 id="annotations-with-parameters">带形参的注解</h3>
+<p>注解可以接受形参。形参可以为处理它们的工具提供额外信息。以下是带形参和不带形参的 <code dir="ltr" translate="no">@Preview</code> 注解的一些示例。</p>
+<p class="image-container"><img alt="Android Studio 屏幕截图，显示了代码和预览" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/c7165115f8a9e40b_2880.029cc721e4.png 2880w" style="width: 662.40px" loading="lazy" decoding="async"></p>
+<p>不带形参的注解<em></em></p>
+<p class="image-container"><img alt="Android Studio 屏幕截图，显示了代码和预览" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e3845e0f058aede9_2880.029cc721e4.png 2880w" style="width: 662.40px" loading="lazy" decoding="async"></p>
+<p>用于预览背景的注解<em></em></p>
+<p class="image-container"><img alt="Android Studio 屏幕截图，显示了代码和预览" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28a8df85bf4e80e6_2880.029cc721e4.png 2880w" style="width: 662.40px" loading="lazy" decoding="async"></p>
+<p>带有预览标题的注解<em></em></p>
+<p>您可以向注解传递多个实参，如下所示。</p>
+<p class="image-container"><img alt="895f8d3a229c287a.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/895f8d3a229c287a_2880.029cc721e4.png 2880w" style="width: 662.40px" loading="lazy" decoding="async"></p>
+<p>Android Studio 屏幕截图，显示了代码和预览</p>
+<p>带有预览标题和系统界面（手机屏幕）的注解<em></em></p>
+<p>Jetpack Compose 中有各种各样的内置注解，截至目前为止，本课程中已经出现过 <code dir="ltr" translate="no">@Composable</code> 注解和 <code dir="ltr" translate="no">@Preview</code> 注解。在本课程后面的部分，您将了解更多注解及其用法。</p>
+<h3 id="example-of-a-composable-function">可组合函数示例</h3>
+<p>可组合函数带有 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">@Composable</code></a> 注解。所有可组合函数都必须带有此注解。此注解可告知 Compose 编译器：此函数用于将数据转换为界面。请注意，编译器是一种特殊的程序，它会接受您编写的代码，逐行查看，然后将其转换成计算机可以理解的指令（机器语言）。</p>
+<p>以下代码段是一个简单的可组合函数示例，该函数接受传递的数据（<code dir="ltr" translate="no">name</code> 函数参数）并用其在屏幕上渲染文本元素。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">Greeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Hello </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-s">!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>关于可组合函数的几点说明：</p>
+<ul>
+<li>Jetpack Compose 是围绕可组合函数构建的。这些函数可让您以程序化方式定义应用的界面，只需描述应用界面的外观，而不必关注界面的构建过程。如需创建可组合函数，只需将 <code dir="ltr" translate="no">@Composable</code> 注解添加到函数名称中即可。</li>
+<li>可组合函数可以接受一些实参，用来让应用逻辑描述或修改界面。在本例中，界面元素接受一个 <code dir="ltr" translate="no">String</code>，以便在问候用户时称呼姓名。</li>
+</ul>
+<h3 id="notice-the-composable-functions-in-code">注意代码中的可组合函数</h3>
+<ol type="1">
+<li>在 Android Studio 中，打开 <code dir="ltr" translate="no">MainActivity.kt</code> 文件。</li>
+<li>滚动到 <code dir="ltr" translate="no">GreetingPreview()</code> 函数。此可组合函数有助于预览 <code dir="ltr" translate="no">Greeting()</code> 函数。按照最佳实践，您应当始终对函数命名或重命名，以描述其功能。将此函数的名称更改为 <code dir="ltr" translate="no">BirthdayCardPreview()</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Preview</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">showBackground</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">BirthdayCardPreview</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">HappyBirthdayTheme</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Greeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Android"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>可组合函数可以调用其他可组合函数。在此代码段中，预览函数调用了 <code dir="ltr" translate="no">Greeting()</code> 可组合函数。</p>
+<p>请注意，在上一个函数中，<code dir="ltr" translate="no">@Composable</code> 注解前面还有另一个带参数的注解，即 <code dir="ltr" translate="no">@Preview</code> 注解。本课程稍后会详细介绍传递给 <code dir="ltr" translate="no">@Preview</code> 注解的参数。</p>
+<h2 id="composable-function-names">可组合函数名称</h2>
+<p>不返回任何内容且带有 <code dir="ltr" translate="no">@Composable</code> 注解的 Compose 函数必须使用 Pascal 命名法命名。Pascal 命名法是指一种命名惯例，采用这种命名法时，复合词中每个单词的首字母大写。Pascal 命名法与驼峰命名法之间的区别在于：在 Pascal 命名法中，所有单词的首字母都大写；而在驼峰命名法中，首字母可以是大写或小写。</p>
+<p>Compose 函数：</p>
+<ul>
+<li>必须是名词：<code dir="ltr" translate="no">DoneButton()</code><em></em></li>
+<li>不能是动词或动词短语：<code dir="ltr" translate="no">DrawTextField()</code><em></em></li>
+<li>不能是名词性介词：<code dir="ltr" translate="no">TextFieldWithLink()</code><em></em></li>
+<li>不能是形容词：<code dir="ltr" translate="no">Bright()</code><em></em></li>
+<li>不能是副词：<code dir="ltr" translate="no">Outside()</code><em></em></li>
+<li>名词可以添加描述性形容词作为前缀：<code dir="ltr" translate="no">RoundIcon()</code><em></em></li>
+</ul>
+<p>如需了解详情，请参阅<a href="https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md#naming-unit-composable-functions-as-entities" target="_blank">为可组合函数命名</a>。</p>
+<p><strong>示例代码。请勿复制</strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Do: This function is a descriptive PascalCased noun as a visual UI element</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">FancyButton</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+
+
+<span class="devsite-syntax-c1">// Do: This function is a descriptive PascalCased noun as a non-visual element</span>
+<span class="devsite-syntax-c1">// with presence in the composition</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">BackButtonHandler</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+
+
+<span class="devsite-syntax-c1">// Don't: This function is a noun but is not PascalCased!</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">fancyButton</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+
+
+<span class="devsite-syntax-c1">// Don't: This function is PascalCased but is not a noun!</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">RenderFancyButton</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+
+
+<span class="devsite-syntax-c1">// Don't: This function is neither PascalCased nor a noun!</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">drawProfileImage</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">image</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ImageAsset</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. Android Studio 中的“Design”窗格
+          </h2>
+          
+          <p><a href="https://developer.android.com/studio?hl=zh-cn" target="_blank">Android Studio</a> 允许您在 IDE 中预览可组合函数，无需将应用安装到 Android 设备或模拟器中。正如您在之前的在线课程中学到的，您可以在 Android Studio 的 <strong>Design</strong> 窗格中预览应用的外观。</p>
+<p class="image-container"><img alt="2bb27291fa8c8ecc.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2bb27291fa8c8ecc_2880.029cc721e4.png 2880w" style="width: 662.40px" loading="lazy" decoding="async"></p>
+<p>可组合函数必须为所有形参提供默认值，才能对其进行预览。因此，我们建议您不要直接预览 <code dir="ltr" translate="no">Greeting()</code> 函数，而是需要添加另一个函数（在本例中为 <code dir="ltr" translate="no">BirthdayCardPreview()</code> 函数），由该函数使用适当的形参调用 <code dir="ltr" translate="no">Greeting()</code> 函数。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Preview</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">showBackground</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">BirthdayCardPreview</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">HappyBirthdayTheme</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Greeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Android"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<aside class="special"><p><strong>提示</strong>：点击 <strong>Split</strong> 图标可同时查看代码和设计预览。</p>
+<p class="image-container"><img alt="86a1dd28a40dea11.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/86a1dd28a40dea11_2880.029cc721e4.png 2880w" style="width: 647.00px" loading="lazy" decoding="async"></p>
+</aside>
+<p>如需查看预览，请执行以下操作：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">BirthdayCardPreview()</code> 函数中，将 <code dir="ltr" translate="no">Greeting()</code> 函数中的 <code dir="ltr" translate="no">"Android"</code> 实参更改为您的名字。<em></em></li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Preview</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">showBackground</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">BirthdayCardPreview</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">HappyBirthdayTheme</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Greeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"James"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>预览会自动更新。</li>
+</ol>
+<p>您应看到更新后的预览。</p>
+<p class="image-container"><img alt="907e7542c84daf9f.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/907e7542c84daf9f_2880.029cc721e4.png 2880w" style="width: 399.00px" loading="lazy" decoding="async"></p>
+<aside class="special"><p><strong>重要提示：</strong>使用 <code dir="ltr" translate="no">@Preview</code> 注解添加到 <code dir="ltr" translate="no">BirthdayCardPreview()</code> 函数中的代码仅用于在 Android Studio 的 <strong>Design</strong> 窗格中进行预览。这些更改不会反映在应用中。此 Codelab 稍后会介绍如何更改应用。</p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 添加新的文本元素
+          </h2>
+          
+          <p>在此任务中，您将移除 <code dir="ltr" translate="no">Hello $name!</code> 问候语并添加生日祝福。</p>
+<h2 id="add-a-new-composable-function">添加新的可组合函数</h2>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity.kt</code> 文件中，删除 <code dir="ltr" translate="no">Greeting()</code> 函数定义。在此 Codelab 稍后的部分，您将添加自己的函数，用于显示生日祝福。</li>
+</ol>
+<p><strong>移除以下代码</strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">Greeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Hello </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-s">!"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">onCreate()</code> 函数内，您会看到 <code dir="ltr" translate="no">Greeting()</code> 函数调用现在显示为红色。红色表示存在错误。将光标悬停在此函数调用上，Android Studio 将显示有关该错误的信息。</li>
+</ol>
+<p class="image-container"><img alt="9634619e59248532.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9634619e59248532_2880.029cc721e4.png 2880w" style="width: 471.98px" loading="lazy" decoding="async"></p>
+<ol start="3" type="1">
+<li>从 <code dir="ltr" translate="no">onCreate()</code> 和 <code dir="ltr" translate="no">BirthdayCardPreview()</code> 函数中删除 <code dir="ltr" translate="no">Greeting()</code> 函数调用及其实参。此时 <code dir="ltr" translate="no">MainActivity.kt</code> 文件将如下所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MainActivity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ComponentActivity</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onCreate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">setContent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">HappyBirthdayTheme</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-c1">// A surface container using the 'background' color from the theme</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">Surface</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxSize</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-n">color</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">colorScheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">background</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-nd">@Preview</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">showBackground</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">BirthdayCardPreview</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">HappyBirthdayTheme</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">BirthdayCardPreview()</code> 函数前，添加一个名为 <code dir="ltr" translate="no">GreetingText()</code> 的新函数。不要忘记在该函数前添加 <code dir="ltr" translate="no">@Composable</code> 注解，因为该函数是一个用于描述 <code dir="ltr" translate="no">Text</code> 可组合项的 Compose 函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>最好让可组合项接受 <code dir="ltr" translate="no">Modifier</code> 形参，并将该 <code dir="ltr" translate="no">modifier</code> 传递给其第一个子项。在后续任务和 Codelab 中，您将详细了解 <code dir="ltr" translate="no">Modifier</code> 和子元素。现在，请向 <code dir="ltr" translate="no">GreetingText()</code> 函数添加 <code dir="ltr" translate="no">Modifier</code> 形参。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>将类型为 <code dir="ltr" translate="no">String</code> 的 <code dir="ltr" translate="no">message</code> 形参添加到 <code dir="ltr" translate="no">GreetingText()</code> 可组合函数中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="7" type="1">
+<li>在 <code dir="ltr" translate="no">GreetingText()</code> 函数中，添加一个 <a href="https://developer.android.com/jetpack/compose/text?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Text</code></a> 可组合项并传入文本消息作为具名实参。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">message</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>此 <code dir="ltr" translate="no">GreetingText()</code> 函数用于在界面中显示文本。为此，它会调用 <code dir="ltr" translate="no">Text()</code> 可组合函数。</p>
+<h2 id="preview-the-function">预览函数</h2>
+<p>在此任务中，您将在 <strong>Design</strong> 窗格中预览 <code dir="ltr" translate="no">GreetingText()</code> 函数。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">BirthdayCardPreview()</code> 函数中调用 <code dir="ltr" translate="no">GreetingText()</code> 函数。</li>
+<li>将一个 <code dir="ltr" translate="no">String</code> 参数（其内容是对朋友的生日祝福）传递给 <code dir="ltr" translate="no">GreetingText()</code> 函数。如果愿意，您可以使用朋友的名字进行自定义，例如 <code dir="ltr" translate="no">"Happy Birthday Sam!"</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Preview</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">showBackground</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">BirthdayCardPreview</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">HappyBirthdayTheme</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday Sam!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <strong>Design</strong> 窗格中，系统会自动更新。预览您所做的更改。</li>
+</ol>
+<p class="image-container"><img alt="334688e2e89fb19e.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/334688e2e89fb19e_2880.029cc721e4.png 2880w" style="width: 579.00px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 更改字体大小
+          </h2>
+          
+          <p>您已将文本添加到界面中，但它看起来和最终应用还不太一样。在此任务中，您将了解如何更改大小、文本颜色以及影响文本元素外观的其他属性。此外，您还可以尝试使用不同的字体大小和颜色。</p>
+<h3 id="scalable-pixels">可缩放像素</h3>
+<p><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/package-summary?hl=zh-cn#(kotlin.Float).sp()" target="_blank">可缩放像素 (SP)</a> 是字体大小的度量单位。<em></em>Android 应用中的界面元素使用两种不同的度量单位：一种是您稍后将为布局使用的<a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/package-summary?hl=zh-cn#(kotlin.Int).dp()" target="_blank">密度无关像素 (DP)</a>，另一种就是可缩放像素 (SP)。<em></em>默认情况下，SP 单位与 DP 单位大小相同，但前者的大小会根据用户在手机设置下的首选文本大小进行调整。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity.kt</code> 文件中，滚动到 <code dir="ltr" translate="no">GreetingText()</code> 函数中的 <code dir="ltr" translate="no">Text()</code> 可组合项。</li>
+<li>向 <code dir="ltr" translate="no">Text()</code> 函数传递 <code dir="ltr" translate="no">fontSize</code> 实参作为第二个具名实参，并将其值设为 <code dir="ltr" translate="no">100.</code><code dir="ltr" translate="no">sp</code>。<em></em></li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100.</span><span class="devsite-syntax-n">sp</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>Android Studio 突出显示了 <code dir="ltr" translate="no">.sp</code> 代码，因为您需要导入一些类或属性来编译应用。</p>
+<p class="image-container"><img alt="ba6c753d4eefd1d5.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ba6c753d4eefd1d5_2880.029cc721e4.png 2880w" style="width: 662.40px" loading="lazy" decoding="async"></p>
+<ol start="3" type="1">
+<li>点击 Android Studio 突出显示的 <strong><code dir="ltr" translate="no">.sp</code></strong>。</li>
+<li>点击弹出式窗口中的 <strong>Import</strong> 导入 <strong><code dir="ltr" translate="no">androidx.compose.ui.unit.sp</code></strong>，以使用 <code dir="ltr" translate="no">.sp</code> 扩展属性。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：AndroidX（Android 扩展）库包含一组库和类，通过提供核心功能帮助您加快应用开发。您可以使用 <code dir="ltr" translate="no">androidx</code> 软件包获得这些类、属性和其他工件。</p>
+</aside>
+<ol start="5" type="1">
+<li>滚动到文件顶部，您会发现一些 <code dir="ltr" translate="no">import</code> 语句，其中有一个 <code dir="ltr" translate="no">import androidx.compose.ui.unit.sp</code> 语句，这表示 Android Studio 会将此软件包添加到您的文件中。</li>
+</ol>
+<p class="image-container"><img alt="e073e9d3465e080c.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/e073e9d3465e080c_2880.029cc721e4.png 2880w" style="width: 384.00px" loading="lazy" decoding="async"></p>
+<aside class="special"><p><strong>注意：</strong>如果使用 Android Studio 进行导入时遇到任何问题，可以在文件顶部手动添加 import 语句。</p>
+</aside>
+<ol start="6" type="1">
+<li>请注意更新后的字体大小预览。消息重叠的原因是您需要指定行高。</li>
+</ol>
+<p class="image-container"><img alt="3bf48548c10f4ea.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/3bf48548c10f4ea_2880.029cc721e4.png 2880w" style="width: 638.00px" loading="lazy" decoding="async"></p>
+<aside class="special"><p><strong>注意：</strong><code dir="ltr" translate="no">sp</code> 是 <code dir="ltr" translate="no">Int</code> 的<a href="https://kotlinlang.org/docs/extensions.html#extension-properties" target="_blank">扩展属性</a>，用于创建 <code dir="ltr" translate="no">sp</code> 单位。同样，您也可以在 <code dir="ltr" translate="no">Float</code> 和 <code dir="ltr" translate="no">Double</code> 等其他数据类型中使用 <code dir="ltr" translate="no">.sp</code> 扩展属性。</p>
+</aside>
+<ol start="7" type="1">
+<li>更新 <code dir="ltr" translate="no">Text</code> 可组合项以包含行高。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">lineHeight</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">116.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p class="image-container"><img alt="ef457e9b19d4d495.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/ef457e9b19d4d495_2880.029cc721e4.png 2880w" style="width: 355.34px" loading="lazy" decoding="async"></p>
+<p>现在，您可以尝试使用不同的字体大小。</p>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 再添加一个文本元素
+          </h2>
+          
+          <p>在前面的任务中，您添加了一句对朋友的生日祝福语。在此任务中，您将在生日卡上签上自己的名字。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity.kt</code> 文件中，滚动到 <code dir="ltr" translate="no">GreetingText()</code> 函数。</li>
+<li>向该函数传递一个类型为 <code dir="ltr" translate="no">String</code> 的 <code dir="ltr" translate="no">from</code> 参数作为您的签名。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<aside class="special"><p><strong>注意</strong>：如果您在函数调用中使用的是具名实参，那么函数形参的顺序就无关紧要。</p>
+</aside>
+<ol start="3" type="1">
+<li>在生日祝福语 <code dir="ltr" translate="no">Text</code> 可组合项之后，再添加一个接受 <code dir="ltr" translate="no">text</code> 实参（其值设为 <code dir="ltr" translate="no">from</code>）的 <code dir="ltr" translate="no">Text</code> 可组合项。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>添加一个 <code dir="ltr" translate="no">fontSize</code> 具名实参，并将其值设为 <code dir="ltr" translate="no">36.sp</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">36.</span><span class="devsite-syntax-n">sp</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="5" type="1">
+<li>滚动到 <code dir="ltr" translate="no">BirthdayCardPreview()</code> 函数。</li>
+<li>再添加一个 <code dir="ltr" translate="no">String</code> 实参来为生日卡签名，例如 <code dir="ltr" translate="no">"From Emma"</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday Sam!"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"From Emma"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="7" type="1">
+<li>请注意预览结果。</li>
+</ol>
+<p class="image-container"><img alt="8d148222c669dcad.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/8d148222c669dcad_2880.029cc721e4.png 2880w" style="width: 349.78px" loading="lazy" decoding="async"></p>
+<p>一个可组合函数可能会描述多个界面元素。不过，如果您未提供有关如何排列这些元素的指导，Compose 可能会以您不喜欢的方式排列它们。例如，上面的代码生成了两个相互重叠的文本元素，因为您没有提供有关如何排列这两个可组合项的指导。</p>
+<p>在下一个任务中，您将了解如何将可组合项排列成一行或一列。</p>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 将文本元素排列成一行或一列
+          </h2>
+          
+          <h2 id="ui-hierarchy">界面层次结构</h2>
+<p>界面层次结构基于包含机制，意即一个组件可以包含一个或多个组件，有时会用“父级”和“子级”这两个词来表述。这种说法是指，父界面元素包含子界面元素，而子界面元素还可以继续包含子界面元素。在此部分中，您将了解可用作父界面元素的 <code dir="ltr" translate="no">Column</code>、<code dir="ltr" translate="no">Row</code> 和 <code dir="ltr" translate="no">Box</code> 可组合项。</p>
+<p class="image-container"><img alt="9270b7e10f954dcb.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/9270b7e10f954dcb_2880.029cc721e4.png 2880w" style="width: 310.00px" title="界面元素的父级和子级层次结构" loading="lazy" decoding="async"></p>
+<p>Compose 中的 3 个基本标准布局元素是 <a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable?hl=zh-cn#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)" target="_blank"><code dir="ltr" translate="no">Column</code></a>、<a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable?hl=zh-cn#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)" target="_blank"><code dir="ltr" translate="no">Row</code></a> 和 <a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Box.composable?hl=zh-cn#Box(androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Boolean,kotlin.Function1)" target="_blank"><code dir="ltr" translate="no">Box</code></a> 可组合项。下一个 Codelab 会详细介绍 <code dir="ltr" translate="no">Box</code> 可组合项。</p>
+<p class="image-container"><img alt="Column 显示了垂直排列的三个元素，Row 显示了水平排列的三个元素" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d7df7c362f507d6b_2880.029cc721e4.png 2880w" style="width: 402.00px" title="Column 和 Row 布局" loading="lazy" decoding="async"></p>
+<p><code dir="ltr" translate="no">Column</code>、<code dir="ltr" translate="no">Row</code> 和 <code dir="ltr" translate="no">Box</code> 都是接受可组合内容作为参数的可组合函数，因此您可以在这些布局元素内放置项目。例如，<code dir="ltr" translate="no">Row</code> 可组合项中的各个子元素彼此相邻地水平放置成一行。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Don't copy.</span>
+<span class="devsite-syntax-n">Row</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"First Column"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Second Column"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>这些文本元素会在屏幕上并排显示，如下图所示。</p>
+<p>蓝色边框仅用于演示目的，不会实际显示。</p>
+<p class="image-container"><img alt="7117f9998760a828.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7117f9998760a828_2880.029cc721e4.png 2880w" style="width: 662.40px" title="包含元素的 Row" loading="lazy" decoding="async"></p>
+<h2 id="trailing-lambda-syntax">尾随 lambda 语法</h2>
+<p>请注意，在上一个代码段中，<code dir="ltr" translate="no">Row</code> 可组合函数中使用的是花括号而不是圆括号。这称为尾随 Lambda 语法。<em></em>本课程稍后会详细介绍 lambda 和尾随 lambda 语法。<em></em>现在，您只需要熟悉这个常用的 Compose 语法。</p>
+<p>当最后一个形参是函数时，Kotlin 提供了一种特殊语法来将函数作为形参传递给函数。</p>
+<p class="image-container"><img alt="函数形参是最后一个形参" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/6373d65802273065_2880.029cc721e4.png 2880w" style="width: 662.40px" title="函数详解：正文以及包含多个形参的名称部分" loading="lazy" decoding="async"></p>
+<p>将函数作为形参传递时，您可以使用尾随 lambda 语法。您可以将函数放在圆括号外部的大括号中，而不是放在圆括号内。这是 Compose 中的一种常见且推荐的做法，因此您需要熟悉代码的格式。</p>
+<p>例如，<code dir="ltr" translate="no">Row()</code> 可组合函数中的最后一个形参是 <code dir="ltr" translate="no">content</code> 形参，它是一个描述子界面元素的函数。假设您想要创建一个包含三个文本元素的行。以下代码行得通，但如果为尾随 lambda 使用具名形参，则非常麻烦：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Row</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">content</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Some text"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Some more text"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Last text"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>由于 <code dir="ltr" translate="no">content</code> 形参是函数签名中的最后一个形参，并且您要将其值作为 lambda 表达式传递（目前，如果您不知道 lambda 是什么也没关系，只需要熟悉一下语法即可），因此您可以移除 <code dir="ltr" translate="no">content</code> 形参和括号，如下所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Row</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Some text"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Some more text"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Last text"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="arrange-the-text-elements-in-a-row">将文本元素排列成一行</h2>
+<p>在此任务中，您要将应用中的文本元素排列成一行，以免相互重叠。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity.kt</code> 文件中，滚动到 <code dir="ltr" translate="no">GreetingText()</code> 函数。</li>
+<li>添加 <code dir="ltr" translate="no">Row</code> 可组合项将文本元素括起来，以显示包含两个文本元素的一行。选择两个 <code dir="ltr" translate="no">Text</code> 可组合项，然后点击灯泡。依次选择 <strong>Surround with widget</strong> &gt; <strong>Surround with Row</strong>。</li>
+</ol>
+<p class="image-container"><img alt="7ca98d82742d60b9.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/7ca98d82742d60b9_2880.029cc721e4.png 2880w" style="width: 662.40px" loading="lazy" decoding="async"></p>
+<p class="image-container"><img alt="94f248eb6f802b93.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/94f248eb6f802b93_2880.029cc721e4.png 2880w" style="width: 292.94px" loading="lazy" decoding="async"></p>
+<p>现在，该函数应如下面的代码段所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Row</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">lineHeight</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">116.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">36.</span><span class="devsite-syntax-n">sp</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>Android Studio 会自动为您导入 <code dir="ltr" translate="no">Row</code> 函数。滚动到顶部，然后观察“import”部分。<code dir="ltr" translate="no">import androidx.compose.foundation.layout.Row</code> 应该已添加。</li>
+<li>在 <strong>Design</strong> 窗格中观察更新后的预览。暂时将生日祝福语的字体大小更改为 <a href="http://30.sp" target="_blank"><code dir="ltr" translate="no">30.sp</code></a>。</li>
+</ol>
+<p class="image-container"><img alt="生日祝福和签名并排显示为一行。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/665aa2f1cc85c29_2880.029cc721e4.png 2880w" style="width: 662.40px" loading="lazy" decoding="async"></p>
+<p>现在，因为元素不再重叠，预览的效果大为改善。不过，这仍然不是您想要的效果，因为没有充足的空间显示签名。在下一个任务中，您要将文本元素排列成一列来解决此问题。</p>
+<h2 id="arrange-the-text-elements-in-a-column">将文本元素排列成一列</h2>
+<p>在此任务中，该由您更改 <code dir="ltr" translate="no">GreetingText()</code> 函数来将文本元素排成一列了。预览应如下面的屏幕截图所示：</p>
+<p class="image-container"><img alt="d80295e73578e75d.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/d80295e73578e75d_2880.029cc721e4.png 2880w" style="width: 357.88px" loading="lazy" decoding="async"></p>
+<p>既然您已尝试自行完成了此任务，那么现在您可以对照以下代码段中的解决方案代码检查您自己的代码：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">lineHeight</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">116.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">36.</span><span class="devsite-syntax-n">sp</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>请注意 Android Studio 自动导入的软件包：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.Column</span>
+</code></pre>
+<p>回想一下，您需要将修饰符形参传递给可组合项中的子元素。这意味着，您需要将修饰符形参传递给 <code dir="ltr" translate="no">Column</code> 可组合项。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">lineHeight</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">116.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">36.</span><span class="devsite-syntax-n">sp</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="8">
+              9. 向应用添加问候语
+          </h2>
+          
+          <p>对预览效果感到满意后，即可在设备或模拟器上向应用添加可组合项。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity.kt</code> 文件中，滚动到 <code dir="ltr" translate="no">onCreate()</code> 函数。</li>
+<li>从 <code dir="ltr" translate="no">Surface</code> 代码块调用 <code dir="ltr" translate="no">GreetingText()</code> 函数。</li>
+<li>传递 <code dir="ltr" translate="no">GreetingText()</code> 函数、您的生日祝福和签名。</li>
+</ol>
+<p>完成后的 <code dir="ltr" translate="no">onCreate()</code> 函数应该会如同下面的代码段所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MainActivity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ComponentActivity</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onCreate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">setContent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">HappyBirthdayTheme</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-c1">// A surface container using the 'background' color from the theme</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">Surface</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxSize</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-n">color</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">colorScheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">background</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-n">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday Sam!"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"From Emma"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>在模拟器中构建并运行您的应用。</li>
+</ol>
+<p class="image-container"><img alt="59e9c0c6e19748ff.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/59e9c0c6e19748ff_2880.029cc721e4.png 2880w" style="width: 278.40px" loading="lazy" decoding="async"></p>
+<h2 id="align-greeting-to-the-center">将问候语居中对齐</h2>
+<ol type="1">
+<li>如需在屏幕中心对齐问候语，请添加一个名为 <code dir="ltr" translate="no">verticalArrangement</code> 的形参，并将其设置为 <code dir="ltr" translate="no">Arrangement.Center</code>。在后续 Codelab 中，您将详细了解 <code dir="ltr" translate="no">verticalArrangement</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">verticalArrangement</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Arrangement</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Center</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>围绕列添加 <code dir="ltr" translate="no">8.dp</code> 内边距。最好以 <code dir="ltr" translate="no">4.dp</code> 为增量使用内边距值。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">verticalArrangement</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Arrangement</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Center</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">8.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>如需进一步美化应用，请使用 <code dir="ltr" translate="no">textAlign</code> 将问候语文本居中对齐。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">lineHeight</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">116.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">textAlign</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TextAlign</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Center</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p class="image-container"><img alt="28c8e62f86323ba4.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/28c8e62f86323ba4_2880.029cc721e4.png 2880w" style="width: 343.72px" loading="lazy" decoding="async"></p>
+<p>在上面的屏幕截图中，由于使用了 <code dir="ltr" translate="no">textAlign</code> 形参，因此只有问候语居中对齐。签名 <strong>From Emma</strong> 采用默认的对齐方式。</p>
+<ol start="4" type="1">
+<li>为签名添加内边距，并使其右对齐。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">36.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">16.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">align</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">alignment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Alignment</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">End</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p class="image-container"><img alt="82b858f2f79ca9c4.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/82b858f2f79ca9c4_2880.029cc721e4.png 2880w" style="width: 320.80px" loading="lazy" decoding="async"></p>
+<h2 id="adopt-good-practice">采用最佳实践</h2>
+<p>最好从父级可组合项传递修饰符属性和修饰符。更新 <code dir="ltr" translate="no">GreetingText()</code> 中的修饰符形参，如下所示：</p>
+<p><strong>onCreate()</strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Surface</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">GreetingText</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday Sam!"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"From Emma"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">8.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p><strong>GreetingText()</strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">verticalArrangement</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Arrangement</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Center</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在模拟器上构建并运行应用以查看最终结果。</p>
+<p class="image-container"><img alt="2ff181d48325023c.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-text-composables/img/2ff181d48325023c_2880.029cc721e4.png 2880w" style="width: 266.40px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="9">
+              10. 获取解决方案代码
+          </h2>
+          
+          <p>完成后的 <code dir="ltr" translate="no">MainActivity.kt</code>：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">package</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.happybirthday</span>
+
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.os.Bundle</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.activity.ComponentActivity</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.activity.compose.setContent</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.Arrangement</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.Column</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.fillMaxSize</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.padding</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material3.MaterialTheme</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material3.Surface</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material3.Text</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.runtime.Composable</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.Alignment</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.Modifier</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.text.style.TextAlign</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.tooling.preview.Preview</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.unit.dp</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.unit.sp</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.happybirthday.ui.theme.HappyBirthdayTheme</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MainActivity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ComponentActivity</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onCreate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">setContent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">HappyBirthdayTheme</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-c1">// A surface container using the 'background' color from the theme</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">Surface</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxSize</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-n">color</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">colorScheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">background</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-n">GreetingText</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                        </span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday Sam!"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">                        </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"From Emma"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">                        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">8.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">verticalArrangement</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Arrangement</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Center</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">lineHeight</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">116.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">textAlign</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TextAlign</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Center</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">fontSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">36.</span><span class="devsite-syntax-n">sp</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">16.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">align</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">alignment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Alignment</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">End</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-nd">@Preview</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">showBackground</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">BirthdayCardPreview</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">HappyBirthdayTheme</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">GreetingText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">message</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday Sam!"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"From Emma"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="10">
+              11. 总结
+          </h2>
+          
+          <p>您已成功创建 Happy Birthday 应用。</p>
+<p>在下一个 Codelab 中，您将向应用中添加一张图片，并更改文本元素的对齐方式来进行美化。</p>
+<h2 id="summary">摘要</h2>
+<ul>
+<li>Jetpack Compose 是用于构建 Android 界面的新款工具包。它使用更少的代码、强大的工具和直观的 Kotlin API，可以帮助您简化并加快 Android 界面开发。</li>
+<li>应用的界面 (UI) 就是您在屏幕上所看到的内容，包括文本、图片、按钮和许多其他类型的元素。</li>
+<li>可组合函数是 Compose 的基本构建块。可组合函数是用于描述界面中某一部分的函数。</li>
+<li>可组合函数带有 <code dir="ltr" translate="no">@Composable</code> 注解；此注解可告知 Compose 编译器：此函数用于将数据转换为界面。</li>
+<li>Compose 中的三个基本标准布局元素是 <code dir="ltr" translate="no">Column</code>、<code dir="ltr" translate="no">Row,</code> 和 <code dir="ltr" translate="no">Box</code>。它们是接受可组合内容的可组合函数，因此您可以在其中放置项目。例如，<code dir="ltr" translate="no">Row</code> 中的各个子项将彼此相邻地水平放置。</li>
+</ul>
+<h2 id="learn-more">了解更多内容</h2>
+<ul>
+<li><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable?hl=zh-cn" target="_blank">可组合项</a></li>
+<li><a href="https://developer.android.com/jetpack/compose/layouts/basics?hl=zh-cn" target="_blank">Compose 布局基础知识</a></li>
+<li><a href="https://m3.material.io/foundations/layout/understanding-layout/spacing#28f7a086-b6f7-4120-b18f-02a5fa5adbb5" target="_blank">像素密度</a></li>
+<li><a href="https://developer.android.com/jetpack/compose/text?hl=zh-cn" target="_blank">Compose 中的文字</a></li>
+<li><a href="https://developer.android.com/jetpack/compose/kotlin?hl=zh-cn" target="_blank">Kotlin 对 Jetpack Compose 的支持</a></li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">上一节：如何连接 Android 设备</a><a href="./02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">下一节：02.向 Android 应用添加图片</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

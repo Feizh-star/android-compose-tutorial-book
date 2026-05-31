@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>练习题：Kotlin 基础知识</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="./01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="./02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="./03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="./04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a class="active" href="./05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Compose 基础知识</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件语句</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">Compose 中的状态简介</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">项目：创建艺术空间应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题效果</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 实现简单动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">练习题：Kotlin 基础知识</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <p>您已经花了很多精力学习 Kotlin 编程的基础知识，现在是时候将所学知识付诸实践了。</p>
+<p>这里的练习可以测试您对所学概念的理解程度，都是以实际用例为主题，其中有些用例您可能之前就遇到过。</p>
+<p>请按照说明找出每个问题的解决方案。如果您遇到困难，有些练习还会给出提示来帮助您。解决方案代码就在文末，不过强烈建议您先做练习，然后再看答案。</p>
+<p>不妨将提供的解决方案视为解题的方法之一，放心大胆地尝试其他方法。有些练习可以用多种方法来解答，函数和变量也可以使用不同的名称。</p>
+<p>您可以按照自己的节奏来解决问题。列出的时长只是一个估算时间，仅供参考。希望您能尽力而为，认真解决每一个问题。</p>
+<p>建议使用 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a>来解答这些练习。</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>熟悉 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a></li>
+<li>能够定义和调用函数</li>
+<li>了解基本的 Kotlin 数据类型</li>
+<li>了解不可变变量和可变变量</li>
+<li>了解 <code dir="ltr" translate="no">println()</code> 函数</li>
+<li>学完了以下 Codelab：<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-program?hl=zh-cn" target="_blank">您的第一个 Kotlin 程序</a>、<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-variables?hl=zh-cn" target="_blank">在 Kotlin 中创建和使用变量</a>以及<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-functions?hl=zh-cn" target="_blank">在 Kotlin 中创建和使用函数</a></li>
+</ul>
+<h2 id="what-youll-need">所需条件</h2>
+<ul>
+<li>可连接到互联网的计算机和网络浏览器</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 输出消息
+          </h2>
+          
+          <p>告诉好友您在此开发者在线课程中学到的知识。</p>
+<ul>
+<li>您能编写一个 <code dir="ltr" translate="no">main()</code> 函数，用单独四行来输出下面这些消息吗？</li>
+</ul>
+<div></div><pre translate="no" dir="ltr">Use the val keyword when the value doesn't change. 
+Use the var keyword when the value can change.
+When you define a function, you define the parameters that can be passed to it. 
+When you call a function, you pass arguments for the parameters.
+</pre>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 修正编译错误
+          </h2>
+          
+          <p>以下程序会输出一条消息，通知用户他们收到了好友发来的聊天消息。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"New chat message from a friend'}</span>
+<span class="devsite-syntax-s">}</span>
+</code></pre>
+<ol type="1">
+<li>您能在这个程序中找出导致编译错误的根本原因并进行修正吗？</li>
+<li>该代码是否使用了适当的符号来指明字符串和函数参数的开始和结束？</li>
+</ol>
+<p><strong>提示</strong>：您可以使用 Kotlin 园地运行代码，然后查看编译错误。</p>
+<p>修正错误后，该程序应能顺利编译，而不会出现任何错误，并且会输出以下内容：</p>
+<div></div><pre translate="no" dir="ltr">New chat message from a friend
+</pre>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 字符串模板
+          </h2>
+          
+          <p>以下程序会告知用户某件商品即将推出促销活动。它采用的字符串模板会使用 <code dir="ltr" translate="no">discountPercentage</code> 变量来指明百分比折扣，并使用 <code dir="ltr" translate="no">item</code> 变量来指明促销商品。不过，代码中存在编译错误。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">discountPercentage</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">offer</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">""</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">item</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Google Chromecast"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">discountPercentage</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">20</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">offer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sale - Up to </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">discountPercentage</span><span class="devsite-syntax-s">% discount on </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-s">! Hurry up!"</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">offer</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol type="1">
+<li>您能找出导致错误的根本原因并修正吗？</li>
+<li>在 Kotlin 园地中运行代码之前，您能确定这个程序的输出吗？</li>
+</ol>
+<p><strong>提示</strong>：您可以为只读变量重新赋值吗？</p>
+<p>修正错误后，该程序应能顺利编译，而不会出现任何错误，并且会输出以下内容：</p>
+<div></div><pre translate="no" dir="ltr">Sale - Up to 20% discount on Google Chromecast! Hurry up!
+</pre>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 字符串串联
+          </h2>
+          
+          <p>以下程序会显示聚会的总人数。参加聚会的人中既有成人，也有儿童。<code dir="ltr" translate="no">numberOfAdults</code> 变量用于存储参加聚会的成人人数，<code dir="ltr" translate="no">numberOfKids</code> 变量则用于存储儿童人数。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">numberOfAdults</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"20"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">numberOfKids</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"30"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">total</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">numberOfAdults</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">numberOfKids</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The total party size is: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">total</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h3 id="step-1">第 1 步</h3>
+<ul>
+<li>在 Kotlin 园地中运行代码之前，您能确定这个程序的输出吗？</li>
+</ul>
+<p>确定输出后，请在 Kotlin 园地中运行代码，然后检查您的输出是否与显示的输出一致。</p>
+<p><strong>提示</strong>：如果对两个字符串使用 <code dir="ltr" translate="no">+</code> 运算符，会出现什么情况？</p>
+<h3 id="step-2">第 2 步</h3>
+<p>代码能够正常运行并输出了一些内容，但输出内容中没有显示参加聚会的总人数。</p>
+<ul>
+<li>您能在代码中找到问题并予以解决，使其输出以下内容吗？</li>
+</ul>
+<div></div><pre translate="no" dir="ltr">The total party size is: 50
+</pre>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 消息格式
+          </h2>
+          
+          <p>以下程序会显示某员工当月获得的工资总额。工资总额分为两部分：<code dir="ltr" translate="no">baseSalary</code> 变量（员工每月都会获得的基本工资）和 <code dir="ltr" translate="no">bonusAmount</code> 变量（员工获得的额外奖金）。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">baseSalary</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">5000</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">bonusAmount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1000</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">totalSalary</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">baseSalary</span><span class="devsite-syntax-s"> + </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">bonusAmount</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Congratulations for your bonus! You will receive a total of </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">totalSalary</span><span class="devsite-syntax-s"> (additional bonus)."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol type="1">
+<li>在 Kotlin 园地中运行此代码之前，您能弄清楚它的输出吗？</li>
+<li>如果您在 Kotlin 园地中运行该代码，它会输出您预期的内容吗？</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 实现基本数学运算
+          </h2>
+          
+          <p>在此练习中，您将编写一个程序来执行基本数学运算并输出结果。</p>
+<h3 id="step-1_1">第 1 步</h3>
+<p>以下 <code dir="ltr" translate="no">main()</code> 函数包含一个编译错误：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">firstNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">secondNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">5</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-s"> + </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">secondNumber</span><span class="devsite-syntax-s"> = </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">result</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ul>
+<li>您能修正相应错误，让程序输出以下内容吗？</li>
+</ul>
+<div></div><pre translate="no" dir="ltr">10 + 5 = 15
+</pre>
+<h3 id="step-2_1">第 2 步</h3>
+<p>代码能够正常运行，但将两个数字相加的逻辑位于结果变量中，降低了代码的灵活性，使其难以重复利用。不过，您可以将加法运算部分放到 <code dir="ltr" translate="no">add()</code> 函数中，使代码可以重复使用。为此，请使用下列代码更新您的代码。请注意，这段代码现在引入了一个名为 <code dir="ltr" translate="no">thirdNumber</code> 的新 <code dir="ltr" translate="no">val</code>，并使用 <code dir="ltr" translate="no">firstNumber</code> 来输出这个新变量的结果。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">firstNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">secondNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">5</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">thirdNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">8</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">result</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">add</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondNumber</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">anotherResult</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">add</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">thirdNumber</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-s"> + </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">secondNumber</span><span class="devsite-syntax-s"> = </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">result</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-s"> + </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">thirdNumber</span><span class="devsite-syntax-s"> = </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">anotherResult</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-c1">// Define add() function below this line</span>
+</code></pre>
+<ul>
+<li>您能定义 <code dir="ltr" translate="no">add()</code> 函数，让程序输出以下内容吗？</li>
+</ul>
+<div></div><pre translate="no" dir="ltr">10 + 5 = 15
+10 + 8 = 18
+</pre>
+<h3 id="step-3">第 3 步</h3>
+<p>现在，您有一个将两个数字相加的可重复利用函数了。</p>
+<ul>
+<li>您能像实现 <code dir="ltr" translate="no">add()</code> 函数一样来实现 <code dir="ltr" translate="no">subtract()</code> 函数吗？还可以修改 <code dir="ltr" translate="no">main()</code> 函数以使用 <code dir="ltr" translate="no">subtract()</code> 函数，从而验证它是否按预期运行。</li>
+</ul>
+<p><strong>提示</strong>：想想加法、减法和其他数学运算之间的区别。从这里开始着手编写解决方案代码吧。</p>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 默认参数
+          </h2>
+          
+          <p>Gmail 有一项功能，只要用户尝试在新的设备上登录，系统就会向用户发送通知。</p>
+<p>在此练习中，您将编写一个程序来使用以下消息模板向用户显示消息：</p>
+<div></div><pre translate="no" dir="ltr">There's a new sign-in request on operatingSystem for your Google Account emailId.
+</pre>
+<p>您需要实现一个函数。该函数采用 <code dir="ltr" translate="no">operatingSystem</code> 形参和 <code dir="ltr" translate="no">emailId</code> 形参，并会以给定格式构建消息，然后返回该消息。</p>
+<p>例如，如果在调用函数时，用“<code dir="ltr" translate="no">Chrome OS</code>”替换 <code dir="ltr" translate="no">operatingSystem</code>，并用“<code dir="ltr" translate="no">sample@gmail.com</code>”替换 <code dir="ltr" translate="no">emailId</code>，该函数应返回以下字符串：</p>
+<div></div><pre translate="no" dir="ltr">There's a new sign-in request on Chrome OS for your Google Account sample@gmail.com.
+</pre>
+<h3 id="step-1_2">第 1 步</h3>
+<ol type="1">
+<li>您能在此程序中实现 <code dir="ltr" translate="no">displayAlertMessage()</code> 函数，使其能显示相应输出消息吗？</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">operatingSystem</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Chrome OS"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">emailId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"sample@gmail.com"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">displayAlertMessage</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">operatingSystem</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">emailId</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-c1">// Define your displayAlertMessage() below this line.</span>
+</code></pre>
+<ol start="2" type="1">
+<li>您的程序是否会输出以下内容？</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">There's a new sign-in request on Chrome OS for your Google Account sample@gmail.com.
+</pre>
+<h3 id="step-2_2">第 2 步</h3>
+<p>太棒了！您成功显示了消息。但是，在某些情况下，您会发现无法确定用户的操作系统。如果遇到这种情况，您需要将操作系统名称指定为 <code dir="ltr" translate="no">Unknown OS</code>。您可以进一步优化代码，这样就无需在每次调用函数时都传递 <code dir="ltr" translate="no">Unknown OS</code> 参数。</p>
+<ol type="1">
+<li>您能找到一种方法来使用这些信息优化代码，从而输出以下内容吗？</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">There's a new sign-in request on Unknown OS for your Google Account user_one@gmail.com.
+
+There's a new sign-in request on Windows for your Google Account user_two@gmail.com. 
+
+There's a new sign-in request on Mac OS for your Google Account user_three@gmail.com. 
+</pre>
+<ol start="2" type="1">
+<li>如需输出上述消息，请将 <code dir="ltr" translate="no">main()</code> 函数实现替换为以下内容：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">firstUserEmailId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"user_one@gmail.com"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// The following line of code assumes that you named your parameter as emailId. </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// If you named it differently, feel free to update the name.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">displayAlertMessage</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">emailId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">firstUserEmailId</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">secondUserOperatingSystem</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Windows"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">secondUserEmailId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"user_two@gmail.com"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">displayAlertMessage</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">secondUserOperatingSystem</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondUserEmailId</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">thirdUserOperatingSystem</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Mac OS"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">thirdUserEmailId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"user_three@gmail.com"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">displayAlertMessage</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">thirdUserOperatingSystem</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">thirdUserEmailId</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="8">
+              9. 计步器
+          </h2>
+          
+          <p>计步器是一种电子设备，可计算行走的步数。如今，几乎所有手机、智能手表和健身器材都会内置计步器。健康与健身应用会使用内置计步器来计算行走的步数。相应函数会根据用户的步数计算消耗的卡路里。</p>
+<ul>
+<li>您能根据最佳做法重命名以下程序中的函数、函数参数和变量吗？</li>
+</ul>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">Steps</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">4000</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">caloriesBurned</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">PEDOMETERstepsTOcalories</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Steps</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Walking </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">Steps</span><span class="devsite-syntax-s"> steps burns </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">caloriesBurned</span><span class="devsite-syntax-s"> calories"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">PEDOMETERstepsTOcalories</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">NumberOFStepS</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">CaloriesBURNEDforEachStep</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0.04</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">TotalCALORIESburned</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">NumberOFStepS</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">*</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">CaloriesBURNEDforEachStep</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TotalCALORIESburned</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="9">
+              10. 比较两个数字
+          </h2>
+          
+          <p>新型手机都内置了相应功能来跟踪设备使用时间（也就是用户每天在手机上花费的时间）。</p>
+<p>在此练习中，您将实现一个函数来比较您今天和昨天在手机上花费的时间（以分钟为单位）。该函数接受两个整数参数，并返回一个布尔值。</p>
+<p>第一个形参用于存储您在今天花费的分钟数，第二个形参用于存储您在昨天花费的分钟数。如果您今天在手机上花费的时间比昨天多，该函数会返回 <code dir="ltr" translate="no">true</code> 值，否则返回 <code dir="ltr" translate="no">false</code> 值。</p>
+<p>例如，如果您使用以下具名实参调用了函数：</p>
+<ul>
+<li><code dir="ltr" translate="no">timeSpentToday = 300</code> 和 <code dir="ltr" translate="no">timeSpentYesterday = 250</code>，该函数会返回 <code dir="ltr" translate="no">true</code> 值。</li>
+<li><code dir="ltr" translate="no">timeSpentToday = 300</code> 和 <code dir="ltr" translate="no">timeSpentYesterday = 300</code>，该函数会返回 <code dir="ltr" translate="no">false</code> 值。</li>
+<li><code dir="ltr" translate="no">timeSpentToday = 200</code> 和 <code dir="ltr" translate="no">timeSpentYesterday = 220</code>，该函数会返回 <code dir="ltr" translate="no">false</code> 值。</li>
+</ul>
+<p><strong>提示</strong>：如果比较运算符 <code dir="ltr" translate="no">&gt;</code> 前面的值大于其后面的值，该运算符将返回 <code dir="ltr" translate="no">true</code> 值，否则返回 <code dir="ltr" translate="no">false</code> 值。</p>
+
+
+        
+          
+          <h2 class="" id="10">
+              11. 将重复代码移至函数中
+          </h2>
+          
+          <p>以下程序会显示不同城市的天气信息，其中包括城市名称、当天的最高和最低温度以及降雨概率。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"City: Ankara"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Low temperature: 27, High temperature: 31"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Chance of rain: 82%"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"City: Tokyo"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Low temperature: 32, High temperature: 36"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Chance of rain: 10%"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"City: Cape Town"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Low temperature: 59, High temperature: 64"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Chance of rain: 2%"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"City: Guatemala City"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Low temperature: 50, High temperature: 55"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Chance of rain: 7%"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>用于输出各个城市天气信息的代码有许多相似之处。举例而言，有些短语会多次重复（如 <code dir="ltr" translate="no">"City:"</code> 和 <code dir="ltr" translate="no">"Low temperature:"</code>）。重复使用类似的代码可能会导致程序出错。您有可能会拼错某座城市或遗漏其某个天气详情。</p>
+<ol type="1">
+<li>您能创建一个函数来输出单个城市的天气详情，从而减少 <code dir="ltr" translate="no">main()</code> 函数中的重复操作，然后使用此函数输出其余城市的天气详情吗？</li>
+<li>您能更新 <code dir="ltr" translate="no">main()</code> 函数来调用您为每个城市创建的函数，并将相应天气详情作为实参传入吗？</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="11">
+              12. 解决方案代码
+          </h2>
+          
+          <h2 id="print-messages">输出消息</h2>
+<p>以下解决方案使用 <code dir="ltr" translate="no">println()</code> 函数来输出每一行的消息。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Use the val keyword when the value doesn't change."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Use the var keyword when the value can change."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"When you define a function, you define the parameters that can be passed to it."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"When you call a function, you pass arguments for the parameters."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="fix-compile-error">修正编译错误</h2>
+<p>代码有两处编译错误：</p>
+<ol type="1">
+<li>字符串应该以双引号（而不是单引号）结尾。</li>
+<li>函数实参应该以圆括号（而不是大括号）结尾。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"New chat message from a friend"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="string-templates">字符串模板</h2>
+<p>编译错误是由为 <code dir="ltr" translate="no">discountPercentage</code> 和 <code dir="ltr" translate="no">offer</code> 只读变量赋予新值导致的；不允许进行此类赋值操作。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">discountPercentage</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">20</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">item</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Google Chromecast"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">offer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sale  - Up to </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">discountPercentage</span><span class="devsite-syntax-s">% discount off </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-s">! Hurry Up!"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">offer</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>作为替代解决方案，您可以使用 <code dir="ltr" translate="no">var</code> 关键字声明 <code dir="ltr" translate="no">discountPercentage</code> 整数和 <code dir="ltr" translate="no">offer</code> 字符串。不过，在该程序中，它们的值是不变的，因此您可以继续使用 <code dir="ltr" translate="no">val</code> 关键字。</p>
+<h2 id="string-concatenation">字符串串联</h2>
+<h3 id="step-1_3">第 1 步</h3>
+<p>程序会输出以下内容：</p>
+<div></div><pre translate="no" dir="ltr">The total party size is: 2030 
+</pre>
+<p>这是个棘手的问题。如果对 <code dir="ltr" translate="no">String</code> 值使用 <code dir="ltr" translate="no">+</code> 运算符，就会生成一个串联的字符串。由于整数是用双引号括起来的，因此会被视为字符串（而不是整数），所以就输出了 <code dir="ltr" translate="no">2030</code>。</p>
+<h3 id="step-2_3">第 2 步</h3>
+<p>您可以移除 <code dir="ltr" translate="no">numberOfAdults</code> 和 <code dir="ltr" translate="no">numberOfKids</code> 变量中的双引号，将其转换为 <code dir="ltr" translate="no">Int</code> 变量。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">numberOfAdults</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">20</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">numberOfKids</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">30</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">total</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">numberOfAdults</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">numberOfKids</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The total party size is: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">total</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>如果您还记得的话，Kotlin 编译器可以根据变量的赋值来推断变量的类型。在此例中，编译器会推断出 <code dir="ltr" translate="no">numberOfAdults</code> 和 <code dir="ltr" translate="no">numberOfKids</code> 变量的类型为 <code dir="ltr" translate="no">Int</code>。</p>
+<h2 id="message-formatting">消息格式</h2>
+<p>程序会输出以下内容：</p>
+<div></div><pre translate="no" dir="ltr">Congratulations for your bonus! You will receive a total of 5000 + 1000 (additional bonus).
+</pre>
+<p><code dir="ltr" translate="no">"$baseSalary + $bonusAmount"</code> 采用的是模板表达式语法。在模板表达式中，系统会先计算代码，然后将结果串联到一个字符串中。</p>
+<p>在这个习题中，<code dir="ltr" translate="no">$baseSalary</code> 变量的求值结果为 <code dir="ltr" translate="no">5000</code>，<code dir="ltr" translate="no">$bonusAmount</code> 变量的求值结果为 <code dir="ltr" translate="no">1000</code>。然后，结果会串联成 <code dir="ltr" translate="no">"5000 + 1000"</code>，并被赋给 <code dir="ltr" translate="no">result</code> 变量。</p>
+<h2 id="implement-basic-math-operations">实现基本数学运算</h2>
+<h3 id="step-1_4">第 1 步</h3>
+<p>使用 <code dir="ltr" translate="no">val</code> 关键字定义不可变的 <code dir="ltr" translate="no">result</code> 变量，然后为其赋予加法运算的结果：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">firstNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">secondNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">5</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">result</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondNumber</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-s"> + </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">secondNumber</span><span class="devsite-syntax-s"> = </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">result</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h3 id="step-2_4">第 2 步</h3>
+<ol type="1">
+<li>创建一个 <code dir="ltr" translate="no">add()</code> 函数。该函数采用 <code dir="ltr" translate="no">firstNumber</code> 形参和 <code dir="ltr" translate="no">secondNumber</code> 形参（均为 <code dir="ltr" translate="no">Int</code> 类型），并返回 <code dir="ltr" translate="no">Int</code> 值。</li>
+<li>在 <code dir="ltr" translate="no">add()</code> 函数主体内输入加法运算的代码，然后使用 <code dir="ltr" translate="no">return</code> 关键字返回运算结果。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">add</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondNumber</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondNumber</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h3 id="step-3_1">第 3 步</h3>
+<ol type="1">
+<li>定义一个 <code dir="ltr" translate="no">subtract()</code> 函数。该函数采用 <code dir="ltr" translate="no">firstNumber</code> 形参和 <code dir="ltr" translate="no">secondNumber</code> 形参（均为 <code dir="ltr" translate="no">Int</code> 类型），并返回 <code dir="ltr" translate="no">Int</code> 值。</li>
+<li>在 <code dir="ltr" translate="no">subtract()</code> 函数主体内输入减法运算的代码，然后使用 <code dir="ltr" translate="no">return</code> 关键字返回运算结果。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">subtract</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondNumber</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondNumber</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>修改 <code dir="ltr" translate="no">main()</code> 函数以使用新的 <code dir="ltr" translate="no">subtract()</code> 函数。解决方案示例可能如下所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">firstNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">secondNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">5</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">thirdNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">8</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">result</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">add</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondNumber</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">anotherResult</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">subtract</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">thirdNumber</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-s"> + </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">secondNumber</span><span class="devsite-syntax-s"> = </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">result</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-s"> - </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">thirdNumber</span><span class="devsite-syntax-s"> = </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">anotherResult</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">add</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondNumber</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondNumber</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">subtract</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondNumber</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">firstNumber</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">secondNumber</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="default-parameters">默认参数</h2>
+<h3 id="step-1_5">第 1 步</h3>
+<ol type="1">
+<li>创建一个 <code dir="ltr" translate="no">displayAlertMessage()</code> 函数。该函数采用 <code dir="ltr" translate="no">operatingSystem</code> 形参和 <code dir="ltr" translate="no">emailId</code> 形参（均为 <code dir="ltr" translate="no">String</code> 类型），并返回 <code dir="ltr" translate="no">String</code> 值。</li>
+<li>在函数主体中，使用模板表达式更新和返回消息。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">displayAlertMessage</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">operatingSystem</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">emailId</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"There is a new sign-in request on </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">operatingSystem</span><span class="devsite-syntax-s"> for your Google Account </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">emailId</span><span class="devsite-syntax-s">."</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h3 id="step-2_5">第 2 步</h3>
+<ul>
+<li>为 <code dir="ltr" translate="no">operatingSystem</code> 形参赋予一个 <code dir="ltr" translate="no">"Unknown OS"</code> 值。</li>
+</ul>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">displayAlertMessage</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">operatingSystem</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Unknown OS"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">emailId</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"There is a new sign-in request on </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">operatingSystem</span><span class="devsite-syntax-s"> for your Google Account </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">emailId</span><span class="devsite-syntax-s">."</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="pedometer">计步器</h2>
+<p>函数名称和变量名称都应遵循驼峰式大小写规范。<em></em></p>
+<p>如果名称包含多个单词，请将第一个单词的第一个字母小写，将后续各个单词的第一个字母大写，并移除单词之间的空格。</p>
+<p>函数名称示例：</p>
+<ul>
+<li><code dir="ltr" translate="no">calculateTip</code></li>
+<li><code dir="ltr" translate="no">displayMessage</code></li>
+<li><code dir="ltr" translate="no">takePhoto</code></li>
+</ul>
+<p>变量名称示例：</p>
+<ul>
+<li><code dir="ltr" translate="no">numberOfEmails</code></li>
+<li><code dir="ltr" translate="no">cityName</code></li>
+<li><code dir="ltr" translate="no">bookPublicationDate</code></li>
+</ul>
+<p>如需详细了解名称，请参阅<a href="https://kotlinlang.org/docs/coding-conventions.html#naming-rules" target="_blank">命名规则</a>。</p>
+<p>请避免将 <a href="https://kotlinlang.org/docs/keyword-reference.html" target="_blank">Kotlin 关键字</a>用作函数名称，因为这些单词在 Kotlin 语言中已被赋予特定的含义。</p>
+<p>您的解决方案代码应类似于以下代码段：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">steps</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">4000</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">caloriesBurned</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">pedometerStepsToCalories</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">steps</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Walking </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">steps</span><span class="devsite-syntax-s"> steps burns </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">caloriesBurned</span><span class="devsite-syntax-s"> calories"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">pedometerStepsToCalories</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">numberOfSteps</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">caloriesBurnedForEachStep</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0.04</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">totalCaloriesBurned</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">numberOfSteps</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">*</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">caloriesBurnedForEachStep</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">totalCaloriesBurned</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="compare-two-numbers">比较两个数字</h2>
+<ul>
+<li>创建一个 <code dir="ltr" translate="no">compareTime()</code> 函数。该函数采用 <code dir="ltr" translate="no">timeSpentToday</code> 形参和 <code dir="ltr" translate="no">timeSpentYesterday</code> 形参（均为 <code dir="ltr" translate="no">Int</code> 类型），并返回 <code dir="ltr" translate="no">Boolean</code> 值。</li>
+</ul>
+<p>该解决方案使用的是 <code dir="ltr" translate="no">&gt;</code> 比较运算符。这个运算符的求值结果属于 <code dir="ltr" translate="no">Boolean</code> 值，因此 <code dir="ltr" translate="no">compareTime()</code> 函数只会返回 <code dir="ltr" translate="no">timeSpentToday &gt; timeSpentYesterday</code> 这个结果。</p>
+<p>例如，如果您将实参 <code dir="ltr" translate="no">300</code> 传递给 <code dir="ltr" translate="no">timeSpentToday</code> 形参，并将实参 <code dir="ltr" translate="no">250</code> 传递给 <code dir="ltr" translate="no">timeSpentYesterday</code> 形参，函数主体的求值结果为 <code dir="ltr" translate="no">300 &gt; 250</code>，因为 300 大于 250，所以返回 <code dir="ltr" translate="no">true</code>。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have I spent more time using my phone today: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">compareTime</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">300</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">250</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have I spent more time using my phone today: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">compareTime</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">300</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">300</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have I spent more time using my phone today: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">compareTime</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">200</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">220</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">compareTime</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">timeSpentToday</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">timeSpentYesterday</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">timeSpentToday</span><span class="devsite-syntax-w"> &gt; </span><span class="devsite-syntax-n">timeSpentYesterday</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<div></div><pre translate="no" dir="ltr">Have I spent more time using my phone today: true
+Have I spent more time using my phone today: false
+Have I spent more time using my phone today: false
+</pre>
+<h2 id="move-duplicate-code-into-a-function">将重复代码移至一个函数中</h2>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 函数后，创建一个会输出 Ankara（安卡拉）这个城市天气详情的函数。</li>
+</ol>
+<p>您可以使用 <code dir="ltr" translate="no">printWeatherForCity()</code> 或类似名称作为函数名称。</p>
+<ol start="2" type="1">
+<li>通过 <code dir="ltr" translate="no">main()</code> 函数调用该函数。</li>
+</ol>
+<p>程序应输出安卡拉的天气详情。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">printWeatherForCity</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printWeatherForCity</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"City: Ankara"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Low temperature: 27, High temperature: 31"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Chance of rain: 82%"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>现在，您可以再创建一个更灵活的函数来输出其他城市的天气详情。</p>
+<ol start="3" type="1">
+<li>将 <code dir="ltr" translate="no">println()</code> 语句中特定于安卡拉的部分替换成变量。</li>
+</ol>
+<p>请务必对变量名称使用驼峰式大小写规范，并在变量前面使用 <code dir="ltr" translate="no">$</code> 符号，这样即会使用变量的值，而非变量的名称。以下是您在之前的某个 Codelab 中学过的字符串模板。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printWeatherForCity</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"City: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">cityName</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Low temperature: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">lowTemp</span><span class="devsite-syntax-s">, High temperature: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">highTemp</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Chance of rain: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">chanceOfRain</span><span class="devsite-syntax-s">%"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>更改函数定义，使这些变量成为调用函数时必须传递给该函数的形参，并为每个形参指定数据类型。</li>
+</ol>
+<p><code dir="ltr" translate="no">cityName</code> 形参的类型为 <code dir="ltr" translate="no">String</code>，而 <code dir="ltr" translate="no">lowTemp</code>、<code dir="ltr" translate="no">highTemp</code> 和 <code dir="ltr" translate="no">chanceOfRain</code> 形参的类型为 <code dir="ltr" translate="no">Int</code>。</p>
+<p>无需在函数定义中指定 <code dir="ltr" translate="no">return</code> 值，因为系统会输出相应消息。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printWeatherForCity</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">cityName</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lowTemp</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">highTemp</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">chanceOfRain</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"City: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">cityName</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Low temperature: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">lowTemp</span><span class="devsite-syntax-s">, High temperature: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">highTemp</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Chance of rain: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">chanceOfRain</span><span class="devsite-syntax-s">%"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>更新 <code dir="ltr" translate="no">main()</code> 函数，以调用 <code dir="ltr" translate="no">printWeatherForCity()</code> 函数并传入安卡拉的天气详情。</li>
+</ol>
+<p>城市名称为 <code dir="ltr" translate="no">"Ankara"</code>，最低温度为 <code dir="ltr" translate="no">27</code>，最高温度为 <code dir="ltr" translate="no">31</code>，降雨概率为 <code dir="ltr" translate="no">82</code>。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">printWeatherForCity</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Ankara"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">27</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">31</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">82</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printWeatherForCity</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">cityName</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lowTemp</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">highTemp</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">chanceOfRain</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"City: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">cityName</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Low temperature: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">lowTemp</span><span class="devsite-syntax-s">, High temperature: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">highTemp</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Chance of rain: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">chanceOfRain</span><span class="devsite-syntax-s">%"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>运行程序，验证输出内容是否显示安卡拉的天气详情。</li>
+<li>使用其他城市的天气详情调用 <code dir="ltr" translate="no">printWeatherForCity()</code> 函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">printWeatherForCity</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Ankara"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">27</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">31</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">82</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">printWeatherForCity</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Tokyo"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">32</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">36</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">printWeatherForCity</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Cape Town"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">59</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">64</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">printWeatherForCity</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Guatemala City"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">50</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">55</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">7</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printWeatherForCity</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">cityName</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lowTemp</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">highTemp</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">chanceOfRain</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"City: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">cityName</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Low temperature: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">lowTemp</span><span class="devsite-syntax-s">, High temperature: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">highTemp</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Chance of rain: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">chanceOfRain</span><span class="devsite-syntax-s">%"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="8" type="1">
+<li>运行程序。</li>
+</ol>
+<p>您应该会看到与原始程序一样的输出，但现在您的代码更加简洁，没有多余的重复！所有用于输出城市天气详情的代码都集中在一处，即 <code dir="ltr" translate="no">printWeatherForCity()</code> 函数。如果您想更改天气详情的显示方式，只需对一处做出更改，便可应用到所有城市。</p>
+
+
+        
+          
+          <h2 class="" id="12">
+              13. 其他练习
+          </h2>
+          
+          <p>如需尝试 Kotlin 语言的更多练习，请查看 <a href="https://hyperskill.org/tracks/18" target="_blank">JetBrains Academy 的 Kotlin Core 课程</a>。如需跳转到特定主题，请前往<a href="https://hyperskill.org/knowledge-map" target="_blank">知识图谱</a>，查看上述课程涵盖的主题列表。</p>
+
+
+        
+        <nav class="pager"><a href="./04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">上一节：在 Kotlin 中创建和使用函数</a><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下一节：01.下载并安装 Android Studio</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

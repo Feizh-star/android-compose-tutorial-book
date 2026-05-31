@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>从互联网加载和显示图片</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">简介：Compose 中的状态</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">创建 Art Space 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将常用高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题设置</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 添加简单的动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">为 ViewModel 编写单元测试</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：将 ViewModel 添加到 Dessert Clicker</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="./01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加仓库和手动依赖项注入</a></li>
+<li><a class="active" href="./02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="./03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="./04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">从互联网加载和显示图片</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <h2 id="introduction"><strong>简介</strong></h2>
+<p>在之前的 Codelab 中，您已学过如何使用仓库模式从 Web 服务中获取数据，以及如何将响应解析为 Kotlin 对象。在此 Codelab 中，您将利用这些知识学习如何从网址中加载和显示照片。此外，您还将回顾如何构建 <code dir="ltr" translate="no">LazyVerticalGrid</code> 以及用它在概览页面上显示图片网格。</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>了解如何从 REST Web 服务中检索 JSON，并使用 <a href="https://square.github.io/retrofit/" target="_blank">Retrofit</a> 库和 <a href="https://github.com/google/gson" target="_blank">Gson</a> 库将相应数据解析为 Kotlin 对象</li>
+<li>了解 <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> Web 服务</li>
+<li>熟悉 Android 架构组件，例如<a href="https://developer.android.com/topic/architecture/data-layer?hl=zh-cn" target="_blank">数据层</a>和仓库</li>
+<li>了解<a href="https://developer.android.com/training/dependency-injection?hl=zh-cn" target="_blank">依赖项注入</a></li>
+<li>了解 <code dir="ltr" translate="no">ViewModel</code> 和 <code dir="ltr" translate="no">ViewModelProvider.Factory</code></li>
+<li>了解应用的协程实现</li>
+<li>了解仓库模式</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>如何使用 <a href="https://coil-kt.github.io/coil/" target="_blank">Coil</a> 库从网址中加载和显示图片。</li>
+<li>如何使用 <code dir="ltr" translate="no">LazyVerticalGrid</code> 显示图片网格。</li>
+<li>如何处理下载和显示图片时的潜在错误。</li>
+</ul>
+<h2 id="what-youll-build">构建内容</h2>
+<ul>
+<li>修改 Mars Photos 应用，从火星数据中获取图片网址，并使用 Coil 加载和显示相应图片。</li>
+<li>将加载动画和错误图标添加到应用中。</li>
+<li>将状态和错误处理添加到应用中。</li>
+</ul>
+<h2 id="what-youll-need">所需条件</h2>
+<ul>
+<li>一台安装了新版网络浏览器（如最新版 <a href="https://www.google.com/chrome/?hl=zh-cn" target="_blank">Chrome</a>）的计算机</li>
+<li>包含 REST 网络服务的 <strong>Mars Photos</strong> 应用的起始代码</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 应用概览
+          </h2>
+          
+          <p>在此 Codelab 中，您将继续使用上一个 Codelab 中的 <strong>Mars Photos</strong> 应用。<strong>Mars Photos</strong> 应用会连接到 Web 服务，以检索并显示使用 Gson 检索到的 Kotlin 对象的数量。这些 Kotlin 对象包含了 NASA 火星探测器拍摄的火星表面真实照片的网址。</p>
+<p class="image-container"><img alt="a59e55909b6e9213.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<p>您在此 Codelab 中构建的应用版本将以图片网格的形式显示火星照片。这些图片是您的应用从 Web 服务中检索到的数据的一部分。您的应用将使用 <a href="https://coil-kt.github.io/coil/" target="_blank">Coil</a> 库来加载和显示图片，并使用 <code dir="ltr" translate="no">LazyVerticalGrid</code> 为图片创建网格布局。您的应用还将通过显示错误消息来合理处理网络连接错误。</p>
+<p class="image-container"><img alt="68f4ff12cc1e2d81.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/68f4ff12cc1e2d81_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<h2 id="get-the-starter-code">获取起始代码</h2>
+<p>首先，请下载起始代码：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/archive/refs/heads/coil-starter.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>或者，您也可以克隆代码的 GitHub 代码库：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos.git
+$ cd basic-android-kotlin-compose-training-mars-photos
+$ git checkout coil-starter
+</pre>
+<aside class="special"><p><strong>注意</strong>：起始代码位于所下载代码库的 <code dir="ltr" translate="no">coil-starter</code> 分支中。</p>
+</aside>
+<p>您可以在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/tree/coil-starter" target="_blank"><code dir="ltr" translate="no">Mars Photos</code></a> GitHub 代码库中浏览该代码。</p>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 显示下载的图片
+          </h2>
+          
+          <p>从网址中显示图片可能听起来非常简单，但实际上却需要完成大量工作才能顺利实现。您必须下载图片、在内部存储（缓存）该图片，并将其从压缩格式解码为 Android 可使用的格式。您可以将图片缓存到内存缓存和/或基于存储空间的缓存中。所有操作都必须在低优先级的后台线程中进行，以便界面保持快速响应。另外，为获得最佳网络和 CPU 性能，您可能需要同时获取和解码多张图片。</p>
+<p>幸好，您可以使用社区开发的名为 <a href="https://coil-kt.github.io/coil/" target="_blank">Coil</a> 的库来下载、缓冲、解码以及缓存您的图片。如果不使用 Coil，则需要执行更多操作。</p>
+<p>Coil 基本上需要有以下两项：</p>
+<ul>
+<li>需要加载和显示的图片的网址。</li>
+<li>用于实际显示该图片的 <code dir="ltr" translate="no">AsyncImage</code> 可组合项。</li>
+</ul>
+<p>在此任务中，您将学习如何使用 Coil 来显示火星 Web 服务中的单张图片。您将在 Web 服务返回的照片列表中显示第一张火星照片的图片。以下是相应图片显示前后的对照屏幕截图：</p>
+<p class="image-container"><img alt="a59e55909b6e9213.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/a59e55909b6e9213_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async">              <img alt="1b670f284109bbf5.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<h2 id="add-coil-dependency"><strong>添加 Coil 依赖项</strong></h2>
+<ol type="1">
+<li>打开<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-add-repository?hl=zh-cn" target="_blank">添加仓库和手动依赖项注入</a> Codelab 中的 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/tree/coil-starter" target="_blank">Mars Photos 解决方案</a>应用。</li>
+<li>运行应用，确认其中显示了检索到的火星照片的数量。</li>
+<li>打开 <strong>build.gradle.kts (Module :app)</strong>。</li>
+<li>在 <code dir="ltr" translate="no">dependencies</code> 部分中，为 Coil 库添加下面这行代码：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Coil</span>
+<span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"io.coil-kt:coil-compose:2.4.0"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>从 <a href="https://coil-kt.github.io/coil/#download" target="_blank">Coil</a> 文档页面查看并更新该库的最新版本。</p>
+<ol start="5" type="1">
+<li>请点击 <strong>Sync Now</strong>，以使用新的依赖项重建项目。</li>
+</ol>
+<h2 id="display-the-image-url">显示图片网址</h2>
+<p>在此步骤中，您将检索并显示第一张火星照片的网址。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">ui/screens/MarsViewModel.kt</code> 的 <code dir="ltr" translate="no">getMarsPhotos()</code> 方法的 <code dir="ltr" translate="no">try</code> 代码块内，找到用于将从 Web 服务中检索到的数据设置为 <code dir="ltr" translate="no">listResult</code> 的代码行。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy, code is already present</span>
+<span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">listResult</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">marsPhotosRepository</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getMarsPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>更新此行，方法是将 <code dir="ltr" translate="no">listResult</code> 更改为 <code dir="ltr" translate="no">result</code>，并将检索到的第一张火星照片分配给新变量 <code dir="ltr" translate="no">result</code>。在索引 <code dir="ltr" translate="no">0</code> 处分配第一个照片对象。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">result</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">marsPhotosRepository</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getMarsPhotos</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在下一行代码中，将传递给 <code dir="ltr" translate="no">MarsUiState.Success()</code> 函数调用的形参更新为以下代码中的字符串。使用新属性中的数据，而非 <code dir="ltr" translate="no">listResult</code>。显示照片 <code dir="ltr" translate="no">result</code> 中的第一张图片的网址。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"First Mars image URL: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">result</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imgSrc</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>现在，完整的 <code dir="ltr" translate="no">try</code> 代码块应如下所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">result</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">marsPhotosRepository</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getMarsPhotos</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-s">"   First Mars image URL : </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">result</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imgSrc</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>运行应用。现在，<code dir="ltr" translate="no">Text</code> 可组合项会显示第一张火星照片的网址。下一部分将介绍如何让应用显示此网址中的图片。</li>
+</ol>
+<p class="image-container"><img alt="b5daaa892fe8dad7.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b5daaa892fe8dad7_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<h2 id="add-asyncimage-composable">添加 <code dir="ltr" translate="no">AsyncImage</code> <strong>可组合项</strong></h2>
+<p>在这一步，您将添加一个 <code dir="ltr" translate="no">AsyncImage</code> 可组合函数来加载并显示单张火星照片。<code dir="ltr" translate="no">AsyncImage</code> 是一个用于异步执行图片请求并呈现结果的可组合项。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Example code, no need to copy over</span>
+<span class="devsite-syntax-n">AsyncImage</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">model</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"https://android.com/sample_image.jpg"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p><code dir="ltr" translate="no">model</code> 实参可以是 <code dir="ltr" translate="no">ImageRequest.data</code> 值，也可以是 <code dir="ltr" translate="no">ImageRequest</code> 本身。在前面的示例中，您分配了 <code dir="ltr" translate="no">ImageRequest.data</code> 值，即图片网址 <code dir="ltr" translate="no">"https://android.com/sample_image.jpg"</code>。以下示例代码展示了如何将 <code dir="ltr" translate="no">ImageRequest</code> 分配给 <code dir="ltr" translate="no">model</code>。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Example code, no need to copy over</span>
+
+<span class="devsite-syntax-n">AsyncImage</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">model</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ImageRequest</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">LocalContext</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">data</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"https://example.com/image.jpg"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">crossfade</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">placeholder</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">placeholder</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">contentScale</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ContentScale</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Crop</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">clip</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CircleShape</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p><code dir="ltr" translate="no">AsyncImage</code> 支持与标准 Image 可组合项相同的实参。此外，它还支持设置 <code dir="ltr" translate="no">placeholder</code>/<code dir="ltr" translate="no">error</code>/<code dir="ltr" translate="no">fallback</code> 绘制程序和 <code dir="ltr" translate="no">onLoading</code>/<code dir="ltr" translate="no">onSuccess</code>/<code dir="ltr" translate="no">onError</code> 回调。上述示例代码加载了具有圆形剪裁和淡入淡出效果的图片，并设置了占位符。</p>
+<p><code dir="ltr" translate="no">contentDescription</code> 设置无障碍服务用于描述此图片内容的文本。</p>
+<p>将 <code dir="ltr" translate="no">AsyncImage</code> 可组合项添加到您的代码中，以显示检索到的第一张火星照片。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">ui/screens/HomeScreen.kt</code> 中，添加一个新的名为 <code dir="ltr" translate="no">MarsPhotoCard()</code> 的可组合函数，该函数接受 <code dir="ltr" translate="no">MarsPhoto</code> 和 <code dir="ltr" translate="no">Modifier</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">MarsPhotoCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhoto</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">MarsPhotoCard()</code> 可组合函数内，添加 <code dir="ltr" translate="no">AsyncImage()</code> 函数，如下所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">coil.compose.AsyncImage</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">coil.request.ImageRequest</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.platform.LocalContext</span>
+
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">MarsPhotoCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhoto</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">AsyncImage</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">model</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ImageRequest</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">context</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalContext</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">data</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imgSrc</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">mars_photo</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在前面的代码中，您使用图片网址 (<code dir="ltr" translate="no">photo.imgSrc</code>) 构建了 <code dir="ltr" translate="no">ImageRequest</code>，并将其传递给 <code dir="ltr" translate="no">model</code> 实参。您可以使用 <code dir="ltr" translate="no">contentDescription</code> 为使用无障碍功能的读者设置文本。</p>
+<ol start="3" type="1">
+<li>将 <code dir="ltr" translate="no">crossfade(true)</code> 添加到 <code dir="ltr" translate="no">ImageRequest</code> 以在请求成功完成时启用淡入淡出动画。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">MarsPhotoCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhoto</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">AsyncImage</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">model</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ImageRequest</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">context</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalContext</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">data</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imgSrc</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">crossfade</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">mars_photo</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>在请求成功完成后，更新 <code dir="ltr" translate="no">HomeScreen</code> 可组合项以显示 <code dir="ltr" translate="no">MarsPhotoCard</code> 可组合项，而不是 <code dir="ltr" translate="no">ResultScreen</code> 可组合项。您将在下一步中修复类型不匹配错误。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">HomeScreen</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">when</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">is</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Loading</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LoadingScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxSize</span><span class="devsite-syntax-p">())</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">is</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotoCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">photos</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxSize</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ErrorScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxSize</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>在 <code dir="ltr" translate="no">MarsViewModel.kt</code> 文件中，更新 <code dir="ltr" translate="no">MarsUiState</code> 接口以接受 <code dir="ltr" translate="no">MarsPhoto</code> 对象，而不是 <code dir="ltr" translate="no">String</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">sealed</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Success</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">photos</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhoto</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>更新 <code dir="ltr" translate="no">getMarsPhotos()</code> 函数，以将第一张火星照片对象传递给 <code dir="ltr" translate="no">MarsUiState.Success()</code>。删除 <code dir="ltr" translate="no">result</code> 变量。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">marsPhotosRepository</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getMarsPhotos</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="7" type="1">
+<li>运行应用并确认它显示一张火星图片。</li>
+</ol>
+<p class="image-container"><img alt="d4421a2458f38695.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d4421a2458f38695_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<ol start="8" type="1">
+<li>火星照片未填满整个屏幕。如需填充屏幕上的可用空间，请在 <code dir="ltr" translate="no">AsyncImage</code> 的 <code dir="ltr" translate="no">HomeScreen.kt</code> 中将 <code dir="ltr" translate="no">contentScale</code> 设置为 <code dir="ltr" translate="no">ContentScale.Crop</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.layout.ContentScale</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">MarsPhotoCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhoto</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">AsyncImage</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">model</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ImageRequest</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">context</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalContext</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">data</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imgSrc</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">crossfade</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">mars_photo</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">contentScale</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ContentScale</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Crop</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="9" type="1">
+<li>运行应用，并确认图片在水平和垂直方向上填满整个屏幕。</li>
+</ol>
+<p class="image-container"><img alt="1b670f284109bbf5.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/1b670f284109bbf5_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<h2 id="add-loading-and-error-images">添加加载和错误图片</h2>
+<p>您可以在加载图片时显示占位图片，从而改善应用中的用户体验。如果加载因任何问题（例如图片文件缺失或损坏）而失败，您也可以显示错误图片。在本部分中，您将使用 <code dir="ltr" translate="no">AsyncImage</code> 添加错误图片和占位符图片。</p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">res/drawable/ic_broken_image.xml</code>，然后点击右侧的 <strong>Design</strong> 或 <strong>Split</strong> 标签页。对于错误图片，请使用内置图标库中提供的损坏图片图标。此矢量可绘制对象使用 <code dir="ltr" translate="no">android:tint</code> 属性将图标设为灰色。</li>
+</ol>
+<p class="image-container"><img alt="70e008c63a2a1139.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/70e008c63a2a1139_2880.029cc721e4.png 2880w" style="width: 96.00px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>打开 <code dir="ltr" translate="no">res/drawable/loading_img.xml</code>。该可绘制对象是围绕中心点旋转图片可绘制对象 <code dir="ltr" translate="no">loading_img.xml</code> 的动画。（您在预览中看不到这段动画。）</li>
+</ol>
+<p class="image-container"><img alt="92a448fa23b6d1df.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/92a448fa23b6d1df_2880.029cc721e4.png 2880w" style="width: 96.00px" loading="lazy" decoding="async"></p>
+<ol start="3" type="1">
+<li>返回 <code dir="ltr" translate="no">HomeScreen.kt</code> 文件。在 <code dir="ltr" translate="no">MarsPhotoCard</code> 可组合项中，更新对 <code dir="ltr" translate="no">AsyncImage()</code> 的调用以添加 <code dir="ltr" translate="no">error</code> 和 <code dir="ltr" translate="no">placeholder</code> 属性，如以下代码所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.res.painterResource</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">MarsPhotoCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhoto</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">AsyncImage</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">error</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ic_broken_image</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">placeholder</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">loading_img</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>此代码可设置加载时要使用的占位符加载图片（<code dir="ltr" translate="no">loading_img</code> 可绘制对象）。此代码还可设置图片加载失败时要使用的图片（<code dir="ltr" translate="no">ic_broken_image</code> 可绘制对象）。</p>
+<p>现在，完整的 <code dir="ltr" translate="no">MarsPhotoCard</code> 可组合项应如以下代码所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">MarsPhotoCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhoto</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">AsyncImage</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">model</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ImageRequest</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">context</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalContext</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">data</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imgSrc</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">crossfade</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">error</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ic_broken_image</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">placeholder</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">loading_img</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">mars_photo</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">contentScale</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ContentScale</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Crop</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>请运行应用。根据网络连接速度，您可能会短暂地看到加载图片显示为 Coil 下载内容，并显示属性图片。但是您不会看到损坏图片图标，即使您关闭网络也是如此 - 您将在 Codelab 的最后一个任务中修复该问题。</li>
+</ol>
+<p class="image-container"><img alt="d684b0e096e57643.gif" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/d684b0e096e57643.029cc721e4.gif" style="width: 270.00px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 使用 LazyVerticalGrid 显示图片网格
+          </h2>
+          
+          <p>您的应用现在从互联网加载了一张火星照片，即第一个 <code dir="ltr" translate="no">MarsPhoto</code> 列表项。您已使用该火星照片数据中的图片网址填充了 <code dir="ltr" translate="no">AsyncImage</code>。不过，您的目标是让应用显示图片网格。在此任务中，您将使用带网格布局管理器的 <code dir="ltr" translate="no">LazyVerticalGrid</code> 来显示图片网格。</p>
+<h3 id="lazy-grids"><strong>延迟网格</strong></h3>
+<p><a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/package-summary?hl=zh-cn#LazyVerticalGrid(androidx.compose.foundation.lazy.grid.GridCells,androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.grid.LazyGridState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1)" target="_blank">LazyVerticalGrid</a> 和 <a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/package-summary?hl=zh-cn#LazyHorizontalGrid(androidx.compose.foundation.lazy.grid.GridCells,androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.grid.LazyGridState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1)" target="_blank">LazyHorizontalGrid</a> 可组合项支持在网格中显示列表项。延迟垂直网格会在可垂直滚动容器中跨多个列显示其列表项，而延迟水平网格则会在水平轴上实现相同的行为。</p>
+<h2 id="heading"><img alt="27680e208333ed5.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/27680e208333ed5_2880.029cc721e4.png 2880w" style="width: 192.00px" loading="lazy" decoding="async"></h2>
+<p>从设计角度来看，网格布局最适合以图标或图片的形式显示火星照片。</p>
+<p><a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/package-summary?hl=zh-cn#LazyVerticalGrid(androidx.compose.foundation.lazy.grid.GridCells,androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.grid.LazyGridState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1)" target="_blank"><code dir="ltr" translate="no">LazyVerticalGrid</code></a> 中的 <code dir="ltr" translate="no">columns</code> 形参和 <a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/package-summary?hl=zh-cn#LazyHorizontalGrid(androidx.compose.foundation.lazy.grid.GridCells,androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.grid.LazyGridState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1)" target="_blank"><code dir="ltr" translate="no">LazyHorizontalGrid</code></a> 中的 <code dir="ltr" translate="no">rows</code> 形参用于控制单元格组成列或行的方式。以下示例代码在网格中显示列表项，并使用 <a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/GridCells.Adaptive?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">GridCells.Adaptive</code></a> 将每列设置为至少 <code dir="ltr" translate="no">128.dp</code> 宽：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Sample code - No need to copy over</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">PhotoGrid</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photos</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;Photo&gt;</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">LazyVerticalGrid</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">columns</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GridCells</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Adaptive</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">minSize</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">150.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">items</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photos</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">PhotoItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>通过 <code dir="ltr" translate="no">LazyVerticalGrid</code>，您可以指定列表项的宽度，然后网格将适应尽可能多的列。在计算列数之后，网格会在各列之间平均分配所有剩余的宽度。这种自适应尺寸调整方式非常适合在不同尺寸的屏幕上显示多组列表项。</p>
+<aside class="special"><p><strong>注意</strong>：如果您知道要使用的确切列数，则可以改为提供包含所需列数的 <a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/GridCells.Fixed?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">GridCells.Fixed</code></a> 实例。</p>
+</aside>
+<p>在此 Codelab 中，如需显示火星照片，请结合使用 <code dir="ltr" translate="no">LazyVerticalGrid</code> 可组合项与 <code dir="ltr" translate="no">GridCells.Adaptive</code>，并将每列的宽度设置为 <code dir="ltr" translate="no">150.dp</code>。</p>
+<h3 id="item-keys"><strong>项键</strong></h3>
+<p>当用户滚动网格（<code dir="ltr" translate="no">LazyColumn</code> 中的 <code dir="ltr" translate="no">LazyRow</code>）时，列表项的位置会发生变化。不过，由于屏幕方向发生变化或者添加或移除了项，用户可能会丢失该行中的滚动位置。项键可以帮助您根据键来保持滚动位置。</p>
+<p>通过提供键，您可以帮助 Compose 正确处理重新排序。例如，如果您的项包含记忆状态，设置键将允许 Compose 在项的位置发生变化时将此状态随该项一起移动。</p>
+<h2 id="add-lazyverticalgrid"><strong>添加 LazyVerticalGrid</strong></h2>
+<p>添加一个用于在垂直网格中显示火星照片列表的可组合项。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">HomeScreen.kt</code> 文件中，新建一个名为 <code dir="ltr" translate="no">PhotosGridScreen()</code> 的可组合函数，该函数接受 <code dir="ltr" translate="no">MarsPhoto</code> 列表和 <code dir="ltr" translate="no">modifier</code> 作为实参。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">PhotosGridScreen</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">photos</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">contentPadding</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">PaddingValues</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">PaddingValues</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">PhotosGridScreen</code> 可组合项内，添加一个具有以下形参的 <code dir="ltr" translate="no">LazyVerticalGrid</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.lazy.grid.LazyVerticalGrid</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.lazy.grid.GridCells</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.fillMaxWidth</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.PaddingValues</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.unit.dp</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">PhotosGridScreen</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">photos</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">contentPadding</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">PaddingValues</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">PaddingValues</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">LazyVerticalGrid</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">columns</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GridCells</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Adaptive</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">150.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">horizontal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">4.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">contentPadding</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">contentPadding</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>如需添加列表项，请在 <code dir="ltr" translate="no">LazyVerticalGrid</code> lambda 内调用 <code dir="ltr" translate="no">items()</code> 函数，并传入 <code dir="ltr" translate="no">MarsPhoto</code> 列表项和 <code dir="ltr" translate="no">photo.id</code> 项键。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.lazy.grid.items</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">PhotosGridScreen</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">photos</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">contentPadding</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">PaddingValues</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">PaddingValues</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">LazyVerticalGrid</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">items</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">items</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photos</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">key</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">id</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">})</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>如需添加单个列表项显示的内容，请定义 <code dir="ltr" translate="no">items</code> lambda 表达式。调用 <code dir="ltr" translate="no">photo</code>，并传入 <code dir="ltr" translate="no">MarsPhotoCard</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">items</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">items</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photos</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">key</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">id</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">})</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotoCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>在成功完成请求后，更新 <code dir="ltr" translate="no">HomeScreen</code> 可组合项以显示 <code dir="ltr" translate="no">PhotosGridScreen</code> 可组合项，而不是 <code dir="ltr" translate="no">MarsPhotoCard</code> 可组合项。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">when</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-k">is</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">PhotosGridScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">photos</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>在 <code dir="ltr" translate="no">MarsViewModel.kt</code> 文件中，更新 <code dir="ltr" translate="no">MarsUiState</code> 接口以接受 <code dir="ltr" translate="no">MarsPhoto</code> 对象列表，而不是单个 <code dir="ltr" translate="no">MarsPhoto</code>。<code dir="ltr" translate="no">PhotosGridScreen</code> 可组合项接受 <code dir="ltr" translate="no">MarsPhoto</code> 对象的列表。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">sealed</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Success</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">photos</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="7" type="1">
+<li>在 <code dir="ltr" translate="no">MarsViewModel.kt</code> 文件中，更新 <code dir="ltr" translate="no">getMarsPhotos()</code> 函数以将火星照片对象列表传递给 <code dir="ltr" translate="no">MarsUiState.Success()</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">marsPhotosRepository</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getMarsPhotos</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="8" type="1">
+<li>运行应用。</li>
+</ol>
+<p class="image-container"><img alt="2eaec198c56b5eed.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2eaec198c56b5eed_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<p>请注意，每张照片都没有内边距，并且不同照片的宽高比也各不相同。您可以添加一个 <code dir="ltr" translate="no">Card</code> 可组合项来解决这些问题。</p>
+<h2 id="add-card-composable"><strong>添加卡片可组合项</strong></h2>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">HomeScreen.kt</code> 文件的 <code dir="ltr" translate="no">MarsPhotoCard</code> 可组合项中，在 <code dir="ltr" translate="no">AsyncImage</code> 周围添加一个高度为 <code dir="ltr" translate="no">8.dp</code> 的 <code dir="ltr" translate="no">Card</code>。将 <code dir="ltr" translate="no">modifier</code> 实参分配给 <code dir="ltr" translate="no">Card</code> 可组合项。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material.Card</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.aspectRatio</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.padding</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">MarsPhotoCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhoto</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Card</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">elevation</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">CardDefaults</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">cardElevation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">defaultElevation</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">8.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">AsyncImage</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">model</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ImageRequest</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">context</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalContext</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">data</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imgSrc</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">crossfade</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">error</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ic_broken_image</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">placeholder</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">loading_img</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">mars_photo</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">contentScale</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ContentScale</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Crop</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>如需修正宽高比，请在 <code dir="ltr" translate="no">PhotosGridScreen()</code> 中更新 <code dir="ltr" translate="no">MarsPhotoCard()</code> 的修饰符。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">PhotosGridScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">photos</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">LazyVerticalGrid</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">items</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">items</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photos</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">key</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">id</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">})</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">MarsPhotoCard</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">photo</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">4.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">aspectRatio</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1.5f</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>更新结果屏幕预览以预览 <code dir="ltr" translate="no">PhotosGridScreen()</code>。使用空白图片网址模拟数据。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">@Preview(showBackground = true)
+@Composable
+fun PhotosGridScreenPreview() {
+   MarsPhotosTheme {
+       val mockData = List(10) { MarsPhoto("$it", "") }
+       PhotosGridScreen(mockData)
+   }
+}
+</pre>
+<aside class="special"><p><strong>模拟数据</strong>：某些函数可能依赖于其他对象或数据。为了隔离这些函数的行为，您需要将其他对象或数据替换为模拟对象或虚构对象和数据，以模拟真实对象的行为。</p>
+<p>模拟是指创建模拟真实对象行为的对象的过程。</p>
+<p>模拟主要用于单元测试。</p>
+</aside>
+<p>由于模拟数据包含空网址，因此您会在照片网格预览中看到正在加载图片。</p>
+<p class="image-container"><img alt="带加载图片的照片网格屏幕预览。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/e737cfaa0dd37e17_2880.029cc721e4.png 2880w" style="width: 192.00px" loading="lazy" decoding="async"></p>
+<ol start="4" type="1">
+<li>运行应用。</li>
+</ol>
+<p class="image-container"><img alt="b56acd074ce0f9c7.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/b56acd074ce0f9c7_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<ol start="5" type="1">
+<li>在应用运行时，开启飞行模式。</li>
+<li>在模拟器中滚动图片。尚未加载的图片显示为损坏图片图标。这是您传递给 Coil 图片库，以便在出现任何网络连接错误或无法获取图片时显示的图片可绘制对象。</li>
+</ol>
+<p class="image-container"><img alt="9b72c1d4206c7331.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/9b72c1d4206c7331_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<p>太棒了！您已经通过在模拟器或设备中开启飞行模式来模拟了网络连接错误。</p>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 添加重试操作
+          </h2>
+          
+          <p>在此部分中，您将添加重试操作按钮，并实现在用户点击该按钮时检索照片。</p>
+<p class="image-container"><img alt="60cdcd42bc540162.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/60cdcd42bc540162_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<ol type="1">
+<li>向“错误”页面添加一个按钮。在 <code dir="ltr" translate="no">HomeScreen.kt</code> 文件中，更新 <code dir="ltr" translate="no">ErrorScreen()</code> 可组合项以包含一个 <code dir="ltr" translate="no">retryAction</code> lambda 形参和一个按钮。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">ErrorScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">retryAction</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Image</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-c1">//...)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Button</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">retryAction</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">retry</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<aside class="special"><p><strong>注意</strong>：请确保 ErrorScreenPreview() 与以下代码段匹配：</p>
+<p class="image-container"><img alt="2a7ea9a88f997e7e.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/2a7ea9a88f997e7e_2880.029cc721e4.png 2880w" style="width: 214.73px" loading="lazy" decoding="async"></p>
+</aside>
+<p>检查预览</p>
+<p class="image-container"><img alt="55cf0c45f5be219f.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-load-images/img/55cf0c45f5be219f_2880.029cc721e4.png 2880w" style="width: 173.90px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>更新 <code dir="ltr" translate="no">HomeScreen()</code> 可组合项以传入重试 lambda。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">HomeScreen</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">retryAction</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-k">when</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-c1">//...</span>
+
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-k">is</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Error</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ErrorScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">retryAction</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxSize</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">ui/theme/MarsPhotosApp.kt</code> 文件中，更新 <code dir="ltr" translate="no">HomeScreen()</code> 函数调用，将 <code dir="ltr" translate="no">retryAction</code> lambda 形参设置为 <code dir="ltr" translate="no">marsViewModel::getMarsPhotos</code>。这将实现从服务器检索火星照片。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">HomeScreen</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">marsViewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">marsUiState</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">retryAction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">marsViewModel</span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">getMarsPhotos</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 更新 ViewModel 测试
+          </h2>
+          
+          <p><code dir="ltr" translate="no">MarsUiState</code> 和 <code dir="ltr" translate="no">MarsViewModel</code> 现已可容纳多张照片的列表，而不是单张照片。在当前状态下，<code dir="ltr" translate="no">MarsViewModelTest</code> 要求 <code dir="ltr" translate="no">MarsUiState.Success</code> 数据类包含字符串属性。因此，测试无法编译。您需要更新 <code dir="ltr" translate="no">marsViewModel_getMarsPhotos_verifyMarsUiStateSuccess()</code> 测试，以断言 <code dir="ltr" translate="no">MarsViewModel.marsUiState</code> 等于包含照片列表的 <code dir="ltr" translate="no">Success</code> 状态。</p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">rules/MarsViewModelTest.kt</code> 文件。</li>
+<li>在 <code dir="ltr" translate="no">marsViewModel_getMarsPhotos_verifyMarsUiStateSuccess()</code> 测试中，修改 <code dir="ltr" translate="no">assertEquals()</code> 函数调用，以将 <code dir="ltr" translate="no">Success</code> 状态（将虚构照片列表传递给 photos 形参）与 <code dir="ltr" translate="no">marsViewModel.marsUiState</code> 进行比较。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">marsViewModel_getMarsPhotos_verifyMarsUiStateSuccess</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsViewModel</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsViewModel</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">marsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FakeNetworkMarsPhotosRepository</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">FakeDataSource</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">photosList</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">marsViewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">marsUiState</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>测试现在会成功编译、运行和通过！</p>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，您可以使用以下 Git 命令：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos.git
+</pre>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/archive/refs/heads/main.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">main</code> 分支中。</p>
+</aside>
+<p>如果您想查看此 Codelab 的解决方案代码，请前往 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/tree/main" target="_blank">GitHub</a> 查看。</p>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 总结
+          </h2>
+          
+          <p>恭喜您完成此 Codelab 的学习并构建了 Mars Photos 应用！现在您可以向亲朋好友展示您的应用，其中包含了许多真实的火星照片。</p>
+<p>别忘了使用 #AndroidBasics 标签在社交媒体上分享您的作品！<em></em></p>
+
+
+        
+          
+          <h2 class="" id="8">
+              9. 了解更多内容
+          </h2>
+          
+          <p>Android 开发者文档：</p>
+<ul>
+<li><a href="https://developer.android.com/jetpack/compose/lists?hl=zh-cn" target="_blank">列表和网格 | Jetpack Compose | Android 开发者</a></li>
+<li><a href="https://developer.android.com/jetpack/compose/lists?hl=zh-cn#lazy-grids" target="_blank">延迟网格 | Jetpack Compose | Android 开发者</a></li>
+<li><a href="https://developer.android.com/topic/libraries/architecture/viewmodel?hl=zh-cn" target="_blank">ViewModel 概览</a></li>
+</ul>
+<p>其他：</p>
+<ul>
+<li><a href="https://coil-kt.github.io/coil/" target="_blank">Coil</a></li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="./01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">上一节：添加仓库和手动依赖项注入</a><a href="./03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">下一节：03.练习：构建两栖动物应用</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

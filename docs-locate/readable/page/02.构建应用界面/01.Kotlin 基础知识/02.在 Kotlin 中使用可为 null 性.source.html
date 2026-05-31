@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>在 Kotlin 中使用可为 null 性</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="./01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a class="active" href="./02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="./03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="./04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="./05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">Compose 中的状态简介</a></li>
+<li><a href="../03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">项目：创建艺术空间应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题效果</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 实现简单动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">在 Kotlin 中使用可为 null 性</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <p>在本 Codelab 中，您将了解“可为 null 性”以及 <code dir="ltr" translate="no">null</code> 安全的重要性。“可为 null 性”是许多编程语言中的常见概念，代表您可对变量不设置任何值。在 Kotlin 中，系统会刻意处理可为 null 性，以实现 <code dir="ltr" translate="no">null</code> 安全。</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>了解 Kotlin 编程基础知识，包括变量、<code dir="ltr" translate="no">println()</code> 和 <code dir="ltr" translate="no">main()</code> 函数以及如何访问变量的方法和属性</li>
+<li>熟悉 Kotlin 条件语句，包括 <code dir="ltr" translate="no">if/else</code> 语句和布尔值表达式</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>什么是 <code dir="ltr" translate="no">null</code>？</li>
+<li>可为 null 类型与不可为 null 类型之间的区别</li>
+<li>什么是 <code dir="ltr" translate="no">null</code> 安全、其重要性如何以及 Kotlin 如何实现 <code dir="ltr" translate="no">null</code> 安全。</li>
+<li>如何使用 <code dir="ltr" translate="no">?.</code> 安全调用运算符和 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符访问可为 null 变量的方法和属性。</li>
+<li>如何使用 <code dir="ltr" translate="no">if/else</code> 条件执行 <code dir="ltr" translate="no">null</code> 检查。</li>
+<li>如何使用 <code dir="ltr" translate="no">if/else</code> 表达式将可为 null 的变量转换为不可为 null 类型。</li>
+<li>如何使用 <code dir="ltr" translate="no">if/else</code> 表达式或 <code dir="ltr" translate="no">?:</code> Elvis 运算符，在可为 null 的变量为 <code dir="ltr" translate="no">null</code> 时提供默认值。</li>
+</ul>
+<h2 id="what-youll-need"><strong>所需条件</strong></h2>
+<ul>
+<li>一个能够访问 Kotlin 园地的网络浏览器</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 使用可为 null 的变量
+          </h2>
+          
+          <h2 id="what-is-null">什么是 <code dir="ltr" translate="no">null</code><strong>？</strong></h2>
+<p>在第 1 单元中，我们已经了解到，在声明变量时，需要立即为其赋值。例如，在声明 <code dir="ltr" translate="no">favoriteActor</code> 变量时，可以立即为其赋予 <code dir="ltr" translate="no">"Sandra Oh"</code> 字符串值。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+</code></pre>
+<p class="image-container"><img alt="这个盒子表示被赋予以下值的 favoriteActor 变量" oh"="" sandra="" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/47ed434c7a79a3f1_2880.029cc721e4.png 2880w" string="" style="width: 339.93px" value."="" loading="lazy" decoding="async"></p>
+<p>但要是您没有喜爱的演员，该怎么办？您可能想为变量赋予 <code dir="ltr" translate="no">"Nobody"</code> 或 <code dir="ltr" translate="no">"None"</code> 值。这并不是一个好方法，因为程序会将 <code dir="ltr" translate="no">favoriteActor</code> 变量解读为具有 <code dir="ltr" translate="no">"Nobody"</code> 或 <code dir="ltr" translate="no">"None"</code> 值，而不是根本没有值。在 Kotlin 中，我们可以使用 <code dir="ltr" translate="no">null</code> 来表示变量没有任何关联的值。</p>
+<p class="image-container"><img alt="这个盒子表示被赋予 null 值的 afavoriteActor 变量。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8dd4081dcf8c2610_2880.029cc721e4.png 2880w" style="width: 333.50px" loading="lazy" decoding="async"></p>
+<p>如需在代码中使用 <code dir="ltr" translate="no">null</code>，请按以下步骤操作：</p>
+<ol type="1">
+<li>在 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a>中，将 <code dir="ltr" translate="no">main()</code> 函数主体中的内容替换成设为 <code dir="ltr" translate="no">null</code> 的 <code dir="ltr" translate="no">favoriteActor</code> 变量：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>使用 <code dir="ltr" translate="no">println()</code> 函数输出 <code dir="ltr" translate="no">favoriteActor</code> 变量的值，然后运行此程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>输出如以下代码段所示：</p>
+<div></div><pre translate="no" dir="ltr">null
+</pre>
+<h2 id="variable-reassignments-with-null">为变量重新赋予 <code dir="ltr" translate="no">null</code></h2>
+<p>在前面的课程中，我们已了解可以为使用 <code dir="ltr" translate="no">var</code> 关键字定义的变量重新赋予相同类型的不同值。例如，您可以为以某个名称声明的 <code dir="ltr" translate="no">name</code> 变量重新赋予另一个名称，只要新名称为 <code dir="ltr" translate="no">String</code> 类型即可。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+<span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Meryl Streep"</span>
+</code></pre>
+<p>有时，在声明某个变量后，我们可能需要为该变量赋予 <code dir="ltr" translate="no">null</code>。例如，在声明喜爱的演员后，您发现自己根本不想透露喜爱的演员。在这种情况下，为 <code dir="ltr" translate="no">favoriteActor</code> 变量赋予 <code dir="ltr" translate="no">null</code> 会很有用。</p>
+<h2 id="understand-non-nullable-and-nullable-variables"><strong>了解不可为 null 的变量和可为 null 的变量</strong></h2>
+<p>如需为 <code dir="ltr" translate="no">favoriteActor</code> 变量重新赋予 <code dir="ltr" translate="no">null</code>，请按以下步骤操作：</p>
+<ol type="1">
+<li>将 <code dir="ltr" translate="no">val</code> 关键字更改为 <code dir="ltr" translate="no">var</code> 关键字，然后将 <code dir="ltr" translate="no">favoriteActor</code> 变量指定为 <code dir="ltr" translate="no">String</code> 类型，并为其赋予自己所喜爱演员的名称：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>移除 <code dir="ltr" translate="no">println()</code> 函数：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>为 <code dir="ltr" translate="no">favoriteActor</code> 变量重新赋予 <code dir="ltr" translate="no">null</code>，然后运行此程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>系统会显示以下错误消息：</p>
+<p class="image-container"><img a="" alt="警告消息：" be="" cannot="" non-null="" null="" of="" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/20fa3d758a5de502_2880.029cc721e4.png 2880w" string"."="" style="width: 624.00px" type="" value="" loading="lazy" decoding="async"></p>
+<p>在 Kotlin 中，有可为 null 类型与不可为 null 类型之分：</p>
+<ul>
+<li>可为 null 类型是指可以存储 <code dir="ltr" translate="no">null</code> 值的变量<em></em>。</li>
+<li>不可为 null 类型是指不能存储 <code dir="ltr" translate="no">null</code> 值的变量<em></em>。</li>
+</ul>
+<p>只有当您明确让某个变量可以存储 <code dir="ltr" translate="no">null</code> 值时，该变量才属于可为 null 类型。正如错误消息所示，<code dir="ltr" translate="no">String</code> 数据属于不可为 null 类型，因此您无法为该变量重新赋予 <code dir="ltr" translate="no">null</code>。</p>
+<p class="image-container"><img alt="此图展示了如何声明可为 null 类型的变量。这种变量以 var 关键字开头，后面依次是变量块的名称、分号、变量的类型、问号、等号和值块。类型块和问号使用“Nullable type”文字标示，表示该类型后接问号即变成可为 null 类型。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c3bbad8de6afdbe9_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>如需在 Kotlin 中声明可为 null 的变量，您需要在相应类型的末尾添加 <code dir="ltr" translate="no">?</code> 运算符。例如，<code dir="ltr" translate="no">String?</code> 类型可以存储字符串或 <code dir="ltr" translate="no">null</code>，而 <code dir="ltr" translate="no">String</code> 类型只能存储字符串。如需声明某个可为 null 的变量，您需要明确添加可为 null 类型。如果没有可为 null 类型，Kotlin 编译器会推断该变量属于不可为 null 类型。</p>
+<ol start="4" type="1">
+<li>将 <code dir="ltr" translate="no">favoriteActor</code> 变量类型从 <code dir="ltr" translate="no">String</code> 数据类型更改为 <code dir="ltr" translate="no">String?</code> 数据类型：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>在重新赋予 <code dir="ltr" translate="no">null</code> 前后输出 <code dir="ltr" translate="no">favoriteActor</code> 变量，然后运行此程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>输出如以下代码段所示：</p>
+<div></div><pre translate="no" dir="ltr">Sandra Oh
+null
+</pre>
+<p><code dir="ltr" translate="no">favoriteActor</code> 变量原本存储的是字符串，然后重新赋予为存储 <code dir="ltr" translate="no">null</code> 值。</p>
+<h2 id="try-it"><strong>试试看</strong></h2>
+<p>现在，您可以使用可为 null <code dir="ltr" translate="no">String?</code> 类型了。那么您可以使用 <code dir="ltr" translate="no">Int</code> 值来初始化变量并为其重新赋予 <code dir="ltr" translate="no">null</code> 吗？</p>
+<h2 id="write-a-nullable-int-value">写入可为 null 的 <code dir="ltr" translate="no">Int</code> 值</h2>
+<ol type="1">
+<li>移除 <code dir="ltr" translate="no">main()</code> 函数中的所有代码：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>创建一个 <code dir="ltr" translate="no">number</code> 变量，其中含有可为 null 的 <code dir="ltr" translate="no">Int</code> 类型，然后为该变量赋予 <code dir="ltr" translate="no">10</code> 值：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">number</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>输出 <code dir="ltr" translate="no">number</code> 变量，然后运行此程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">number</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">number</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>输出符合预期，如下所示：</p>
+<div></div><pre translate="no" dir="ltr">10
+</pre>
+<ol start="4" type="1">
+<li>为 <code dir="ltr" translate="no">number</code> 变量重新赋予 <code dir="ltr" translate="no">null</code>，以确认该变量可为 null：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">number</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">number</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">number</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>在程序的最后一行添加另一个 <code dir="ltr" translate="no">println(number)</code> 语句，然后运行该程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">number</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">number</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">number</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">number</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>输出符合预期，如下所示：</p>
+<div></div><pre translate="no" dir="ltr">10
+null
+</pre>
+<aside class="special"><p><strong>注意</strong>：尽管您应对可存储 <code dir="ltr" translate="no">null</code> 值的变量使用可为 null 的变量，但对于永远不能存储 <code dir="ltr" translate="no">null</code> 值的变量，仍应使用不可为 null 的变量，这是因为访问可为 null 的变量时需要进行更复杂的处理。在下一部分中，我们将了解处理可为 null 变量的各种技巧。</p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 处理可为 null 的变量
+          </h2>
+          
+          <p>在前面的课程中，我们已学习如何使用 <code dir="ltr" translate="no">.</code> 运算符访问不可为 null 的变量的方法和属性。在本部分中，我们将了解如何运用这项技巧访问可为 null 的变量的方法和属性。</p>
+<p>如需访问不可为 null 的 <code dir="ltr" translate="no">favoriteActor</code> 变量的属性，请按以下步骤操作：</p>
+<ol type="1">
+<li>移除 <code dir="ltr" translate="no">main()</code> 函数中的所有代码，然后声明 <code dir="ltr" translate="no">String</code> 类型的 <code dir="ltr" translate="no">favoriteActor</code> 变量，并为其赋予喜爱演员的名称：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>使用 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/length.html" target="_blank"><code dir="ltr" translate="no">length</code></a> 属性输出 <code dir="ltr" translate="no">favoriteActor</code> 变量值中的字符数，然后运行此程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>输出符合预期，如下所示：</p>
+<div></div><pre translate="no" dir="ltr">9
+</pre>
+<p><code dir="ltr" translate="no">favoriteActor</code> 变量的值中有 <em></em>9 个字符（包括空格）。您喜爱的演员名称中的字符数可能有所不同。</p>
+<h2 id="access-a-property-of-a-nullable-variable">访问可为 null 的变量的属性</h2>
+<p>假设您想将 <code dir="ltr" translate="no">favoriteActor</code> 变量设置为可为 null，以便没有喜爱演员的用户可以为该变量赋予 <code dir="ltr" translate="no">null</code>。</p>
+<p>如需访问可为 null 的 <code dir="ltr" translate="no">favoriteActor</code> 变量的属性，请按以下步骤操作：</p>
+<ul>
+<li>将 <code dir="ltr" translate="no">favoriteActor</code> 变量类型更改为可为 null 类型，然后运行此程序：</li>
+</ul>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>系统会显示以下错误消息：</p>
+<p class="image-container"><img a="" allowed="" alt="错误消息：" are="" asserted="" calls="" non-null="" nullable="" of="" on="" only="" or="" receiver="" safe="" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/5c5e60b58c31d162_2880.029cc721e4.png 2880w" string?"."="" style="width: 624.00px" type="" loading="lazy" decoding="async"></p>
+<p>此错误属于编译错误<em></em>。如上一个 Codelab 中所述，如果由于代码中的语法错误而导致 Kotlin 无法编译代码，就会发生编译错误。</p>
+<p>Kotlin 会刻意应用语法规则，以实现 <code dir="ltr" translate="no">null</code> 安全<em></em>，即保证<em></em>不会意外调用可能为 <code dir="ltr" translate="no">null</code> 的变量<em></em>。但这并不表示变量不能为 <code dir="ltr" translate="no">null</code>；而是表示，在访问某个变量的成员时，则该变量不能为 <code dir="ltr" translate="no">null</code>。</p>
+<p>这一点至关重要，因为如果在应用运行期间尝试访问 <code dir="ltr" translate="no">null</code> 变量的成员（称为 <code dir="ltr" translate="no">null</code> 引用<em></em>），应用会因 <code dir="ltr" translate="no">null</code> 变量不含任何属性或方法而崩溃。此类崩溃称为“运行时错误”<em></em>，即在代码完成编译和运行后发生的错误。</p>
+<p>由于 Kotlin 具有 <code dir="ltr" translate="no">null</code> 安全特性，因此 Kotlin 编译器会对可为 null 类型强制执行 <code dir="ltr" translate="no">null</code> 检查<em></em>，以免发生此类运行时错误。“<code dir="ltr" translate="no">Null</code> 检查”<em></em>是指在访问变量并将其视为不可为 null 类型之前，检查该变量是否可为 <code dir="ltr" translate="no">null</code> 的过程。如果您想将可为 null 的值用作不可为 null 类型，则需要明确执行 <code dir="ltr" translate="no">null</code> 检查。如需了解详情，请参阅本 Codelab 后面的<strong>使用</strong> <code dir="ltr" translate="no">if/else</code> <strong>条件</strong>部分。</p>
+<p>在此示例中，系统不允许直接引用 <code dir="ltr" translate="no">favoriteActor</code> 变量的 <code dir="ltr" translate="no">length</code> 属性，因为该变量有可能是 <code dir="ltr" translate="no">null</code>，因此代码在编译时失败。</p>
+<p>接下来，您将学习用来处理可为 null 类型的各种技巧和运算符。</p>
+<h2 id="use-the-.-safe-call-operator">使用 <code dir="ltr" translate="no">?.</code> 安全调用运算符</h2>
+<p>您可以使用 <code dir="ltr" translate="no">?.</code> 安全调用运算符访问可为 null 变量的方法或属性。</p>
+<h2 id="heading"><img alt="此图展示了可为 null 的变量块，后面依次跟问号、点以及方法或属性块，各项之间没有空格。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/a09b732437a133aa_2880.029cc721e4.png 2880w" style="width: 532.50px" loading="lazy" decoding="async"></h2>
+<p>如需使用 <code dir="ltr" translate="no">?.</code> 安全调用运算符访问方法或属性，请在变量名称后面添加 <code dir="ltr" translate="no">?</code> 符号，并使用 <code dir="ltr" translate="no">.</code> 表示法访问方法或属性。</p>
+<p><code dir="ltr" translate="no">?.</code> 安全调用运算符可让您更安全地访问可为 null 的变量，因为 Kotlin 编译器会阻止变量成员为访问 <code dir="ltr" translate="no">null</code> 引用而进行的任何尝试，并针对访问的成员返回 <code dir="ltr" translate="no">null</code>。</p>
+<p>如需安全地访问可为 null 的 <code dir="ltr" translate="no">favoriteActor</code> 变量的属性，请按以下步骤操作：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">println()</code> 语句中，将 <code dir="ltr" translate="no">.</code> 运算符替换为 <code dir="ltr" translate="no">?.</code> 安全调用运算符：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-o">?.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行此程序，然后验证输出是否符合预期：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">9
+</pre>
+<p>您喜爱的演员名称中的字符数可能有所不同。</p>
+<ol start="3" type="1">
+<li>为 <code dir="ltr" translate="no">favoriteActor</code> 变量重新赋予 <code dir="ltr" translate="no">null</code>，然后运行此程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-o">?.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>您会看到以下输出：</p>
+<div></div><pre translate="no" dir="ltr">null
+</pre>
+<p>请注意，即使尝试访问 <code dir="ltr" translate="no">null</code> 变量的 <code dir="ltr" translate="no">length</code> 属性，该程序也不会崩溃。安全调用表达式只会返回 <code dir="ltr" translate="no">null</code>。</p>
+<aside class="special"><p><strong>注意</strong>：您也可以对不可为 null 的变量使用 <code dir="ltr" translate="no">?.</code> 安全调用运算符，以访问方法或属性。虽然 Kotlin 编译器不会就此显示任何错误，但这么做没有必要，因为您随时都可以安全地访问不可为 null 的变量的方法或属性。</p>
+</aside>
+<h2 id="use-the-not-null-assertion-operator">使用 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符</h2>
+<p>您还可以使用 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符来访问可为 null 的变量的方法或属性。</p>
+<p class="image-container"><img alt="此图展示了可为 null 的变量块，后面依次跟两个感叹号、一个点以及方法或属性块，各项之间没有空格。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/1a6f269bfd700839_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>您需要在可为 null 的变量后面添加 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符，之后再跟 <code dir="ltr" translate="no">.</code> 运算符，最后添加不含任何空格的方法或属性。</p>
+<p>顾名思义，如果您使用 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符，即表示您断言变量的值不是 <code dir="ltr" translate="no">null</code>，无论变量是否为该值都是如此。</p>
+<p>与 <code dir="ltr" translate="no">?.</code> 安全调用运算符不同，当可为 null 的变量确实为 <code dir="ltr" translate="no">null</code> 时，使用 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符可能会导致系统抛出 <code dir="ltr" translate="no">NullPointerException</code> 错误。因此，只有在变量始终为不可为 null 或设置了适当的异常处理时，才应使用该断言运算符。如果异常未得到处理，便会导致运行时错误。您将在本课程后面的单元中了解异常处理。</p>
+<p>如需使用 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符访问 <code dir="ltr" translate="no">favoriteActor</code> 变量的属性，请按以下步骤操作：</p>
+<ol type="1">
+<li>为 <code dir="ltr" translate="no">favoriteActor</code> 变量重新赋予喜爱演员的名称，然后在 <code dir="ltr" translate="no">println()</code> 语句中将 <code dir="ltr" translate="no">?.</code> 安全调用运算符替换为 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-o">!!</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行此程序，然后验证输出是否符合预期：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">9
+</pre>
+<p>您喜爱的演员名称中的字符数可能有所不同。</p>
+<ol start="3" type="1">
+<li>为 <code dir="ltr" translate="no">favoriteActor</code> 变量重新赋予 <code dir="ltr" translate="no">null</code>，然后运行此程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-o">!!</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>系统会显示 <code dir="ltr" translate="no">NullPointerException</code> 错误，内容如下：</p>
+<p class="image-container"><img "main"="" alt="错误消息：" exception="" in="" java.lang.nullpointerexception"."="" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/c74ab53164de0c01_2880.029cc721e4.png 2880w" style="width: 624.00px" thread="" loading="lazy" decoding="async"></p>
+<p>此 Kotlin 错误显示您的程序在执行期间崩溃。因此，除非您确定变量不为 <code dir="ltr" translate="no">null</code>，否则不建议使用 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符。</p>
+<aside class="special"><p><strong>注意</strong>：在没有 null 安全属性的其他编程语言中，<code dir="ltr" translate="no">NullPointerException</code> 错误是导致应用崩溃的常见原因。同样，因为 Kotlin 语言具有 <code dir="ltr" translate="no">null</code> 安全机制，也就消除了导致程序崩溃的一个重大原因。</p>
+</aside>
+<h2 id="use-the-ifelse-conditionals">使用 <code dir="ltr" translate="no">if/else</code> 条件</h2>
+<p>您可以在 <code dir="ltr" translate="no">if/else</code> 条件中使用 <code dir="ltr" translate="no">if</code> 分支来执行 <code dir="ltr" translate="no">null</code> 检查<em></em>。</p>
+<p class="image-container"><img alt="此图展示了可为 null 的变量块，后面依次跟感叹号、等号和 null。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/326d68521327f229_2880.029cc721e4.png 2880w" style="width: 525.00px" loading="lazy" decoding="async"></p>
+<p>如需执行 <code dir="ltr" translate="no">null</code> 检查，您可以使用 <code dir="ltr" translate="no">!=</code> 比较运算符检查可为 null 的变量是否不等于 <code dir="ltr" translate="no">null</code>。</p>
+<h3 id="ifelse-statements"><code dir="ltr" translate="no">if/else</code> 语句</h3>
+<p><code dir="ltr" translate="no">if/else</code> 语句可以与 <code dir="ltr" translate="no">null</code> 检查一起使用，如下所示：</p>
+<p class="image-container"><img alt="此图描述了 if/else 语句，其 if 关键字后面依次跟一对内含“null check”块的圆括号、一对内含“body 1”的大括号、一个 else 关键字，以及另一对内含“body 2”块的大括号。else 子句以红色虚线框封装，并带有“optional”注解。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/4cca066cf405b09c_2880.029cc721e4.png 2880w" style="width: 386.08px" loading="lazy" decoding="async"></p>
+<p>将 null 检查与 <code dir="ltr" translate="no">if/else</code> 语句结合使用具有以下优点：</p>
+<ul>
+<li><code dir="ltr" translate="no">nullableVariable != null</code> 表达式的 <code dir="ltr" translate="no">null</code> 检查会被用作 <code dir="ltr" translate="no">if</code> 条件。</li>
+<li><code dir="ltr" translate="no">if</code> 分支中的“body 1”会假定变量不是 <code dir="ltr" translate="no">null</code>。因此，在这个主体中，您可以随意访问变量的方法或属性，就好像变量是不可为 null 的变量一般，而不必使用 <code dir="ltr" translate="no">?.</code> 安全调用运算符或 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符。</li>
+<li><code dir="ltr" translate="no">else</code> 分支中的“body 2”会假定变量为 <code dir="ltr" translate="no">null</code>。因此，在这个主体中，您可以添加应在变量为 <code dir="ltr" translate="no">null</code> 时运行的语句。<code dir="ltr" translate="no">else</code> 分支是可选的。当 <code dir="ltr" translate="no">null</code> 检查失败时，您只能使用 <code dir="ltr" translate="no">if</code> 条件来运行 <code dir="ltr" translate="no">null</code> 检查，而不执行默认操作。</li>
+</ul>
+<p>如果有多行代码使用可为 null 的变量，那么将 <code dir="ltr" translate="no">null</code> 检查与 <code dir="ltr" translate="no">if</code> 条件搭配使用会更方便。相比之下，<code dir="ltr" translate="no">?.</code> 安全调用运算符更适用于对可为 null 变量的单次引用。</p>
+<p>如需编写一个 <code dir="ltr" translate="no">if/else</code> 语句来对 <code dir="ltr" translate="no">favoriteActor</code> 变量执行 <code dir="ltr" translate="no">null</code> 检查，请按以下步骤操作：</p>
+<ol type="1">
+<li>再次为 <code dir="ltr" translate="no">favoriteActor</code> 变量赋予喜爱演员的名称，然后移除 <code dir="ltr" translate="no">println()</code> 语句：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>添加一个具有 <code dir="ltr" translate="no">favoriteActor != null</code> 条件的 <code dir="ltr" translate="no">if</code> 分支：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">if</code> 分支的主体中，添加会接受 <code dir="ltr" translate="no">"The number of characters in your favorite actor's name is ${favoriteActor.length}."</code> 字符串的 <code dir="ltr" translate="no">println</code> 语句，然后运行此程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The number of characters in your favorite actor's name is </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>预期的输出如下所示：</p>
+<div></div><pre translate="no" dir="ltr">The number of characters in your favorite actor's name is 9.
+</pre>
+<p>您喜爱的演员名称中的字符数可能有所不同。</p>
+<p>请注意，由于您会在 <code dir="ltr" translate="no">null</code> 检查之后访问 <code dir="ltr" translate="no">if</code> 分支中的 <code dir="ltr" translate="no">length</code> 方法，因此可以直接使用 <code dir="ltr" translate="no">.</code> 运算符访问名称的长度方法。同样，Kotlin 编译器知道 <code dir="ltr" translate="no">favoriteActor</code> 变量绝不可能为 <code dir="ltr" translate="no">null</code>，因此允许直接访问属性。</p>
+<ol start="4" type="1">
+<li>可选：添加一个 <code dir="ltr" translate="no">else</code> 分支，以处理演员名称为 <code dir="ltr" translate="no">null</code> 的情况：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The number of characters in your favorite actor's name is </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>在 <code dir="ltr" translate="no">else</code> 分支的主体中，添加会接受 <code dir="ltr" translate="no">"You didn't input a name."</code> 字符串的 <code dir="ltr" translate="no">println</code> 语句：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The number of characters in your favorite actor's name is </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You didn't input a name."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>为 <code dir="ltr" translate="no">favoriteActor</code> 变量赋予 <code dir="ltr" translate="no">null</code>，然后运行此程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The number of characters in your favorite actor's name is </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You didn't input a name."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>输出符合预期，如下所示：</p>
+<div></div><pre translate="no" dir="ltr">You didn't input a name.
+</pre>
+<h3 id="ifelse-expressions"><code dir="ltr" translate="no">if/else</code> <strong>表达式</strong></h3>
+<p>您还可以将 <code dir="ltr" translate="no">null</code> 检查与 <code dir="ltr" translate="no">if/else</code> 表达式结合使用，以将可为 null 的变量转换为不可为 null 的变量。</p>
+<p class="image-container"><img alt="此图描述了 if/else 表达式，其 val 关键字后面依次跟一个“name”块、一个冒号、一个“non-null type”块、一个等号、if 关键字、一对内含条件的圆括号、一对内含“body 1”的大括号、else 关键字，以及另一对内含“body 2”块的大括号。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/8bbf0c7e50163906_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>如需为 <code dir="ltr" translate="no">if/else</code> 表达式赋予不可为 null 类型，请按以下步骤操作：</p>
+<ul>
+<li>将 <code dir="ltr" translate="no">nullableVariable != null</code> <code dir="ltr" translate="no">null</code> 检查用作 <code dir="ltr" translate="no">if</code> 条件。</li>
+<li><code dir="ltr" translate="no">if</code> 分支中的“body 1”会假定变量不是 <code dir="ltr" translate="no">null</code>。因此，在这个主体中，您可以访问变量的方法或属性，就好像变量是不可为 null 的变量一般，而不必使用 <code dir="ltr" translate="no">?.</code> 安全调用运算符或 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符。</li>
+<li><code dir="ltr" translate="no">else</code> 分支中的“body 2”会假定变量为 <code dir="ltr" translate="no">null</code>。因此，在这个主体中，您可以添加应在变量为 <code dir="ltr" translate="no">null</code> 时运行的语句。</li>
+<li>在主体 1 和 2 的最后一行中，您需要使用会生成不可为 null 类型的表达式或值，以便在 <code dir="ltr" translate="no">null</code> 检查通过或失败时，将该表达式或值赋给不可为 null 的变量。</li>
+</ul>
+<p>如需使用 <code dir="ltr" translate="no">if/else</code> 表达式重写该程序，让程序只使用一个 <code dir="ltr" translate="no">println</code> 语句，请按以下步骤操作：</p>
+<ol type="1">
+<li>为 <code dir="ltr" translate="no">favoriteActor</code> 变量赋予喜爱演员的名称：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The number of characters in your favorite actor's name is </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You didn't input a name."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>创建一个 <code dir="ltr" translate="no">lengthOfName</code> 变量，然后为其赋予 <code dir="ltr" translate="no">if/else</code> 表达式：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">lengthOfName</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The number of characters in your favorite actor's name is </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You didn't input a name."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>从 <code dir="ltr" translate="no">if</code> 和 <code dir="ltr" translate="no">else</code> 这两个分支中移除 <code dir="ltr" translate="no">println()</code> 语句：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">lengthOfName</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">if</code> 分支的主体中，添加 <code dir="ltr" translate="no">favoriteActor.length</code> 表达式：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">lengthOfName</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p><code dir="ltr" translate="no">favoriteActor</code> 变量的 <code dir="ltr" translate="no">length</code> 属性可直接使用 <code dir="ltr" translate="no">.</code> 运算符进行访问。</p>
+<ol start="5" type="1">
+<li>在 <code dir="ltr" translate="no">else</code> 分支的主体中，添加 <code dir="ltr" translate="no">0</code> 值：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">lengthOfName</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>当名称为 <code dir="ltr" translate="no">null</code> 时，<code dir="ltr" translate="no">0</code> 值会用作默认值。</p>
+<ol start="6" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 函数的末尾，添加一个带有 <code dir="ltr" translate="no">"The number of characters in your favorite actor's name is $lengthOfName."</code> 字符串的 <code dir="ltr" translate="no">println</code> 语句，然后运行此程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">lengthOfName</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">length</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The number of characters in your favorite actor's name is </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">lengthOfName</span><span class="devsite-syntax-s">."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>输出符合预期，如下所示：</p>
+<div></div><pre translate="no" dir="ltr">The number of characters in your favorite actor's name is 9.
+</pre>
+<p>所使用名称中的字符数可能有所不同。</p>
+<aside class="special"><p><strong>注意</strong>：您还可以使用 <code dir="ltr" translate="no">==</code> 比较运算符代替 <code dir="ltr" translate="no">!=</code> 运算符来执行 <code dir="ltr" translate="no">null</code> 检查。请注意，这么做会颠倒两个主体，即：<code dir="ltr" translate="no">if</code> 分支的主体会假定变量为 <code dir="ltr" translate="no">null</code>，而 <code dir="ltr" translate="no">else</code> 分支的主体会假定变量不可为 <code dir="ltr" translate="no">null</code>。</p>
+</aside>
+<h2 id="use-the-:-elvis-operator">使用 <code dir="ltr" translate="no">?:</code> Elvis 运算符</h2>
+<p><code dir="ltr" translate="no">?:</code> Elvis 运算符可以与 <code dir="ltr" translate="no">?.</code> 安全调用运算符搭配使用。如果搭配使用 <code dir="ltr" translate="no">?:</code> Elvis 运算符，您便可以在 <code dir="ltr" translate="no">?.</code> 安全调用运算符返回 <code dir="ltr" translate="no">null</code> 时添加默认值。这与 <code dir="ltr" translate="no">if/else</code> 表达式类似，但更为常用。</p>
+<p>如果该变量不为 <code dir="ltr" translate="no">null</code>，则执行 <code dir="ltr" translate="no">?:</code> Elvis 运算符之前的表达式；<em></em>如果变量为 <code dir="ltr" translate="no">null</code>，则执行 <code dir="ltr" translate="no">?:</code> Elvis 运算符之后的表达式。<em></em></p>
+<p class="image-container"><img alt="此图展示了 val 关键字，后面依次跟名称块、等号、可为 null 的变量块、问号、点、方法或属性块、问号、冒号以及默认值块。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-nullability/img/85be2b9161680ecf_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>如需修改之前的程序以使用 <code dir="ltr" translate="no">?:</code> Elvis 运算符，请按以下步骤操作：</p>
+<ol type="1">
+<li>移除 <code dir="ltr" translate="no">if/else</code> 条件，然后将 <code dir="ltr" translate="no">lengthOfName</code> 变量设置为可为 null 的 <code dir="ltr" translate="no">favoriteActor</code> 变量，并使用 <code dir="ltr" translate="no">?.</code> 安全调用运算符调用其 <code dir="ltr" translate="no">length</code> 属性：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">lengthOfName</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-o">?.</span><span class="devsite-syntax-na">length</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The number of characters in your favorite actor's name is </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">lengthOfName</span><span class="devsite-syntax-s">."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">length</code> 属性之后，添加后跟 <code dir="ltr" translate="no">0</code> 值的 <code dir="ltr" translate="no">?:</code> Elvis 运算符，然后运行此程序：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">favoriteActor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sandra Oh"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">lengthOfName</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">favoriteActor</span><span class="devsite-syntax-o">?.</span><span class="devsite-syntax-na">length</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">?:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The number of characters in your favorite actor's name is </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">lengthOfName</span><span class="devsite-syntax-s">."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>输出会与以前的输出相同：</p>
+<div></div><pre translate="no" dir="ltr">The number of characters in your favorite actor's name is 9.
+</pre>
+<aside class="special"><p><strong>注意</strong>：<code dir="ltr" translate="no">?:</code> Elvis 运算符是用摇滚明星 <a href="https://en.wikipedia.org/wiki/Elvis_Presley" target="_blank">Elvis Presley（猫王）</a>的名字命名的，因为它看起来就像是从侧面观察猫王 <a href="https://en.wikipedia.org/wiki/Quiff" target="_blank">quiff</a> 发型的表情符。</p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 总结
+          </h2>
+          
+          <p>恭喜！您已经了解可为 null 性，以及如何使用各种运算符进行管理。</p>
+<h2 id="summary">摘要</h2>
+<ul>
+<li>可以将变量设置为 <code dir="ltr" translate="no">null</code>，以表示该变量不存储任何值。</li>
+<li>不可将 <code dir="ltr" translate="no">null</code> 赋给不可为 null 的变量。</li>
+<li>可将 <code dir="ltr" translate="no">null</code> 赋给可为 null 的变量。</li>
+<li>若要访问可为 null 的变量的方法或属性，您需要使用 <code dir="ltr" translate="no">?.</code> 安全调用运算符或 <code dir="ltr" translate="no">!!</code> 非 null 断言运算符。</li>
+<li>您可以将 <code dir="ltr" translate="no">if/else</code> 语句与 <code dir="ltr" translate="no">null</code> 检查搭配使用，以在不可为 null 的上下文中访问可为 null 的变量。</li>
+<li>您可以使用 <code dir="ltr" translate="no">if/else</code> 表达式将可为 null 的变量转换为不可为 null 类型。</li>
+<li>您可以使用 <code dir="ltr" translate="no">if/else</code> 表达式或 <code dir="ltr" translate="no">?:</code> Elvis 运算符，在可为 null 的变量为 <code dir="ltr" translate="no">null</code> 时，提供默认值。</li>
+</ul>
+<h2 id="learn-more"><strong>了解详情</strong></h2>
+<ul>
+<li><a href="https://kotlinlang.org/docs/null-safety.html" target="_blank">Null 安全</a></li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="./01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">上一节：在 Kotlin 中编写条件</a><a href="./03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">下一节：03.在 Kotlin 中使用类和对象</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

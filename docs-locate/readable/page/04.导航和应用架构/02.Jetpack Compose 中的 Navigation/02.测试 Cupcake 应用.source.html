@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>测试 Cupcake 应用</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">简介：Compose 中的状态</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">创建 Art Space 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将常用高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题设置</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 添加简单的动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">为 ViewModel 编写单元测试</a></li>
+<li><a href="../01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：将 ViewModel 添加到 Dessert Clicker</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="./01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a class="active" href="./02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="./03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">测试 Cupcake 应用</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 简介
+          </h2>
+          
+          <p>在<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-navigation?hl=zh-cn" target="_blank">使用 Compose 实现多屏幕导航</a> Codelab 中，您学习了如何使用 Jetpack Navigation Compose 组件为 Compose 应用添加导航功能。</p>
+<p>Cupcake 应用有多个屏幕可供导航，并且用户可以执行多种操作。该应用为您提供了提升自动测试技能的绝佳机会！在此 Codelab 中，您将为 Cupcake 应用编写一些界面测试，并了解如何尽可能提高测试覆盖率。</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>熟悉 Kotlin 语言，包括函数类型、lambda 和作用域函数</li>
+<li>已学完<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-navigation?hl=zh-cn" target="_blank">使用 Compose 实现多屏幕导航</a> Codelab</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>使用 Compose 测试 Jetpack Navigation 组件。</li>
+<li>为每个界面测试创建一致的界面状态。</li>
+<li>为测试创建辅助函数。</li>
+</ul>
+<h2 id="what-youll-build">构建内容</h2>
+<ul>
+<li>针对 Cupcake 应用的界面测试</li>
+</ul>
+<h2 id="what-youll-need">所需条件</h2>
+<ul>
+<li>最新版本的 Android Studio</li>
+<li>互联网连接，用于下载起始代码</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 下载起始代码
+          </h2>
+          
+          <aside class="special"><p><strong>起始代码网址</strong>：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-cupcake/tree/navigation" target="_blank"><code dir="ltr" translate="no">https://github.com/google-developer-training/basic-android-kotlin-compose-training-cupcake</code></a></p>
+<p><strong>包含起始代码的分支名称：</strong><code dir="ltr" translate="no">navigation</code></p>
+</aside>
+<ol type="1">
+<li>在 Android Studio 中，打开 <strong><code dir="ltr" translate="no">basic-android-kotlin-compose-training-cupcake</code></strong> 文件夹。</li>
+<li>在 Android Studio 中打开 Cupcake 应用代码。</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 设置 Cupcake 以便运行界面测试
+          </h2>
+          
+          <h2 id="add-the-androidtest-dependencies">添加 <code dir="ltr" translate="no">androidTest</code> 依赖项</h2>
+<p>您可以使用 Gradle 构建工具为特定模块添加依赖项。此功能可防止对依赖项进行不必要的编译。在项目中添加依赖项时，您已经熟悉了 <code dir="ltr" translate="no">implementation</code> 配置。您已经使用此关键字在应用模块的 <code dir="ltr" translate="no">build.gradle.kts</code> 文件中导入依赖项。使用 <code dir="ltr" translate="no">implementation</code> 关键字可将该依赖项提供给该模块中的所有源代码集使用；在本课程的这一阶段，您已经具备处理 <code dir="ltr" translate="no">main</code>、<code dir="ltr" translate="no">test</code> 和 <code dir="ltr" translate="no">androidTest</code> 源代码集的经验。</p>
+<p>界面测试位于各自的源代码集中，名称为 <code dir="ltr" translate="no">androidTest</code>。一些依赖项仅需要用于此模块，对于这种情况，不需要为其他模块（例如包含应用代码的 <code dir="ltr" translate="no">main</code> 模块）编译这些依赖项。在添加仅供界面测试使用的依赖项时，请使用 <code dir="ltr" translate="no">androidTestImplementation</code> 关键字在应用模块的 <code dir="ltr" translate="no">build.gradle.kts</code> 文件中声明依赖项。这样做可确保仅在您运行界面测试时才会编译界面测试依赖项。</p>
+<p>如需添加编写界面测试所需的依赖项，请完成以下步骤：</p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">build.gradle.kts(Module :app)</code> 文件。</li>
+<li>将以下依赖项添加到该文件的 <code dir="ltr" translate="no">dependencies</code> 部分：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">androidTestImplementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">platform</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose:compose-bom:2023.05.01"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">androidTestImplementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose.ui:ui-test-junit4"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">androidTestImplementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.navigation:navigation-testing:2.6.0"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">androidTestImplementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.test.espresso:espresso-intents:3.5.1"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">androidTestImplementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.test.ext:junit:1.1.5"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<h2 id="create-the-ui-test-directory">创建界面测试目录</h2>
+<ol type="1">
+<li>右键点击项目视图中的 <code dir="ltr" translate="no">src</code> 目录，然后依次选择 <strong>New</strong> &gt; <strong>Directory</strong>。</li>
+</ol>
+<p class="image-container"><img alt="290b1ab99ce8f4e5.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/290b1ab99ce8f4e5_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>选择 <strong>androidTest/java</strong> 选项。</li>
+</ol>
+<aside class="special"><p><strong>注意：</strong>您可能需要向下滚动才能找到此选项。</p>
+</aside>
+<p class="image-container"><img alt="718bde5eb21b4f6f.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/718bde5eb21b4f6f_2880.029cc721e4.png 2880w" style="width: 408.00px" loading="lazy" decoding="async"></p>
+<h2 id="create-the-test-package">创建测试软件包</h2>
+<ol type="1">
+<li>右键点击项目窗口中的 <code dir="ltr" translate="no">androidTest/java</code> 目录，然后依次选择 <strong>New</strong> &gt; <strong>Package</strong>。</li>
+</ol>
+<p class="image-container"><img alt="7ad315f41e2b0881.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/7ad315f41e2b0881_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>将软件包命名为 <strong>com.example.cupcake.test</strong>。<img alt="b8306f9d11988a2.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/b8306f9d11988a2_2880.029cc721e4.png 2880w" style="width: 403.20px" loading="lazy" decoding="async"></li>
+</ol>
+<h2 id="create-the-navigation-test-class">创建导航测试类</h2>
+<p>在 <code dir="ltr" translate="no">test</code> 目录中，创建一个名为 <code dir="ltr" translate="no">CupcakeScreenNavigationTest</code> 的新 Kotlin 类。</p>
+<p class="image-container"><img alt="5515db35968f7d86.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5515db35968f7d86_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p class="image-container"><img alt="4b527e7404fad927.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/4b527e7404fad927_2880.029cc721e4.png 2880w" style="width: 408.00px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 设置导航宿主
+          </h2>
+          
+          <p>在前面的 Codelab 中，您已经了解到 Compose 中的界面测试需要使用 Compose 测试规则。测试 Jetpack Navigation 也是一样。不过，测试导航需要通过 Compose 测试规则进行一些额外的设置。</p>
+<p>在测试 Compose Navigation 时，您无权访问在应用代码中能够访问的相同 <code dir="ltr" translate="no">NavHostController</code>。不过，您可以使用 <code dir="ltr" translate="no">TestNavHostController</code> 并为此导航控制器配置测试规则。在这一部分中，您将了解如何为导航测试配置和重复使用测试规则。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">CupcakeScreenNavigationTest.kt</code> 中，使用 <code dir="ltr" translate="no">createAndroidComposeRule</code> 创建一条测试规则，并将 <code dir="ltr" translate="no">ComponentActivity</code> 作为类型参数传递。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.activity.ComponentActivity</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.test.junit4.createAndroidComposeRule</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">org.junit.Rule</span>
+
+<span class="devsite-syntax-nd">@get</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">Rule</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">composeTestRule</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">createAndroidComposeRule&lt;ComponentActivity&gt;</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<p>为了确保应用导航到正确的位置，您需要在应用执行导航操作时引用 <code dir="ltr" translate="no">TestNavHostController</code> 实例来检查导航宿主的导航路线。</p>
+<ol start="2" type="1">
+<li>将 <code dir="ltr" translate="no">TestNavHostController</code> 实例实例化为 <code dir="ltr" translate="no">lateinit</code> 变量。在 Kotlin 中，<code dir="ltr" translate="no">lateinit</code> 关键字用于声明可在声明对象后初始化的属性。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.navigation.testing.TestNavHostController</span>
+
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">lateinit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">navController</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestNavHostController</span>
+</code></pre>
+<p>接下来，指定要用于界面测试的可组合项。</p>
+<ol start="3" type="1">
+<li>创建一个名称为 <code dir="ltr" translate="no">setupCupcakeNavHost()</code> 的方法。</li>
+<li>在 <code dir="ltr" translate="no">setupCupcakeNavHost()</code> 方法中，对您创建的 Compose 测试规则调用 <code dir="ltr" translate="no">setContent()</code> 方法。</li>
+<li>在传递给 <code dir="ltr" translate="no">setContent()</code> 方法的 lambda 内，调用 <code dir="ltr" translate="no">CupcakeApp()</code> 可组合项。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.cupcake.CupcakeApp</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">setupCupcakeNavHost</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setContent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">CupcakeApp</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>现在，您需要在测试类中创建 <code dir="ltr" translate="no">TestNavHostContoller</code> 对象。您稍后将使用此对象确定导航状态，因为应用使用控制器在 Cupcake 应用中的各个屏幕之间导航。</p>
+<ol start="6" type="1">
+<li>使用您之前创建的 lambda 设置导航宿主。初始化您创建的 <code dir="ltr" translate="no">navController</code> 变量，注册导航器，然后将该 <code dir="ltr" translate="no">TestNavHostController</code> 传递给 <code dir="ltr" translate="no">CupcakeApp</code> 可组合项。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.platform.LocalContext</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">setupCupcakeNavHost</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setContent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestNavHostController</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">LocalContext</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">apply</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">navigatorProvider</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">addNavigator</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">ComposeNavigator</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">CupcakeApp</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p><code dir="ltr" translate="no">CupcakeScreenNavigationTest</code> 类中的每一项测试均涉及测试导航的一个方面。因此，每一项测试都取决于您创建的 <code dir="ltr" translate="no">TestNavHostController</code> 对象。您可以使用 <strong>junit</strong> 库提供的 <code dir="ltr" translate="no">@Before</code> 注解来自动设置导航控制器，而不必针对每个测试手动调用 <code dir="ltr" translate="no">setupCupcakeNavHost()</code> 函数。如果某个方法带有 <code dir="ltr" translate="no">@Before</code> 注解，它会在每个带有 <code dir="ltr" translate="no">@Test</code> 注解的方法之前运行。</p>
+<ol start="7" type="1">
+<li>将 <code dir="ltr" translate="no">@Before</code> 注解添加到 <code dir="ltr" translate="no">setupCupcakeNavHost()</code> 方法中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">org.junit.Before</span>
+
+<span class="devsite-syntax-nd">@Before</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">setupCupcakeNavHost</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setContent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestNavHostController</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">LocalContext</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">apply</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">navigatorProvider</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">addNavigator</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">ComposeNavigator</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">CupcakeApp</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 编写导航测试
+          </h2>
+          
+          <h2 id="verify-the-start-destination">验证起始目标页面</h2>
+<p>回想之前，在构建 Cupcake 应用时，您创建了一个名称为 <code dir="ltr" translate="no">CupcakeScreen</code> 的 <code dir="ltr" translate="no">enum</code> 类，其中包含用于指定应用导航的常量。</p>
+<p><strong>CupcakeScreen.kt</strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">* enum values that represent the screens in the app</span>
+<span class="devsite-syntax-cm">*/</span>
+<span class="devsite-syntax-kd">enum</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">CupcakeScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nd">@StringRes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">title</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Start</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">title</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">app_name</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Flavor</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">title</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">choose_flavor</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Pickup</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">title</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">choose_pickup_date</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Summary</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">title</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">order_summary</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>所有具有界面的应用都有一个某种类型的主屏幕。对于 Cupcake，该屏幕是 <strong>Start Order 屏幕</strong>。<code dir="ltr" translate="no">CupcakeApp</code> 可组合项中的导航控制器使用 <code dir="ltr" translate="no">CupcakeScreen</code> 枚举的 <code dir="ltr" translate="no">Start</code> 项来确定何时导航至此屏幕。当应用启动时，如果尚不存在目标页面路线，则导航宿主目标页面路线将设置为 <code dir="ltr" translate="no">CupcakeScreen.Start.name</code>。</p>
+<p>您首先需要编写一项测试，用于验证 <strong>Start Order 屏幕</strong>是否为应用启动时的当前目标页面路线。</p>
+<ol type="1">
+<li>创建一个名为 <code dir="ltr" translate="no">cupcakeNavHost_verifyStartDestination()</code> 的函数，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">org.junit.Test</span>
+
+<span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_verifyStartDestination</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>您现在必须确认导航控制器的初始目标页面路线是 <strong>Start Order 屏幕</strong>。</p>
+<ol start="2" type="1">
+<li>断言预期路线名称（在本例中为 <code dir="ltr" translate="no">CupcakeScreen.Start.name</code>）等于导航控制器当前返回堆栈条目的目标页面路线。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">org.junit.Assert.assertEquals</span>
+<span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_verifyStartDestination</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CupcakeScreen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Start</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentBackStackEntry</span><span class="devsite-syntax-o">?.</span><span class="devsite-syntax-na">destination</span><span class="devsite-syntax-o">?.</span><span class="devsite-syntax-na">route</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<aside class="special"><p><strong>注意</strong>：您创建的 <code dir="ltr" translate="no">AndroidComposeTestRule</code> 会自动启动应用，并在执行任何 <code dir="ltr" translate="no">@Test</code> 方法之前显示 <code dir="ltr" translate="no">CupcakeApp</code> 可组合项。因此，您无需在测试方法中采取任何额外步骤即可启动应用。</p>
+</aside>
+<h2 id="create-helper-methods">创建辅助方法</h2>
+<p>界面测试通常需要重复执行某些步骤，确保界面处于可以测试界面特定部分的状态。自定义界面可能还需要一些复杂断言，这些复杂断言需要多行代码。您在上一部分中编写的断言需要大量代码，并且您在 Cupcake 应用中测试导航时需要多次使用该断言。在这些情况下，在测试中编写辅助方法可以避免编写重复代码。</p>
+<p>对于您创建的每一项导航测试，您可以使用 <code dir="ltr" translate="no">CupcakeScreen</code> 枚举项的 <code dir="ltr" translate="no">name</code> 属性来检查导航控制器的当前目标页面路线是否正确。您可以编写一个辅助函数，以便在需要此类断言时调用。</p>
+<p>如需创建此辅助函数，请完成以下步骤：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">test</code> 目录中创建一个名称为 <code dir="ltr" translate="no">ScreenAssertions</code> 的空 Kotlin 文件。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：请务必创建一个 <strong>File</strong>，而不是 <strong>Class</strong>。此文件将用于创建扩展函数，该函数将需要一个空的 Kotlin 文件。</p>
+</aside>
+<p class="image-container"><img alt="63af08bd78a827c4.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/63af08bd78a827c4_2880.029cc721e4.png 2880w" style="width: 408.00px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>向名为 <code dir="ltr" translate="no">assertCurrentRouteName()</code> 的 <code dir="ltr" translate="no">NavController</code> 类添加一个扩展函数，并在方法签名中传递预期路线名称的字符串。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">NavController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nf">assertCurrentRouteName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">expectedRouteName</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在此函数中，断言 <code dir="ltr" translate="no">expectedRouteName</code> 等于导航控制器的当前返回堆栈条目的目标页面路线。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">org.junit.Assert.assertEquals</span>
+<span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">NavController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nf">assertCurrentRouteName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">expectedRouteName</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">expectedRouteName</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">currentBackStackEntry</span><span class="devsite-syntax-o">?.</span><span class="devsite-syntax-na">destination</span><span class="devsite-syntax-o">?.</span><span class="devsite-syntax-na">route</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>打开 CupcakeScreenNavigationTest 文件，并修改 <code dir="ltr" translate="no">cupcakeNavHost_verifyStartDestination()</code> 函数以使用新的扩展函数，而不是冗长的断言。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_verifyStartDestination</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">assertCurrentRouteName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CupcakeScreen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Start</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>很多测试还需要与界面组件互动。在此 Codelab 中，通常可以使用资源字符串找到这些组件。您可以使用 <code dir="ltr" translate="no">Context.getString()</code> 方法按可组合项的资源字符串访问可组合项，请参见<a href="https://developer.android.com/reference/android/content/Context?hl=zh-cn#getString(int)" target="_blank">此处</a>了解此方法。在 Compose 中编写界面测试时，实现此方法的方式如下所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">activity</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getString</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">my_string</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>这是一个详细的指令，添加扩展函数可简化该指令。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">com.example.cupcake.test</code> 软件包中创建一个名为 <strong>ComposeRuleExtensions.kt</strong> 的新文件。确保这是普通的 Kotlin 文件。</li>
+</ol>
+<p class="image-container"><img alt="5710fc2d8219048b.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/5710fc2d8219048b_2880.029cc721e4.png 2880w" style="width: 408.00px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>将以下代码添加到该文件中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.activity.ComponentActivity</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.annotation.StringRes</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.test.SemanticsNodeInteraction</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.test.junit4.AndroidComposeTestRule</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.test.onNodeWithText</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.test.ext.junit.rules.ActivityScenarioRule</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span>&lt;<span class="devsite-syntax-nf">A</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ComponentActivity</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AndroidComposeTestRule&lt;ActivityScenarioRule&lt;A&gt;</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">A</span>&gt;<span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@StringRes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span>
+<span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">SemanticsNodeInteraction</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onNodeWithText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">activity</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getString</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-p">))</span>
+</code></pre>
+<p>借助此扩展函数，您可以减少按字符串资源查找界面组件时编写的代码量。与其编写以下代码：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">activity</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getString</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">my_string</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>您现在可以使用以下指令：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">my_string</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<h2 id="verify-that-the-start-screen-doesnt-have-an-up-button">验证 Start 屏幕没有向上按钮</h2>
+<p>Cupcake 应用的原始设计在 Start 屏幕的工具栏中没有向上按钮。</p>
+<p class="image-container"><img alt="ffb8d156220c7e57.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/ffb8d156220c7e57_2880.029cc721e4.png 2880w" style="width: 288.00px" loading="lazy" decoding="async"></p>
+<p>Start 屏幕缺少一个向上按钮，因为这是无法向上导航的初始屏幕。请按照以下步骤创建一个函数来确认 Start 屏幕没有向上按钮：</p>
+<ol type="1">
+<li>创建一个名称为 <code dir="ltr" translate="no">cupcakeNavHost_verifyBackNavigationNotShownOnStartOrderScreen()</code> 的方法，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_verifyBackNavigationNotShownOnStartOrderScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在 Cupcake 中，向上按钮的内容说明设置为 <code dir="ltr" translate="no">R.string.back_button</code> 资源中的字符串。</p>
+<ol start="2" type="1">
+<li>在测试函数中使用 <code dir="ltr" translate="no">R.string.back_button</code> 资源的值创建一个变量。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_verifyBackNavigationNotShownOnStartOrderScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">backText</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">activity</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getString</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">back_button</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>断言屏幕上没有包含此内容说明的节点。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_verifyBackNavigationNotShownOnStartOrderScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">backText</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">activity</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getString</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">back_button</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithContentDescription</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">backText</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">assertDoesNotExist</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="verify-navigation-to-the-flavor-screen">验证导航到 Flavor 屏幕</h2>
+<p>点击 Start 屏幕中的任一按钮会触发一个方法，该方法会指示导航控制器导航到 Flavor 界面。</p>
+<p class="image-container"><img alt="3bda045bfe202c90.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/3bda045bfe202c90_2880.029cc721e4.png 2880w" style="width: 288.00px" loading="lazy" decoding="async"></p>
+<p>在此测试中，您将编写一个命令，用于点击按钮以触发此导航，并验证目标页面路线是否为 Flavor 界面。</p>
+<ol type="1">
+<li>创建一个名称为 <code dir="ltr" translate="no">cupcakeNavHost_clickOneCupcake_navigatesToSelectFlavorScreen()</code> 的函数，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_clickOneCupcake_navigatesToSelectFlavorScreen</span><span class="devsite-syntax-p">(){</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<aside class="special"><p><strong>注意</strong>：测试方法名称与您在应用代码中使用的函数名称不同。下面提供了一种良好的测试方法命名惯例：<code dir="ltr" translate="no">thingUnderTest_TriggerOfTest_ResultOfTest</code>。以您刚才创建的函数为例，显然，您将通过以下方式测试纸杯蛋糕导航宿主：点击 <strong>One Cupcake</strong> 按钮，预期结果是导航到 Flavor 屏幕。</p>
+</aside>
+<ol start="2" type="1">
+<li>按字符串资源 ID 找到 <strong>One Cupcake</strong> 按钮，然后对其执行点击操作。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.cupcake.R</span>
+<span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_clickOneCupcake_navigatesToSelectFlavorScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">one_cupcake</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>断言当前路线名称是 Flavor 屏幕名称。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_clickOneCupcake_navigatesToSelectFlavorScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">one_cupcake</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">assertCurrentRouteName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CupcakeScreen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Flavor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="write-more-helper-methods">编写更多辅助方法</h2>
+<p>Cupcake 应用的导航流程大体呈线性。如果不点击 <strong>Cancel</strong> 按钮，那么您就只能向一个方向导航应用。因此，当您测试应用内更加深层的屏幕时，会发现自己要重复编写代码，才能前往要测试的区域。在这种情况下，有必要使用更多的辅助方法，这样您就只需编写一次代码。</p>
+<p>现在，您已经测试了导航至 Flavor 屏幕的操作，接下来创建一个导航至 Flavor 屏幕的方法，这样在后续测试中就不必重复编写该代码。</p>
+<aside class="special"><p><strong>注意</strong>：请记住，它们并不是测试方法。它们不会测试任何内容，并且只应在显式调用时执行。因此，不应为其添加 <code dir="ltr" translate="no">@Test</code> 注解。</p>
+</aside>
+<ol type="1">
+<li>创建一个名称为 <code dir="ltr" translate="no">navigateToFlavorScreen()</code> 的方法。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">navigateToFlavorScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>按照上一部分中的步骤，编写一个命令来查找 <strong>One Cupcake</strong> 按钮，并对其执行点击操作。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">navigateToFlavorScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">one_cupcake</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>回想一下，在选择口味之前，Flavor 屏幕上的 <strong>Next</strong> 按钮不可点击。此方法仅用于让界面为导航做好准备。调用此方法后，界面应处于 <strong>Next</strong> 按钮可点击的状态。</p>
+<ol start="3" type="1">
+<li>在界面中找到包含 <code dir="ltr" translate="no">R.string.chocolate</code> 字符串的节点，并对其执行点击操作以将其选中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">navigateToFlavorScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">one_cupcake</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">chocolate</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>看看您能否编写一些辅助方法，用于导航到 Pickup 屏幕和 Summary 屏幕。在查看解决方案之前，请自行尝试本练习。</p>
+<aside class="special"><p><strong>注意</strong>：如需导航到 Summary 屏幕，首先需要从 Pickup 屏幕中选择日期。您需要在界面中生成一个日期以便于选择。</p>
+</aside>
+<p>请使用以下代码实现此目的：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getFormattedDate</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">calendar</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Calendar</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getInstance</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">calendar</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">add</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">java</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">util</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Calendar</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">DATE</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">formatter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">SimpleDateFormat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"E MMM d"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Locale</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getDefault</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">formatter</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">format</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">calendar</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">time</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">navigateToPickupScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navigateToFlavorScreen</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">next</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">navigateToSummaryScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navigateToPickupScreen</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">getFormattedDate</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">next</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在测试 Flavor 屏幕以外的屏幕时，您需要测试向上按钮功能，以确保该按钮可以让用户返回上一个屏幕。不妨考虑创建一个辅助函数来查找并点击向上按钮。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">performNavigateUp</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">backText</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">activity</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getString</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">back_button</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithContentDescription</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">backText</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="maximize-test-coverage">尽可能扩大测试覆盖范围</h2>
+<p>应用的测试套件应测试尽可能多的应用功能。在理想情况下，界面测试套件可以 100% 完全覆盖界面功能。在实践中，这种测试覆盖率很难实现，因为应用外部的许多因素都会影响界面，例如设备具有独特的屏幕尺寸、不同版本的 Android 操作系统，以及可能会影响手机上其他应用的第三方应用。</p>
+<p>尽可能扩大测试覆盖率的一种方法是在添加功能的同时编写测试。这样一来，您就不必太过深度地开发新功能，然后再回来反复查找所有可能的情形。到目前为止，Cupcake 是一个相当小的应用，您已经测试了应用导航的很大一部分！不过，该应用还有更多其他导航状态有待测试。</p>
+<p>看看您能否编写测试来验证以下导航状态。在查看解决方案之前，请尝试自行实现它们。</p>
+<ul>
+<li>点击 Start 屏幕中的“向上”按钮以导航到 Flavor 屏幕</li>
+<li>点击 Flavor 屏幕中的 Cancel 按钮以导航到 Start 屏幕</li>
+<li>导航到 Pickup 屏幕</li>
+<li>点击 Pickup 屏幕上的“向上”按钮以导航到 Flavor 屏幕</li>
+<li>点击 Pickup 屏幕上的 Cancel 按钮以导航到 Start 屏幕</li>
+<li>导航到 Summary 屏幕</li>
+<li>点击 Summary 屏幕上的 Cancel 按钮以导航到 Start 屏幕</li>
+</ul>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_clickNextOnFlavorScreen_navigatesToPickupScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navigateToFlavorScreen</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">next</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">assertCurrentRouteName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CupcakeScreen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Pickup</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_clickBackOnFlavorScreen_navigatesToStartOrderScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navigateToFlavorScreen</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">performNavigateUp</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">assertCurrentRouteName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CupcakeScreen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Start</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_clickCancelOnFlavorScreen_navigatesToStartOrderScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navigateToFlavorScreen</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">cancel</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">assertCurrentRouteName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CupcakeScreen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Start</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_clickNextOnPickupScreen_navigatesToSummaryScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navigateToPickupScreen</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">getFormattedDate</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">next</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">assertCurrentRouteName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CupcakeScreen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Summary</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_clickBackOnPickupScreen_navigatesToFlavorScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navigateToPickupScreen</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">performNavigateUp</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">assertCurrentRouteName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CupcakeScreen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Flavor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_clickCancelOnPickupScreen_navigatesToStartOrderScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navigateToPickupScreen</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">cancel</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">assertCurrentRouteName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CupcakeScreen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Start</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">cupcakeNavHost_clickCancelOnSummaryScreen_navigatesToStartOrderScreen</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navigateToSummaryScreen</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">cancel</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">performClick</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">navController</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">assertCurrentRouteName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CupcakeScreen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Start</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 为 Order 屏幕编写测试
+          </h2>
+          
+          <p>导航只是 Cupcake 应用功能的一个方面。用户还会与应用的各个屏幕互动。您需要验证这些屏幕上显示的内容以及在这些屏幕上执行的操作是否会产生正确的结果。<strong>SelectOptionScreen</strong> 是应用的一个重要部分。</p>
+<p>在本部分中，您将编写一项测试来验证此屏幕上的内容是否已正确设置。</p>
+<h2 id="test-the-choose-flavor-screen-content">测试 Choose Flavor 屏幕内容</h2>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">app/src/androidTest</code> 目录中创建一个名为 <code dir="ltr" translate="no">CupcakeOrderScreenTest</code> 的新类，其中包含其他测试文件。</li>
+</ol>
+<p class="image-container"><img alt="1aaa3be367a02dcd.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-test-cupcake/img/1aaa3be367a02dcd_2880.029cc721e4.png 2880w" style="width: 408.00px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>在此类中，创建一个 <code dir="ltr" translate="no">AndroidComposeTestRule</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@get</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">Rule</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">composeTestRule</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">createAndroidComposeRule&lt;ComponentActivity&gt;</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<ol start="3" type="1">
+<li>创建一个名为 <code dir="ltr" translate="no">selectOptionScreen_verifyContent()</code> 的函数，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">selectOptionScreen_verifyContent</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在此函数中，您最终会将 Compose 规则内容设置为 <code dir="ltr" translate="no">SelectOptionScreen</code>。这样做可以确保 <code dir="ltr" translate="no">SelectOptionScreen</code> 可组合项会直接启动，因此无需进行导航。不过，此屏幕需要两个参数：口味选项列表和小计。</p>
+<ol start="4" type="1">
+<li>创建要向屏幕传递的口味选项列表和小计。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">selectOptionScreen_verifyContent</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Given list of options</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">flavors</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Vanilla"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Chocolate"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Hazelnut"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Cookie"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Mango"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// And subtotal</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">subtotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">100</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>使用您刚才创建的值将内容设置为 <code dir="ltr" translate="no">SelectOptionScreen</code> 可组合项。</li>
+</ol>
+<p>请注意，此方法类似于从 <code dir="ltr" translate="no">MainActivity</code> 启动可组合项。唯一的区别在于，<code dir="ltr" translate="no">MainActivity</code> 会调用 <code dir="ltr" translate="no">CupcakeApp</code> 可组合项，而此处会调用 <code dir="ltr" translate="no">SelectOptionScreen</code> 可组合项。通过更改从 <code dir="ltr" translate="no">setContent()</code> 启动的可组合项，您可以启动特定的可组合项，而不是让测试明确地逐步运行应用以前往您要测试的区域。此方法有助于防止测试在与当前测试无关的代码中失败。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">selectOptionScreen_verifyContent</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Given list of options</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">flavors</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Vanilla"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Chocolate"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Hazelnut"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Cookie"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Mango"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// And subtotal</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">subtotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">100</span><span class="devsite-syntax-s">"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// When SelectOptionScreen is loaded</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setContent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">SelectOptionScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">subtotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">subtotal</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">options</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">flavors</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在测试的当前阶段，应用会启动 <code dir="ltr" translate="no">SelectOptionScreen</code> 可组合项，然后您可以通过测试说明与其进行交互。</p>
+<ol start="6" type="1">
+<li>遍历 <code dir="ltr" translate="no">flavors</code> 列表并确保列表中的每个字符串项均显示在屏幕上。</li>
+<li>使用 <code dir="ltr" translate="no">onNodeWithText()</code> 方法查找屏幕上的文本，并使用 <code dir="ltr" translate="no">assertIsDisplayed()</code> 方法验证文本已显示在应用中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">selectOptionScreen_verifyContent</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Given list of options</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">flavors</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Vanilla"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Chocolate"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Hazelnut"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Cookie"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Mango"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// And subtotal</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">subtotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">100</span><span class="devsite-syntax-s">"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// When SelectOptionScreen is loaded</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setContent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">SelectOptionScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">subtotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">subtotal</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">options</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">flavors</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Then all the options are displayed on the screen.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">flavors</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">flavor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">flavor</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">assertIsDisplayed</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="8" type="1">
+<li>使用相同的方法来验证应用是否会显示文本，验证应用是否会在屏幕上显示正确的小计字符串。在屏幕中搜索 <code dir="ltr" translate="no">R.string.subtotal_price</code> 资源 ID 和正确的小计值，然后断言应用显示该值。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.cupcake.R</span>
+<span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">selectOptionScreen_verifyContent</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Given list of options</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">flavors</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Vanilla"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Chocolate"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Hazelnut"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Cookie"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Mango"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// And subtotal</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">subtotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">100</span><span class="devsite-syntax-s">"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// When SelectOptionScreen is loaded</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setContent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">SelectOptionScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">subtotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">subtotal</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">options</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">flavors</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Then all the options are displayed on the screen.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">flavors</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">flavor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">flavor</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">assertIsDisplayed</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// And then the subtotal is displayed correctly.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithText</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">activity</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getString</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">subtotal_price</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">subtotal</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">assertIsDisplayed</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>回想一下，在选择屏幕中的项之前，<strong>Next</strong> 按钮不会启用。此测试仅验证屏幕内容，因此要测试的最后一项内容就 <strong>Next</strong> 按钮处于停用状态。</p>
+<ol start="9" type="1">
+<li>采用相同的方法，通过字符串资源 ID 查找节点，找到 <strong>Next</strong> 按钮。不过，请不要验证应用是否显示节点，而是使用 <code dir="ltr" translate="no">assertIsNotEnabled()</code> 方法。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">selectOptionScreen_verifyContent</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Given list of options</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">flavors</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Vanilla"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Chocolate"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Hazelnut"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Cookie"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Mango"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// And subtotal</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">subtotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">100</span><span class="devsite-syntax-s">"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// When SelectOptionScreen is loaded</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setContent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">SelectOptionScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">subtotal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">subtotal</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">options</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">flavors</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Then all the options are displayed on the screen.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">flavors</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">flavor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">flavor</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">assertIsDisplayed</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// And then the subtotal is displayed correctly.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithText</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">activity</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getString</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">subtotal_price</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">subtotal</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">assertIsDisplayed</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// And then the next button is disabled</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">composeTestRule</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onNodeWithStringId</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">next</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">assertIsNotEnabled</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="maximize-test-coverage_1">尽可能扩大测试覆盖范围</h2>
+<p>Choose Flavor 屏幕内容测试仅测试单个屏幕的一个方面。您还可以编写一些额外的测试来增加代码覆盖率。在下载解决方案代码之前，请尝试自行编写以下测试。</p>
+<ul>
+<li>验证 Start 屏幕内容。</li>
+<li>验证 Summary 屏幕内容。</li>
+<li>验证在 Choose Flavor 屏幕上选择某个选项时，<strong>Next</strong> 按钮处于启用状态。</li>
+</ul>
+<p>在编写测试的过程中，请留意任何有助于减少代码编写量的辅助函数！</p>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，您可以使用以下 Git 命令：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-cupcake.git
+</pre>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-cupcake/archive/refs/heads/main.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">main</code> 分支中。</p>
+</aside>
+<p>如果您想查看解决方案代码，请<a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-cupcake/tree/main" target="_blank">前往 GitHub 查看</a>。</p>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 总结
+          </h2>
+          
+          <p>恭喜！您已经学习了如何测试 Jetpack Navigation 组件。您还学习了编写界面测试的一些基本技能，例如编写可重复使用的辅助方法、如何利用 <code dir="ltr" translate="no">setContent()</code> 编写简洁的测试、如何使用 <code dir="ltr" translate="no">@Before</code> 注解设置测试以及如何尽可能扩大测试覆盖率。在继续构建 Android 应用的过程中，请记住要在编写功能代码的同时编写测试！</p>
+
+
+        
+        <nav class="pager"><a href="./01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">上一节：使用 Compose 实现多屏幕导航</a><a href="./03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">下一节：03.练习：添加导航</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

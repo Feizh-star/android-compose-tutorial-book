@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>将常用高阶函数与集合结合使用</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">简介：Compose 中的状态</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">创建 Art Space 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="./01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="./02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a class="active" href="./03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将常用高阶函数与集合结合使用</a></li>
+<li><a href="./04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题效果</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 实现简单动画</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">将常用高阶函数与集合结合使用</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 简介
+          </h2>
+          
+          <p>通过<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda?hl=zh-cn" target="_blank">在 Kotlin 中使用函数类型和 lambda 表达式</a> Codelab，您学习了高阶函数（即接受其他函数作为参数和/或返回函数的函数），例如 <code dir="ltr" translate="no">repeat()</code>。高阶函数与集合密切相关，因为它们让您用较少的代码即可完成常见任务（例如排序或过滤）。现在，您已经为使用集合打下了坚实的基础，是时候回顾一下高阶函数了。</p>
+<p>在此 Codelab 中，您将了解可对集合类型使用的各种函数，包括 <code dir="ltr" translate="no">forEach()</code>、<code dir="ltr" translate="no">map()</code>、<code dir="ltr" translate="no">filter()</code>、<code dir="ltr" translate="no">groupBy()</code>、<code dir="ltr" translate="no">fold()</code> 和 <code dir="ltr" translate="no">sortedBy()</code>。在此过程中，您将进一步练习使用 lambda 表达式。</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>熟悉函数类型和 lambda 表达式。</li>
+<li>熟悉尾随 lambda 语法，例如 <code dir="ltr" translate="no">repeat()</code> 函数。</li>
+<li>了解 Kotlin 中的各种集合类型，例如 <code dir="ltr" translate="no">List</code>。</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>如何将 lambda 表达式嵌入字符串。</li>
+<li>如何将高阶函数与 <code dir="ltr" translate="no">List</code> 集合结合使用，包括 <code dir="ltr" translate="no">forEach()</code>、<code dir="ltr" translate="no">map()</code>、<code dir="ltr" translate="no">filter()</code>、<code dir="ltr" translate="no">groupBy()</code>、<code dir="ltr" translate="no">fold()</code> 和 <code dir="ltr" translate="no">sortedBy()</code>。</li>
+</ul>
+<h2 id="what-youll-need">所需条件</h2>
+<ul>
+<li>一个能够访问 Kotlin Playground 的网络浏览器。</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. forEach() 和包含 lambda 的字符串模板
+          </h2>
+          
+          <h2 id="starter-code">起始代码</h2>
+<p>在以下示例中，您将获取一个表示面包店饼干菜单（多美味啊！）的 <code dir="ltr" translate="no">List</code>，并使用高阶函数以不同方式设置此菜单的格式。</p>
+<p>首先要设置初始代码。</p>
+<ol type="1">
+<li>前往 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin Playground</a>。</li>
+<li>在 <code dir="ltr" translate="no">main()</code> 函数上方，添加 <code dir="ltr" translate="no">Cookie</code> 类。每个 <code dir="ltr" translate="no">Cookie</code> 实例都代表一个菜单项，其中包含 <code dir="ltr" translate="no">name</code>、<code dir="ltr" translate="no">price</code> 以及与饼干相关的其他信息。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Cookie</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">softBaked</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">hasFilling</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">price</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">Cookie</code> 类的下方、<code dir="ltr" translate="no">main()</code> 之外，创建一个饼干列表，如下所示。系统会将其类型推断为 <code dir="ltr" translate="no">List&lt;Cookie&gt;</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Cookie</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">softBaked</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">hasFilling</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">price</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">cookies</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listOf</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Cookie</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Chocolate Chip"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">softBaked</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">hasFilling</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1.69</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Cookie</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Banana Walnut"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">softBaked</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">hasFilling</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1.49</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Cookie</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Vanilla Creme"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">softBaked</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">hasFilling</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1.59</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Cookie</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Chocolate Peanut Butter"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">softBaked</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">hasFilling</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1.49</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Cookie</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Snickerdoodle"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">softBaked</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">hasFilling</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1.39</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Cookie</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Blueberry Tart"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">softBaked</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">hasFilling</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1.79</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Cookie</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sugar and Sprinkles"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">softBaked</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">hasFilling</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1.39</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="loop-over-a-list-with-foreach">使用 <code dir="ltr" translate="no">forEach()</code> 循环遍历列表</h2>
+<p>您学习的第一个高阶函数是 <code dir="ltr" translate="no">forEach()</code> 函数。<code dir="ltr" translate="no">forEach()</code> 函数会针对集合中的每个项分别执行一次作为形参传递的函数。其运作方式与 <code dir="ltr" translate="no">repeat()</code> 函数或 <code dir="ltr" translate="no">for</code> 循环类似。系统会针对第一个元素执行 lambda，然后针对第二个元素执行，以此类推，直到针对集合中的每个元素都执行过为止。方法签名如下所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">forEach</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">action</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">T</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p><code dir="ltr" translate="no">forEach()</code> 接受单个操作形参，即一个 <code dir="ltr" translate="no">(T) -&gt; Unit</code> 类型的函数。</p>
+<p><code dir="ltr" translate="no">T</code> 对应于集合包含的任何数据类型。由于 lambda 接受单个形参，因此您可以省略名称，并使用 <code dir="ltr" translate="no">it</code> 来引用此形参。</p>
+<p>使用 <code dir="ltr" translate="no">forEach()</code> 函数输出 <code dir="ltr" translate="no">cookies</code> 列表中的项。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 中，使用尾随 lambda 语法对 <code dir="ltr" translate="no">cookies</code> 列表调用 <code dir="ltr" translate="no">forEach()</code>。由于尾随 lambda 是唯一实参，因此在调用函数时可以省略括号。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 lambda 正文中，添加一个输出 <code dir="ltr" translate="no">it</code> 的 <code dir="ltr" translate="no">println()</code> 语句。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Menu item: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">it</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>运行代码并观察输出结果。输出结果仅包含类型名称 (<code dir="ltr" translate="no">Cookie</code>) 以及对象的唯一标识符，而不包含对象的内容。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Menu item: Cookie@5a10411
+Menu item: Cookie@68de145
+Menu item: Cookie@27fa135a
+Menu item: Cookie@46f7f36a
+Menu item: Cookie@421faab1
+Menu item: Cookie@2b71fc7e
+Menu item: Cookie@5ce65a89
+</pre>
+<h2 id="embed-expressions-in-strings">在字符串中嵌入表达式</h2>
+<p>最初了解字符串模板时，您见到过如何将美元符号 (<code dir="ltr" translate="no">$</code>) 与变量名称结合使用以将变量名称插入字符串。不过，当与点运算符 (<code dir="ltr" translate="no">.</code>) 结合以访问属性时，这种方法就无法实现预期效果了。</p>
+<ol type="1">
+<li>在对 <code dir="ltr" translate="no">forEach()</code> 的调用中，修改 lambda 的正文以将 <code dir="ltr" translate="no">$it.name</code> 插入字符串。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Menu item: </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">it</span><span class="devsite-syntax-s">.name"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行您的代码。请注意，这会插入类名称、<code dir="ltr" translate="no">Cookie</code> 和对象的唯一标识符，后跟 <code dir="ltr" translate="no">.name</code>。系统不会访问 <code dir="ltr" translate="no">name</code> 属性的值。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Menu item: Cookie@5a10411.name
+Menu item: Cookie@68de145.name
+Menu item: Cookie@27fa135a.name
+Menu item: Cookie@46f7f36a.name
+Menu item: Cookie@421faab1.name
+Menu item: Cookie@2b71fc7e.name
+Menu item: Cookie@5ce65a89.name
+</pre>
+<p>如需访问属性并将其嵌入字符串，您需要一个表达式。您可以用大括号将表达式括住，使其成为字符串模板的一部分。</p>
+<p class="image-container"><img alt="2c008744cee548cc.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/2c008744cee548cc_2880.029cc721e4.png 2880w" style="width: 588.00px" loading="lazy" decoding="async"></p>
+<p>lambda 表达式位于左大括号和右大括号之间。您可以访问属性、执行数学运算、调用函数等，并且系统会将 lambda 的返回值插入字符串。</p>
+<p>我们来修改代码，以便将名称插入字符串。</p>
+<ol type="1">
+<li>用大括号将 <code dir="ltr" translate="no">it.name</code> 括住，使其成为 lambda 表达式。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Menu item: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行您的代码。输出结果包含每个 <code dir="ltr" translate="no">Cookie</code> 的 <code dir="ltr" translate="no">name</code>。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Menu item: Chocolate Chip
+Menu item: Banana Walnut
+Menu item: Vanilla Creme
+Menu item: Chocolate Peanut Butter
+Menu item: Snickerdoodle
+Menu item: Blueberry Tart
+Menu item: Sugar and Sprinkles
+</pre>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. map()
+          </h2>
+          
+          <p>借助 <code dir="ltr" translate="no">map()</code> 函数，您可以将一个集合转换为元素数量相同的新集合。例如，<code dir="ltr" translate="no">map()</code> 可将 <code dir="ltr" translate="no">List&lt;Cookie&gt;</code> 转换为仅包含饼干 <code dir="ltr" translate="no">name</code> 的 <code dir="ltr" translate="no">List&lt;String&gt;</code>，前提是您要告知 <code dir="ltr" translate="no">map()</code> 函数如何从每个 <code dir="ltr" translate="no">Cookie</code> 项创建 <code dir="ltr" translate="no">String</code>。</p>
+<p class="image-container"><img alt="e0605b7b09f91717.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/e0605b7b09f91717_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>假设您正在编写一款应用，它可以显示面包店的互动式菜单。当用户进入用于显示饼干菜单的屏幕后，他们可能想要查看按合乎逻辑的方式呈现的数据，例如名称后跟价格。您可以使用 <code dir="ltr" translate="no">map()</code> 函数来创建使用相关数据（名称和价格）进行格式化设置的字符串列表。</p>
+<ol type="1">
+<li>从 <code dir="ltr" translate="no">main()</code> 中移除之前的所有代码。创建一个名为 <code dir="ltr" translate="no">fullMenu</code> 的新变量，并将其设为与对 <code dir="ltr" translate="no">cookies</code> 列表调用 <code dir="ltr" translate="no">map()</code> 的结果相等。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">fullMenu</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">map</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 lambda 的正文中，添加一个格式化为包含 <code dir="ltr" translate="no">it</code> 的 <code dir="ltr" translate="no">name</code> 和 <code dir="ltr" translate="no">price</code> 的字符串。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">fullMenu</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">map</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> - </span><span class="devsite-syntax-err">$</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">price</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<aside class="special"><p><strong>注意</strong>：表达式前面使用了第二个 <code dir="ltr" translate="no">$</code>。第一个字符被视为美元符号字符 ($)，因为它没有后跟变量名称或 lambda 表达式。</p>
+</aside>
+<ol start="3" type="1">
+<li>输出 <code dir="ltr" translate="no">fullMenu</code> 的内容。您可以使用 <code dir="ltr" translate="no">forEach()</code> 来实现此目的。从 <code dir="ltr" translate="no">map()</code> 返回的 <code dir="ltr" translate="no">fullMenu</code> 集合的类型是 <code dir="ltr" translate="no">List&lt;String&gt;</code>，而不是 <code dir="ltr" translate="no">List&lt;Cookie&gt;</code>。<code dir="ltr" translate="no">cookies</code> 中的每个 <code dir="ltr" translate="no">Cookie</code> 都对应于 <code dir="ltr" translate="no">fullMenu</code> 中的一个 <code dir="ltr" translate="no">String</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Full menu:"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">fullMenu</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>运行您的代码。输出结果与 <code dir="ltr" translate="no">fullMenu</code> 列表的内容相匹配。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Full menu:
+Chocolate Chip - $1.69
+Banana Walnut - $1.49
+Vanilla Creme - $1.59
+Chocolate Peanut Butter - $1.49
+Snickerdoodle - $1.39
+Blueberry Tart - $1.79
+Sugar and Sprinkles - $1.39
+</pre>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. filter()
+          </h2>
+          
+          <p>借助 <code dir="ltr" translate="no">filter()</code> 函数，您可以创建集合的子集。例如，如果您有一个数字列表，则可以使用 <code dir="ltr" translate="no">filter()</code> 来创建一个新列表，使其仅包含可被 2 整除的数字。</p>
+<p class="image-container"><img alt="d4fd6be7bef37ab3.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/d4fd6be7bef37ab3_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>尽管 <code dir="ltr" translate="no">map()</code> 函数的结果始终生成大小相同的集合，但 <code dir="ltr" translate="no">filter()</code> 生成的集合的大小却是等于或小于原始集合的。与 <code dir="ltr" translate="no">map()</code> 不同，生成的集合也具有相同的数据类型，因此过滤 <code dir="ltr" translate="no">List&lt;Cookie&gt;</code> 将产生另一个 <code dir="ltr" translate="no">List&lt;Cookie&gt;</code>。</p>
+<p>与 <code dir="ltr" translate="no">map()</code> 和 <code dir="ltr" translate="no">forEach()</code> 类似，<code dir="ltr" translate="no">filter()</code> 接受单个 lambda 表达式作为形参。lambda 包含代表集合中的每个项的单个形参，并会返回 <code dir="ltr" translate="no">Boolean</code> 值。</p>
+<p>对于集合中的每个项：</p>
+<ul>
+<li>如果 lambda 表达式的结果为 <code dir="ltr" translate="no">true</code>，则表示此项包含在新集合中。</li>
+<li>如果结果为 <code dir="ltr" translate="no">false</code>，则表示此项不包含在新集合中。</li>
+</ul>
+<p>如果您想获取应用中的部分数据，这会非常有用。例如，假设面包店想在菜单的单独版块中重点推广其软饼干。您可以先对 <code dir="ltr" translate="no">cookies</code> 列表应用 <code dir="ltr" translate="no">filter()</code>，然后再输出项。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 中，创建一个名为 <code dir="ltr" translate="no">softBakedMenu</code> 的新变量，并将其设为对 <code dir="ltr" translate="no">cookies</code> 列表调用 <code dir="ltr" translate="no">filter()</code> 的结果。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">softBakedMenu</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">filter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 lambda 的正文中，添加一个布尔表达式，以检查饼干的 <code dir="ltr" translate="no">softBaked</code> 属性是否等于 <code dir="ltr" translate="no">true</code>。由于 <code dir="ltr" translate="no">softBaked</code> 本身是 <code dir="ltr" translate="no">Boolean</code>，因此 lambda 正文只需包含 <code dir="ltr" translate="no">it.softBaked</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">softBakedMenu</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">filter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">softBaked</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>使用 <code dir="ltr" translate="no">forEach()</code> 输出 <code dir="ltr" translate="no">softBakedMenu</code> 的内容。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Soft cookies:"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">softBakedMenu</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> - </span><span class="devsite-syntax-err">$</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">price</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>运行您的代码。系统仍会像之前一样输出菜单，但其中仅包含软饼干。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">...
+Soft cookies:
+Banana Walnut - $1.49
+Snickerdoodle - $1.39
+Blueberry Tart - $1.79
+</pre>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. groupBy()
+          </h2>
+          
+          <p><code dir="ltr" translate="no">groupBy()</code> 函数可用于根据函数将列表转换为映射。函数的每个唯一返回值都将成为生成的映射中的键。每个键的值都是生成相应唯一返回值的集合中的项。</p>
+<p class="image-container"><img alt="54e190b34d9921c0.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/54e190b34d9921c0_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>键的数据类型与传递到 <code dir="ltr" translate="no">groupBy()</code> 的函数的返回类型相同。值的数据类型是原始列表中项的列表。</p>
+<aside class="special"><p><strong>注意</strong>：值不必与列表类型相同。另一种版本的 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/group-by.html" target="_blank"><code dir="ltr" translate="no">groupBy()</code></a> 可以将值转换为其他类型。不过，本文未介绍此版本。</p>
+</aside>
+<p>这可能很难理解，我们先来看一个简单的示例。根据之前的数字列表，将其中的数字按奇偶分组。</p>
+<p>您可以通过以下方法来检查一个数字是奇数还是偶数：用这个数字除以 <code dir="ltr" translate="no">2</code>，然后检查余数是 <code dir="ltr" translate="no">0</code> 还是 <code dir="ltr" translate="no">1</code>。如果余数为 <code dir="ltr" translate="no">0</code>，则数字为偶数。否则，如果余数为 <code dir="ltr" translate="no">1</code>，则数字为奇数。</p>
+<p>这可以通过模数运算符 (<code dir="ltr" translate="no">%</code>) 来实现。模数运算符会使用表达式右侧的除数除以表达式左侧的被除数。</p>
+<p class="image-container"><img alt="4c3333da9e5ee352.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4c3333da9e5ee352_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>模数运算符不会像除号运算符 (<code dir="ltr" translate="no">/</code>) 一样返回除法运算的结果，而是会返回余数。这对于检查数字是偶数还是奇数十分有用。</p>
+<p class="image-container"><img alt="4219eacdaca33f1d.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/4219eacdaca33f1d_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>系统使用以下 lambda 表达式来调用 <code dir="ltr" translate="no">groupBy()</code> 函数：<code dir="ltr" translate="no">{ it % 2 }</code>。</p>
+<p>生成的映射有两个键：<code dir="ltr" translate="no">0</code> 和 <code dir="ltr" translate="no">1</code>。每个键都有一个 <code dir="ltr" translate="no">List&lt;Int&gt;</code> 类型的值。键 <code dir="ltr" translate="no">0</code> 的列表包含所有偶数，键 <code dir="ltr" translate="no">1</code> 的列表包含所有奇数。</p>
+<p>实际用例可能是一款照片应用，它支持按拍摄的主题或地点对照片进行分组。对于面包店菜单，让我们按饼干是否属于软饼干来对菜单内容进行分组。</p>
+<p>使用 <code dir="ltr" translate="no">groupBy()</code> 根据 <code dir="ltr" translate="no">softBaked</code> 属性对菜单内容进行分组。</p>
+<ol type="1">
+<li>移除上一步骤中对 <code dir="ltr" translate="no">filter()</code> 的调用。</li>
+</ol>
+<p><strong>要移除的代码</strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">softBakedMenu</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">filter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">softBaked</span>
+<span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Soft cookies:"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">softBakedMenu</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> - </span><span class="devsite-syntax-err">$</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">price</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>对 <code dir="ltr" translate="no">cookies</code> 列表调用 <code dir="ltr" translate="no">groupBy()</code>，将结果存储在名为 <code dir="ltr" translate="no">groupedMenu</code> 的变量中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">groupedMenu</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">groupBy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>传入一个返回 <code dir="ltr" translate="no">it.softBaked</code> 的 lambda 表达式。返回类型将为 <code dir="ltr" translate="no">Map&lt;Boolean, List&lt;Cookie&gt;&gt;</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">groupedMenu</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">groupBy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">softBaked</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>创建一个包含 <code dir="ltr" translate="no">groupedMenu[true]</code> 值的 <code dir="ltr" translate="no">softBakedMenu</code> 变量和一个包含 <code dir="ltr" translate="no">groupedMenu[false]</code> 值的 <code dir="ltr" translate="no">crunchyMenu</code> 变量。由于订阅 <code dir="ltr" translate="no">Map</code> 的结果可为 null，因此您可以使用 Elvis 运算符 (<code dir="ltr" translate="no">?:</code>) 来返回空列表。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">softBakedMenu</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">groupedMenu</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">?:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listOf</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">crunchyMenu</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">groupedMenu</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">?:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listOf</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<aside class="special"><p><strong>注意</strong>：或者，<code dir="ltr" translate="no">emptyList()</code> 会创建一个空列表，并且可能更具可读性。</p>
+</aside>
+<ol start="5" type="1">
+<li>添加代码以输出软饼干的菜单，后跟脆饼干的菜单。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Soft cookies:"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">softBakedMenu</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> - </span><span class="devsite-syntax-err">$</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">price</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Crunchy cookies:"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">crunchyMenu</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> - </span><span class="devsite-syntax-err">$</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">price</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>运行您的代码。使用 <code dir="ltr" translate="no">groupBy()</code> 函数，您可以根据某个属性的值将列表一分为二。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">...
+Soft cookies:
+Banana Walnut - $1.49
+Snickerdoodle - $1.39
+Blueberry Tart - $1.79
+Crunchy cookies:
+Chocolate Chip - $1.69
+Vanilla Creme - $1.59
+Chocolate Peanut Butter - $1.49
+Sugar and Sprinkles - $1.39
+</pre>
+<aside class="special"><p><strong>注意</strong>：如果您只需要将列表一分为二，可以使用 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/partition.html" target="_blank"><code dir="ltr" translate="no">partition()</code></a> 函数来替代此函数。</p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. fold()
+          </h2>
+          
+          <p><code dir="ltr" translate="no">fold()</code> 函数用于从集合中生成单个值。这最常用于计算总价，或汇总列表中的所有元素以求平均值。</p>
+<p class="image-container"><img alt="a9e11a1aad05cb2f.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/a9e11a1aad05cb2f_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p><code dir="ltr" translate="no">fold()</code> 函数具有两个形参：</p>
+<ul>
+<li>初始值。调用函数时，系统会推断数据类型（也就是说，系统会将 <code dir="ltr" translate="no">0</code> 的初始值推断为 <code dir="ltr" translate="no">Int</code>）。</li>
+<li>返回与初始值类型相同的值的 lambda 表达式。</li>
+</ul>
+<p>此 lambda 表达式还包含两个形参：</p>
+<ul>
+<li>第一个称为累加器。其数据类型与初始值相同。可将其视为累计总额。每次调用 lambda 表达式时，累加器都等于上次调用 lambda 时的返回值。</li>
+<li>第二个形参的类型与集合中的每个元素相同。</li>
+</ul>
+<p>与您见过的其他函数一样，系统会针对集合中的每个元素调用此 lambda 表达式，因此您可以使用 <code dir="ltr" translate="no">fold()</code> 作为对所有元素求和的简洁方法。</p>
+<p>让我们使用 <code dir="ltr" translate="no">fold()</code> 来计算所有饼干的总价格。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 中，创建一个名为 <code dir="ltr" translate="no">totalPrice</code> 的新变量，并将其设为等于对 <code dir="ltr" translate="no">cookies</code> 列表调用 <code dir="ltr" translate="no">fold()</code> 的结果。传入 <code dir="ltr" translate="no">0.0</code> 作为初始值。系统会将其类型推断为 <code dir="ltr" translate="no">Double</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">totalPrice</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fold</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0.0</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>您需要为 lambda 表达式指定两个形参。对于累加器，请使用 <code dir="ltr" translate="no">total</code>；对于集合元素，请使用 <code dir="ltr" translate="no">cookie</code>。请在形参列表后面使用箭头 (<code dir="ltr" translate="no">-&gt;</code>)。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">totalPrice</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fold</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0.0</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-n">total</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookie</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 lambda 的正文中，计算 <code dir="ltr" translate="no">total</code> 和 <code dir="ltr" translate="no">cookie.price</code> 的总和。系统会将其推断为返回值，并会在下次调用 lambda 时为 <code dir="ltr" translate="no">total</code> 传入此值。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">totalPrice</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fold</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0.0</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-n">total</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookie</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">total</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookie</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">price</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>输出 <code dir="ltr" translate="no">totalPrice</code> 的值，并采用字符串格式以保障可读性。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Total price: </span><span class="devsite-syntax-err">$</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">totalPrice</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="5" type="1">
+<li>运行您的代码。结果应该等于 <code dir="ltr" translate="no">cookies</code> 列表中的价格总和。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">...
+Total price: $10.83
+</pre>
+<aside class="special"><p><strong>注意</strong>：<code dir="ltr" translate="no">fold()</code> 有时称为 <code dir="ltr" translate="no">reduce()</code>。Kotlin 中的 <code dir="ltr" translate="no">fold()</code> 函数的作用与 JavaScript、Swift、Python 等语言中的 <code dir="ltr" translate="no">reduce()</code> 函数相同。请注意，Kotlin 还具有名称为 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reduce.html" target="_blank"><code dir="ltr" translate="no">reduce()</code></a> 的专属函数，其累加器从集合中的第一个元素开始计算，而不是从作为实参传递的初始值开始计算。</p>
+</aside>
+<aside class="special"><p><strong>注意</strong>：Kotlin 集合还具有一个适用于数字类型的 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sum.html" target="_blank"><code dir="ltr" translate="no">sum()</code></a> 函数，以及一个高阶 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sum-of.html" target="_blank"><code dir="ltr" translate="no">sumOf()</code></a> 函数。</p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. sortedBy()
+          </h2>
+          
+          <p>最初学习集合时，您了解到 <code dir="ltr" translate="no">sort()</code> 函数可用于对元素进行排序。不过，这不适用于 <code dir="ltr" translate="no">Cookie</code> 对象的集合。<code dir="ltr" translate="no">Cookie</code> 类具有多个属性，Kotlin 不知道您要按哪些属性（<code dir="ltr" translate="no">name</code>、<code dir="ltr" translate="no">price</code> 等）进行排序。</p>
+<p>对于这些情况，Kotlin 集合提供了一个 <code dir="ltr" translate="no">sortedBy()</code> 函数。通过 <code dir="ltr" translate="no">sortedBy()</code>，您可以指定一个 lambda 以返回作为排序依据的属性。例如，如果您想按 <code dir="ltr" translate="no">price</code> 排序，lambda 会返回 <code dir="ltr" translate="no">it.price</code>。只要值的数据类型的排列顺序是自然的（字符串按字母顺序排序，数值按升序排序），其排序方式就会与相应类型的集合一模一样。</p>
+<p class="image-container"><img alt="5fce4a067d372880.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-higher-order-functions/img/5fce4a067d372880_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>您将使用 <code dir="ltr" translate="no">sortedBy()</code> 来按字母顺序对饼干列表进行排序。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 中的现有代码后面，添加一个名为 <code dir="ltr" translate="no">alphabeticalMenu</code> 的新变量，并将其设为等于对 <code dir="ltr" translate="no">cookies</code> 列表调用 <code dir="ltr" translate="no">sortedBy()</code> 的结果。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">alphabeticalMenu</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">sortedBy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 lambda 表达式中，返回 <code dir="ltr" translate="no">it.name</code>。生成的列表仍属于 <code dir="ltr" translate="no">List&lt;Cookie&gt;</code> 类型，但会根据 <code dir="ltr" translate="no">name</code> 进行排序。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">alphabeticalMenu</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">cookies</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">sortedBy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>输出 <code dir="ltr" translate="no">alphabeticalMenu</code> 中的饼干名称。您可以使用 <code dir="ltr" translate="no">forEach()</code> 在新行中输出每个名称。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Alphabetical menu:"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">alphabeticalMenu</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">forEach</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>运行您的代码。饼干名称会按字母顺序输出。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">...
+Alphabetical menu:
+Banana Walnut
+Blueberry Tart
+Chocolate Chip
+Chocolate Peanut Butter
+Snickerdoodle
+Sugar and Sprinkles
+Vanilla Creme
+</pre>
+<aside class="special"><p><strong>注意</strong>：如果数据类型的排列顺序是自然的，Kotlin 集合还会包含一个 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sort.html" target="_blank"><code dir="ltr" translate="no">sort()</code></a> 函数。</p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 总结
+          </h2>
+          
+          <p>恭喜！您刚才看到了几个示例，了解了如何将高阶函数与集合结合使用。常见操作（例如排序和过滤）只需一行代码即可执行，可让您的程序变得更简洁、更具表现力。</p>
+<h2 id="summary">摘要</h2>
+<ul>
+<li>您可以使用 <code dir="ltr" translate="no">forEach()</code> 循环遍历集合中的每个元素。</li>
+<li>表达式可插入字符串中。</li>
+<li><code dir="ltr" translate="no">map()</code> 用于为集合中的项设置格式，通常作为另一种数据类型的集合。</li>
+<li><code dir="ltr" translate="no">filter()</code> 可生成集合的子集。</li>
+<li><code dir="ltr" translate="no">groupBy()</code> 可根据函数的返回值来拆分集合。</li>
+<li><code dir="ltr" translate="no">fold()</code> 可将集合转换为单个值。</li>
+<li><code dir="ltr" translate="no">sortedBy()</code> 用于按指定属性对集合进行排序。</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="8">
+              9. 了解更多内容
+          </h2>
+          
+          <ul>
+<li><a href="https://kotlinlang.org/docs/lambdas.html" target="_blank">高阶函数和 lambda</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/for-each.html" target="_blank">forEach()</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html" target="_blank">map()</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html" target="_blank">filter()</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/group-by.html" target="_blank">groupBy()</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fold.html" target="_blank">fold()</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-by.html" target="_blank">sortedBy()</a></li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="./02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">上一节：在 Kotlin 中使用集合</a><a href="./04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">下一节：04.练习：类和集合</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

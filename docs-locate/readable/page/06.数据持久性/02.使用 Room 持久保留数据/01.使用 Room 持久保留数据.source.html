@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>使用 Room 持久保留数据</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">简介：Compose 中的状态</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">创建 Art Space 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将常用高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题设置</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 添加简单的动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">为 ViewModel 编写单元测试</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：将 ViewModel 添加到 Dessert Clicker</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加仓库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建“书架”应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a class="active" href="./01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="./02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="./03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">使用 Room 持久保留数据</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <p>大多数达到生产质量标准的应用都包含需要持久保留的数据。例如，应用可能会存储歌曲播放列表、待办事项列表中的内容、支出和收入记录、星座目录或个人数据历史记录。对于此类用例，您可以使用数据库来存储这些持久性数据。</p>
+<p><a href="https://developer.android.com/topic/libraries/architecture/room?hl=zh-cn" target="_blank">Room</a> 是一个持久性库，属于 Android <a href="https://developer.android.com/jetpack/androidx/explorer?case=data&amp;hl=zh-cn" target="_blank">Jetpack</a> 的一部分。Room 是在 <a href="https://developer.android.com/training/data-storage/sqlite?hl=zh-cn" target="_blank">SQLite</a> 数据库基础上构建的一个抽象层。SQLite 使用一种专门的语言 (SQL) 来执行数据库操作。Room 并不直接使用 SQLite，而是负责简化数据库设置和配置以及数据库与应用交互方面的琐碎工作。Room 还提供 SQLite 语句的编译时检查。</p>
+<p><em></em>抽象层是一组隐藏了底层实现/复杂性的函数。抽象层可为现有功能集提供一个接口，就像在本例中使用 SQLite 一样。</p>
+<p>下图展示了 Room 作为数据源如何融入本课程中推荐的总体架构。Room 是一个数据源。</p>
+<p class="image-container"><img alt="数据层包含存储库和数据源" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dcfae1d1e200f931_2880.029cc721e4.png 2880w" style="width: 339.89px" title="包含界面层、网域层和数据层的架构图" loading="lazy" decoding="async"></p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>能够使用 Jetpack Compose 为 Android 应用构建基本界面。</li>
+<li>能够使用 <code dir="ltr" translate="no">Text</code>、<code dir="ltr" translate="no">Icon</code>、<code dir="ltr" translate="no">IconButton</code> 和 <code dir="ltr" translate="no">LazyColumn</code> 等可组合函数。</li>
+<li>能够使用 <code dir="ltr" translate="no">NavHost</code> 可组合函数定义应用中的路线和界面。</li>
+<li>能够使用 <code dir="ltr" translate="no">NavHostController</code> 在界面之间导航。</li>
+<li>熟悉 Android 架构组件 <code dir="ltr" translate="no">ViewModel</code>。能够使用 <code dir="ltr" translate="no">ViewModelProvider.Factory</code> 实例化 ViewModel。</li>
+<li>熟悉并发基础知识。</li>
+<li>能够使用协程管理长时间运行的任务。</li>
+<li>掌握 SQLite 数据库和 SQL 语言的基础知识。</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>如何使用 Room 库创建 SQLite 数据库并与之交互？</li>
+<li>如何创建实体、数据访问对象 (DAO) 和数据库类。</li>
+<li>如何使用 DAO 将 Kotlin 函数映射到 SQL 查询。</li>
+</ul>
+<h2 id="what-youll-build">构建内容</h2>
+<ul>
+<li>您将构建一个 <strong>Inventory</strong> 应用，用于将商品目录中的商品保存到 SQLite 数据库中。</li>
+</ul>
+<h2 id="what-you-need">所需条件</h2>
+<ul>
+<li><strong>Inventory</strong> 应用的起始代码</li>
+<li>一台安装了 Android Studio 的电脑</li>
+<li>搭载 API 级别 26 或更高版本的设备或模拟器</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 应用概览
+          </h2>
+          
+          <p>在此 Codelab 中，您将使用 Inventory 应用的起始代码，并使用 Room 库向其中添加数据库层。最终版本的应用会显示商品目录数据库中的商品列表。用户可以选择在商品目录数据库中添加新商品、更新现有商品和删除其中的商品。在此 Codelab 中，您需要将商品数据保存到 Room 数据库。您将在下一个 Codelab 中实现应用的其余功能。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="显示商品目录中商品的手机屏幕" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/dff66d262bbd788e_2880.029cc721e4.png 2880w" loading="lazy" decoding="async"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img alt="手机屏幕中显示“Add item”界面。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_2880.029cc721e4.png 2880w" loading="lazy" decoding="async"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img alt="已填写商品详情的“Add Item”界面。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_2880.029cc721e4.png 2880w" loading="lazy" decoding="async"></p>
+</td></tr>
+</tbody></table>
+<aside class="special"><p><strong>注意</strong>：以上屏幕截图来自本在线课程结束时的最终版应用，而不是此 Codelab 结束时的应用。这些屏幕截图是为了让您对该应用的最终版本有一个大致的概念。</p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 起始应用概览
+          </h2>
+          
+          <h3 id="download-the-starter-code-for-this-codelab">下载此 Codelab 的起始代码</h3>
+<p>首先，请下载起始代码：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-inventory-app/archive/refs/heads/starter.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>或者，您也可以克隆该代码的 GitHub 代码库：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-inventory-app.git
+$ cd basic-android-kotlin-compose-training-inventory-app
+$ git checkout starter
+</pre>
+<aside class="special"><p><strong>注意：</strong>起始代码位于所下载代码库的 <code dir="ltr" translate="no">starter</code> 分支中。</p>
+</aside>
+<p>您可以在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-inventory-app/tree/starter" target="_blank"><code dir="ltr" translate="no">Inventory app</code></a> GitHub 代码库中浏览该代码。</p>
+<h2 id="starter-code-overview">起始代码概览</h2>
+<ol type="1">
+<li>在 Android Studio 中打开包含起始代码的项目。</li>
+<li>在 Android 设备或模拟器上运行应用。确保模拟器或连接的设备搭载的是 API 级别 26 或更高版本。
+   <a href="https://developer.android.com/studio/inspect/database?hl=zh-cn" target="_blank">Database Inspector</a> 适用于搭载 API 级别 26 及更高版本的模拟器/设备。</li>
+</ol>
+<aside class="special"><p><strong>注意：</strong>借助 Database Inspector，您可以在应用运行时检查、查询和修改应用的数据库。Database Inspector 可处理普通的 SQLite 数据库或在 SQLite 的基础上构建的库（例如 Room）。</p>
+</aside>
+<ol start="3" type="1">
+<li>您会注意到，该应用未显示任何商品目录数据。</li>
+<li>点按悬浮操作按钮 (FAB) 向数据库中添加新商品。</li>
+</ol>
+<p>应用会转到一个新界面，您可以在其中输入新商品的详情。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="显示空白商品目录的手机屏幕" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/fb1fb265e2aa93f9_2880.029cc721e4.png 2880w" loading="lazy" decoding="async"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img alt="手机屏幕中显示“Add item”界面。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/7008448fe6aba0a2_2880.029cc721e4.png 2880w" loading="lazy" decoding="async"></p>
+</td></tr>
+</tbody></table>
+<h2 id="problems-with-the-starter-code">起始代码存在的问题</h2>
+<ol type="1">
+<li>在 <strong>Add Item</strong> 界面中，输入商品的详情，例如名称、价格和数量。</li>
+<li>点按<strong>保存</strong>。<strong>Add Item</strong> 界面未关闭，但您可以使用返回键返回。保存功能未实现，因此系统不会保存商品详情。</li>
+</ol>
+<p>请注意，该应用尚未完成，<strong>Save</strong> 按钮功能尚未实现。</p>
+<p class="image-container"><img alt="已填写商品详情的“Add Item”界面。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<p>在此 Codelab 中，您将添加使用 Room 将商品目录详情保存到 SQLite 数据库中的代码。您可以使用 Room 持久性库与 SQLite 数据库进行交互。</p>
+<h2 id="code-walkthrough">代码演示</h2>
+<p>您下载的起始代码已为您预先设计了界面布局。在本在线课程中，您只需专心实现数据库逻辑即可。以下部分简要介绍了一些文件，以帮助您上手。</p>
+<h3 id="uihomehomescreen.kt">ui/home/HomeScreen.kt</h3>
+<p>此文件是主屏幕，即应用的第一个屏幕，其中包含用于显示商品目录列表的可组合函数。它包含一个 FAB <img alt="+" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/92174b5798be403e_2880.029cc721e4.png 2880w" style="width: 22.20px" loading="lazy" decoding="async">，可用于向列表中添加新商品。您将在本在线课程的稍后阶段显示列表中的商品。</p>
+<p class="image-container"><img alt="显示商品目录中商品的手机屏幕" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/47cc655ae260796b_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<h3 id="uiitemitementryscreen.kt">ui/item/ItemEntryScreen.kt</h3>
+<p>此界面类似于 <code dir="ltr" translate="no">ItemEditScreen.kt</code>。它们都提供了用于输入商品详情的文本字段。点按主屏幕中的 FAB 即会显示此界面。<code dir="ltr" translate="no">ItemEntryViewModel.kt</code> 是此界面的对应 <code dir="ltr" translate="no">ViewModel</code>。</p>
+<p class="image-container"><img alt="已填写商品详情的“Add Item”界面。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/bae9fd572d154881_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+<h3 id="uinavigationinventorynavgraph.kt">ui/navigation/InventoryNavGraph.kt</h3>
+<p>此文件是整个应用的导航图。</p>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. Room 的主要组件
+          </h2>
+          
+          <p>Kotlin 提供了一种通过数据类轻松处理数据的方式。虽然使用数据类可以轻松地处理内存中的数据，但当需要持久保留数据时，您需要将这些数据转换为与数据库存储系统兼容的格式。为此，您需要使用表<em></em>来存储数据，并使用查询<em></em>来访问和修改数据。</p>
+<p><a href="https://developer.android.com/topic/libraries/architecture/room?hl=zh-cn" target="_blank">Room</a> 的以下三个组件可以使这些工作流变得顺畅。</p>
+<ul>
+<li><a href="https://developer.android.com/training/data-storage/room/defining-data?hl=zh-cn" target="_blank">Room 实体</a>表示应用数据库中的表。您可以使用它们更新表中的行所存储的数据，以及创建要插入的新行。</li>
+<li>Room <a href="https://developer.android.com/training/data-storage/room/accessing-data?hl=zh-cn" target="_blank">DAOs</a> 提供了供应用在数据库中检索、更新、插入和删除数据的方法。</li>
+<li>Room <a href="https://developer.android.com/reference/kotlin/androidx/room/Database?hl=zh-cn" target="_blank">Database 类</a>是一个数据库类，可为您的应用提供与该数据库关联的 DAO 实例。</li>
+</ul>
+<p>稍后您将在此 Codelab 中实现并详细了解这些组件。下图演示了 Room 的各组件如何协同工作以与数据库交互。</p>
+<p class="image-container"><img alt="a3288e8f37250031.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/a3288e8f37250031_2880.029cc721e4.png 2880w" style="width: 425.78px" title="演示 Room 数据访问对象和实体如何与应用其余部分互动的图表" loading="lazy" decoding="async"></p>
+<h2 id="add-room-dependencies">添加 Room 依赖项</h2>
+<p>在此任务中，您将向 Gradle 文件添加所需的 Room 组件库。</p>
+<ol type="1">
+<li>打开模块级 Gradle 文件 <code dir="ltr" translate="no">build.gradle.kts (Module: InventoryApp.app)</code>。</li>
+<li>在 <code dir="ltr" translate="no">dependencies</code> 代码块中，为 Room 库添加依赖项，如以下代码所示。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">//Room</span>
+<span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.room:room-runtime:</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">rootProject</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">extra</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-n">room_version</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">ksp</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.room:room-compiler:</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">rootProject</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">extra</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-n">room_version</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.room:room-ktx:</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">rootProject</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">extra</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-n">room_version</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>KSP 是一个功能强大且简单易用的 API，用于解析 Kotlin 注解。</p>
+<aside class="special"><p><strong>注意</strong>：对于 Gradle 文件中的库依赖项，请务必使用 <a href="https://developer.android.com/jetpack/androidx/versions?hl=zh-cn" target="_blank">AndroidX 版本</a>页面中最新稳定发布版本的版本号。</p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 创建商品 Entity
+          </h2>
+          
+          <p><a href="https://developer.android.com/reference/androidx/room/Entity?hl=zh-cn" target="_blank">Entity</a> 类定义了一个表，该类的每个实例都表示数据库表中的一行。Entity 类以映射告知 Room 它打算如何呈现数据库中的信息并与之交互。在您的应用中，实体将保存有关商品目录商品的信息，例如商品名称、商品价格和商品数量。</p>
+<p class="image-container"><img alt="8c9f1659ee82ca43.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8c9f1659ee82ca43_2880.029cc721e4.png 2880w" style="width: 662.40px" title="显示实体字段和实体实例的表格" loading="lazy" decoding="async"></p>
+<p><code dir="ltr" translate="no">@Entity</code> 注解用于将某个类标记为数据库 Entity 类。对于每个 Entity 类，该应用都会创建一个数据库表来保存这些项。除非另行说明，否则 Entity 的每个字段在数据库中都表示为一列（如需了解详情，请参阅<a href="https://developer.android.com/reference/androidx/room/Entity?hl=zh-cn" target="_blank">实体</a>文档）。存储在数据库中的每个实体实例都必须有一个主键。<a href="https://developer.android.com/reference/androidx/room/PrimaryKey?hl=zh-cn" target="_blank">主键</a>用于唯一标识数据库表中的每个记录/条目。应用分配主键后，便无法再修改主键；只要主键存在于数据库中，它就会表示实体对象。</p>
+<p>在此任务中，您将创建一个 Entity 类，并定义字段来存储每个商品的以下商品目录信息：<code dir="ltr" translate="no">Int</code> 用于存储主键，<code dir="ltr" translate="no">String</code> 用于存储商品名称，<code dir="ltr" translate="no">double</code> 用于存储商品价格，<code dir="ltr" translate="no">Int</code> 用于存储库存数量。</p>
+<ol type="1">
+<li>在 Android Studio 中打开起始代码。</li>
+<li>打开 <code dir="ltr" translate="no">com.example.inventory</code> 基础软件包下的 <code dir="ltr" translate="no">data</code> 软件包。</li>
+<li>在 <code dir="ltr" translate="no">data</code> 软件包内，打开 <code dir="ltr" translate="no">Item</code> Kotlin 类，该类表示应用中的数据库实体。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy over, this is part of the starter code</span>
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Item</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">price</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">quantity</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<aside class="special"><p><strong>注意</strong>：主要构造函数是 Kotlin 类中的类标头的一部分，它跟在类名称（以及可选的类型参数）之后。</p>
+</aside>
+<h3 id="data-classes">数据类</h3>
+<p>数据类在 Kotlin 中主要用于保存数据。它们使用关键字 <code dir="ltr" translate="no">data</code> 进行定义。Kotlin 数据类对象有一些额外的优势。例如，编译器会自动生成用于比较、输出和复制的实用程序，如 <code dir="ltr" translate="no">toString()</code>、<a href="https://kotlinlang.org/docs/data-classes.html#copying" target="_blank"><code dir="ltr" translate="no">copy()</code></a> 和 <code dir="ltr" translate="no">equals()</code>。</p>
+<p><strong>示例</strong>：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Example data class with 2 properties.</span>
+<span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">User</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">firstName</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">lastName</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">){</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>为了确保生成的代码的一致性，也为了确保其行为有意义，数据类必须满足以下要求：</p>
+<ul>
+<li>主要构造函数必须至少有一个参数。</li>
+<li>所有主要构造函数参数都必须是 <code dir="ltr" translate="no">val</code> 或 <code dir="ltr" translate="no">var</code>。</li>
+<li>数据类不能为 <code dir="ltr" translate="no">abstract</code>、<code dir="ltr" translate="no">open</code> 或 <code dir="ltr" translate="no">sealed</code>。</li>
+</ul>
+<aside class="warning"><p><strong>警告</strong>：编译器只会将主构造函数内定义的属性用于自动生成的函数。编译器会从生成的实现中排除类主体中声明的属性。</p>
+</aside>
+<p>如需详细了解数据类，请参阅<a href="https://kotlinlang.org/docs/data-classes.html" target="_blank">数据类</a>文档。</p>
+<ol type="1">
+<li>为 <code dir="ltr" translate="no">Item</code> 类的定义添加前缀 <code dir="ltr" translate="no">data</code> 关键字，以将其转换为数据类。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Item</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">price</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">quantity</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">Item</code> 类声明的上方，为该数据类添加 <code dir="ltr" translate="no">@Entity</code> 注解。使用 <code dir="ltr" translate="no">tableName</code> 参数将 <code dir="ltr" translate="no">items</code> 设置为 SQLite 表名称。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Entity</span>
+
+<span class="devsite-syntax-nd">@Entity</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">tableName</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"items"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Item</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<aside class="special"><p><strong>注意</strong>：<code dir="ltr" translate="no">@Entity</code> 注解有多个可能的参数。默认情况下（<code dir="ltr" translate="no">@Entity</code> 没有参数），表名称与类名称相同。使用 <code dir="ltr" translate="no">tableName</code> 参数可自定义表名称。为简单起见，请使用 <code dir="ltr" translate="no">item</code>。<code dir="ltr" translate="no">@Entity</code> 还有几个其他参数，您可以参阅<a href="https://developer.android.com/reference/androidx/room/Entity?hl=zh-cn" target="_blank">实体文档</a>进行研究。</p>
+</aside>
+<ol start="3" type="1">
+<li>为 <code dir="ltr" translate="no">id</code> 属性添加 <code dir="ltr" translate="no">@PrimaryKey</code> 注解，使 <code dir="ltr" translate="no">id</code> 成为主键。主键是一个 ID，用于唯一标识 <code dir="ltr" translate="no">Item</code> 表格中的每个记录/条目</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.PrimaryKey</span>
+
+<span class="devsite-syntax-nd">@Entity</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">tableName</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"items"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Item</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@PrimaryKey</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="4" type="1">
+<li>为 <code dir="ltr" translate="no">id</code> 分配默认值 <code dir="ltr" translate="no">0</code>，这样才能使 <code dir="ltr" translate="no">id</code> 自动生成 <code dir="ltr" translate="no">id</code> 值。</li>
+<li>将 <code dir="ltr" translate="no">autoGenerate</code> 参数添加到 <code dir="ltr" translate="no">@PrimaryKey</code> 注解中，以指定是否应自动生成主键列。如果 <code dir="ltr" translate="no">autoGenerate</code> 设置为 <code dir="ltr" translate="no">true</code>，则在向数据库中插入新的实体实例时，Room 会自动为主键列生成一个唯一值。这样可确保每个实体实例都有一个唯一标识符，而无需手动为主键列分配值</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Item</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@PrimaryKey</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">autoGenerate</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>太好了！您已经创建了一个 Entity 类，接下来可以创建一个数据访问对象 (DAO) 来访问数据库。</p>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 创建商品 DAO
+          </h2>
+          
+          <p><a href="https://developer.android.com/reference/androidx/room/Dao?hl=zh-cn" target="_blank">数据访问对象</a> (DAO) 是一种模式，其作用是通过提供抽象接口将持久性层与应用的其余部分分离。这种分离遵循您曾在之前的 Codelab 中接触过的<a href="https://en.wikipedia.org/wiki/Single-responsibility_principle" target="_blank">单一责任原则</a>。</p>
+<p>DAO 的功能在于，让在底层持久性层执行数据库操作所涉及的所有复杂性与应用的其余部分分离。这样，您就可以独立于使用数据的代码更改数据层。</p>
+<p class="image-container"><img alt="8b91b8bbd7256a63.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8b91b8bbd7256a63_2880.029cc721e4.png 2880w" style="width: 662.40px" loading="lazy" decoding="async"></p>
+<p>在此任务中，您将为 Room 定义一个 DAO。DAO 是 Room 的主要组件，负责定义用于访问数据库的接口。</p>
+<p>您创建的 DAO 是一个自定义接口，提供查询/检索、插入、删除和更新数据库的便捷方法。Room 将在编译时生成该类的实现。</p>
+<p><code dir="ltr" translate="no">Room</code> 库提供了便捷注解（例如 <code dir="ltr" translate="no">@Insert</code>、<code dir="ltr" translate="no">@Delete</code> 和 <code dir="ltr" translate="no">@Update</code>），用于定义执行简单插入、删除和更新的方法，而无需您编写 SQL 语句。</p>
+<p>如果您需要定义更复杂的插入、删除或更新操作，或者需要查询数据库中的数据，请改用 <code dir="ltr" translate="no">@Query</code> 注解。</p>
+<p>另一个好处是，当您在 Android Studio 中编写查询时，编译器会检查 SQL 查询是否存在语法错误。</p>
+<p>对于 Inventory 应用，您需要能够执行以下操作：</p>
+<ul>
+<li><strong>插入</strong>或添加新商品。</li>
+<li><strong>更新</strong>现有商品的名称、价格和数量。</li>
+<li>根据主键 <code dir="ltr" translate="no">id</code> <strong>获取</strong>特定商品。</li>
+<li><strong>获取所有商品</strong>，从而可以显示它们。</li>
+<li><strong>删除</strong>数据库中的条目。</li>
+</ul>
+<p class="image-container"><img alt="59aaa051e6a22e79.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/59aaa051e6a22e79_2880.029cc721e4.png 2880w" style="width: 279.27px" title="商品 DAO 是 SQLite 数据库与 Inventory 应用的其余部分之间的接口" loading="lazy" decoding="async"></p>
+<p>完成以下步骤，以在您的应用中实现商品 DAO：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">data</code> 软件包中，创建 Kotlin 接口 <code dir="ltr" translate="no">ItemDao.kt</code>。</li>
+</ol>
+<p class="image-container"><img alt="名称字段已填充为商品 DAO" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/8ba78e80cf23b017_2880.029cc721e4.png 2880w" style="width: 238.99px" title="已选中接口的新建 kotlin 类弹出式窗口" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>为接口 <code dir="ltr" translate="no">ItemDao</code> 添加 <code dir="ltr" translate="no">@Dao</code> 注解。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Dao</span>
+
+<span class="devsite-syntax-nd">@Dao</span>
+<span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">ItemDao</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在该接口的主体内添加 <code dir="ltr" translate="no">@Insert</code> 注解。</li>
+<li>在 <code dir="ltr" translate="no">@Insert</code> 下，添加一个 <code dir="ltr" translate="no">insert()</code> 函数，该函数将 <code dir="ltr" translate="no">Entity</code> 类的实例 <code dir="ltr" translate="no">item</code> 作为其参数。</li>
+<li>使用 <code dir="ltr" translate="no">suspend</code> 关键字标记函数，使其在单独的线程上运行。</li>
+</ol>
+<p>数据库操作的执行可能用时较长，因此需要在单独的线程上运行。Room 不允许在主线程上访问数据库。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Insert</span>
+
+<span class="devsite-syntax-nd">@Insert</span>
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">insert</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>将商品插入数据库中时，可能会发生冲突。例如，代码中的多个位置尝试使用存在冲突的不同值（比如同一主键）更新实体。实体是数据库中的行。在 Inventory 应用中，我们仅从一处（即 <strong>Add Item</strong> 界面）插入实体，因此我们预计不会发生任何冲突，可以将冲突策略设为 Ignore<em></em>。</p>
+<ol start="6" type="1">
+<li>添加参数 <code dir="ltr" translate="no">onConflict</code> 并为其赋值 <code dir="ltr" translate="no">OnConflictStrategy.</code><code dir="ltr" translate="no">IGNORE</code>。<em></em></li>
+</ol>
+<p>参数 <code dir="ltr" translate="no">onConflict</code> 用于告知 Room 在发生冲突时应该执行的操作。<code dir="ltr" translate="no">OnConflictStrategy.</code><em><code dir="ltr" translate="no">IGNORE</code></em> 策略会忽略新商品。</p>
+<p>如需详细了解可用的冲突策略，请参阅 <a href="https://developer.android.com/reference/androidx/room/OnConflictStrategy.html?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">OnConflictStrategy</code></a> 文档。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.OnConflictStrategy</span>
+
+<span class="devsite-syntax-nd">@Insert</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">onConflict</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">OnConflictStrategy</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">IGNORE</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">insert</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>现在，<code dir="ltr" translate="no">Room</code> 会生成将 <code dir="ltr" translate="no">item</code> 插入数据库所需的所有代码。当您调用任何带有 Room 注解的 DAO 函数时，Room 将在数据库上执行相应的 SQL 查询。例如，当您从 Kotlin 代码调用上述方法 <code dir="ltr" translate="no">insert()</code> 时，<code dir="ltr" translate="no">Room</code> 会执行 SQL 查询以将实体插入到数据库中。</p>
+<ol start="7" type="1">
+<li>添加一个带有 <code dir="ltr" translate="no">@Update</code> 注解的新函数，该函数接受 <code dir="ltr" translate="no">Item</code> 作为参数。</li>
+</ol>
+<p>更新的实体与传入的实体具有相同的主键。您可以更新该实体的部分或全部其他属性。</p>
+<ol start="8" type="1">
+<li>与 <code dir="ltr" translate="no">insert()</code> 方法类似，请使用 <code dir="ltr" translate="no">suspend</code> 关键字标记此函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Update</span>
+
+<span class="devsite-syntax-nd">@Update</span>
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">update</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>添加另一个带有 <code dir="ltr" translate="no">@Delete</code> 注解的函数以删除商品，并将其设为挂起函数。</p>
+<aside class="special"><p><strong>注意</strong>：<code dir="ltr" translate="no">@Delete</code> 注解会删除一个商品或一个商品列表。您需要传递要删除的实体。如果您没有实体，则可能需要在调用 <code dir="ltr" translate="no">delete()</code> 函数之前提取该实体。</p>
+</aside>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Delete</span>
+
+<span class="devsite-syntax-nd">@Delete</span>
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">delete</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>其余功能没有便利注解，因此您必须使用 <code dir="ltr" translate="no">@Query</code> 注解并提供 SQLite 查询。</p>
+<ol start="9" type="1">
+<li>编写一个 SQLite 查询，根据给定 <code dir="ltr" translate="no">id</code> 从 item 表中检索特定商品。以下代码提供了一个示例查询，该查询从 <code dir="ltr" translate="no">items</code> 中选择所有列，其中 <code dir="ltr" translate="no">id</code> 与特定值匹配，<code dir="ltr" translate="no">id</code> 是一个唯一标识符。</li>
+</ol>
+<p><strong>示例</strong>：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Example, no need to copy over</span>
+<span class="devsite-syntax-n">SELECT</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">*</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">items</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">WHERE</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span>
+</code></pre>
+<ol start="10" type="1">
+<li>添加 <code dir="ltr" translate="no">@Query</code> 注解。</li>
+<li>使用上一步中的 SQLite 查询作为 <code dir="ltr" translate="no">@Query</code> 注解的字符串参数。</li>
+<li>向 <code dir="ltr" translate="no">@Query</code> 添加一个 <code dir="ltr" translate="no">String</code> 参数，它是用于从 item 表中检索商品的 SQLite 查询。</li>
+</ol>
+<p>该查询现在会从 <code dir="ltr" translate="no">items</code> 中选择所有列，其中 <code dir="ltr" translate="no">id</code> 与 :<code dir="ltr" translate="no">id</code> 参数匹配。请注意，<code dir="ltr" translate="no">:id</code> 在查询中使用英文冒号来引用函数中的参数。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Query</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"SELECT * from items WHERE id = :id"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="13" type="1">
+<li>在 <code dir="ltr" translate="no">@Query</code> 注解后面，添加一个接受 <code dir="ltr" translate="no">Int</code> 参数并返回 <code dir="ltr" translate="no">Flow&lt;Item&gt;</code> 的 <code dir="ltr" translate="no">getItem()</code> 函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Query</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.flow.Flow</span>
+
+<span class="devsite-syntax-nd">@Query</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"SELECT * from items WHERE id = :id"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Flow&lt;Item&gt;</span>
+</code></pre>
+<p>建议在持久性层中使用 <code dir="ltr" translate="no">Flow</code>。将返回值类型设为 <code dir="ltr" translate="no">Flow</code> 后，只要数据库中的数据发生更改，您就会收到通知。<code dir="ltr" translate="no">Room</code> 会为您保持更新此 <code dir="ltr" translate="no">Flow</code>，也就是说，您只需要显式获取一次数据。此设置有助于更新您将在下一个 Codelab 中实现的商品目录。由于返回值类型为 <code dir="ltr" translate="no">Flow</code>，Room 还会在后台线程上运行该查询。您无需将其明确设为 <code dir="ltr" translate="no">suspend</code> 函数并在协程作用域内调用它。</p>
+<aside class="special"><p><strong>注意</strong>：Room 数据库中的 <code dir="ltr" translate="no">Flow</code> 可以在数据库中的数据更改时发送通知，从而<em></em>使数据处于最新状态。这样，您就可以观察数据并相应地更新界面。</p>
+</aside>
+<ol start="14" type="1">
+<li>添加 <code dir="ltr" translate="no">@Query</code> 注解和 <code dir="ltr" translate="no">getAllItems()</code> 函数。</li>
+<li>让 SQLite 查询返回 <code dir="ltr" translate="no">item</code> 表中的所有列，依升序排序。</li>
+<li>让 <code dir="ltr" translate="no">getAllItems()</code> 返回 <code dir="ltr" translate="no">Item</code> 实体的列表作为 <code dir="ltr" translate="no">Flow</code>。<code dir="ltr" translate="no">Room</code> 会使此 <code dir="ltr" translate="no">Flow</code> 及时更新，也就是说，您只需要显式获取一次数据。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Query</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"SELECT * from items ORDER BY name ASC"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getAllItems</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Flow&lt;List&lt;Item&gt;</span>&gt;
+</code></pre>
+<p>已完成 <code dir="ltr" translate="no">ItemDao</code>：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Dao</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Delete</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Insert</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.OnConflictStrategy</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Query</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Update</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.flow.Flow</span>
+
+<span class="devsite-syntax-nd">@Dao</span>
+<span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">ItemDao</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Insert</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">onConflict</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">OnConflictStrategy</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">IGNORE</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">insert</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Update</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">update</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Delete</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">delete</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Query</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"SELECT * from items WHERE id = :id"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Flow&lt;Item&gt;</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Query</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"SELECT * from items ORDER BY name ASC"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getAllItems</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Flow&lt;List&lt;Item&gt;</span>&gt;
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="17" type="1">
+<li>尽管您不会看到任何明显的更改，但您仍应构建应用以确保其没有错误。</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 创建 Database 实例
+          </h2>
+          
+          <p>在此任务中，您将创建一个 <a href="https://developer.android.com/reference/androidx/room/RoomDatabase?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">RoomDatabase</code></a>，它使用前面任务中的 <code dir="ltr" translate="no">Entity</code> 和 DAO。数据库类定义了实体和 DAO 的列表。</p>
+<p><a href="https://developer.android.com/reference/androidx/room/Database?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Database</code></a> 类可为您的应用提供您定义的 DAO 实例。反过来，应用可以使用 DAO 从数据库中检索数据，作为关联的数据实体对象的实例。此外，应用还可以使用定义的数据实体更新相应表中的行，或者创建新行供插入。</p>
+<p>您需要创建一个抽象 <code dir="ltr" translate="no">RoomDatabase</code> 类，并为其添加 <code dir="ltr" translate="no">@Database</code> 注解。此类有一个方法，如果数据库不存在，该方法会返回 <code dir="ltr" translate="no">RoomDatabase</code> 的现有实例。</p>
+<p>以下是获取 <code dir="ltr" translate="no">RoomDatabase</code> 实例的一般过程：</p>
+<ul>
+<li>创建一个扩展 <code dir="ltr" translate="no">RoomDatabase</code> 的 <code dir="ltr" translate="no">public abstract</code> 类。您定义的新抽象类将用作数据库持有者。您定义的类是抽象类，因为 <code dir="ltr" translate="no">Room</code> 会为您创建实现。</li>
+<li>为该类添加 <code dir="ltr" translate="no">@Database</code> 注解。在参数中，为数据库列出实体并设置版本号。</li>
+<li>定义一个返回 <code dir="ltr" translate="no">ItemDao</code> 实例的抽象方法或属性，<code dir="ltr" translate="no">Room</code> 会为您生成实现。</li>
+<li>整个应用只需要一个 <code dir="ltr" translate="no">RoomDatabase</code> 实例，因此请将 <code dir="ltr" translate="no">RoomDatabase</code> 设为单例。</li>
+<li>使用 <code dir="ltr" translate="no">Room</code> 的 <a href="https://developer.android.com/reference/androidx/room/Room?hl=zh-cn#databaseBuilder(android.content.Context,java.lang.Class,kotlin.String)" target="_blank"><code dir="ltr" translate="no">Room.databaseBuilder</code></a> 创建 (<code dir="ltr" translate="no">item_database</code>) 数据库。不过，仅当该数据库不存在时才应创建。否则，请返回现有数据库。</li>
+</ul>
+<h2 id="create-the-database">创建数据库</h2>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">data</code> 软件包中，创建一个 Kotlin 类 <code dir="ltr" translate="no">InventoryDatabase.kt</code>。</li>
+<li>在 <code dir="ltr" translate="no">InventoryDatabase.kt</code> 文件中，将 <code dir="ltr" translate="no">InventoryDatabase</code> 类设为扩展 <code dir="ltr" translate="no">RoomDatabase</code> 的 <code dir="ltr" translate="no">abstract</code> 类。</li>
+<li>为该类添加 <code dir="ltr" translate="no">@Database</code> 注解。请忽略缺失参数错误，您将在下一步中修复该错误。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Database</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.RoomDatabase</span>
+
+<span class="devsite-syntax-nd">@Database</span>
+<span class="devsite-syntax-kd">abstract</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">InventoryDatabase</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">RoomDatabase</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+</code></pre>
+<p><code dir="ltr" translate="no">@Database</code> 注解需要几个参数，以便 <code dir="ltr" translate="no">Room</code> 能构建数据库。</p>
+<ol start="4" type="1">
+<li>将 <code dir="ltr" translate="no">Item</code> 指定为包含 <code dir="ltr" translate="no">entities</code> 列表的唯一类。</li>
+<li>将 <code dir="ltr" translate="no">version</code> 设为 <code dir="ltr" translate="no">1</code><strong></strong>。每当您更改数据库表的架构时，都必须提升版本号。</li>
+<li>将 <code dir="ltr" translate="no">exportSchema</code> 设为 <code dir="ltr" translate="no">false</code>，这样就不会保留架构版本记录的备份。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Database</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">entities</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">class</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">version</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">exportSchema</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="7" type="1">
+<li>在类的主体内，声明一个返回 <code dir="ltr" translate="no">ItemDao</code> 的抽象函数，以便数据库了解 DAO。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">abstract</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">itemDao</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemDao</span>
+</code></pre>
+<ol start="8" type="1">
+<li>在抽象函数下方，定义一个 <code dir="ltr" translate="no">companion object</code>，以允许访问用于创建或获取数据库的方法，并将类名称用作限定符。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">companion</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-err">{}</span>
+</code></pre>
+<ol start="9" type="1">
+<li>在 <code dir="ltr" translate="no">companion</code> 对象内，为数据库声明一个私有的可为 null 变量 <code dir="ltr" translate="no">Instance</code>，并将其初始化为 <code dir="ltr" translate="no">null</code>。</li>
+</ol>
+<p><code dir="ltr" translate="no">Instance</code> 变量将在数据库创建后保留对数据库的引用。这有助于保持在任意时间点都只有一个打开的数据库实例，因为这种资源的创建和维护成本极高。</p>
+<ol start="10" type="1">
+<li>为 <code dir="ltr" translate="no">Instance</code> 添加 <code dir="ltr" translate="no">@Volatile</code> 注解。</li>
+</ol>
+<p>volatile 变量的值绝不会缓存，所有读写操作都将在主内存中完成。这些功能有助于确保 <code dir="ltr" translate="no">Instance</code> 的值始终是最新的，并且对所有执行线程都相同。也就是说，一个线程对 <code dir="ltr" translate="no">Instance</code> 所做的更改会立即对所有其他线程可见。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Volatile</span>
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">Instance</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">InventoryDatabase? </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+</code></pre>
+<ol start="11" type="1">
+<li>在 <code dir="ltr" translate="no">Instance</code> 下但仍在 <code dir="ltr" translate="no">companion</code> 对象内，定义 <code dir="ltr" translate="no">getDatabase()</code> 方法并提供数据库构建器所需的 <code dir="ltr" translate="no">Context</code> 参数。</li>
+<li>返回类型 <code dir="ltr" translate="no">InventoryDatabase</code>。您将看到一条错误，因为 <code dir="ltr" translate="no">getDatabase()</code> 尚不会返回任何内容。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.content.Context</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getDatabase</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">context</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Context</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">InventoryDatabase</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+</code></pre>
+<p>多个线程可能会同时请求数据库实例，导致产生两个数据库，而不是一个。此问题称为<a href="https://en.wikipedia.org/wiki/Race_condition" target="_blank">竞态条件</a>。封装代码以在 <code dir="ltr" translate="no">synchronized</code> 块内获取数据库意味着，一次只有一个执行线程可以进入此代码块，从而确保数据库仅初始化一次。使用 <code dir="ltr" translate="no">synchronized{}</code> 代码块来避免出现竞态条件。</p>
+<ol start="13" type="1">
+<li>在 <code dir="ltr" translate="no">getDatabase()</code> 内，返回 <code dir="ltr" translate="no">Instance</code> 变量；如果 <code dir="ltr" translate="no">Instance</code> 为 null 值，请在 <code dir="ltr" translate="no">synchronized{}</code> 块内对其进行初始化。请使用 elvis 运算符 (<code dir="ltr" translate="no">?:</code>) 执行此操作。</li>
+<li>传入伴生对象 <code dir="ltr" translate="no">this</code>。您将在后续步骤中修复该错误。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Instance</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">?:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">synchronized</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-k">this</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="15" type="1">
+<li>在同步的代码块内，使用数据库构建器获取数据库。继续忽略错误，您将在后续步骤中修复这些错误。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Room</span>
+
+<span class="devsite-syntax-n">Room</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">databaseBuilder</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<ol start="16" type="1">
+<li>在 <code dir="ltr" translate="no">synchronized</code> 代码块内，使用数据库构建器获取数据库。将应用上下文、数据库类和数据库的名称 <code dir="ltr" translate="no">item_database</code> 传入 <code dir="ltr" translate="no">Room.databaseBuilder()</code> 中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Room</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">databaseBuilder</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">context</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">InventoryDatabase</span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">class</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">java</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"item_database"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>Android Studio 会生成“类型不匹配”错误。如需消除此错误，您必须在后续步骤中添加 <code dir="ltr" translate="no">build()</code>。</p>
+<ol start="17" type="1">
+<li>将所需的迁移策略添加到构建器中。使用 <code dir="ltr" translate="no">.</code> <a href="https://developer.android.com/reference/androidx/room/RoomDatabase.Builder?hl=zh-cn#fallbackToDestructiveMigration()" target="_blank"><code dir="ltr" translate="no">fallbackToDestructiveMigration()</code></a>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fallbackToDestructiveMigration</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<aside class="special"><p><strong>注意</strong>：通常，您会为迁移对象提供在架构发生更改时使用的迁移策略。迁移对象是发挥以下作用的对象：定义如何获取旧架构的所有行并将其转换为新架构中的行，使数据不会丢失。<em></em><a href="https://medium.com/androiddevelopers/understanding-migrations-with-room-f01e04b07929" target="_blank"></a>迁移不在此 Codelab 的讨论范围内，但该术语是指当架构更改时，您需要在不丢失数据的情况下迁移数据。由于这是一个示例应用，因此一个简单的替代方案是销毁并重建数据库，这意味着商品目录数据会丢失。例如，如果您更改实体类中的某些内容（例如添加新参数），则可以允许应用删除并重新初始化数据库。</p>
+</aside>
+<ol start="18" type="1">
+<li>如需创建数据库实例，请调用 <code dir="ltr" translate="no">.build()</code>。此调用会消除 Android Studio 错误。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<ol start="19" type="1">
+<li>在 <code dir="ltr" translate="no">build()</code> 之后，添加一个 <code dir="ltr" translate="no">also</code> 代码块并分配 <code dir="ltr" translate="no">Instance = it</code> 以保留对最近创建的数据库实例的引用。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">also</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Instance</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="20" type="1">
+<li>在 <code dir="ltr" translate="no">synchronized</code> 代码块的末尾，返回 <code dir="ltr" translate="no">instance</code>。最终代码如下所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.content.Context</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Database</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.Room</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.room.RoomDatabase</span>
+
+<span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">* Database class with a singleton Instance object.</span>
+<span class="devsite-syntax-cm">*/</span>
+<span class="devsite-syntax-nd">@Database</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">entities</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">class</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">version</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">exportSchema</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">abstract</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">InventoryDatabase</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">RoomDatabase</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">abstract</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">itemDao</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemDao</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">companion</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-err">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nd">@Volatile</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">Instance</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">InventoryDatabase? </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">null</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getDatabase</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">context</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Context</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">InventoryDatabase</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-c1">// if the Instance is not null, return it, otherwise create a new database instance.</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Instance</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">?:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">synchronized</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-k">this</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">Room</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">databaseBuilder</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">context</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">InventoryDatabase</span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">class</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">java</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"item_database"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">also</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Instance</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<aside class="special"><p><strong>提示：</strong>您可以将此代码用作未来项目的模板。创建 <code dir="ltr" translate="no">RoomDatabase</code> 实例的方式与前面步骤中的过程类似。您可能必须替换特定于您的应用的实体和 DAO。</p>
+</aside>
+<ol start="21" type="1">
+<li>构建代码以确保没有错误。</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 实现存储库
+          </h2>
+          
+          <p>在此任务中，您将实现 <code dir="ltr" translate="no">ItemsRepository</code> 接口和 <code dir="ltr" translate="no">OfflineItemsRepository</code> 类，以从数据库提供 <code dir="ltr" translate="no">get</code>、<code dir="ltr" translate="no">insert</code>、<code dir="ltr" translate="no">delete</code> 和 <code dir="ltr" translate="no">update</code> 实体。</p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">data</code> 软件包下的 <code dir="ltr" translate="no">ItemsRepository.kt</code> 文件。</li>
+<li>将以下函数添加到映射到 DAO 实现的接口。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.flow.Flow</span>
+
+<span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">* Repository that provides insert, update, delete, and retrieve of [Item] from a given data source.</span>
+<span class="devsite-syntax-cm">*/</span>
+<span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">ItemsRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">     * Retrieve all the items from the the given data source.</span>
+<span class="devsite-syntax-cm">     */</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getAllItemsStream</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Flow&lt;List&lt;Item&gt;</span>&gt;
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">     * Retrieve an item from the given data source that matches with the [id].</span>
+<span class="devsite-syntax-cm">     */</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getItemStream</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Flow&lt;Item?&gt;</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">     * Insert item in the data source</span>
+<span class="devsite-syntax-cm">     */</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">insertItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">     * Delete item from the data source</span>
+<span class="devsite-syntax-cm">     */</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">deleteItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">     * Update item in the data source</span>
+<span class="devsite-syntax-cm">     */</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">updateItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>打开 <code dir="ltr" translate="no">data</code> 软件包下的 <code dir="ltr" translate="no">OfflineItemsRepository.kt</code> 文件。</li>
+<li>传入 <code dir="ltr" translate="no">ItemDao</code> 类型的构造函数参数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">OfflineItemsRepository</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">itemDao</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemDao</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemsRepository</span>
+</code></pre>
+<ol start="5" type="1">
+<li>在 <code dir="ltr" translate="no">OfflineItemsRepository</code> 类中，替换 <code dir="ltr" translate="no">ItemsRepository</code> 接口中定义的函数，并从 <code dir="ltr" translate="no">ItemDao</code> 调用相应的函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.flow.Flow</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">OfflineItemsRepository</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">itemDao</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemDao</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemsRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getAllItemsStream</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Flow&lt;List&lt;Item&gt;</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemDao</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getAllItems</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getItemStream</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Flow&lt;Item?&gt; </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemDao</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">insertItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemDao</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">insert</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">deleteItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemDao</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">delete</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">updateItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemDao</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">update</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="implement-appcontainer-class">实现 AppContainer 类</h2>
+<p>在此任务中，您将实例化数据库并将 DAO 实例传递给 <code dir="ltr" translate="no">OfflineItemsRepository</code> 类。</p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">data</code> 软件包下的 <code dir="ltr" translate="no">AppContainer.kt</code> 文件。</li>
+<li>将 <code dir="ltr" translate="no">ItemDao()</code> 实例传入 <code dir="ltr" translate="no">OfflineItemsRepository</code> 构造函数。</li>
+<li>通过对 <code dir="ltr" translate="no">InventoryDatabase</code> 类调用 <code dir="ltr" translate="no">getDatabase()</code> 并传入上下文来实例化数据库实例，并调用 <code dir="ltr" translate="no">.itemDao()</code> 以创建 <code dir="ltr" translate="no">Dao</code> 的实例。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">itemsRepository</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemsRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lazy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">OfflineItemsRepository</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">InventoryDatabase</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getDatabase</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">context</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">itemDao</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>现在，您已经拥有了可与 Room 搭配使用的所有构建块。该代码会编译并运行，但您无法判断它是否确实能正常运行。因此，这正是测试数据库的好时机。为了完成测试，您需要使用 <code dir="ltr" translate="no">ViewModel</code> 与数据库通信。</p>
+
+
+        
+          
+          <h2 class="" id="8">
+              9. 添加保存功能
+          </h2>
+          
+          <p>到目前为止，您已经创建了一个数据库，而界面类是起始代码的一部分。为了保存应用的瞬态数据，同时也为了访问数据库，您需要更新 <code dir="ltr" translate="no">ViewModel</code>。您的 <code dir="ltr" translate="no">ViewModel</code> 通过 DAO 与数据库交互，并为界面提供数据。所有数据库操作都必须在主界面线程之外运行，您将使用协程和 <a href="https://developer.android.com/topic/libraries/architecture/coroutines?hl=zh-cn#viewmodelscope" target="_blank"><code dir="ltr" translate="no">viewModelScope</code></a> 做到这一点。</p>
+<h2 id="ui-state-class-walkthrough">界面状态类演示</h2>
+<p>打开 <code dir="ltr" translate="no">ui/item/ItemEntryViewModel.kt</code> 文件。<code dir="ltr" translate="no">ItemUiState</code> 数据类表示商品的界面状态。<code dir="ltr" translate="no">ItemDetails</code> 数据类表示单个商品。</p>
+<p>起始代码为您提供了三个扩展函数：</p>
+<ul>
+<li><code dir="ltr" translate="no">ItemDetails.toItem()</code> 扩展函数会将 <code dir="ltr" translate="no">ItemUiState</code> 界面状态对象转换为 <code dir="ltr" translate="no">Item</code> 实体类型。</li>
+<li><code dir="ltr" translate="no">Item.toItemUiState()</code> 扩展函数会将 <code dir="ltr" translate="no">Item</code> Room 实体对象转换为 <code dir="ltr" translate="no">ItemUiState</code> 界面状态类型。</li>
+<li><code dir="ltr" translate="no">Item.toItemDetails()</code> 扩展函数会将 <code dir="ltr" translate="no">Item</code> Room 实体对象转换为 <code dir="ltr" translate="no">ItemDetails</code>。</li>
+</ul>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy, this is part of starter code</span>
+<span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">* Represents Ui State for an Item.</span>
+<span class="devsite-syntax-cm">*/</span>
+<span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">ItemUiState</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">itemDetails</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemDetails</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemDetails</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">isEntryValid</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">ItemDetails</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">price</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">quantity</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">* Extension function to convert [ItemDetails] to [Item]. If the value of [ItemDetails.price] is</span>
+<span class="devsite-syntax-cm">* not a valid [Double], then the price will be set to 0.0. Similarly if the value of</span>
+<span class="devsite-syntax-cm">* [ItemDetails.quantity] is not a valid [Int], then the quantity will be set to 0</span>
+<span class="devsite-syntax-cm">*/</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemDetails</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nf">toItem</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toDoubleOrNull</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">?:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0.0</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toIntOrNull</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">?:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nf">formatedPrice</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">NumberFormat</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getCurrencyInstance</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">format</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">* Extension function to convert [Item] to [ItemUiState]</span>
+<span class="devsite-syntax-cm">*/</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nf">toItemUiState</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">isEntryValid</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemUiState</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">itemDetails</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">this</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toItemDetails</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">isEntryValid</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">isEntryValid</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">* Extension function to convert [Item] to [ItemDetails]</span>
+<span class="devsite-syntax-cm">*/</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Item</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nf">toItemDetails</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemDetails</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemDetails</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toString</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toString</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>您可以在视图模型中使用上面的类来读取和更新界面。</p>
+<h2 id="update-itementry-viewmodel">更新 ItemEntry ViewModel</h2>
+<p>在此任务中，您需要将存储库传递给 <code dir="ltr" translate="no">ItemEntryViewModel.kt</code> 文件。您还需要将在 <strong>Add Item</strong> 界面中输入的商品详情保存到数据库。</p>
+<ol type="1">
+<li>请注意 <code dir="ltr" translate="no">ItemEntryViewModel</code> 类中的 <code dir="ltr" translate="no">validateInput()</code> 私有函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy over, this is part of starter code</span>
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">validateInput</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">uiState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemDetails</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">itemDetails</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">with</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">uiState</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">isNotBlank</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> &amp;&amp; </span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">isNotBlank</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> &amp;&amp; </span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">isNotBlank</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>上面的函数会检查 <code dir="ltr" translate="no">name</code>、<code dir="ltr" translate="no">price</code> 和 <code dir="ltr" translate="no">quantity</code> 是否为空。在数据库中添加或更新实体之前，您将使用此函数验证用户输入。</p>
+<ol start="2" type="1">
+<li>打开 <code dir="ltr" translate="no">ItemEntryViewModel</code> 类，然后添加类型为 <code dir="ltr" translate="no">ItemsRepository</code> 的 <code dir="ltr" translate="no">private</code> 默认构造函数参数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.inventory.data.ItemsRepository</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">ItemEntryViewModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">itemsRepository</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemsRepository</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ViewModel</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">ui/AppViewModelProvider.kt</code> 中更新商品条目视图模型的 <code dir="ltr" translate="no">initializer</code>，并将仓库实例作为参数传入。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">AppViewModelProvider</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">Factory</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModelFactory</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// Other Initializers </span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// Initializer for ItemEntryViewModel</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">initializer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">ItemEntryViewModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">inventoryApplication</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">container</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">itemsRepository</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>转到 <code dir="ltr" translate="no">ItemEntryViewModel.kt</code> 文件，在 <code dir="ltr" translate="no">ItemEntryViewModel</code> 类的末尾添加一个名为 <code dir="ltr" translate="no">saveItem()</code> 的挂起函数，以将一个商品插入 Room 数据库中。此函数以非阻塞方式将数据添加到数据库。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">saveItem</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>在该函数内，检查 <code dir="ltr" translate="no">itemUiState</code> 是否有效并将其转换为 <code dir="ltr" translate="no">Item</code> 类型，以便 Room 可以理解数据。</li>
+<li>对 <code dir="ltr" translate="no">itemsRepository</code> 调用 <code dir="ltr" translate="no">insertItem()</code> 并传入数据。界面会调用此函数，以将商品详情添加到数据库。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">saveItem</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">validateInput</span><span class="devsite-syntax-p">())</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">itemsRepository</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">insertItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">itemDetails</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toItem</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>现在，向数据库添加实体所需的函数已全部添加。在下一个任务中，您将更新界面以使用上述函数。</p>
+<h3 id="itementrybody-composable-walkthrough">ItemEntryBody() 可组合函数演示</h3>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">ui/item/ItemEntryScreen.kt</code> 文件中，状态器代码包含的 <code dir="ltr" translate="no">ItemEntryBody()</code> 可组合函数会为您部分实现。请查看 <code dir="ltr" translate="no">ItemEntryScreen()</code> 函数调用中的 <code dir="ltr" translate="no">ItemEntryBody()</code> 可组合函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy over, part of the starter code</span>
+<span class="devsite-syntax-n">ItemEntryBody</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">itemUiState</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">onItemValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">updateUiState</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">onSaveClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">innerPadding</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">verticalScroll</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">rememberScrollState</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="2" type="1">
+<li>请注意，界面状态和 <code dir="ltr" translate="no">updateUiState</code> lambda 将作为函数参数传递。请查看函数定义，了解界面状态如何更新。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy over, part of the starter code</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">ItemEntryBody</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemUiState</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">onItemValueChange</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">ItemUiState</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">onSaveClick</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">ItemInputForm</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">             </span><span class="devsite-syntax-n">itemDetails</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">itemDetails</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">             </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onItemValueChange</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">             </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">         </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Button</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">             </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onSaveClick</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">             </span><span class="devsite-syntax-n">enabled</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">isEntryValid</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">             </span><span class="devsite-syntax-n">shape</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">shapes</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">small</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">             </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">         </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">             </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">save_action</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">         </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>您在此可组合函数中显示了 <code dir="ltr" translate="no">ItemInputForm</code> 和 <strong>Save</strong> 按钮。在 <code dir="ltr" translate="no">ItemInputForm()</code> 可组合函数中，您显示了三个文本字段。只有在文本字段中输入文本后，系统才会启用 <strong>Save</strong> 按钮。如果所有文本字段中的文本均有效（非空），则 <em></em><code dir="ltr" translate="no">isEntryValid</code> 值为 true。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="手机屏幕显示：部分商品详情已自动填充，“Save”按钮已停用" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/2d1bb6ae6fa41c70_2880.029cc721e4.png 2880w" loading="lazy" decoding="async"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img alt="手机屏幕显示：商品详情已填充，“Save”按钮已启用" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_2880.029cc721e4.png 2880w" loading="lazy" decoding="async"></p>
+</td></tr>
+</tbody></table>
+<ol start="3" type="1">
+<li>查看 <code dir="ltr" translate="no">ItemInputForm()</code> 可组合函数实现，并注意 <code dir="ltr" translate="no">onValueChange</code> 函数参数。您将使用用户在文本字段中输入的值更新 <code dir="ltr" translate="no">itemDetails</code> 值。<em></em>启用 <strong>Save</strong> 按钮后，<code dir="ltr" translate="no">itemUiState.itemDetails</code> 便具有需要保存的值。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy over, part of the starter code</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">ItemEntryBody</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">ItemInputForm</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">             </span><span class="devsite-syntax-n">itemDetails</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">itemDetails</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">             </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">         </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy over, part of the starter code</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">ItemInputForm</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">itemDetails</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ItemDetails</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">ItemUiState</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{},</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">enabled</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">(),</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">verticalArrangement</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Arrangement</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">spacedBy</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">16.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">))</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">OutlinedTextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">itemDetails</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">copy</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">))</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">OutlinedTextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">price</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">itemDetails</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">copy</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">price</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">))</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">OutlinedTextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">quantity</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">itemDetails</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">copy</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">quantity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">))</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="add-click-listener-to-the-save-button">向“Save”按钮添加点击监听器</h2>
+<p>为了将一切连接到一起，请为 <strong>Save</strong> 按钮添加一个点击处理程序。在点击处理程序中，您将启动一个协程并调用 <code dir="ltr" translate="no">saveItem()</code> 以将数据保存在 Room 数据库中。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">ItemEntryScreen.kt</code> 中的 <code dir="ltr" translate="no">ItemEntryScreen</code> 可组合函数内，使用 <code dir="ltr" translate="no">rememberCoroutineScope()</code> 可组合函数创建一个名为 <code dir="ltr" translate="no">coroutineScope</code> 的 <code dir="ltr" translate="no">val</code>。</li>
+</ol>
+<aside class="special"><p><strong>注意：</strong><code dir="ltr" translate="no">rememberCoroutineScope()</code> 是一个可组合函数，可返回一个 <code dir="ltr" translate="no">CoroutineScope</code>（已绑定到调用它的组合）。如果您想在可组合函数外启动协程，并确保在该作用域退出组合后取消该协程，可以使用 <code dir="ltr" translate="no">rememberCoroutineScope()</code> 可组合函数。如果您需要手动控制协程的生命周期，例如，在发生用户事件时取消动画，则可以使用此函数。</p>
+</aside>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.runtime.rememberCoroutineScope</span>
+
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">coroutineScope</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">rememberCoroutineScope</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<ol start="2" type="1">
+<li>更新 <em></em><code dir="ltr" translate="no">ItemEntryBody</code><code dir="ltr" translate="no">()</code> 函数调用并在 <code dir="ltr" translate="no">onSaveClick</code> lambda 内启动协程。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">ItemEntryBody</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">onSaveClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">innerPadding</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="3" type="1">
+<li>查看 <code dir="ltr" translate="no">ItemEntryViewModel.kt</code> 文件中的 <code dir="ltr" translate="no">saveItem()</code> 函数实现以检查 <code dir="ltr" translate="no">itemUiState</code> 是否有效，将 <code dir="ltr" translate="no">itemUiState</code> 转换为 <code dir="ltr" translate="no">Item</code> 类型，然后使用 <code dir="ltr" translate="no">itemsRepository.insertItem()</code> 将其插入数据库。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy over, you have already implemented this as part of the Room implementation </span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">saveItem</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">validateInput</span><span class="devsite-syntax-p">())</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">itemsRepository</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">insertItem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">itemDetails</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toItem</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">ItemEntryScreen.kt</code> 中的 <code dir="ltr" translate="no">ItemEntryScreen</code> 可组合函数内，从协程内调用 <code dir="ltr" translate="no">viewModel.saveItem()</code> 可将该商品保存在数据库中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">ItemEntryBody</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">onSaveClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">saveItem</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>请注意，您没有在 <code dir="ltr" translate="no">ItemEntryViewModel.kt</code> 文件中为 <code dir="ltr" translate="no">saveItem()</code> 使用 <code dir="ltr" translate="no">viewModelScope.launch()</code>，但在调用存储库方法时，<em></em><code dir="ltr" translate="no">ItemEntryBody</code><code dir="ltr" translate="no">()</code> 需要使用该函数。您只能从协程或其他挂起函数调用挂起函数。函数 <code dir="ltr" translate="no">viewModel.saveItem()</code> 就是一个挂起函数。</p>
+<ol start="5" type="1">
+<li>构建并运行您的应用。</li>
+<li>点按 <strong>+</strong> FAB。</li>
+<li>在 <strong>Add Item</strong> 界面中，添加商品详情并点按 <strong>Save</strong>。请注意，点按 <strong>Save</strong> 按钮不会关闭 <strong>Add Item</strong> 界面。</li>
+</ol>
+<p class="image-container"><img alt="手机屏幕显示：商品详情已填充，“Save”按钮已启用" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/86086f5d34c90fcf_2880.029cc721e4.png 2880w" style="width: 317.00px" loading="lazy" decoding="async"></p>
+<ol start="8" type="1">
+<li>在 <code dir="ltr" translate="no">onSaveClick</code> lambda 中，在调用 <code dir="ltr" translate="no">viewModel.saveItem()</code> 后添加对 <code dir="ltr" translate="no">navigateBack()</code> 的调用，以返回上一个界面。您的 <code dir="ltr" translate="no">ItemEntryBody()</code> 函数如以下代码所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">ItemEntryBody</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">itemUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">itemUiState</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">onItemValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">updateUiState</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">onSaveClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">saveItem</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">navigateBack</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">innerPadding</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="9" type="1">
+<li>再次运行应用，然后执行相同的步骤来输入并保存数据。请注意，这一次，应用将返回 <strong>Inventory</strong> 界面。</li>
+</ol>
+<p>此操作会保存数据，但您在应用中看不到商品目录数据。在下一个任务中，您将使用 <a href="https://developer.android.com/studio/inspect/database?hl=zh-cn" target="_blank">Database Inspector</a> 查看已保存的数据。</p>
+<p class="image-container"><img alt="显示空白商品目录清单的应用屏幕" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/63d24e14cf062873_2880.029cc721e4.png 2880w" style="width: 360.00px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="9">
+              10. 使用 Database Inspector 查看数据库内容</h2>
+          
+          <p>借助 <a href="https://developer.android.com/studio/inspect/database?hl=zh-cn" target="_blank">Database Inspector</a>，您可以在应用运行时检查、查询和修改应用的数据库。此功能对于数据库调试尤为有用。Database Inspector 可处理普通的 SQLite 数据库以及在 SQLite 的基础上构建的库（例如 Room）。Database Inspector 在搭载 API 级别 26 的模拟器/设备上使用效果最佳。</p>
+<aside class="special"><p><strong>注意</strong>：Database Inspector 只能处理 API 级别 26 及更高版本的 Android 操作系统中所包含的 SQLite 库。它无法处理与您的应用捆绑的其他 SQLite 库。</p>
+</aside>
+<ol type="1">
+<li>在搭载 API 级别 26 或更高版本的模拟器或已连接设备上运行您的应用（如果您尚未这样做）。</li>
+<li>在 Android Studio 中，从菜单栏中依次选择 <strong>View</strong> &gt; <strong>Tool Windows</strong> &gt; <strong>App Inspection</strong>。</li>
+<li>选择 <strong>Database Inspector</strong> 标签页。</li>
+<li>在 <strong>Database Inspector</strong> 窗格中，从下拉菜单中选择 <code dir="ltr" translate="no">com.example.inventory</code>（如果尚未选择）。Inventory 应用中的 <strong>item_database</strong> 将显示于 <strong>Databases</strong> 窗格中。</li>
+</ol>
+<p class="image-container"><img alt="76408bd5e93c3432.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/76408bd5e93c3432_2880.029cc721e4.png 2880w" style="width: 617.00px" loading="lazy" decoding="async"></p>
+<ol start="5" type="1">
+<li>在 <strong>Databases</strong> 窗格中展开 <strong>item_database</strong> 的节点，然后选择要检查的 <strong>Item</strong>。如果 <strong>Databases</strong> 窗格为空，请使用模拟器通过 <strong>Add Item</strong> 界面向数据库中添加一些商品。</li>
+<li>选中数据库检查器中的 <strong>Live updates</strong> 复选框，以便随着您与模拟器或设备中正在运行的应用互动而自动更新呈现的数据。</li>
+</ol>
+<p class="image-container"><img alt="9e21d9f7eb426008.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-persisting-data-room/img/9e21d9f7eb426008_2880.029cc721e4.png 2880w" style="width: 662.40px" loading="lazy" decoding="async"></p>
+<p>恭喜！您创建了一个可以使用 <a href="https://developer.android.com/reference/androidx/room/package-summary?hl=zh-cn" target="_blank">Room</a> 保留数据的应用。在下一个 Codelab 中，您将向应用添加一个 <code dir="ltr" translate="no">lazyColumn</code> 以显示数据库中的商品，并向应用添加新功能，例如删除和更新实体。到时候见！</p>
+
+
+        
+          
+          <h2 class="" id="10">
+              11. 获取解决方案代码
+          </h2>
+          
+          <p>此 Codelab 的解决方案代码位于 GitHub 仓库中。如需下载完成后的 Codelab 代码，请使用以下 Git 命令：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-inventory-app.git
+$ cd basic-android-kotlin-compose-training-inventory-app
+$ git checkout room
+</pre>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-inventory-app/archive/refs/heads/room.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">room</code> 分支中。</p>
+</aside>
+<p>如果您想查看此 Codelab 的解决方案代码，请前往 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-inventory-app/tree/room" target="_blank">GitHub</a> 查看。</p>
+
+
+        
+          
+          <h2 class="" id="11">
+              12. 总结
+          </h2>
+          
+          <ul>
+<li>将您的表定义为带有 <code dir="ltr" translate="no">@Entity</code> 注解的数据类。将带有 <code dir="ltr" translate="no">@ColumnInfo</code> 注解的属性定义为表中的列。</li>
+<li>将数据访问对象 (DAO) 定义为带有 <code dir="ltr" translate="no">@Dao</code> 注解的接口。DAO 用于将 Kotlin 函数映射到数据库查询。</li>
+<li>使用注解来定义 <code dir="ltr" translate="no">@Insert</code>、<code dir="ltr" translate="no">@Delete</code> 和 <code dir="ltr" translate="no">@Update</code> 函数。</li>
+<li>将 <code dir="ltr" translate="no">@Query</code> 注解和作为参数的 SQLite 查询字符串用于所有其他查询。</li>
+<li>使用 <a href="https://developer.android.com/studio/inspect/database?hl=zh-cn" target="_blank">Database Inspector</a> 查看 Android SQLite 数据库中保存的数据。</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="12">
+              13. 了解更多内容
+          </h2>
+          
+          <p>Android 开发者文档</p>
+<ul>
+<li><a href="https://developer.android.com/training/data-storage/room?hl=zh-cn" target="_blank">使用 Room 将数据保存到本地数据库</a></li>
+<li><a href="https://developer.android.com/reference/androidx/room/package-summary?hl=zh-cn" target="_blank">androidx.room</a></li>
+<li><a href="https://developer.android.com/studio/inspect/database?hl=zh-cn" target="_blank">使用 Database Inspector 调试数据库</a></li>
+</ul>
+<p>博文</p>
+<ul>
+<li><a href="https://medium.com/androiddevelopers/7-pro-tips-for-room-fbadea4bfbd1" target="_blank">有关 Room 的 7 个专业提示</a></li>
+<li><a href="https://medium.com/androiddevelopers/the-one-and-only-object-5dfd2cf7ab9b" target="_blank">唯一仅有的对象。Kotlin 词汇</a></li>
+</ul>
+<p>视频</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=vsDkhRTMdA0&amp;hl=zh-cn" target="_blank">Kotlin：使用 Room Kotlin API</a></li>
+<li><a href="https://www.youtube.com/watch?v=UMc7Tu0nKYQ&amp;hl=zh-cn" target="_blank">Database Inspector</a></li>
+</ul>
+<p>其他文档和文章</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank">单例模式</a></li>
+<li><a href="https://kotlinlang.org/docs/object-declarations.html#companion-objects" target="_blank">伴生对象</a></li>
+<li><a href="https://www.sqlitetutorial.net/" target="_blank">SQLite 教程 - 简单快速地掌握 SQLite</a></li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="../01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">上一节：使用 SQL 对数据库执行读写操作</a><a href="./02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">下一节：02.使用 Room 读取和更新数据</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

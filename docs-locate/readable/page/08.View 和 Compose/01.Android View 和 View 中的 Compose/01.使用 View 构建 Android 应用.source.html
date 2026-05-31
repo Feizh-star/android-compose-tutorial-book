@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>使用 View 构建 Android 应用</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">简介：Compose 中的状态</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">创建 Art Space 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将常用高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题设置</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 添加简单的动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">为 ViewModel 编写单元测试</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：将 ViewModel 添加到 Dessert Clicker</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加仓库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建“书架”应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建 Flight Search 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：Water Me! 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a class="active" href="./01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="./02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">使用 View 构建 Android 应用</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <h2 id="introduction">简介</h2>
+<p>至此，您已经全面学习了如何使用 Compose 构建 Android 应用。这非常有用！Compose 是一款可以简化开发流程的强大工具。不过，Android 应用并非总是使用声明性界面构建的。在 Android 应用的历史长河中，Compose 是一款非常新的工具。Android 界面最初是使用 View 构建的。因此，随着您继续从事 Android 开发工作，您很可能会遇到 View。在此 Codelab 中，您将学习与在 Compose 问世之前如何构建 Android 应用相关的基础知识（使用 XML、View、View 绑定和 Fragment）。</p>
+<h2 id="prerequisites:">前提条件：</h2>
+<ul>
+<li>已完成“Android 之 Compose 开发基础”课程作业的前 <a href="https://developer.android.com/courses/android-basics-compose/unit-7?hl=zh-cn" target="_blank">7 个单元</a>。</li>
+</ul>
+<h2 id="what-youll-need">所需条件</h2>
+<ul>
+<li>一台连接到互联网并安装了 Android Studio 的电脑</li>
+<li>一台设备或模拟器</li>
+<li>Juice Tracker 应用的起始代码</li>
+</ul>
+<h2 id="what-youll-build">构建内容</h2>
+<p>在此 Codelab 中，您将完成 Juice Tracker 应用。借助这款应用，您可以构建一个包含详细项的列表，以便跟踪各种重要的果汁。您将添加并修改 Fragment 和 XML，以完成界面和起始代码。具体来说，您将构建用于创建新果汁的条目表单，包括界面和任何相关的逻辑或导航。完成后，您将得到一个包含空列表的应用，您可以向其中添加自己的果汁。</p>
+<p class="image-container"><img alt="d6dc43171ae62047.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d6dc43171ae62047_2880.029cc721e4.png 2880w" style="width: 192.00px" loading="lazy" decoding="async"> <img alt="87b2ca7b49e814cb.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_2880.029cc721e4.png 2880w" style="width: 192.00px" loading="lazy" decoding="async"> <img alt="2d630489477e216e.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/2d630489477e216e_2880.029cc721e4.png 2880w" style="width: 192.00px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 获取起始代码
+          </h2>
+          
+          <aside class="special"><p><strong>起始代码网址</strong>：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker/tree/views-starter" target="_blank"><code dir="ltr" translate="no">https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker</code></a></p>
+<p><strong>包含起始代码的分支名称：</strong><code dir="ltr" translate="no">views-starter</code></p>
+</aside>
+<ol type="1">
+<li>在 Android Studio 中，打开 <code dir="ltr" translate="no">basic-android-kotlin-compose-training-juice-tracker</code> 文件夹。</li>
+<li>在 Android Studio 中，打开 Juice Tracker 应用代码。</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 创建布局
+          </h2>
+          
+          <p>使用 <a href="https://developer.android.com/reference/android/view/View?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Views</code></a> 构建应用时，您将在<a href="https://developer.android.com/develop/ui/views/layout/declaring-layout?hl=zh-cn" target="_blank">布局</a>中构建界面。布局通常使用 XML 进行声明。这些 XML 布局文件位于资源目录中的 <strong>res &gt; layout</strong> 下。布局包含组成界面的组件；这些组件称为 <code dir="ltr" translate="no">View</code>。XML 语法由标记、元素和属性组成。如需详细了解 XML 语法，请参阅<a href="https://developer.android.com/codelabs/basic-android-kotlin-training-xml-layouts?hl=zh-cn" target="_blank">为 Android 创建 XML 布局</a> Codelab。</p>
+<p>在本部分中，您将为如图所示的 <strong>Type of juice</strong> 条目对话框构建 XML 布局。</p>
+<p class="image-container"><img alt="87b2ca7b49e814cb.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/87b2ca7b49e814cb_2880.029cc721e4.png 2880w" style="width: 264.00px" loading="lazy" decoding="async"></p>
+<ol type="1">
+<li>在 <strong>main &gt; res &gt; layout</strong> 目录中创建一个名为 <code dir="ltr" translate="no">fragment_entry_dialog</code> 的新<strong>布局资源文件</strong>。</li>
+</ol>
+<p class="image-container"><img alt="打开的 Android Studio 项目窗格上下文窗格，其中显示了用于创建布局资源文件的选项。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/331927b84e9d1a27_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p class="image-container"><img alt="6adb279d6e74ab13.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/6adb279d6e74ab13_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p><code dir="ltr" translate="no">fragment_entry_dialog.xml</code> 布局包含应用向用户显示的界面组件。</p>
+<p>请注意，<strong>根元素</strong>是 <code dir="ltr" translate="no">ConstraintLayout</code>。此类布局是一种 <code dir="ltr" translate="no">ViewGroup</code>，可让您使用约束条件灵活地设置 View 的位置和大小。<code dir="ltr" translate="no">ViewGroup</code> 是一种 <code dir="ltr" translate="no">View</code>，其中包含其他 <code dir="ltr" translate="no">View</code>（称为子 <code dir="ltr" translate="no">View</code>）。下面的步骤更详细地介绍了这一主题，但如需详细了解 <code dir="ltr" translate="no">ConstraintLayout</code>，请参阅<a href="https://developer.android.com/develop/ui/views/layout/constraint-layout?hl=zh-cn" target="_blank">使用 ConstraintLayout 构建自适应界面</a>。</p>
+<ol start="2" type="1">
+<li>创建文件后，在 <code dir="ltr" translate="no">ConstraintLayout</code> 中定义应用名称空间。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">androidx</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">constraintlayout</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">widget</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ConstraintLayout</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">xmlns</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"http://schemas.android.com/apk/res/android"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">xmlns</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"http://schemas.android.com/apk/res-auto"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"match_parent"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"match_parent"</span>&gt;
+&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">androidx</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">constraintlayout</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">widget</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ConstraintLayout</span>&gt;
+</code></pre>
+<ol start="3" type="1">
+<li>将以下准则添加到 <code dir="ltr" translate="no">ConstraintLayout</code> 中。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">androidx</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">constraintlayout</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">widget</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Guideline</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_left"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">orientation</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"vertical"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintGuide_begin</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"16dp"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+&lt;<span class="devsite-syntax-n">androidx</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">constraintlayout</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">widget</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Guideline</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_middle"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">orientation</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"vertical"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintGuide_percent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"0.5"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+&lt;<span class="devsite-syntax-n">androidx</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">constraintlayout</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">widget</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Guideline</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_top"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">orientation</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"horizontal"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintGuide_begin</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"16dp"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+</code></pre>
+<p>这些 <code dir="ltr" translate="no">Guideline</code> 将用作其他 View 的内边距。这些准则将约束 <strong>Type of juice</strong> 标题文本。</p>
+<ol start="4" type="1">
+<li>创建一个 <code dir="ltr" translate="no">TextView</code> 元素。此 <code dir="ltr" translate="no">TextView</code> 表示详情 fragment 的标题。</li>
+</ol>
+<p class="image-container"><img alt="110cad4ae809e600.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/110cad4ae809e600_2880.029cc721e4.png 2880w" style="width: 264.00px" loading="lazy" decoding="async"></p>
+<ol start="5" type="1">
+<li>将 <code dir="ltr" translate="no">TextView</code> 的 <code dir="ltr" translate="no">id</code> 设置为 <code dir="ltr" translate="no">header_title</code>。</li>
+<li>将 <code dir="ltr" translate="no">layout_width</code> 设置为 <code dir="ltr" translate="no">0dp</code>。布局约束条件最终定义此 <code dir="ltr" translate="no">TextView</code> 的宽度。因此，定义宽度只会在绘制界面时增加不必要的计算；定义 <code dir="ltr" translate="no">0dp</code> 的宽度可以避免额外的计算。</li>
+<li>将 <code dir="ltr" translate="no">TextView text</code> 属性设置为 <code dir="ltr" translate="no">@string/juice_type</code>。</li>
+<li>将 <code dir="ltr" translate="no">textAppearance</code> 设置为 <code dir="ltr" translate="no">@style/TextAppearance.MaterialComponents.Headline5</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">TextView</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/header_title"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"0dp"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@string/juice_type"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">textAppearance</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@style/TextAppearance.MaterialComponents.Headline5"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+</code></pre>
+<p>最后，您需要定义约束条件。与使用维度作为约束条件的 <code dir="ltr" translate="no">Guideline</code> 不同，这些准则本身就能约束此 <code dir="ltr" translate="no">TextView</code>。为了实现此结果，您可以引用要用来约束 View 的 <code dir="ltr" translate="no">Guideline</code> 的 ID。</p>
+<ol start="9" type="1">
+<li>将标题顶部约束为 <code dir="ltr" translate="no">guideline_top</code> 的底部。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">TextView</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/header_title"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"0dp"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@string/juice_type"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">textAppearance</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@style/TextAppearance.MaterialComponents.Headline5"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintTop_toBottomOf</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_top"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+</code></pre>
+<ol start="10" type="1">
+<li>将结束位置约束为 <code dir="ltr" translate="no">guideline_middle</code> 的起始位置，并将其起始位置约束为 <code dir="ltr" translate="no">guideline_left</code> 的起始位置，以完成 <code dir="ltr" translate="no">TextView</code> 的放置。请注意，给定 View 的约束方式完全取决于您预期的界面外观。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">TextView</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/header_title"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"0dp"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"wrap_content"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@string/juice_type"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">textAppearance</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@style/TextAppearance.MaterialComponents.Headline5"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintTop_toBottomOf</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_top"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintEnd_toStartOf</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_middle"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">layout_constraintStart_toStartOf</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@+id/guideline_left"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+</code></pre>
+<p>尝试根据屏幕截图构建界面的其余部分。您可以在<a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker/tree/views" target="_blank">解决方案</a>中找到完整的 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker/blob/views/app/src/main/res/layout/fragment_entry_dialog.xml" target="_blank"><code dir="ltr" translate="no">fragment_entry_dialog.xml</code></a> 文件。</p>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 创建包含 View 的 Fragment
+          </h2>
+          
+          <p>在 Compose 中，您可以使用 Kotlin 或 Java 以声明方式构建布局。通过导航到不同的可组合项（通常在同一 activity 中），您可以访问不同的“界面”。使用 View 构建应用时，托管 XML 布局的 Fragment 将取代可组合项“界面”的概念。</p>
+<p>在本部分中，您将创建一个 <code dir="ltr" translate="no">Fragment</code> 来托管 <code dir="ltr" translate="no">fragment_entry_dialog</code> 布局并向界面提供数据。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">juicetracker</code> 软件包中，新建一个名为 <code dir="ltr" translate="no">EntryDialogFragment</code> 的类。</li>
+<li>使 <code dir="ltr" translate="no">EntryDialogFragment</code> 扩展 <code dir="ltr" translate="no">BottomSheetDialogFragment</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.android.material.bottomsheet.BottomSheetDialogFragment</span>
+
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">EntryDialogFragment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">BottomSheetDialogFragment</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p><code dir="ltr" translate="no">DialogFragment</code> 是用于显示浮动对话框的 <code dir="ltr" translate="no">Fragment</code>。<code dir="ltr" translate="no">BottomSheetDialogFragment</code> 继承自 <code dir="ltr" translate="no">DialogFragment</code> 类，但其会显示与固定在屏幕底部的界面等宽的工作表。这种方法与上图中的设计相符。</p>
+<ol start="3" type="1">
+<li>重新构建项目，这会使系统自动生成基于 <code dir="ltr" translate="no">fragment_entry_dialog</code> 的 View 绑定文件。通过 View 绑定，您可以访问 XML 声明的 <code dir="ltr" translate="no">View</code> 并与之互动。如需了解详情，请参阅 <a href="https://developer.android.com/topic/libraries/view-binding?hl=zh-cn" target="_blank">View 绑定</a>文档。</li>
+<li>在 <code dir="ltr" translate="no">EntryDialogFragment</code> 类中，实现 <code dir="ltr" translate="no">onCreateView()</code> 函数。顾名思义，此函数将为该 <code dir="ltr" translate="no">Fragment</code> 创建 <code dir="ltr" translate="no">View</code>。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：与 <code dir="ltr" translate="no">Activity</code> 类似，<code dir="ltr" translate="no">Fragment</code> 也具有不同的<a href="https://developer.android.com/guide/fragments/lifecycle?hl=zh-cn" target="_blank">生命周期状态</a>以及对应的生命周期方法。</p>
+</aside>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.os.Bundle</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.view.LayoutInflater</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.view.View</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.view.ViewGroup</span>
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreateView</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LayoutInflater</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ViewGroup?,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?</span>
+<span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View? </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onCreateView</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p><code dir="ltr" translate="no">onCreateView()</code> 函数会返回 <code dir="ltr" translate="no">View</code>，但目前它不会返回有用的 <code dir="ltr" translate="no">View</code>。</p>
+<ol start="5" type="1">
+<li>返回通过膨胀 <code dir="ltr" translate="no">FragmentEntryDialogViewBinding</code> 生成的 <code dir="ltr" translate="no">View</code>（而非返回 <code dir="ltr" translate="no">super.onCreateView()</code>）。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.juicetracker.databinding.FragmentEntryDialogBinding</span>
+
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreateView</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LayoutInflater</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ViewGroup?,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?</span>
+<span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View? </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FragmentEntryDialogBinding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">inflate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">root</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>在 <code dir="ltr" translate="no">onCreateView()</code> 函数之外（但在 <code dir="ltr" translate="no">EntryDialogFragment</code> 类内），创建 <code dir="ltr" translate="no">EntryViewModel</code> 的实例。</li>
+<li>实现 <code dir="ltr" translate="no">onViewCreated()</code> 函数。</li>
+</ol>
+<p>膨胀 View 绑定后，您可以访问和修改布局中的 <code dir="ltr" translate="no">View</code>。系统会在生命周期中的 <code dir="ltr" translate="no">onCreateView()</code> 之后调用 <code dir="ltr" translate="no">onViewCreated()</code> 方法。建议您使用 <code dir="ltr" translate="no">onViewCreated()</code> 方法在布局中访问和修改 <code dir="ltr" translate="no">View</code>。</p>
+<ol start="8" type="1">
+<li>对 <code dir="ltr" translate="no">FragmentEntryDialogBinding</code> 调用 <code dir="ltr" translate="no">bind()</code> 方法，以创建 View 绑定的实例。</li>
+</ol>
+<p>此时，您的代码应如以下示例所示：</p>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.fragment.app.viewModels</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.juicetracker.ui.AppViewModelProvider</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.juicetracker.ui.EntryViewModel</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">EntryDialogFragment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">BottomSheetDialogFragment</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">entryViewModel</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModels&lt;EntryViewModel&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AppViewModelProvider</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Factory</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreateView</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LayoutInflater</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ViewGroup?,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FragmentEntryDialogBinding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">inflate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">inflater</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">root</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onViewCreated</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">binding</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FragmentEntryDialogBinding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">bind</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>您可以通过绑定访问和设置 View。例如，您可以通过 <code dir="ltr" translate="no">setText()</code> 方法设置 <code dir="ltr" translate="no">TextView</code>。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setText</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Apple juice"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<aside class="special"><p><strong>注意</strong>：为简单起见，在上面的示例中使用了硬编码字符串 <strong>Apple juice</strong>。在生产环境中，应使用字符串资源。</p>
+</aside>
+<p>条目对话框界面是供用户新建项的地方，但您也可以使用它来修改现有项。因此，Fragment 需要检索被点击的项。Navigation 组件有助于导航到 <code dir="ltr" translate="no">EntryDialogFragment</code> 并检索被点击的项。</p>
+<p><code dir="ltr" translate="no">EntryDialogFragment</code> 尚未完成，但不用担心！现在，请继续学习下一部分，详细了解如何在包含 <code dir="ltr" translate="no">View</code> 的应用中使用 Navigation 组件。</p>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 修改 Navigation 组件
+          </h2>
+          
+          <p>在本部分中，您将使用 Navigation 组件启动条目对话框并检索某个项（如果适用）。</p>
+<p>Compose 让您只需进行调用即可呈现不同的可组合项。不过，Fragment 的运作方式有所不同。<a href="https://developer.android.com/guide/navigation/navigation-getting-started?hl=zh-cn" target="_blank">Navigation 组件</a>会协调 Fragment“目的地”，从而方便在不同 Fragment 及其包含的 View 之间移动。</p>
+<p>使用 Navigation 组件协调导航到您的 <code dir="ltr" translate="no">EntryDialogFragment</code>。</p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">nav_graph.xml</code> 文件，并确保已选择 <strong>Design</strong> 标签页。<img alt="783cb5d7ff0ba127.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/783cb5d7ff0ba127_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></li>
+<li>点击 <img alt="93401bf098936c15.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/93401bf098936c15_2880.029cc721e4.png 2880w" style="width: 30.07px" loading="lazy" decoding="async"> 图标以添加新的目的地。</li>
+</ol>
+<p class="image-container"><img alt="d5410c90e408b973.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/d5410c90e408b973_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<ol start="3" type="1">
+<li>选择 <code dir="ltr" translate="no">EntryDialogFragment</code> 目的地。此操作将在导航图中声明 <code dir="ltr" translate="no">entryDialogFragment</code>，使其可供导航操作访问。</li>
+</ol>
+<p class="image-container"><img alt="418feed425072ea4.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/418feed425072ea4_2880.029cc721e4.png 2880w" style="width: 520.00px" loading="lazy" decoding="async"></p>
+<aside class="special"><p><strong>注意</strong>：<code dir="ltr" translate="no">entryDialogFragment</code> 屏幕可能会显示在 <code dir="ltr" translate="no">nav_graph.xml</code> 显示屏中的随机位置。您可以拖动目的地，让显示屏更加井然有序。</p>
+</aside>
+<p>您需要从 <code dir="ltr" translate="no">TrackerFragment</code> 启动 <code dir="ltr" translate="no">EntryDialogFragment</code>。因此，导航操作需要完成此任务。</p>
+<ol start="4" type="1">
+<li>将光标拖动到 <code dir="ltr" translate="no">trackerFragment</code> 上方。选择灰点，然后将线条拖动到 <code dir="ltr" translate="no">entryDialogFragment</code>。<img alt="85decb6fcddec713.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/85decb6fcddec713_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></li>
+<li>借助 nav_graph Design 视图，您可以通过以下方式声明目的地参数：选择相应目的地，然后点击 <strong>Arguments</strong> 下拉菜单旁边的 <img alt="a0d73140a20e4348.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/a0d73140a20e4348_2880.029cc721e4.png 2880w" style="width: 24.41px" loading="lazy" decoding="async"> 图标。使用此功能将类型为 <code dir="ltr" translate="no">Long</code> 的 <code dir="ltr" translate="no">itemId</code> 参数添加到 <code dir="ltr" translate="no">entryDialogFragment</code>；默认值应为 <code dir="ltr" translate="no">0L</code>。</li>
+</ol>
+<p class="image-container"><img alt="555cf791f64f62b8.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/555cf791f64f62b8_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p class="image-container"><img alt="840105bd52f300f7.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-app-with-views/img/840105bd52f300f7_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>请注意，<code dir="ltr" translate="no">TrackerFragment</code> 包含 <code dir="ltr" translate="no">Juice</code> 项列表。如果您点击其中一个项，<code dir="ltr" translate="no">EntryDialogFragment</code> 就会启动。</p>
+<ol start="6" type="1">
+<li>重新构建项目。现在可以在 <code dir="ltr" translate="no">EntryDialogFragment</code> 中访问 <code dir="ltr" translate="no">itemId</code> 参数了。</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 完成 Fragment
+          </h2>
+          
+          <p>使用导航参数中的数据，完成条目对话框。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">EntryDialogFragment</code> 的 <code dir="ltr" translate="no">onViewCreated()</code> 方法中检索 <code dir="ltr" translate="no">navArgs()</code>。</li>
+<li>从 <code dir="ltr" translate="no">navArgs()</code> 检索 <code dir="ltr" translate="no">itemId</code>。</li>
+<li>实现 <code dir="ltr" translate="no">saveButton</code> 以使用 <code dir="ltr" translate="no">ViewModel</code> 保存新的/经过修改的果汁。</li>
+</ol>
+<p>回想一下默认颜色值为 red 的条目对话框界面。目前，将其作为占位符进行传递。</p>
+<p>调用 <code dir="ltr" translate="no">saveJuice()</code> 时，从参数中传递项 ID。</p>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.navigation.fragment.navArgs</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.juicetracker.data.JuiceColor</span>
+
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">EntryDialogFragment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">BottomSheetDialogFragment</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">selectedColor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">JuiceColor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">JuiceColor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Red</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onViewCreated</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">binding</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FragmentEntryDialogBinding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">bind</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">args</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">EntryDialogFragmentArgs</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">navArgs</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">juiceId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">args</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">itemId</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">saveButton</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setOnClickListener</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">entryViewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">saveJuice</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">juiceId</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">text</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toString</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">text</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toString</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">selectedColor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ratingBar</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">rating</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toInt</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>保存数据后，使用 <code dir="ltr" translate="no">dismiss()</code> 方法关闭对话框。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">EntryDialogFragment.kt</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">EntryDialogFragment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">BottomSheetDialogFragment</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">selectedColor</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">JuiceColor</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">JuiceColor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Red</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">//...</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onViewCreated</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">View</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">binding</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FragmentEntryDialogBinding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">bind</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">view</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">args</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">EntryDialogFragmentArgs</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">navArgs</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">saveButton</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setOnClickListener</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">entryViewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">saveJuice</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">juiceId</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">text</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toString</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">text</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toString</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">selectedColor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ratingBar</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">rating</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toInt</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">dismiss</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>请注意，上述代码无法完成 <code dir="ltr" translate="no">EntryDialogFragment</code>。您仍然需要实现诸多操作，例如使用现有 <code dir="ltr" translate="no">Juice</code> 数据填充字段（如果适用）、从 <code dir="ltr" translate="no">colorSpinner</code> 中选择颜色、实现 <code dir="ltr" translate="no">cancelButton</code>，等等。不过，此代码不是 <code dir="ltr" translate="no">Fragment</code> 独有的，您可以自行实现此代码。尝试实现其余功能。万不得已时，您可以参考此 Codelab 的解决方案代码。</p>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 启动条目对话框
+          </h2>
+          
+          <p>最后一个任务是使用 Navigation 组件启动条目对话框。当用户点击悬浮操作按钮 (<strong>FAB</strong>) 时，条目对话框必须启动。此外，当用户点击某个项时，它也必须启动并传递相应 ID。</p>
+<ol type="1">
+<li>在 FAB 的 <code dir="ltr" translate="no">onClickListener()</code> 中，对导航控制器调用 <code dir="ltr" translate="no">navigate()</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">TrackerFragment.kt</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.navigation.findNavController</span>
+
+
+<span class="devsite-syntax-c1">//...</span>
+
+<span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fab</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setOnClickListener</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">fabView</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">fabView</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">findNavController</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">navigate</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-c1">//...</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在导航函数中，传递从跟踪器导航到条目对话框的操作。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">TrackerFragment.kt</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">//...</span>
+
+<span class="devsite-syntax-n">binding</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fab</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setOnClickListener</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">fabView</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">fabView</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">findNavController</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">navigate</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-n">TrackerFragmentDirections</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">actionTrackerFragmentToEntryDialogFragment</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-c1">//...</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 lambda 正文中为 <code dir="ltr" translate="no">JuiceListAdapter</code> 中的 <code dir="ltr" translate="no">onEdit()</code> 方法重复此操作，但这次要传递 <code dir="ltr" translate="no">Juice</code> 的 <code dir="ltr" translate="no">id</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">TrackerFragment.kt</code></strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">//...</span>
+
+<span class="devsite-syntax-n">onEdit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">drink</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">findNavController</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">navigate</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">TrackerFragmentDirections</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">actionTrackerFragmentToEntryDialogFragment</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">drink</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">id</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">},</span>
+
+<span class="devsite-syntax-c1">//...</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，您可以使用以下 Git 命令：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker.git
+$ cd basic-android-kotlin-compose-training-juice-tracker
+$ git checkout views
+</pre>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker/archive/refs/heads/views.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">views</code> 分支中。</p>
+</aside>
+<p>如果您想查看解决方案代码，请<a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-juice-tracker/tree/views" target="_blank">前往 GitHub 查看</a>。</p>
+
+
+        
+        <nav class="pager"><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">上一节：练习：Water Me! 应用</a><a href="./02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">下一节：02.将 Compose 添加到旧版应用</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

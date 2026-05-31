@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>activity 生命周期的阶段</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">简介：Compose 中的状态</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">创建 Art Space 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将常用高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题设置</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 添加简单的动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a class="active" href="./01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="./02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="./03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="./04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">activity 生命周期的阶段</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <p>在此 Codelab 中，您将了解 Android 的基本组成部分：activity 生命周期。<em></em></p>
+<p>activity 在生命过程中会转换多种状态，并且有时会恢复之前的状态。这种状态转换称为 activity 生命周期。</p>
+<p>在 Android 中，activity 是与用户交互的入口点。</p>
+<p>过去，一个 activity 在一个应用中仅显示一个屏幕。根据当前的最佳实践，一个 activity 可以根据需要在不同屏幕间切换，从而显示多个屏幕。</p>
+<p>activity 生命周期从其创建一直持续到销毁。在销毁时，系统将收回 activity 的资源。当用户进入和退出 activity 时，每个 activity 都会在其生命周期的不同状态之间转换。</p>
+<p>作为 Android 开发者，您需要了解 activity 生命周期。如果您的 activity 无法正确响应生命周期状态变化，则您的应用可能会生成奇怪的 bug、出现让您的用户感到困惑的行为，或使用过多的 Android 系统资源。了解 Android 生命周期并正确响应生命周期状态变化是 Android 开发的重要环节。</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>了解 activity 是什么，以及如何在应用中创建 activity</li>
+<li>了解 activity 的 <code dir="ltr" translate="no">onCreate()</code> 方法的用途，以及该方法中执行的操作的类型</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>如何将日志记录信息输出到 Logcat</li>
+<li><code dir="ltr" translate="no">Activity</code> 生命周期的基础知识，以及当 activity 在不同状态之间切换时调用的回调</li>
+<li>如何替换生命周期回调方法，以便在 activity 生命周期的不同时间执行操作</li>
+</ul>
+<h2 id="what-youll-build">构建内容</h2>
+<ul>
+<li>修改名为 Dessert Clicker 的起始应用，以添加在 Logcat 中显示的日志记录信息。</li>
+<li>替换生命周期回调方法并记录对 activity 状态的更改。</li>
+<li>运行应用，并记下 activity 启动、停止和恢复时显示的日志记录信息。</li>
+<li>实现 <code dir="ltr" translate="no">rememberSaveable</code> 以保留在设备配置发生变更时可能丢失的应用数据。</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 应用概览
+          </h2>
+          
+          <p>在此 Codelab 中，您将使用一款名为 Dessert Clicker 的起始应用。在 Dessert Clicker 中，每当用户点按屏幕上的甜点时，该应用就会为用户“购买”相应甜点。应用会在布局中更新以下值：</p>
+<ul>
+<li>“已购买”甜品的数量</li>
+<li>“已购买”甜品的总收入</li>
+</ul>
+<p class="image-container"><img alt="245d0bdfc09f4d54.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/245d0bdfc09f4d54_2880.029cc721e4.png 2880w" style="width: 264.00px" loading="lazy" decoding="async"></p>
+<p>该应用存在多个与 Android 生命周期相关的 bug。例如，在某些情况下，该应用会将甜点数量值重置为 0。了解 Android 生命周期可以帮助您理解这些问题发生的原因以及解决方法。</p>
+<h2 id="download-the-starter-code"><strong>下载起始代码</strong></h2>
+<p>在 Android Studio 中，打开 <code dir="ltr" translate="no">basic-android-kotlin-compose-training-dessert-clicker</code> 文件夹。</p>
+<aside class="special"><p><strong>起始代码网址：</strong><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dessert-clicker/tree/starter" target="_blank"><code dir="ltr" translate="no">https://github.com/google-developer-training/basic-android-kotlin-compose-training-dessert-clicker</code></a></p>
+<p><strong>分支名称</strong>：<code dir="ltr" translate="no">starter</code></p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 探索生命周期方法并添加基本日志记录
+          </h2>
+          
+          <p>每个 activity 都具有生命周期<em></em>。“生命周期”一词源于植物和动物的生命周期，比如蝴蝶的生命周期：蝴蝶的不同状态显示了其从卵、幼虫、蛹到蝴蝶再到死亡的成长过程。</p>
+<p class="image-container"><img alt="蝴蝶生命周期 - 从卵、幼虫、蛹到蝴蝶再到死亡。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2e74068b69dab83f_2880.029cc721e4.png 2880w" style="width: 334.50px" loading="lazy" decoding="async"></p>
+<p>同样，activity 生命周期由 activity 可能会经历的不同状态组成：从 activity 首次初始化一直到销毁，在销毁时，操作系统 (OS) 将收回其内存。通常，程序的入口点是 <code dir="ltr" translate="no">main()</code> 方法。不过，Android 的 activity 从 <code dir="ltr" translate="no">onCreate()</code> 方法开始；此方法等同于上述示例中的蝴蝶卵阶段。您在本课程中已经使用过许多 activity，或许已经认识 <code dir="ltr" translate="no">onCreate()</code> 方法。当用户启动您的应用、在 activity 之间导航、在应用内外部导航时，activity 会切换状态。</p>
+<p>下图显示了 activity 生命周期的所有状态。顾名思义，这些状态表示 activity 所处的状态。请注意，与蝴蝶生命周期不同，activity 在其整个生命周期内可以在不同状态之间来回切换，而不是仅向一个方向移动。</p>
+<aside class="special"><p><strong>注意</strong>：一个 Android 应用可以有多个 activity。不过，建议仅使用一个 activity，这也是本课程到目前为止所实现的内容。</p>
+</aside>
+<p class="image-container"><img alt="ca808edb1c95f07a.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca808edb1c95f07a_2880.029cc721e4.png 2880w" style="width: 285.50px" loading="lazy" decoding="async"></p>
+<p>在 activity 生命周期状态发生变化时，您通常需要更改某些行为，或者运行一些代码。因此，<code dir="ltr" translate="no">Activity</code> 类本身以及 <code dir="ltr" translate="no">Activity</code> 的任何子类（例如 <code dir="ltr" translate="no">ComponentActivity</code>）都会实现一组生命周期回调方法。Android 会在 activity 从一种状态切换为另一种状态时调用这些回调，而您可以在自己的 activity 中替换这些方法，通过执行任务来响应这些生命周期状态变化。下图显示了生命周期状态以及可用的可替换回调。</p>
+<p class="image-container"><img alt="activity 生命周期方案" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/468988518c270b38_2880.029cc721e4.png 2880w" style="width: 279.50px" loading="lazy" decoding="async"></p>
+<aside class="special"><p><strong>注意</strong>：<code dir="ltr" translate="no">onRestart()</code> 方法上的星号表示，每次状态在 <strong>Created</strong> 和 <strong>Started</strong> 之间转换时，系统都不会调用此方法。仅当调用 <code dir="ltr" translate="no">onStop()</code> 并且随后重启 activity 时，系统才会调用此方法。</p>
+</aside>
+<p>请务必了解 Android 何时调用可替换回调以及每个回调方法中应执行什么操作，但这两个图都很复杂并且可能会让人感到困惑。在此 Codelab 中，您不仅要了解每种状态和回调的含义，还要进行一些检测工作，并逐渐理解 Android 的 activity 生命周期。</p>
+<h2 id="step-1:-examine-the-oncreate-method-and-add-logging">第 1 步：检查 <code dir="ltr" translate="no">onCreate()</code> 方法并添加日志记录</h2>
+<p>为了弄清 Android 生命周期的一些情况，了解何时调用各种生命周期方法会很有帮助。了解这些信息有助于您发现 Dessert Clicker 应用中的问题。</p>
+<p>确定这些信息的一种简单方法是使用 Android 日志记录功能。通过日志记录功能，您可以在应用运行期间向控制台写入简短的消息，并利用它们来显示不同回调的触发时间。</p>
+<ol type="1">
+<li>运行 Dessert Clicker 应用，并在某款甜点的图片上点按多次。请注意 <strong>Desserts sold</strong> 的值与美元总金额发生的变化。</li>
+<li>打开 <code dir="ltr" translate="no">MainActivity.kt</code> 并检查此 activity 的 <code dir="ltr" translate="no">onCreate()</code> 方法：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在 activity 生命周期图中，您可能认出了 <code dir="ltr" translate="no">onCreate()</code> 方法，因为您之前使用过此回调。这便是每个 activity 都必须实现的方法。您可使用 <code dir="ltr" translate="no">onCreate()</code> 方法为 activity 执行所有一次性初始化。例如，在 <code dir="ltr" translate="no">onCreate()</code> 中，调用 <code dir="ltr" translate="no">setContent()</code> 以指定 activity 的界面布局。</p>
+<p class="image-container"><img alt="onCreate 生命周期方法" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/e3bc14c112d5363b_2880.029cc721e4.png 2880w" style="width: 359.50px" loading="lazy" decoding="async"></p>
+<p>系统会在 activity 初始化（OS 在内存中创建新的 <code dir="ltr" translate="no">Activity</code> 对象）之后立即调用一次 <code dir="ltr" translate="no">onCreate()</code> 生命周期方法。<em></em>执行 <code dir="ltr" translate="no">onCreate()</code> 后，相应 activity 会被视为“已创建”<em></em>。</p>
+<aside class="special"><p><strong>注意</strong>：替换 <code dir="ltr" translate="no">onCreate()</code> 方法时，您必须调用父类实现来完成 activity 的创建，因此您必须立即调用 <code dir="ltr" translate="no">super.onCreate()</code>。这也适用于其他生命周期回调方法。</p>
+</aside>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity.kt</code> 的顶层（类声明 <code dir="ltr" translate="no">class MainActivity</code> 的上方）添加以下常量。</li>
+</ol>
+<p>一种比较好的做法是在文件中声明 <code dir="ltr" translate="no">TAG</code> 常量，因为该值不会更改。</p>
+<p>若要将其标记为编译时常量，请在声明变量时使用 <code dir="ltr" translate="no">const</code>。编译时常量是在编译期间已知的值。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">TAG</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"MainActivity"</span>
+</code></pre>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">onCreate()</code> 方法中，在对 <code dir="ltr" translate="no">super.onCreate()</code> 的调用后，紧接着添加下面一行代码：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onCreate Called"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="5" type="1">
+<li>根据需要导入 <code dir="ltr" translate="no">Log</code> 类（按 <code dir="ltr" translate="no">Alt+Enter</code>，或者在 Mac 上按 <code dir="ltr" translate="no">Option+Enter</code>，然后选择 <strong>Import</strong>）。如果您启用了自动导入功能，系统应该会自动执行此操作。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.util.Log</span>
+</code></pre>
+<p><a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Log</code></a> 类会将消息写入 <strong>Logcat</strong>。<strong>Logcat</strong> 是用于记录消息的控制台。来自 Android 的关于您应用的消息会出现在这里，包括您使用 <code dir="ltr" translate="no">Log.d()</code> 方法或其他 <code dir="ltr" translate="no">Log</code> 类方法显式发送到日志的消息。</p>
+<p><code dir="ltr" translate="no">Log</code> 指令有三个重要方面：</p>
+<ul>
+<li>日志消息的<strong>优先级<em></em></strong>，即消息的重要性。在本示例中，<a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn#v_1" target="_blank"><code dir="ltr" translate="no">Log.v()</code></a> 会记录详细消息。<a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn#d" target="_blank"><code dir="ltr" translate="no">Log.d()</code></a> 方法会写入调试消息。<code dir="ltr" translate="no">Log</code> 类中的其他方法包括 <a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn#i_1" target="_blank"><code dir="ltr" translate="no">Log.i()</code></a>（表示信息性消息）、<a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn#w(kotlin.String,%20kotlin.String)" target="_blank"><code dir="ltr" translate="no">Log.w()</code></a>（表示警告）和<a href="https://developer.android.com/reference/kotlin/android/util/Log?hl=zh-cn#e(kotlin.String,%20kotlin.String)" target="_blank"><code dir="ltr" translate="no">Log.e()</code></a>（表示错误消息）。</li>
+<li>日志 <code dir="ltr" translate="no">tag</code>（第一个参数），在本示例中为 <code dir="ltr" translate="no">"MainActivity"</code>。该标签是一个字符串，可让您更轻松地在 Logcat 中找到自己的日志消息。该标签通常是类的名称。</li>
+<li>实际的日志消息称为 <code dir="ltr" translate="no">msg</code>（第二个参数），它是一个简短的字符串，在本示例中为 <code dir="ltr" translate="no">"onCreate Called"</code>。</li>
+</ul>
+<p class="image-container"><img alt="a4ff4aa74384ff6.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a4ff4aa74384ff6_2880.029cc721e4.png 2880w" style="width: 617.00px" loading="lazy" decoding="async"></p>
+<ol start="6" type="1">
+<li>编译并运行 Dessert Clicker 应用。当您点按甜点后，应用行为没有出现任何变化。在 Android Studio 中，点击屏幕底部的 <strong>Logcat</strong> 标签页。</li>
+</ol>
+<p class="image-container"><img alt="cedcce52592c6665.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/cedcce52592c6665_2880.029cc721e4.png 2880w" style="width: 432.00px" loading="lazy" decoding="async"></p>
+<ol start="7" type="1">
+<li>在 <strong>Logcat</strong> 窗口的搜索字段中输入 <code dir="ltr" translate="no">tag:MainActivity</code>。</li>
+</ol>
+<p class="image-container"><img alt="37080c4e00561b0.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/37080c4e00561b0_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>Logcat 可能包含很多消息，但大多数消息对您而言都没有用处。您可以通过多种方式来过滤 Logcat 条目，但搜索是最简单的方式。由于您在代码中使用了 <code dir="ltr" translate="no">MainActivity</code> 作为日志标签，因此您可以使用该标签来过滤日志。您的日志消息包含日期、时间、日志标签、软件包名称 (<code dir="ltr" translate="no">com.example.dessertclicker</code>) 以及实际消息。由于此消息出现在日志中，所以您会知道 <code dir="ltr" translate="no">onCreate()</code> 已执行。</p>
+<h2 id="step-2:-implement-the-onstart-method">第 2 步：实现 <code dir="ltr" translate="no">onStart()</code> 方法</h2>
+<p>系统会在调用 <code dir="ltr" translate="no">onCreate()</code> 之后立即调用 <code dir="ltr" translate="no">onStart()</code> 生命周期方法。<code dir="ltr" translate="no">onStart()</code> 运行后，您的 activity 会显示在屏幕上。与为初始化 activity 而仅调用一次的 <code dir="ltr" translate="no">onCreate()</code> 不同，<code dir="ltr" translate="no">onStart()</code> 可在 activity 的生命周期内由系统多次调用。</p>
+<p class="image-container"><img alt="a357d2291de472d9.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/a357d2291de472d9_2880.029cc721e4.png 2880w" style="width: 379.50px" loading="lazy" decoding="async"></p>
+<p>请注意，<code dir="ltr" translate="no">onStart()</code> 需要与相应的 <code dir="ltr" translate="no">onStop()</code> 生命周期方法配对使用。如果用户启动您的应用后又返回设备的主屏幕，相应 activity 会停止，并且不会再在屏幕上显示。</p>
+<ol type="1">
+<li>在 Android Studio 中，打开 <code dir="ltr" translate="no">MainActivity.kt</code> 并将光标移到 <code dir="ltr" translate="no">MainActivity</code> 类中，依次选择 <strong>Code &gt; Override Methods</strong>，或按 <code dir="ltr" translate="no">Control+O</code>。此时，系统会显示一个对话框，其中包含您可以在此类中替换的所有方法的长列表。</li>
+</ol>
+<p class="image-container"><img alt="20c34cbad8dce892.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/20c34cbad8dce892_2880.029cc721e4.png 2880w" style="width: 384.00px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>开始输入 <code dir="ltr" translate="no">onStart</code> 以搜索正确的方法。如需滚动到下一个匹配项，请使用向下箭。从列表中选择 <code dir="ltr" translate="no">onStart()</code>，然后点击 <strong>OK</strong> 插入样板替换代码。代码如以下示例所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onStart</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onStart</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">onStart()</code> 方法中，添加一条日志消息：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onStart</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onStart</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onStart Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>编译并运行 Dessert Clicker 应用，然后打开 <strong>Logcat</strong> 窗格。</li>
+<li>在搜索字段中输入 <code dir="ltr" translate="no">tag:MainActivity</code>，以过滤日志。请注意，<code dir="ltr" translate="no">onCreate()</code> 和 <code dir="ltr" translate="no">onStart()</code> 方法会依次调用，并且您的 activity 会显示在屏幕上。</li>
+<li>按设备上的<strong>主屏幕</strong>按钮，然后使用“最近用过”屏幕返回相应 activity。请注意，activity 会从上次停止的位置恢复，同时使用所有相同的值，并且 <code dir="ltr" translate="no">onStart()</code> 会再次记录到 Logcat 中。另请注意，系统不会再次调用 <code dir="ltr" translate="no">onCreate()</code> 方法。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">2024-04-26 14:54:48.721  5386-5386  MainActivity            com.example.dessertclicker           D  onCreate Called
+2024-04-26 14:54:48.756  5386-5386  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 14:55:41.674  5386-5386  MainActivity            com.example.dessertclicker           D  onStart Called
+</pre>
+<aside class="special"><p><strong>注意</strong>：在尝试使用设备并观察生命周期回调时，您可能会发现在设备旋转时出现了异常行为。此 Codelab 后面会介绍此行为。</p>
+</aside>
+<h2 id="step-3:-add-more-log-statements">第 3 步：添加更多日志语句</h2>
+<p>在此步骤中，您将为所有其他生命周期方法实现日志记录功能。</p>
+<ol type="1">
+<li>替换 <code dir="ltr" translate="no">MainActivity</code> 中其余的生命周期方法，然后为每种方法添加日志语句，如以下代码所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onResume</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onResume</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onResume Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onRestart</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onRestart</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onRestart Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onPause</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onPause</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onPause Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onStop</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onStop</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onStop Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onDestroy</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onDestroy</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Log</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">d</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">TAG</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"onDestroy Called"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>再次编译并运行 Dessert Clicker，然后检查 Logcat。</li>
+</ol>
+<p>请注意，除了 <code dir="ltr" translate="no">onCreate()</code> 和 <code dir="ltr" translate="no">onStart()</code> 之外，还有一条有关 <code dir="ltr" translate="no">onResume()</code> 生命周期回调的日志消息。</p>
+<div></div><pre translate="no" dir="ltr">2024-04-26 14:56:48.684  5484-5484  MainActivity            com.example.dessertclicker           D  onCreate Called
+2024-04-26 14:56:48.709  5484-5484  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 14:56:48.713  5484-5484  MainActivity            com.example.dessertclicker           D  onResume Called
+</pre>
+<p>当 activity 从头开始启动时，您会看到系统按顺序调用以下三个生命周期回调：</p>
+<ul>
+<li><code dir="ltr" translate="no">onCreate()</code>，在系统创建应用时调用。</li>
+<li><code dir="ltr" translate="no">onStart()</code>，使应用显示在屏幕上，但用户无法与应用进行交互。</li>
+<li><code dir="ltr" translate="no">onResume()</code>，将应用置于前台，用户现在可以与应用交互。</li>
+</ul>
+<p><code dir="ltr" translate="no">onResume()</code> 方法尽管名称是这样，但会在启动时调用，即使没有要恢复的 activity 也是如此。</p>
+<p class="image-container"><img alt="activity 生命周期方案" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/2678d691f608762a_2880.029cc721e4.png 2880w" style="width: 373.50px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 探索生命周期用例
+          </h2>
+          
+          <p>现在，您已经完成了 Dessert Clicker 应用的日志记录设置，接下来可以开始使用应用，并探索生命周期回调是如何触发的了。</p>
+<h2 id="use-case-1:-opening-and-closing-the-activity">用例 1：打开和关闭 activity</h2>
+<p>您可以先从最基本的用例入手，也就是首次启动您的应用，然后关闭应用。</p>
+<ol type="1">
+<li>编译并运行 Dessert Clicker 应用（如果该应用尚未运行）。正如您所看到的，当 activity 首次启动时，系统会调用 <code dir="ltr" translate="no">onCreate()</code>、<code dir="ltr" translate="no">onStart()</code> 和 <code dir="ltr" translate="no">onResume()</code> 回调。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">2024-04-26 14:56:48.684  5484-5484  MainActivity            com.example.dessertclicker           D  onCreate Called
+2024-04-26 14:56:48.709  5484-5484  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 14:56:48.713  5484-5484  MainActivity            com.example.dessertclicker           D  onResume Called
+</pre>
+<ol start="2" type="1">
+<li>多次点按纸杯蛋糕。</li>
+<li>点按设备上的<strong>返回</strong>按钮。</li>
+</ol>
+<p>请注意，在 Logcat 中，系统将按上述顺序调用 <code dir="ltr" translate="no">onPause()</code> 和 <code dir="ltr" translate="no">onStop()</code>。</p>
+<div></div><pre translate="no" dir="ltr">2024-04-26 14:58:19.984  5484-5484  MainActivity            com.example.dessertclicker           D  onPause Called
+2024-04-26 14:58:20.491  5484-5484  MainActivity            com.example.dessertclicker           D  onStop Called
+2024-04-26 14:58:20.517  5484-5484  MainActivity            com.example.dessertclicker           D  onDestroy Called
+</pre>
+<p>在本示例中，使用<strong>返回</strong>按钮会导致 activity（和应用）从屏幕中移除并移至 activity 堆栈的后侧。</p>
+<p>如果您的代码手动调用 activity 的 <a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#finish()" target="_blank"><code dir="ltr" translate="no">finish()</code></a> 方法，或者用户强制退出应用，Android OS 可能会关闭该 activity。例如，用户可以在“最近使用的应用”屏幕中强制退出或关闭应用。如果应用长时间没有在屏幕上显示，OS 也可能会自行关闭您的 activity。Android 这样做是为了延长电池续航时间，并回收应用正在使用的资源，以供其他应用使用。以上只是举例说明 Android 系统销毁 activity 的原因。在其他一些情况下，Android 系统会在不发出警告的情况下销毁您的 activity。</p>
+<aside class="special"><p><strong>注意：</strong><code dir="ltr" translate="no">onCreate()</code> 和 <code dir="ltr" translate="no">onDestroy()</code> 在单个 activity 实例的生命周期内只会调用一次：<code dir="ltr" translate="no">onCreate()</code> 用于首次初始化应用，<code dir="ltr" translate="no">onDestroy()</code> 用于作废、关闭或销毁 activity 可能一直在使用的对象，使其不会继续使用资源（如内存）。此 Codelab 将在稍后介绍这两个调用。</p>
+</aside>
+<h2 id="use-case-2:-navigating-away-from-and-back-to-the-activity">用例 2：离开和返回 activity</h2>
+<p>现在，您已经启动了应用并将其关闭，在此过程中，您看到了 activity 首次创建时经历的大部分生命周期状态。此外，您还看到了 activity 关闭时所经历的大多数生命周期状态。但当用户与其 Android 设备交互时，他们需要在应用之间切换、返回主屏幕、启动新应用以及处理由通话等其他 activity 导致的中断。</p>
+<p>每次用户离开您的 activity 时，它都不会关闭：</p>
+<ul>
+<li>当 activity 不再在屏幕上可见时，就说明该 activity 已置于后台<em></em>。反之，activity 位于前台或屏幕上。<em></em></li>
+<li>当用户返回您的应用时，相应 activity 会重启并再次可见。这部分生命周期称为应用的可见生命周期。<em></em></li>
+</ul>
+<p>当您的应用位于后台时，为了保留系统资源和电池续航时间，应用通常不应活跃运行。您可以使用 <code dir="ltr" translate="no">Activity</code> 生命周期及其回调来了解应用何时切换到后台，以便您暂停任何正在进行的操作。然后，在您的应用进入前台时重启相应操作。</p>
+<p>在这一步中，您将查看当应用进入后台以及返回前台时的 activity 生命周期。</p>
+<ol type="1">
+<li>在 Dessert Clicker 应用运行时，点击几次纸杯蛋糕。</li>
+<li>按设备上的<strong>主屏幕</strong>按钮，然后在 Android Studio 中观察 Logcat。返回主屏幕的操作会将您的应用置于后台，而不是完全关闭应用。请注意，系统会调用 <code dir="ltr" translate="no">onPause()</code> 和 <code dir="ltr" translate="no">onStop()</code> 方法。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">2024-04-26 15:00:04.905  5590-5590  MainActivity            com.example.dessertclicker           D  onPause Called
+2024-04-26 15:00:05.430  5590-5590  MainActivity            com.example.dessertclicker           D  onStop Called
+</pre>
+<p>在调用 <code dir="ltr" translate="no">onPause()</code> 后，该应用不会再获得焦点。在 <code dir="ltr" translate="no">onStop()</code> 之后，该应用将不再显示在屏幕上。虽然该 activity 已停止，但 <code dir="ltr" translate="no">Activity</code> 对象仍位于后台内存中。Android OS 尚未销毁 activity。用户可能会返回该应用，因此 Android 会保留您的 activity 资源。</p>
+<p class="image-container"><img alt="c470ee28ab7f8a1a.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/c470ee28ab7f8a1a_2880.029cc721e4.png 2880w" style="width: 285.50px" loading="lazy" decoding="async"></p>
+<ol start="3" type="1">
+<li>使用“最近使用的应用”屏幕返回该应用。在模拟器上，您可以通过下图中所示的方形系统按钮访问“最近使用的应用”屏幕。</li>
+</ol>
+<p>请注意，在 Logcat 中，activity 使用 <code dir="ltr" translate="no">onRestart()</code> 和 <code dir="ltr" translate="no">onStart()</code> 重启，然后使用 <code dir="ltr" translate="no">onResume()</code> 恢复。</p>
+<p class="image-container"><img alt="bc156252d977e5ae.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/bc156252d977e5ae_2880.029cc721e4.png 2880w" style="width: 264.00px" loading="lazy" decoding="async"></p>
+<aside class="special"><p><strong>注意：</strong><code dir="ltr" translate="no">onRestart()</code> 只有在 activity 已经创建之后才会被系统调用，并且会在系统调用 <code dir="ltr" translate="no">onStop()</code> 时最终进入 <strong>Created</strong> 状态，但是会返回 <strong>Started</strong> 状态，而不是进入 <strong>Destroyed</strong> 状态。<code dir="ltr" translate="no">onRestart()</code> 方法用于放置仅在 activity <strong>不</strong>是首次启动时才需要调用的代码。</p>
+</aside>
+<div></div><pre translate="no" dir="ltr">2024-04-26 15:00:39.371  5590-5590  MainActivity            com.example.dessertclicker           D  onRestart Called
+2024-04-26 15:00:39.372  5590-5590  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 15:00:39.374  5590-5590  MainActivity            com.example.dessertclicker           D  onResume Called
+</pre>
+<p>当该 activity 返回前台时，系统不会再次调用 <code dir="ltr" translate="no">onCreate()</code> 方法。相应 activity 对象未被销毁，因此不需要重新创建。系统会调用 <code dir="ltr" translate="no">onRestart()</code> 方法，而不是 <code dir="ltr" translate="no">onCreate()</code>。请注意，这一次该 activity 返回前台时，系统会保留 <strong>Desserts sold</strong> 数值。</p>
+<ol start="4" type="1">
+<li>除 Dessert Clicker 以外，至少启动一个应用，这样设备的“最近使用的应用”屏幕中就会有一些应用。</li>
+<li>启动“最近使用的应用”屏幕，打开另外一个近期 activity。然后，返回最近用过的应用并让 Dessert Clicker 返回前台。</li>
+</ol>
+<p>请注意，您在 Logcat 这里看到的回调与按<strong>主屏幕</strong>按钮后看到的相同。当应用进入后台时，系统会调用 <code dir="ltr" translate="no">onPause()</code> 和 <code dir="ltr" translate="no">onStop()</code>，并在应用返回时调用 <code dir="ltr" translate="no">onRestart()</code>、<code dir="ltr" translate="no">onStart()</code> 和 <code dir="ltr" translate="no">onResume()</code>。</p>
+<aside class="special"><p><strong>注意 </strong>：当用户导航到该 activity 或离开该 activity 时，系统会多次调用 <code dir="ltr" translate="no">onStart()</code> 和 <code dir="ltr" translate="no">onStop()</code>。</p>
+</aside>
+<p>当应用停止并进入后台，或应用重启并返回前台时，系统会调用这些方法。在这些情况下，如果您需要在应用中执行一些工作，则可以替换相关的生命周期回调方法。</p>
+<h2 id="use-case-3:-partially-hide-the-activity">用例 3：隐藏部分 activity</h2>
+<p>您已了解，在应用启动并且系统调用 <code dir="ltr" translate="no">onStart()</code> 后，该应用将在屏幕上变得可见。当系统调用 <code dir="ltr" translate="no">onResume()</code> 时，应用会获得用户焦点，即用户可以与应用交互。应用在屏幕上完全显示并且具有用户焦点的这部分生命周期称为<a href="https://developer.android.com/reference/android/app/Activity?hl=zh-cn#activity-lifecycle" target="_blank">前台生命周期</a>。</p>
+<p>当应用进入后台后，焦点在 <code dir="ltr" translate="no">onPause()</code> 后便会丢失，并且在 <code dir="ltr" translate="no">onStop()</code> 后，该应用将不再可见。</p>
+<p>区分焦点与可见性之间的差异很重要。某个 activity 有可能在屏幕上部分可见，但没有用户焦点。<em></em>在这一步，您将查看 activity 处于部分可见状态，但没有用户焦点的情况。</p>
+<ol type="1">
+<li>在 Dessert Clicker 应用运行时，点击屏幕右上角的<strong>共享</strong>按钮。</li>
+</ol>
+<p>共享 activity 出现在屏幕的下半部分，但相应 activity 在上半部分仍然可见。</p>
+<p class="image-container"><img alt="677c190d94e57447.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/677c190d94e57447_2880.029cc721e4.png 2880w" style="width: 384.00px" loading="lazy" decoding="async"><img alt="ca6285cbbe3801cf.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/ca6285cbbe3801cf_2880.029cc721e4.png 2880w" style="width: 264.00px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>检查 Logcat，您会注意到，系统仅调用了 <code dir="ltr" translate="no">onPause()</code>。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">2024-04-26 15:01:49.535  5590-5590  MainActivity            com.example.dessertclicker           D  onPause Called
+</pre>
+<p>在此用例中，系统没有调用 <code dir="ltr" translate="no">onStop()</code>，因为相应 activity 仍然部分可见。但是，该 activity 没有用户焦点，并且用户无法与之交互；位于前台的“共享”activity 具有用户焦点。</p>
+<p>为什么这种区别至关重要？单纯的 <code dir="ltr" translate="no">onPause()</code> 导致的中断通常仅持续很短的时间，然后用户就会返回您的 activity，或者导航到另一个 activity 或应用。通常，您需要持续更新界面，使应用的其余部分不会卡顿。</p>
+<p>在 <code dir="ltr" translate="no">onPause()</code> 中运行的任何代码都会阻止其他内容显示，因此请使 <code dir="ltr" translate="no">onPause()</code> 中的代码保持轻量级。例如，当有来电时，<code dir="ltr" translate="no">onPause()</code> 中的代码可能会延迟来电通知。</p>
+<ol start="3" type="1">
+<li>在共享对话框之外点击一下，返回应用，您会注意到系统调用了 <code dir="ltr" translate="no">onResume()</code>。</li>
+</ol>
+<p><code dir="ltr" translate="no">onResume()</code> 和 <code dir="ltr" translate="no">onPause()</code> 都必须处理焦点。当相应 activity 获得焦点时，系统会调用 <code dir="ltr" translate="no">onResume()</code> 方法；当该 activity 失去焦点时，系统会调用 <code dir="ltr" translate="no">onPause()</code>。</p>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 探索配置变更
+          </h2>
+          
+          <p>activity 生命周期管理中的另一个用例也很重要：配置变更会如何影响 activity 生命周期。</p>
+<p>当设备的状态发生了根本性改变，以至于系统解决改变的最简单方式就是完全关闭并重建 activity 时，就会发生配置变更。<em></em>例如，如果用户更改了设备语言，整个布局可能就需要更改为适应不同的文本方向和字符串长度。如果用户将设备插入基座或添加物理键盘，应用布局可能需要利用不同的显示尺寸或布局。如果设备屏幕方向发生变化，比如设备从竖屏旋转为横屏或反过来，布局可能需要改为适应新的屏幕方向。让我们看看应用在这种情况下的行为。</p>
+<p>演示的最后一个生命周期回调是 <code dir="ltr" translate="no">onDestroy()</code>，它会在 <code dir="ltr" translate="no">onStop()</code> 之后调用。系统会在销毁 activity 之前调用此方法。当应用的代码调用 <code dir="ltr" translate="no">finish()</code>，或者因配置变更而需要销毁并重新创建 activity 时，可能会发生这种情况。</p>
+<h2 id="configuration-change-causes-ondestroy-to-be-called">配置变更会导致系统调用 <code dir="ltr" translate="no">onDestroy()</code></h2>
+<p>屏幕旋转是导致 activity 关闭并重启的一种配置变更类型。如需模拟此配置变更并检查其影响，请完成以下步骤：</p>
+<ol type="1">
+<li>编译并运行您的应用。</li>
+<li>确保已停用模拟器中的屏幕旋转锁定功能。</li>
+<li>将设备或模拟器旋转为横屏模式。您可以使用旋转按钮向左或向右旋转模拟器。</li>
+<li>检查 Logcat，注意当 activity 关闭时，它会依次调用 <code dir="ltr" translate="no">onPause()</code>、<code dir="ltr" translate="no">onStop()</code> 和 <code dir="ltr" translate="no">onDestroy()</code>。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">2024-04-26 15:03:32.183  5716-5716  MainActivity            com.example.dessertclicker           D  onPause Called
+2024-04-26 15:03:32.185  5716-5716  MainActivity            com.example.dessertclicker           D  onStop Called
+2024-04-26 15:03:32.205  5716-5716  MainActivity            com.example.dessertclicker           D  onDestroy Called
+</pre>
+<h2 id="data-loss-on-device-rotation">设备旋转时出现数据丢失情况</h2>
+<ol type="1">
+<li>编译并运行您的应用，然后打开 Logcat。</li>
+<li>点击几次纸杯蛋糕，请注意，所售甜点的数量和总收入并不为零。</li>
+<li>确保已停用模拟器中的屏幕旋转锁定功能。</li>
+<li>将设备或模拟器旋转为横屏模式。您可以使用旋转按钮向左或向右旋转模拟器。</li>
+</ol>
+<p class="image-container"><img alt="11c9d83a11651608.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-activity-lifecycle/img/11c9d83a11651608_2880.029cc721e4.png 2880w" style="width: 408.00px" loading="lazy" decoding="async"></p>
+<ol start="5" type="1">
+<li>检查 Logcat 中的输出。用 <code dir="ltr" translate="no">MainActivity</code> 过滤输出。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">2024-04-26 15:04:29.356  5809-5809  MainActivity            com.example.dessertclicker           D  onCreate Called
+2024-04-26 15:04:29.378  5809-5809  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 15:04:29.382  5809-5809  MainActivity            com.example.dessertclicker           D  onResume Called
+2024-04-26 15:06:52.168  5809-5809  MainActivity            com.example.dessertclicker           D  onPause Called
+2024-04-26 15:06:52.183  5809-5809  MainActivity            com.example.dessertclicker           D  onStop Called
+2024-04-26 15:06:52.219  5809-5809  MainActivity            com.example.dessertclicker           D  onDestroy Called
+2024-04-26 15:06:52.302  5809-5809  MainActivity            com.example.dessertclicker           D  onCreate Called
+2024-04-26 15:06:52.308  5809-5809  MainActivity            com.example.dessertclicker           D  onStart Called
+2024-04-26 15:06:52.312  5809-5809  MainActivity            com.example.dessertclicker           D  onResume Called
+</pre>
+<p>请注意，设备或模拟器旋转屏幕时，系统会调用所有生命周期回调来关闭相应 activity。然后，在重新创建 activity 时，系统会调用所有生命周期回调来启动相应 activity。</p>
+<p>当设备旋转，而相应 activity 被关闭并重新创建时，该 activity 会使用默认值重新启动 - 甜点图片、已售甜点的数量和总收入会重置为零。</p>
+<p>如需了解这些值被重置的原因以及如何纠正这些值，您需要了解可组合项的生命周期，以及可组合项如何知晓要观察并保留其状态。</p>
+<h2 id="lifecycle-of-a-composable">可组合项的生命周期</h2>
+<p>应用的界面最初是通过在名称为 Composition 的进程中运行可组合函数而构建的。</p>
+<p>当应用的状态发生更改时，系统会安排重组。重组是指 Compose 重新执行状态可能已发生变化的可组合函数，并创建更新后的界面。系统会更新 Composition 以反映这些更改。</p>
+<p>创建或更新 Composition 的唯一方法是通过其初始组合和后续重组。</p>
+<p>可组合函数有自己的生命周期，并且其生命周期独立于 activity 生命周期。其生命周期由多个事件组成：进入 Composition，重组 0 次或多次，然后退出 Composition。</p>
+<p>为了让 Compose 能够跟踪和触发重组，它需要知晓状态何时发生了更改。如需向 Compose 指示它应当跟踪某个对象的状态，该对象的类型必须为 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/State?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">State</code></a> 或 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">MutableState</code></a>。<code dir="ltr" translate="no">State</code> 类型不可变，仅允许读取。<code dir="ltr" translate="no">MutableState</code> 类型是可变的，并且允许读取和写入。</p>
+<p>在之前的 Codelab 中，您已在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-lemonade" target="_blank">Lemonade 应用</a>和 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-tip-calculator" target="_blank">Tip Time 应用</a>中看到和使用过 <code dir="ltr" translate="no">MutableState</code>。</p>
+<p>如需创建可变变量 <code dir="ltr" translate="no">revenue</code>，请使用 <code dir="ltr" translate="no">mutableStateOf</code> 声明该变量。<code dir="ltr" translate="no">0</code> 是它的初始默认值。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">revenue</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>尽管这足以让 Compose 在收入值发生更改时触发重组，但保留更新后的值是不够的。每次重新执行可组合项时，该收入值都会重新初始化为初始默认值 <code dir="ltr" translate="no">0</code>。</p>
+<p>如需指示 Compose 在重组期间保留并重复使用其值，您需要使用 <code dir="ltr" translate="no">remember</code> API 进行声明。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">revenue</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>如果 <code dir="ltr" translate="no">revenue</code> 的值发生更改，Compose 会安排读取此值的所有可组合函数进行重组。</p>
+<p>尽管 Compose 会在重组期间记住收入状态，但在配置变更期间不会保留此状态。为了让 Compose 在配置更改期间保留状态，您必须使用 <code dir="ltr" translate="no">rememberSaveable</code>。</p>
+<p>如需了解其他做法和信息，请参阅 <a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-using-state?hl=zh-cn" target="_blank">Compose 中的状态简介</a> Codelab。</p>
+<h2 id="use-remembersaveable-to-save-values-across-configuration-changes">在配置变量期间使用 <code dir="ltr" translate="no">rememberSaveable</code> 保存值</h2>
+<p>当 Android OS 销毁并重新创建 activity 时，您可以使用 <code dir="ltr" translate="no">rememberSaveable</code> 函数保存所需的值。</p>
+<p>如需在重组期间保存值，您需要使用 <code dir="ltr" translate="no">remember</code>。在重组和配置更改期间使用 <code dir="ltr" translate="no">rememberSaveable</code> 保存值。</p>
+<aside class="special"><p><strong>注意</strong>：有时，Android 会关闭整个应用进程，包括与应用相关联的每个 activity。Android 会在系统承受压力并面临视觉延迟风险时执行此类关闭操作，因此此时不会运行额外的回调或代码。应用的进程只会在后台静默地关闭。但对用户来说，应用似乎并没有关闭。当用户返回 Android 系统已关闭的应用时，Android 会重启相应应用。您需要确保发生这种情况时不会对用户造成任何数据损失。</p>
+</aside>
+<p>使用 <code dir="ltr" translate="no">rememberSaveable</code> 保存值可确保该值在 activity 恢复时可用（如果需要的话）。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity</code> 中，将当前使用 <code dir="ltr" translate="no">remember</code> 的五个变量更新为 <code dir="ltr" translate="no">rememberSaveable</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">revenue</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentDessertImageId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">desserts</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">currentDessertIndex</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imageId</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">revenue</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">rememberSaveable</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">currentDessertImageId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">rememberSaveable</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">desserts</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">currentDessertIndex</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imageId</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>编译并运行您的应用。</li>
+<li>点击几次纸杯蛋糕，请注意，所售甜点的数量和总收入并不为零。</li>
+<li>将设备或模拟器旋转为横屏模式。</li>
+<li>请注意，在销毁并重新创建 activity 后，甜点图片、已售甜点和总收入将恢复为之前的值。</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 解决方案代码
+          </h2>
+          
+          <aside class="special"><p><strong>解决方案代码网址</strong>：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dessert-clicker" target="_blank"><code dir="ltr" translate="no">https://github.com/google-developer-training/basic-android-kotlin-compose-training-dessert-clicker</code></a></p>
+<p><strong>分支名称</strong>：<code dir="ltr" translate="no">main</code></p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 总结
+          </h2>
+          
+          <h2 id="activity-lifecycle">activity 生命周期</h2>
+<ul>
+<li>activity 生命周期是 activity 会转换的一组状态。<em></em>activity 生命周期从 Android OS 首次创建 activity 时开始，在 Android OS 销毁 activity 时结束。</li>
+<li>当用户在 activity 之间以及应用内外导航时，每个 activity 会在 activity 生命周期中的状态之间切换。</li>
+<li>activity 生命周期中的每种状态都有一个对应的回调方法，您可以在 <code dir="ltr" translate="no">Activity</code> 类中替换此类方法。核心的生命周期方法集合包括：<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onCreate(android.os.Bundle)" target="_blank"><code dir="ltr" translate="no">onCreate()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onRestart()" target="_blank"><code dir="ltr" translate="no">onRestart()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onStart()" target="_blank"><code dir="ltr" translate="no">onStart()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onResume()" target="_blank"><code dir="ltr" translate="no">onResume()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onPause()" target="_blank"><code dir="ltr" translate="no">onPause()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onStop()" target="_blank"><code dir="ltr" translate="no">onStop()</code></a>、<a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn#onDestroy()" target="_blank"><code dir="ltr" translate="no">onDestroy()</code></a>。</li>
+<li>如需添加要在 activity 转换为某种生命周期状态时发生的行为，请替换相应状态的回调方法。</li>
+<li>如需在 Android Studio 中为类添加框架替换方法，请依次选择 <strong>Code &gt; Override Methods</strong>，或按 <code dir="ltr" translate="no">Control+O</code>。</li>
+</ul>
+<h2 id="logging-with-log">使用日志进行记录</h2>
+<ul>
+<li>借助 Android 日志记录 API（具体而言是 <a href="https://developer.android.com/reference/android/util/Log?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Log</code></a> 类），您可以写入要在 Android Studio 内的 Logcat 中显示的简短消息。</li>
+<li>使用 <code dir="ltr" translate="no">Log.d()</code> 可写入调试消息。此方法采用两个参数：日志标签（通常是类的名称）和日志消息（一个简短的字符串）。<em></em><em></em></li>
+<li>使用 Android Studio 中的 <strong>Logcat</strong> 窗口可查看系统日志，包括您写入的消息。</li>
+</ul>
+<h2 id="configuration-changes">配置变更</h2>
+<ul>
+<li>当设备的状态发生了根本性改变，以至于系统解决改变的最简单方式就是销毁并重建 activity 时，就会发生配置变更。<em></em></li>
+<li>最常见的配置变更示例是用户将设备从竖屏模式旋转为横屏模式，或者从横屏模式旋转为竖屏模式。当设备语言发生变化或用户插入硬件键盘时，也可能会发生配置更改。</li>
+<li>当发生配置变更时，Android 会调用所有 activity 生命周期的关闭回调。然后，Android 会从头开始重启相应 activity，同时运行所有生命周期启动回调。</li>
+<li>当 Android 因配置变更而关闭某个应用时，它会使用 <code dir="ltr" translate="no">onCreate()</code> 重启 activity。</li>
+<li>如需保存需要在配置更改后继续存在的值，请使用 <code dir="ltr" translate="no">rememberSaveable</code> 声明其变量。</li>
+</ul>
+<h2 id="learn-more">了解更多内容</h2>
+<ul>
+<li><a href="https://developer.android.com/reference/android/util/Log?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Log</code></a> 类</li>
+<li><a href="https://developer.android.com/studio/debug/am-logcat?hl=zh-cn" target="_blank">使用 Logcat 查看日志</a></li>
+<li><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/package-summary?hl=zh-cn" target="_blank">Saveable API</a></li>
+<li><a href="https://developer.android.com/reference/android/app/Activity.html?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Activity</code> 类</a></li>
+<li><a href="https://developer.android.com/reference/androidx/activity/ComponentActivity?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">ComponentActivity</code> 类</a></li>
+<li><a href="https://developer.android.com/guide/components/activities/intro-activities?hl=zh-cn#kotlin" target="_blank">activity 开发者指南</a></li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">上一节：项目：创建涵盖 30 天的应用</a><a href="./02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">下一节：02.Compose 中的 ViewModel 和状态</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>在 Kotlin 中创建和使用函数</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="./01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="./02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="./03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a class="active" href="./04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="./05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Compose 基础知识</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件语句</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">Compose 中的状态简介</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">项目：创建艺术空间应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题效果</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 实现简单动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">在 Kotlin 中创建和使用函数</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <p>在先前的 Codelab 中，您看到了一个会输出“<code dir="ltr" translate="no">Hello, world!</code>”的简单程序。在您到目前为止编写过的程序中，您看到了两个函数：</p>
+<ul>
+<li><code dir="ltr" translate="no">main()</code> 函数，这在每个 Kotlin 程序中都需要。它是程序的入口点，或者说是起点。</li>
+<li><code dir="ltr" translate="no">println()</code> 函数，您会从 <code dir="ltr" translate="no">main()</code> 中调用此函数以输出文本。</li>
+</ul>
+<p>在此 Codelab 中，您将详细了解函数。</p>
+<p>借助函数，您可将代码拆分为可重复使用的部分，而不是将所有代码都放在 <code dir="ltr" translate="no">main()</code> 中。函数是 Android 应用的基本构建块，了解如何定义和使用函数是成为一名 Android 开发者的重要一步。</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>了解 Kotlin 编程基础知识，包括变量以及 <code dir="ltr" translate="no">println()</code> 和 <code dir="ltr" translate="no">main()</code> 函数</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>如何定义和调用您自己的函数。</li>
+<li>如何从函数返回可存储在变量中的值。</li>
+<li>如何定义和调用带有多个形参的函数。</li>
+<li>如何调用带有具名实参的函数。</li>
+<li>如何为函数形参设置默认值。</li>
+</ul>
+<h2 id="what-youll-need">所需条件</h2>
+<ul>
+<li>一个能够访问 Kotlin 园地的网络浏览器</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 定义并调用函数
+          </h2>
+          
+          <p>在深入了解函数之前，我们先来了解一些基本术语。</p>
+<ul>
+<li>声明（或定义）函数时，需要使用 <code dir="ltr" translate="no">fun</code> 关键字，并在大括号内添加代码，其中包含执行某个任务所需的指令。</li>
+<li>调用函数时，系统会执行该函数中包含的所有代码。</li>
+</ul>
+<p>到目前为止，您都是在 <code dir="ltr" translate="no">main()</code> 函数中编写所有代码。实际上，系统并不会在代码中的任何位置调用 <code dir="ltr" translate="no">main()</code> 函数；Kotlin 编译器会将该函数用作起点。<code dir="ltr" translate="no">main()</code> 函数仅用于包含您要执行的其他代码，例如对 <code dir="ltr" translate="no">println()</code> 函数的调用。</p>
+<p><code dir="ltr" translate="no">println()</code> 函数是 Kotlin 语言的一部分。不过，您可以定义自己的函数。这样一来，如果您需要多次调用代码，就可以重复使用它。以下面的程序为例。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Happy Birthday, Rover!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You are now 5 years old!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p><code dir="ltr" translate="no">main()</code> 函数包含两个 <code dir="ltr" translate="no">println()</code> 语句：一个语句是祝 Rover 生日快乐，另一个语句指明了 Rover 的年龄。</p>
+<p>虽然 Kotlin 允许您将所有代码都放入 <code dir="ltr" translate="no">main()</code> 函数中，但有时您可能并不想这样做。例如，如果您还希望程序包含新年问候语，那么 main 函数还必须包含对 <code dir="ltr" translate="no">println()</code> 的调用。或许您想向 Rover 致以多次问候。只需复制并粘贴代码，或者为生日祝福创建一个单独的函数。您会选择后者。针对特定任务创建单独的函数有诸多好处。</p>
+<ul>
+<li>可重复使用的代码：您只需在需要时调用一个函数，而不必多次复制并粘贴所需代码。</li>
+<li>可读性：确保函数只执行一个特定任务不仅可帮助其他开发者和团队成员准确了解某段代码的用途，而且未来也可帮助您自己准确了解某段代码的用途。</li>
+</ul>
+<p>定义函数的语法如下图所示。</p>
+<p class="image-container"><img alt="定义函数的语法" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/7b20f70d7a68c790_2880.029cc721e4.png 2880w" style="width: 624.00px" title="定义函数的语法" loading="lazy" decoding="async"></p>
+<p>函数定义以 <code dir="ltr" translate="no">fun</code> 关键字开头，后跟函数名称、一组圆括号和一组大括号。调用该函数时，将运行大括号中所含的代码。</p>
+<p>您需要创建一个新函数，将两个 <code dir="ltr" translate="no">println()</code> 语句移出 <code dir="ltr" translate="no">main()</code> 函数。</p>
+<ol type="1">
+<li>在浏览器中，打开 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a>，并将相关内容替换为以下代码。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Happy Birthday, Rover!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You are now 5 years old!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 函数后面，定义一个名为 <code dir="ltr" translate="no">birthdayGreeting()</code> 的新函数。该函数使用与 <code dir="ltr" translate="no">main()</code> 函数相同的语法进行声明。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Happy Birthday, Rover!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You are now 5 years old!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>将两个 <code dir="ltr" translate="no">println()</code> 语句从 <code dir="ltr" translate="no">main()</code> 移到 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数的大括号中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Happy Birthday, Rover!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You are now 5 years old!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 函数中，调用 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数。完成后的代码应如下所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Happy Birthday, Rover!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You are now 5 years old!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>运行您的代码。您应该会看到以下输出内容：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Happy Birthday, Rover!
+You are now 5 years old!
+</pre>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 从函数返回值
+          </h2>
+          
+          <p>在更复杂的应用中，函数的作用不仅仅是输出文本。</p>
+<p>Kotlin 函数也可以生成称为“返回值”的数据，该值存储在变量中，供您在代码中的其他位置使用。<em></em></p>
+<p>定义函数时，您可以指定希望其返回的值的数据类型。如需指定返回值类型，只需在圆括号后面添加冒号 (<code dir="ltr" translate="no">:</code>)，然后在冒号后面添加一个空格和类型名称（<code dir="ltr" translate="no">Int</code>、<code dir="ltr" translate="no">String</code> 等）。然后，在返回值类型与左大括号之间添加一个空格。在函数主体中，您可以在所有语句之后使用 return 语句指定您希望函数返回的值。return 语句包含 <code dir="ltr" translate="no">return</code> 关键字，后跟您希望函数作为输出返回的值（例如变量）。</p>
+<p>声明具有返回值类型的函数的语法如下所示。</p>
+<p class="image-container"><img alt="声明具有返回值类型的函数的语法" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/dfbfe5ad5495870a_2880.029cc721e4.png 2880w" style="width: 624.00px" title="声明具有返回值类型的函数的语法" loading="lazy" decoding="async"></p>
+<h2 id="the-unit-type"><code dir="ltr" translate="no">Unit</code> 类型</h2>
+<p>默认情况下，如果您不指定返回值类型，默认返回值类型是 <code dir="ltr" translate="no">Unit</code>。<code dir="ltr" translate="no">Unit</code> 表示函数并不会返回值。<code dir="ltr" translate="no">Unit</code> 相当于其他语言中的 void 返回值类型（在 Java 和 C 中为 <code dir="ltr" translate="no">void</code>；在 Swift 中为 <code dir="ltr" translate="no">Void</code>/空元组 <code dir="ltr" translate="no">()</code>；在 Python 中为 <code dir="ltr" translate="no">None</code> 等）。任何不返回值的函数都会隐式返回 <code dir="ltr" translate="no">Unit</code>。您可以通过修改代码以返回 <code dir="ltr" translate="no">Unit</code> 来观察此情况。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">birthdayGreeting()</code> 的函数声明中，在右圆括号后面添加冒号，并将返回值类型指定为 <code dir="ltr" translate="no">Unit</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Happy Birthday, Rover!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You are now 5 years old!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行代码，观察一切是否仍然正常运行。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Happy Birthday, Rover!
+You are now 5 years old!
+</pre>
+<p>您可以选择在 Kotlin 中指定 <code dir="ltr" translate="no">Unit</code> 返回值类型。对于不返回任何内容或返回 <code dir="ltr" translate="no">Unit</code> 的函数，不需要使用 return 语句。</p>
+<aside class="special"><p><strong>注意</strong>：在后面的 Codelab 中了解名为 lambda 的 Kotlin 功能时，您将再次看到 <code dir="ltr" translate="no">Unit</code> 类型。</p>
+</aside>
+<h2 id="return-a-string-from-birthdaygreeting">从 <code dir="ltr" translate="no">birthdayGreeting()</code> 返回 <code dir="ltr" translate="no">String</code></h2>
+<p>为了演示函数如何返回值，您需要修改 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数以返回一个字符串，而不是直接输出结果。</p>
+<ol type="1">
+<li>将 <code dir="ltr" translate="no">Unit</code> 返回值类型替换为 <code dir="ltr" translate="no">String</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Happy Birthday, Rover!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"You are now 5 years old!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行您的代码。您会收到错误消息。如果您声明函数的返回值类型（例如 <code dir="ltr" translate="no">String</code>），该函数必须包含 <code dir="ltr" translate="no">return</code> 语句。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">A 'return' expression required in a function with a block body ('{...}')
+</pre>
+<ol start="3" type="1">
+<li>您只能从函数返回一个（而非两个）字符串。使用 <code dir="ltr" translate="no">val</code> 关键字将 <code dir="ltr" translate="no">println()</code> 语句替换为两个变量（<code dir="ltr" translate="no">nameGreeting</code> 和 <code dir="ltr" translate="no">ageGreeting,</code>）。由于您从 <code dir="ltr" translate="no">birthdayGreeting()</code> 移除了对 <code dir="ltr" translate="no">println()</code> 的调用，因此调用 <code dir="ltr" translate="no">birthdayGreeting()</code> 不会输出任何内容。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">nameGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday, Rover!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">ageGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"You are now 5 years old!"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>使用您在先前的 Codelab 中学到的字符串格式设置语法，添加 <code dir="ltr" translate="no">return</code> 语句以从函数返回一个包含这两个问候语的字符串。</li>
+</ol>
+<p>为了将每个问候语单独放一行，您还需要使用 <code dir="ltr" translate="no">\n</code> 转义字符。这与您在上一个 Codelab 中了解的 <code dir="ltr" translate="no">\"</code> 转义字符类似。<code dir="ltr" translate="no">\n</code> 字符将替换为换行符，因此两条问候语都分别位于单独的一行上。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">nameGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday, Rover!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">ageGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"You are now 5 years old!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">nameGreeting</span><span class="devsite-syntax-s">\n</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">ageGreeting</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 中，由于 <code dir="ltr" translate="no">birthdayGreeting()</code> 会返回一个值，因此您可以将结果存储在字符串变量中。使用 <code dir="ltr" translate="no">val</code> 声明 <code dir="ltr" translate="no">greeting</code> 变量，以存储调用 <code dir="ltr" translate="no">birthdayGreeting()</code> 的结果。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">greeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 中，调用 <code dir="ltr" translate="no">println()</code> 来输出 <code dir="ltr" translate="no">greeting</code> 字符串。<code dir="ltr" translate="no">main()</code> 函数现在应如下所示。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">greeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">greeting</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="7" type="1">
+<li>运行代码，然后观察结果是否和之前一样。返回值可让您将结果存储在变量中，但如果您在 <code dir="ltr" translate="no">println()</code> 函数内调用 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数，您认为会发生什么情况？</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Happy Birthday, Rover!
+You are now 5 years old!
+</pre>
+<ol start="8" type="1">
+<li>移除该变量，然后将调用 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数的结果传递到 <code dir="ltr" translate="no">println()</code> 函数：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="9" type="1">
+<li>运行代码并观察输出结果。调用 <code dir="ltr" translate="no">birthdayGreeting()</code> 的返回值会直接传入 <code dir="ltr" translate="no">println()</code>。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Happy Birthday, Rover!
+You are now 5 years old!
+</pre>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 向 birthdayGreeting() 函数添加形参
+          </h2>
+          
+          <p>如您所见，调用 <code dir="ltr" translate="no">println()</code> 时，可在圆括号内添加一个字符串，或者向该函数传递值。<em></em>您可以使用 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数执行相同的操作。不过，您首先需要向 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数添加形参。<em></em></p>
+<p>形参会指定变量的名称和数据类型，您可以将其作为要在函数内访问的数据传递到函数中。形参在函数名称后面的圆括号内进行声明。</p>
+<p class="image-container"><img alt="声明具有形参和返回值类型的函数的语法" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/8c4435bda86c8a67_2880.029cc721e4.png 2880w" style="width: 624.00px" title="声明具有形参和返回值类型的函数的语法" loading="lazy" decoding="async"></p>
+<p>每个形参均由变量名称和数据类型组成，以冒号和空格分隔。多个形参以英文逗号分隔。</p>
+<p>目前，<code dir="ltr" translate="no">birthdayGreeting()</code> 函数只能用于向 Rover 致以问候。您将向 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数添加一个形参，以便向传入该函数的任何名字致以问候。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数的圆括号内使用语法 <code dir="ltr" translate="no">name: String</code> 添加类型为 <code dir="ltr" translate="no">String</code> 的 <code dir="ltr" translate="no">name</code> 形参。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">nameGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday, Rover!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">ageGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"You are now 5 years old!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">nameGreeting</span><span class="devsite-syntax-s">\n</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">ageGreeting</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>上一步中定义的形参的工作原理类似于使用 <code dir="ltr" translate="no">val</code> 关键字声明的变量。其值可以在 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数中的任何位置使用。在先前的 Codelab 中，您学习了如何将变量的值插入字符串中。</p>
+<ol start="2" type="1">
+<li>将 <code dir="ltr" translate="no">nameGreeting</code> 字符串中的 <code dir="ltr" translate="no">Rover</code> 替换为 <code dir="ltr" translate="no">$</code> 符号，后跟 <code dir="ltr" translate="no">name</code> 形参。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">nameGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday, </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-s">!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">ageGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"You are now 5 years old!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">nameGreeting</span><span class="devsite-syntax-s">\n</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">ageGreeting</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>运行代码并观察错误。现在您已声明 <code dir="ltr" translate="no">name</code> 形参，接下来需要在调用 <code dir="ltr" translate="no">birthdayGreeting()</code> 时传入 <code dir="ltr" translate="no">String</code> 值。当您调用接受形参的函数时，需要向该函数传递实参。实参是您传递的值，例如 <code dir="ltr" translate="no">"Rover"</code>。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">No value passed for parameter 'name'
+</pre>
+<ol start="4" type="1">
+<li>将 <code dir="ltr" translate="no">"Rover"</code> 传入 <code dir="ltr" translate="no">main()</code> 中的 <code dir="ltr" translate="no">birthdayGreeting()</code> 调用。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Rover"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>运行代码并观察输出结果。名称 Rover 来自 <code dir="ltr" translate="no">name</code> 形参。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Happy Birthday, Rover!
+You are now 5 years old!
+</pre>
+<ol start="6" type="1">
+<li>由于 <code dir="ltr" translate="no">birthdayGreeting()</code> 接受形参，因此您可以使用 Rover 以外的名称调用它。在对 <code dir="ltr" translate="no">println()</code> 的调用内添加对 <code dir="ltr" translate="no">birthdayGreeting()</code> 的另一个调用，并传入实参 <code dir="ltr" translate="no">"Rex"</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Rover"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Rex"</span><span class="devsite-syntax-p">))</span>
+</code></pre>
+<ol start="7" type="1">
+<li>再次运行代码，然后观察输出结果是否会因传递给 <code dir="ltr" translate="no">birthdayGreeting()</code> 的实参而异。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Happy Birthday, Rover!
+You are now 5 years old!
+Happy Birthday, Rex!
+You are now 5 years old!
+</pre>
+<aside class="special"><p><strong>注意：</strong>尽管您经常会发现形参和实参可互换使用，但这两者并不是一回事。定义函数时，您需定义要在调用该函数时向它传递的形参。调用函数时，您需要为形参传递实参。形参是可供函数访问的变量（例如 <code dir="ltr" translate="no">name</code> 变量），而实参是您传递的实际值（例如 <code dir="ltr" translate="no">"Rover"</code> 字符串）。</p>
+</aside>
+<aside class="warning"><p><strong>警告</strong>：与某些语言（例如在 Java 中，函数可以更改传递到形参中的值）不同，Kotlin 中的形参是不可变的。您不能在函数主体中重新分配形参的值。</p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 具有多个形参的函数
+          </h2>
+          
+          <p>之前，您添加了一个根据名称更改问候语的形参。但是，您也可以为函数定义多个形参，甚至可定义不同数据类型的形参。在这部分中，您将修改问候语，使其还会根据狗狗的年龄而变化。</p>
+<p class="image-container"><img alt="具有多个形参的函数" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/d9a6c34b9e8c4c05_2880.029cc721e4.png 2880w" style="width: 624.00px" title="具有多个形参的函数" loading="lazy" decoding="async"></p>
+<p>形参定义以英文逗号分隔。同样，当您调用具有多个形参的函数时，也需使用英文逗号分隔传入的实参。我们来看看实际用例。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">name</code> 形参后面，向 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数添加类型为 <code dir="ltr" translate="no">Int</code> 的 <code dir="ltr" translate="no">age</code> 形参。新的函数声明应具有两个形参，即 <code dir="ltr" translate="no">name</code> 和 <code dir="ltr" translate="no">age</code>，它们之间以英文逗号分隔：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">age</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">nameGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday, </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-s">!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">ageGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"You are now 5 years old!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">nameGreeting</span><span class="devsite-syntax-s">\n</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">ageGreeting</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>新的问候语字符串应使用 <code dir="ltr" translate="no">age</code> 形参。将 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数更新为使用 <code dir="ltr" translate="no">ageGreeting</code> 字符串中的 <code dir="ltr" translate="no">age</code> 形参的值。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">age</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">nameGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday, </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-s">!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">ageGreeting</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"You are now </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">age</span><span class="devsite-syntax-s"> years old!"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">nameGreeting</span><span class="devsite-syntax-s">\n</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">ageGreeting</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>运行该函数，然后注意输出中的错误：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">No value passed for parameter 'age'
+No value passed for parameter 'age'
+</pre>
+<ol start="4" type="1">
+<li>修改 <code dir="ltr" translate="no">main()</code> 中对 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数的两次调用，为每只狗狗传入不同的年龄。传入 <code dir="ltr" translate="no">5</code> 来表示 Rover 的年龄，传入 <code dir="ltr" translate="no">2</code> 来表示 Rex 的年龄。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Rover"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">5</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Rex"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>运行您的代码。现在，您已经为这两个形参传入了值，因此在调用函数时，输出结果应反映每只狗狗的名字和年龄。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Happy Birthday, Rover!
+You are now 5 years old!
+Happy Birthday, Rex!
+You are now 2 years old!
+</pre>
+<h2 id="function-signature">函数签名</h2>
+<p>到目前为止，您已经学习了如何定义函数名称、输入（形参）和输出。函数名称及其输入（形参）统称为“函数签名”。<em></em>函数签名包含返回值类型前面的所有内容，如以下代码段所示。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">age</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>形参（以英文逗号分隔）有时称为形参列表。</p>
+<p>对于其他开发者编写的代码，您经常会在其文档中看到这些术语。通过函数签名，您可以了解函数的名称以及可以传入的数据类型。</p>
+<p>关于定义函数的新语法，您已经了解了很多。请查看下图，简要回顾一下函数语法。</p>
+<p class="image-container"><img alt="函数语法简要回顾图表" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-functions/img/3e0381d36be5415c_2880.029cc721e4.png 2880w" style="width: 624.00px" title="函数语法简要回顾图表" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 具名实参
+          </h2>
+          
+          <p>在前面的示例中，调用函数时不需要指定形参名称 <code dir="ltr" translate="no">name</code> 或 <code dir="ltr" translate="no">age</code>。不过，您可以选择这么做。例如，您可以调用具有很多形参的函数，也可能希望以不同的顺序传递实参，例如将 <code dir="ltr" translate="no">age</code> 形参放在 <code dir="ltr" translate="no">name</code> 形参前面。如果您在调用函数时添加了形参名称，该名称就称为<a href="https://kotlinlang.org/docs/functions.html#named-arguments" target="_blank">具名实参</a>。<em></em>尝试结合使用具名实参和 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数。</p>
+<ol type="1">
+<li>修改对 Rex 的调用以使用具名实参，如以下代码段所示。为此，您可以添加形参名称，后跟一个等号，再后跟值（例如 <code dir="ltr" translate="no">name = "Rex"</code>）。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Rex"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">age</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span><span class="devsite-syntax-p">))</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行代码，然后观察输出结果是否保持不变：</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Happy Birthday, Rover!
+You are now 5 years old!
+Happy Birthday, Rex!
+You are now 2 years old!
+</pre>
+<ol start="3" type="1">
+<li>对具名实参重新排序。例如，将 <code dir="ltr" translate="no">age</code> 具名实参放在 <code dir="ltr" translate="no">name</code> 具名实参前面。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">age</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Rex"</span><span class="devsite-syntax-p">))</span>
+</code></pre>
+<ol start="4" type="1">
+<li>运行代码，观察输出结果是否保持不变。即使您更改了实参的顺序，系统也会为相同的形参传入相同的值。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Happy Birthday, Rover!
+You are now 5 years old!
+Happy Birthday, Rex!
+You are now 2 years old!
+</pre>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 默认实参
+          </h2>
+          
+          <p>函数形参还可以指定默认实参。可能 Rover 是您最喜欢的狗狗，或者在大多数情况下您希望在调用函数时使用特定实参。调用函数时，您可以选择忽略具有默认值的实参，在这种情况下，系统将使用默认值。</p>
+<p>如需添加默认实参，您可以在形参的数据类型后面添加赋值运算符 (<code dir="ltr" translate="no">=</code>)，并将其设为等于某个值。将代码修改为使用默认实参。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数中，将 <code dir="ltr" translate="no">name</code> 形参设为默认值 <code dir="ltr" translate="no">"Rover"</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Rover"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">age</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Happy Birthday, </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-s">! You are now </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">age</span><span class="devsite-syntax-s"> years old!"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 中第一次针对 Rover 调用 <code dir="ltr" translate="no">birthdayGreeting()</code> 时，将 <code dir="ltr" translate="no">age</code> 具名实参设为 <code dir="ltr" translate="no">5</code>。由于 <code dir="ltr" translate="no">age</code> 形参是在 <code dir="ltr" translate="no">name</code> 后面定义的，因此您需要使用具名实参 <code dir="ltr" translate="no">age</code>。如果没有具名实参，Kotlin 会假定实参的顺序与形参的定义顺序相同。具名实参可确保 Kotlin 要求使用 <code dir="ltr" translate="no">Int</code> 类型的 <code dir="ltr" translate="no">age</code> 形参。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">age</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">5</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Rex"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span><span class="devsite-syntax-p">))</span>
+</code></pre>
+<ol start="3" type="1">
+<li>运行您的代码。首次调用 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数会将“Rover”输出为名称，因为您从未指定该名称。第二次调用 <code dir="ltr" translate="no">birthdayGreeting()</code> 时仍会使用 <code dir="ltr" translate="no">Rex</code> 值，该值会针对 <code dir="ltr" translate="no">name</code> 传入。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Happy Birthday, Rover! You are now 5 years old!
+Happy Birthday, Rex! You are now 2 years old!
+</pre>
+<ol start="4" type="1">
+<li>从对 <code dir="ltr" translate="no">birthdayGreeting()</code> 函数的第二次调用中移除该名称。同样，由于省略了 <code dir="ltr" translate="no">name</code>，因此您需要为年龄使用具名实参。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">age</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">5</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">birthdayGreeting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">age</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span><span class="devsite-syntax-p">))</span>
+</code></pre>
+<ol start="5" type="1">
+<li>运行代码，然后观察对 <code dir="ltr" translate="no">birthdayGreeting()</code> 的两次调用现在是否都会输出“Rover”作为名称（因为没有传入具名实参）。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Happy Birthday, Rover! You are now 5 years old!
+Happy Birthday, Rover! You are now 2 years old!
+</pre>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 总结
+          </h2>
+          
+          <p>恭喜！您已了解如何在 Kotlin 中定义和调用函数。</p>
+<h2 id="summary">摘要</h2>
+<ul>
+<li>函数是用 <code dir="ltr" translate="no">fun</code> 关键字定义的，包含可重复使用的代码段。</li>
+<li>函数有助于使大型程序更易于维护，并避免无谓地重复编写代码。</li>
+<li>函数可以返回值，您可以将其存储在变量中以备后用。</li>
+<li>函数可以接受形参，即函数主体内可用的变量。</li>
+<li>实参是您在调用函数时传入的值。</li>
+<li>您可以在调用函数时为实参命名。使用具名实参时，您可以对实参重新排序，而不会影响输出。</li>
+<li>您可以指定默认实参，以便在调用函数时省略该实参。</li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="./03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">上一节：在 Kotlin 中创建和使用变量</a><a href="./05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">下一节：05.练习题：Kotlin 基础知识</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1000 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>泛型、对象和扩展</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">简介：Compose 中的状态</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">创建 Art Space 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a class="active" href="./01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="./02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="./03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将高阶函数与集合结合使用</a></li>
+<li><a href="./04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题效果</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 实现简单动画</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">泛型、对象和扩展</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 简介
+          </h2>
+          
+          <p>数十年来，编程人员设计了多种编程语言功能来帮助您编写更好的代码，例如使用更少的代码表达相同概念、通过抽象化表达复杂的想法、编写代码防止其他开发者不小心犯错等。Kotlin 语言也不例外，其中许多功能都旨在帮助开发者编写更具表现力的代码。</p>
+<p>遗憾的是，如果您是第一次编程，这些功能可能会让工作复杂化。虽然这些功能听起来可能很实用，但可能不是人人都了解这些功能到底有多实用以及它们能解决哪些问题。您可能已经在 Compose 和其他库中见到过对某些功能的运用了。</p>
+<p>虽然经验是无可替代的，但此 Codelab 将带您了解 Kotlin 的一些概念，以帮助您构建更大的应用：</p>
+<ul>
+<li>泛型</li>
+<li>不同类型的类（枚举类和数据类）</li>
+<li>单例对象和伴生对象</li>
+<li>扩展属性和函数</li>
+<li>作用域函数</li>
+</ul>
+<p>在此 Codelab 结束时，您应该会更深入地掌握在本课程中学过的代码，并通过一些示例了解您何时会在自己的应用中遇到或使用这些概念。</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>熟悉面向对象的编程概念，包括继承。</li>
+<li>如何定义和实现接口。</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>如何为类定义通用类型形参。</li>
+<li>如何实例化通用类。</li>
+<li>何时使用枚举类和数据类。</li>
+<li>如何定义必须实现接口的通用类型形参。</li>
+<li>如何使用作用域函数来访问类属性和方法。</li>
+<li>如何为类定义单例对象和伴生对象。</li>
+<li>如何使用新的属性和方法来扩展现有的类。</li>
+</ul>
+<h2 id="what-youll-need">所需条件</h2>
+<ul>
+<li>一个能够访问 Kotlin Playground 的网络浏览器。</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 使用泛型创建可重复使用的类
+          </h2>
+          
+          <p>假设您正在为某项在线测验编写一款应用，此测验类似于您在本课程中见到过的测验。测验问题通常有多种类型，例如填空或判断正误。单个测验问题可由具有多个属性的类表示。</p>
+<p>测验中的问题文本可由字符串表示。测验问题还需要将答案表现出来。不过，不同类型的问题（例如判断正误）可能需要使用不同的数据类型来表示答案。下面我们来定义三种不同类型的问题。</p>
+<ul>
+<li><strong>填空题</strong>：答案是由 <code dir="ltr" translate="no">String</code> 表示的字词。</li>
+<li><strong>判断正误</strong>：答案由 <code dir="ltr" translate="no">Boolean</code> 表示。</li>
+<li><strong>数学题</strong>：答案是数值。简单算术题的答案由 <code dir="ltr" translate="no">Int</code> 表示。</li>
+</ul>
+<p>此外，示例中的测试问题还包含难度等级，无论什么类型的问题都不例外。难度等级由字符串表示，且具有三个可能的值：<code dir="ltr" translate="no">"easy"</code>、<code dir="ltr" translate="no">"medium"</code> 或 <code dir="ltr" translate="no">"hard"</code>。</p>
+<p>定义用于表示各类测验问题的类：</p>
+<ol type="1">
+<li>前往 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a>。</li>
+<li>在 <code dir="ltr" translate="no">main()</code> 函数之前，为填空题定义一个名为 <code dir="ltr" translate="no">FillInTheBlankQuestion</code> 的类，其中包含用于 <code dir="ltr" translate="no">questionText</code> 的 <code dir="ltr" translate="no">String</code> 属性、用于 <code dir="ltr" translate="no">answer</code> 的 <code dir="ltr" translate="no">String</code> 属性以及用于 <code dir="ltr" translate="no">difficulty</code> 的 <code dir="ltr" translate="no">String</code> 属性。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">FillInTheBlankQuestion</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">questionText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answer</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">difficulty</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">FillInTheBlankQuestion</code> 类之后，再为判断正误题定义一个名为 <code dir="ltr" translate="no">TrueOrFalseQuestion</code> 的类，其中包含用于 <code dir="ltr" translate="no">questionText</code> 的 <code dir="ltr" translate="no">String</code> 属性、用于 <code dir="ltr" translate="no">answer</code> 的 <code dir="ltr" translate="no">Boolean</code> 属性以及用于 <code dir="ltr" translate="no">difficulty</code> 的 <code dir="ltr" translate="no">String</code> 属性。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">TrueOrFalseQuestion</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">questionText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answer</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">difficulty</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="4" type="1">
+<li>最后，在这两个类之后定义一个 <code dir="ltr" translate="no">NumericQuestion</code> 类，其中包含用于 <code dir="ltr" translate="no">questionText</code> 的 <code dir="ltr" translate="no">String</code> 属性、用于 <code dir="ltr" translate="no">answer</code> 的 <code dir="ltr" translate="no">Int</code> 属性以及用于 <code dir="ltr" translate="no">difficulty</code> 的 <code dir="ltr" translate="no">String</code> 属性。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">NumericQuestion</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">questionText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answer</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">difficulty</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="5" type="1">
+<li>看一下您编写的代码。您发现重复代码了吗？</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">FillInTheBlankQuestion</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">questionText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answer</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">difficulty</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">TrueOrFalseQuestion</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">questionText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answer</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">difficulty</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">NumericQuestion</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">questionText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answer</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">difficulty</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>这三个类具有以下完全相同的属性：<code dir="ltr" translate="no">questionText</code>、<code dir="ltr" translate="no">answer</code> 和 <code dir="ltr" translate="no">difficulty</code>。唯一的区别在于 <code dir="ltr" translate="no">answer</code> 属性的数据类型。您可能会认为，显而易见的解决方案是使用 <code dir="ltr" translate="no">questionText</code> 和 <code dir="ltr" translate="no">difficulty</code> 创建一个父类，并让每个子类都定义 <code dir="ltr" translate="no">answer</code> 属性。</p>
+<p>不过，使用继承也存在上述问题。每次添加新类型的问题时，您都必须添加 <code dir="ltr" translate="no">answer</code> 属性。唯一的区别在于数据类型。父类 <code dir="ltr" translate="no">Question</code> 没有答案属性也显得很奇怪。</p>
+<p>如果您想让某个属性具有不同的数据类型，创建子类并不是理想的解决方案。相反，Kotlin 提供了一种称为“泛型类型”的元素，可让您的单个属性根据特定用例具有不同的数据类型。<em></em></p>
+<h2 id="what-is-a-generic-data-type">什么是泛型数据类型？</h2>
+<p>使用泛型类型（简称“泛型”）时，可以使用数据类型（例如类）指定可与其属性和方法结合使用的未知占位符数据类型。<em></em>这具体意味着什么？</p>
+<p>在上述示例中，您无需为每个可能的数据类型分别定义答案属性，只需创建单个类来表示所有问题，并为 <code dir="ltr" translate="no">answer</code> 属性的数据类型使用一个占位符名称即可。系统会在实例化相应的类时指定实际数据类型（<code dir="ltr" translate="no">String</code>、<code dir="ltr" translate="no">Int</code>、<code dir="ltr" translate="no">Boolean</code> 等）。无论在何处使用占位符名称，系统都会改为使用传入类的数据类型。为类定义通用类型的语法如下所示：</p>
+<p class="image-container"><img alt="67367d9308c171da.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/67367d9308c171da_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>系统会在实例化类时提供泛型数据类型，因此需要将该类型定义为类签名的一部分。类名称后面是左尖括号 (<code dir="ltr" translate="no">&lt;</code>)，后跟表示数据类型的占位符名称，再后面是右尖括号 (<code dir="ltr" translate="no">&gt;</code>)。</p>
+<p>然后，此占位符名称即可在您使用类中的实际数据类型的任何位置使用了（例如用于某个属性）。</p>
+<p class="image-container"><img alt="81170899b2ca0dc9.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/81170899b2ca0dc9_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>除了使用占位符名称（而非数据类型）这一点以外，这与所有其他属性声明并无区别。</p>
+<p>类最终是如何确定要使用哪种数据类型的呢？在您实例化类时，系统会将泛型类型使用的数据类型作为用尖括号括住的形参进行传递。</p>
+<p class="image-container"><img alt="9b8fce54cac8d1ea.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/9b8fce54cac8d1ea_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>类名称后面是左尖括号 (<code dir="ltr" translate="no">&lt;</code>)，后跟实际数据类型（<code dir="ltr" translate="no">String</code>、<code dir="ltr" translate="no">Boolean</code>、<code dir="ltr" translate="no">Int</code> 等），再后面是右尖括号 (<code dir="ltr" translate="no">&gt;</code>)。您为泛型属性传入的值的数据类型必须与尖括号中的数据类型一致。您将对答案属性进行泛化处理，以便可以使用一个类来表示任何类型的测验问题，无论答案是 <code dir="ltr" translate="no">String</code>、<code dir="ltr" translate="no">Boolean</code>、<code dir="ltr" translate="no">Int</code> 还是任意数据类型。</p>
+<aside class="special"><p><strong>注意</strong>：实例化类时传入的泛型类型也称为“形参”，但它们属于单独的形参列表，与放置在括号中的属性值是分开的。</p>
+</aside>
+<aside class="special"><p><strong>注意</strong>：与上述示例一样，您通常会看到一个名为 <code dir="ltr" translate="no">T</code>（“type”的简写）的泛型类型；如果类具有多个泛型类型，则会看到以其他大写字母为名的泛型类型。不过，并没有绝对的命名规则，您可以为泛型类型使用更具描述性的名称。</p>
+</aside>
+<h2 id="refactor-your-code-to-use-generics">重构代码以使用泛型</h2>
+<p>重构您的代码，以使用一个名为 <code dir="ltr" translate="no">Question</code> 且具有通用答案属性的类。</p>
+<ol type="1">
+<li>移除 <code dir="ltr" translate="no">FillInTheBlankQuestion</code>、<code dir="ltr" translate="no">TrueOrFalseQuestion</code> 和 <code dir="ltr" translate="no">NumericQuestion</code> 的类定义。</li>
+<li>创建一个名为 <code dir="ltr" translate="no">Question</code> 的新类。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Question</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在类名称之后、括号之前的位置，使用左右尖括号添加一个泛型类型形参。调用通用类型 <code dir="ltr" translate="no">T</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Question&lt;T&gt;</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<ol start="4" type="1">
+<li>添加 <code dir="ltr" translate="no">questionText</code>、<code dir="ltr" translate="no">answer</code> 和 <code dir="ltr" translate="no">difficulty</code> 属性。<code dir="ltr" translate="no">questionText</code> 的类型应为 <code dir="ltr" translate="no">String</code>。<code dir="ltr" translate="no">answer</code> 的类型应为 <code dir="ltr" translate="no">T</code>，因为其数据类型是在实例化 <code dir="ltr" translate="no">Question</code> 类时指定的。<code dir="ltr" translate="no">difficulty</code> 属性的类型为 <code dir="ltr" translate="no">String</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Question&lt;T&gt;</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">questionText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answer</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">T</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">difficulty</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="5" type="1">
+<li>如需了解其在有多个问题类型（填空、判断正误等）时的运作方式，请在 <code dir="ltr" translate="no">main()</code> 中创建 <code dir="ltr" translate="no">Question</code> 类的三个实例，如下所示。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;String&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Quoth the raven ___"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"nevermore"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"medium"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question2</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;Boolean&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The sky is green. True or false"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"easy"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question3</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;Int&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"How many days are there between full moons?"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">28</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"hard"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>运行您的代码以确保一切正常。现在，您应该有 <code dir="ltr" translate="no">Question</code> 类的三个实例，且每个实例都具有不同的答案数据类型，而不是三个不同的类，也并非使用继承。如果您想处理其他答案类型的问题，可以重复使用同一 <code dir="ltr" translate="no">Question</code> 类。</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 使用枚举类
+          </h2>
+          
+          <p>在上一部分中，您定义了一个难度属性，它具有以下三个可能的值：“easy”“medium”和“hard”。虽然这样可以正常运作，但也存在几个问题。</p>
+<ol type="1">
+<li>如果您不小心输错了三个可能的字符串中的一个，就可能会引入 bug。</li>
+<li>如果值发生更改（例如，<code dir="ltr" translate="no">"medium"</code> 重命名为 <code dir="ltr" translate="no">"average"</code>），则需要更新字符串的所有用法。</li>
+<li>没有任何机制能够阻止您或其他开发者不小心使用这三个有效值以外的其他字符串。</li>
+<li>如果您添加更多难度级别，代码会更难维护。</li>
+</ol>
+<p>Kotlin 使用一种名为“枚举类”的特殊类来帮助您解决这些问题。<em></em>枚举类用于创建具有一组数量有限的可能值的类型。例如，在现实世界中，您可以使用一个枚举类来表示四个基本方向（北、南、东和西）。您不需要（代码也不应允许）使用任何其他方向。枚举类的语法如下所示。</p>
+<p class="image-container"><img alt="f4bddb215eb52392.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f4bddb215eb52392_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>枚举的每个可能值都称为“枚举常量”。<em></em>枚举常量位于大括号内，互相以英文逗号分隔。按照惯例，常量名称中的每个字母都要大写。</p>
+<p>您可以使用点运算符来引用枚举常量。</p>
+<p class="image-container"><img alt="f3cfa84c3f34392b.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/f3cfa84c3f34392b_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<h2 id="use-an-enum-constant">使用枚举常量</h2>
+<p>修改代码，以便使用枚举常量（而不是 <code dir="ltr" translate="no">String</code>）来表示难度。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">Question</code> 类下方，定义一个名为 <code dir="ltr" translate="no">Difficulty</code> 的 <code dir="ltr" translate="no">enum</code> 类。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">enum</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Difficulty</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">EASY</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MEDIUM</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">HARD</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">Question</code> 类中，将 <code dir="ltr" translate="no">difficulty</code> 属性的数据类型从 <code dir="ltr" translate="no">String</code> 更改为 <code dir="ltr" translate="no">Difficulty</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Question&lt;T&gt;</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">questionText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answer</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">T</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">difficulty</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="3" type="1">
+<li>初始化这三个问题时，传入枚举常量来表示难度。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;String&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Quoth the raven ___"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"nevermore"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">MEDIUM</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question2</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;Boolean&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The sky is green. True or false"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">EASY</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question3</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;Int&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"How many days are there between full moons?"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">28</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">HARD</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 使用数据类
+          </h2>
+          
+          <p>到目前为止，您使用过的许多类（例如 <code dir="ltr" translate="no">Activity</code> 的子类）都包含多种用于执行不同操作的方法。这些类不仅表示数据，还包含许多功能。</p>
+<p>另一方面，像 <code dir="ltr" translate="no">Question</code> 这样的类只包含数据。它们没有任何用于执行操作的方法。这些类可以定义为“数据类”。<em></em>通过将类定义为数据类，Kotlin 编译器可以做出某些假设，并自动实现某些方法。例如，<code dir="ltr" translate="no">println()</code> 函数会在后台调用 <code dir="ltr" translate="no">toString()</code>。当您使用数据类时，系统会根据类的属性自动实现 <code dir="ltr" translate="no">toString()</code> 和其他方法。</p>
+<p>如需定义数据类，只需在 <code dir="ltr" translate="no">class</code> 关键字前面添加 <code dir="ltr" translate="no">data</code> 关键字即可。</p>
+<p class="image-container"><img alt="e7cd946b4ad216f4.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/e7cd946b4ad216f4_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<h2 id="convert-question-to-a-data-class">将 <code dir="ltr" translate="no">Question</code> 转换为数据类</h2>
+<p>首先，您会看到，当您对非数据类调用 <code dir="ltr" translate="no">toString()</code> 等方法时，会发生什么情况。然后，您要将 <code dir="ltr" translate="no">Question</code> 转换为数据类，以便让系统默认实现此方法和其他方法。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 中，输出对 <code dir="ltr" translate="no">question1</code> 调用 <code dir="ltr" translate="no">toString()</code> 的结果。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;String&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Quoth the raven ___"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"nevermore"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">MEDIUM</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question2</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;Boolean&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The sky is green. True or false"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">EASY</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question3</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;Int&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"How many days are there between full moons?"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">28</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">HARD</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">question1</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toString</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行您的代码。输出结果仅显示类名称和对象的唯一标识符。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Question@37f8bb67
+</pre>
+<ol start="3" type="1">
+<li>使用 <code dir="ltr" translate="no">data</code> 关键字将 <code dir="ltr" translate="no">Question</code> 转换为数据类。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Question&lt;T&gt;</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">questionText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answer</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">T</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">difficulty</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="4" type="1">
+<li>再次运行您的代码。通过将其标记为数据类，Kotlin 能够确定在调用 <code dir="ltr" translate="no">toString()</code> 时如何显示此类的属性。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Question(questionText=Quoth the raven ___, answer=nevermore, difficulty=MEDIUM)
+</pre>
+<p>将某个类定义为数据类后，系统会实现以下方法。</p>
+<ul>
+<li><code dir="ltr" translate="no">equals()</code></li>
+<li><code dir="ltr" translate="no">hashCode()</code>：在使用某些集合类型时，您会看到此方法。</li>
+<li><code dir="ltr" translate="no">toString()</code></li>
+<li><a href="https://kotlinlang.org/docs/destructuring-declarations.html#example-returning-two-values-from-a-function" target="_blank"><code dir="ltr" translate="no">componentN()</code></a>：<code dir="ltr" translate="no">component1()</code>、<code dir="ltr" translate="no">component2()</code> 等</li>
+<li><code dir="ltr" translate="no">copy()</code></li>
+</ul>
+<aside class="special"><p><strong>注意</strong>：数据类的构造函数中必须至少有一个形参，并且所有构造函数形参都必须使用 <code dir="ltr" translate="no">val</code> 或 <code dir="ltr" translate="no">var</code> 进行标记。此外，数据类也不能是 <code dir="ltr" translate="no">abstract</code>、<code dir="ltr" translate="no">open</code>、<code dir="ltr" translate="no">sealed</code> 或 <code dir="ltr" translate="no">inner</code>。</p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 使用单例对象
+          </h2>
+          
+          <p>在很多情况下，您都需要让一个类只包含一个实例。例如：</p>
+<ol type="1">
+<li>移动游戏中当前用户的玩家统计信息。</li>
+<li>与单个硬件设备互动，例如通过扬声器发送音频。</li>
+<li>用于访问远程数据源（例如 Firebase 数据库）的对象。</li>
+<li>身份验证（每次只应有一位用户登录）。</li>
+</ol>
+<p>在上述情况下，您可能需要使用类。不过，您只需要对此类的一个实例进行实例化。如果只有一台硬件设备，或者一次只有一位用户登录，则没有理由创建多个实例。让两个对象同时访问同一硬件设备可能会导致出现一些非常奇怪且有 bug 的行为。</p>
+<p>在代码中，您可以明确地说明某个对象只应有一个实例，只需将其定义为单例即可。“单例”是指只能有一个实例的类。<em></em>Kotlin 提供了一种称为“对象”的特殊结构，可用于构建单例类。<em></em></p>
+<h2 id="define-a-singleton-object">定义单例对象</h2>
+<p class="image-container"><img alt="645e8e8bbffbb5f9.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/645e8e8bbffbb5f9_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>对象的语法与类的语法类似。只需使用 <code dir="ltr" translate="no">object</code> 关键字（而不是 <code dir="ltr" translate="no">class</code> 关键字）即可。单例对象不能包含构造函数，因为您无法直接创建实例。相反，所有属性都要在大括号内定义并被赋予初始值。</p>
+<p>前面给出的一些示例可能看起来并不明显，尤其是在您未使用特定硬件设备或尚未在应用中处理身份验证的情况下。不过，随着您继续学习 Android 开发，您会接触到单例对象。让我们通过一个简单示例来看看它是怎样实际运用的，该示例使用了一个用户状态对象，其中只需要一个实例。</p>
+<p>对于测验，最好能够通过某种方法来跟踪问题总数，以及学生到目前为止已经回答的问题数量。您只需让此类的一个实例存在即可，因此要将其声明为单例对象，而不是类。</p>
+<ol type="1">
+<li>创建一个名为 <code dir="ltr" translate="no">StudentProgress</code> 的对象。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">StudentProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在本例中，我们假设共有十个问题，并且到目前为止已经回答了其中的三个问题。添加两个 <code dir="ltr" translate="no">Int</code> 属性：<code dir="ltr" translate="no">total</code>（值为 <code dir="ltr" translate="no">10</code>）和 <code dir="ltr" translate="no">answered</code>（值为 <code dir="ltr" translate="no">3</code>）。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">StudentProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">total</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answered</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">3</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="access-a-singleton-object">访问单例对象</h2>
+<p>还记得您无法直接创建单例对象实例吗？那么，如何才能访问其属性呢？</p>
+<p>由于一次只能存在一个 <code dir="ltr" translate="no">StudentProgress</code> 实例，因此您可以通过以下方法来访问其属性：引用对象本身的名称，后跟点运算符 (<code dir="ltr" translate="no">.</code>)，再后跟属性名称。</p>
+<p class="image-container"><img alt="1b610fd87e99fe25.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1b610fd87e99fe25_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>更新 <code dir="ltr" translate="no">main()</code> 函数以访问单例对象的属性。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 中，添加对 <code dir="ltr" translate="no">println()</code> 的调用，以便输出 <code dir="ltr" translate="no">StudentProgress</code> 对象中的 <code dir="ltr" translate="no">answered</code> 和 <code dir="ltr" translate="no">total</code> 问题。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">StudentProgress</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answered</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> of </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">StudentProgress</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">total</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> answered."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>运行您的代码，验证是否一切正常。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">...
+3 of 10 answered.
+</pre>
+<h2 id="declare-objects-as-companion-objects">将对象声明为伴生对象</h2>
+<p>Kotlin 中的类和对象可以在其他类型中定义，是整理代码的绝佳方式。您可以使用“伴生对象”在另一个类中定义单例对象。<em></em>伴生对象允许您从类内部访问其属性和方法（如果对象的属性和方法属于相应类的话），从而让语法变得更简洁。</p>
+<p>如需声明伴生对象，只需在 <code dir="ltr" translate="no">object</code> 关键字前面添加 <code dir="ltr" translate="no">companion</code> 关键字即可。</p>
+<p class="image-container"><img alt="68b263904ec55f29.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/68b263904ec55f29_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>您将创建一个名为 <code dir="ltr" translate="no">Quiz</code> 的新类来存储测验问题，并将 <code dir="ltr" translate="no">StudentProgress</code> 设为 <code dir="ltr" translate="no">Quiz</code> 类的伴生对象。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">Difficulty</code> 枚举之后，定义一个名为 <code dir="ltr" translate="no">Quiz</code> 的新类。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Quiz</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>将 <code dir="ltr" translate="no">question1</code>、<code dir="ltr" translate="no">question2</code> 和 <code dir="ltr" translate="no">question3</code> 从 <code dir="ltr" translate="no">main()</code> 移至 <code dir="ltr" translate="no">Quiz</code> 类。如果尚未移除 <code dir="ltr" translate="no">println(question1.toString())</code>，您还需要将其移除。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Quiz</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;String&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Quoth the raven ___"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"nevermore"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">MEDIUM</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question2</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;Boolean&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The sky is green. True or false"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">EASY</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question3</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;Int&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"How many days are there between full moons?"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">28</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">HARD</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>将 <code dir="ltr" translate="no">StudentProgress</code> 对象移入 <code dir="ltr" translate="no">Quiz</code> 类中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Quiz</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;String&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Quoth the raven ___"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"nevermore"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">MEDIUM</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question2</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;Boolean&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"The sky is green. True or false"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">EASY</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">question3</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Question&lt;Int&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"How many days are there between full moons?"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">28</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Difficulty</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">HARD</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">StudentProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">total</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answered</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">3</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>使用 <code dir="ltr" translate="no">companion</code> 关键字标记 <code dir="ltr" translate="no">StudentProgress</code> 对象。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">companion</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">StudentProgress</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">total</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">10</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">answered</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">3</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>更新对 <code dir="ltr" translate="no">println()</code> 的调用，以便使用 <code dir="ltr" translate="no">Quiz.answered</code> 和 <code dir="ltr" translate="no">Quiz.total</code> 来引用属性。虽然这些属性是在 <code dir="ltr" translate="no">StudentProgress</code> 对象中声明的，但只需使用 <code dir="ltr" translate="no">Quiz</code> 类的名称即可通过点表示法来访问它们。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answered</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> of </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">total</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> answered."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>运行代码，验证输出。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">3 of 10 answered.
+</pre>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 使用新的属性和方法来扩展类
+          </h2>
+          
+          <p>如果您使用 Compose，在指定界面元素的大小时，您可能会发现一些有趣的语法。数字类型（例如 <code dir="ltr" translate="no">Double</code>）似乎具有各种属性（例如指定 <code dir="ltr" translate="no">dp</code> 和 <code dir="ltr" translate="no">sp</code> 的维度）。</p>
+<p class="image-container"><img alt="a25c5a0d7bb92b60.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/a25c5a0d7bb92b60_2880.029cc721e4.png 2880w" style="width: 258.00px" loading="lazy" decoding="async"></p>
+<p>为什么 Kotlin 语言的设计人员会在内置数据类型中添加属性和函数，特别是用于构建 Android 界面的属性和函数？难道他们能预测未来吗？难道 Kotlin 早在 Compose 存在之前就能与 Compose 结合使用？</p>
+<p>显然不是这样！在编写类时，您通常并不知道其他开发者究竟会（或计划）怎样在其应用中使用该类。您无法预测未来的所有用例，而因为一些不可预见的用例让代码出现不必要的膨胀也并非明智之举。</p>
+<p>Kotlin 语言的解决方案就是让其他开发者能够扩展现有数据类型，添加可通过点语法访问的属性和方法，就像这些元素本就包含在相应数据类型中一样。没有在 Kotlin 中处理过浮点类型的开发者（例如构建 Compose 库的开发者）可能会选择添加特定于界面维度的属性和方法。</p>
+<p>由于您在前两个单元中学习 Compose 时已经见过此语法，因此接下来您将了解其后台运作方式。您需要添加一些属性和方法以扩展现有类型。</p>
+<h2 id="add-an-extension-property">添加扩展属性</h2>
+<p>如需定义扩展属性，请在变量名称前面添加类型名称和点运算符 (<code dir="ltr" translate="no">.</code>)。</p>
+<p class="image-container"><img alt="1e8a52e327fe3f45.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/1e8a52e327fe3f45_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>您将重构 main() 函数中的代码，以便使用扩展属性输出测验进度。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">Quiz</code> 类之后，定义一个名为 <code dir="ltr" translate="no">progressText</code> 且类型为 <code dir="ltr" translate="no">String</code> 的 <code dir="ltr" translate="no">Quiz.StudentProgress</code> 扩展属性。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">StudentProgress</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+</code></pre>
+<ol start="2" type="1">
+<li>为此扩展属性定义一个 getter，用于返回之前在 <code dir="ltr" translate="no">main()</code> 中使用的那个字符串。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">StudentProgress</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">get</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">answered</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> of </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">total</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> answered"</span>
+</code></pre>
+<ol start="3" type="1">
+<li>将 <code dir="ltr" translate="no">main()</code> 函数中的代码替换为用于输出 <code dir="ltr" translate="no">progressText</code> 的代码。由于这是伴生对象的扩展属性，因此您可以使用类名称 <code dir="ltr" translate="no">Quiz</code> 通过点表示法来访问此属性。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressText</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>运行您的代码以验证其能否正常运行。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">3 of 10 answered.
+</pre>
+<aside class="special"><p><strong>注意</strong>：由于扩展属性无法存储数据，因此它们必须是 get-only 的。</p>
+</aside>
+<h2 id="add-an-extension-function">添加扩展函数</h2>
+<p>如需定义扩展函数，请在函数名称前面添加类型名称和点运算符 (<code dir="ltr" translate="no">.</code>)。</p>
+<p class="image-container"><img alt="879ff2761e04edd9.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/879ff2761e04edd9_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>您将添加一个扩展函数，以便将测验进度输出为进度条。由于您实际上无法在 Kotlin 园地中构建进度条，因此您将使用文本来输出一个复古风的进度条！</p>
+<ol type="1">
+<li>向 <code dir="ltr" translate="no">StudentProgress</code> 对象添加一个名为 <code dir="ltr" translate="no">printProgressBar()</code> 的扩展函数。此函数不应接受任何形参，也没有任何返回值。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nf">StudentProgress</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">printProgressBar</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>使用 <code dir="ltr" translate="no">repeat()</code> 输出 <code dir="ltr" translate="no">▓</code> 字符，次数为 <code dir="ltr" translate="no">answered</code>。进度条的这块深色阴影部分表示已经回答的问题数量。由于无需在每输出一个字符后都进行换行，因此请使用 <code dir="ltr" translate="no">print()</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nf">StudentProgress</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">printProgressBar</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answered</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"▓"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>使用 <code dir="ltr" translate="no">repeat()</code> 输出 <code dir="ltr" translate="no">▒</code> 字符，次数等于 <code dir="ltr" translate="no">total</code> 和 <code dir="ltr" translate="no">answered</code> 的差值。进度条中的这块浅色阴影部分表示剩余问题。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nf">StudentProgress</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">printProgressBar</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answered</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"▓"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">total</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answered</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"▒"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>使用不含任何实参的 <code dir="ltr" translate="no">println()</code> 输出一个新的行，然后输出 <code dir="ltr" translate="no">progressText</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nf">StudentProgress</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">printProgressBar</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answered</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"▓"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">total</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answered</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"▒"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressText</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>更新 <code dir="ltr" translate="no">main()</code> 中的代码以调用 <code dir="ltr" translate="no">printProgressBar()</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">printProgressBar</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>运行代码，验证输出。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">▓▓▓▒▒▒▒▒▒▒
+3 of 10 answered.
+</pre>
+<p>有哪项操作是强制性要求吗？当然不是。不过，如果设置了扩展属性和方法选项，您在向其他开发者展示代码时就会有更多的选择。对其他类型的代码使用点语法可以使代码更易于阅读，无论是对您自己还是对其他开发者来说都是如此。</p>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 使用接口重写扩展函数
+          </h2>
+          
+          <p>在前一页中，您了解了如何使用扩展属性和扩展函数向 <code dir="ltr" translate="no">StudentProgress</code> 对象添加属性和方法，而无需直接向该对象添加代码。虽然这是向已定义的类添加功能的绝佳方式，但如果您有权访问源代码，不必总是使用扩展类来添加功能。在有些情况下，您并不知道具体实现会是怎样的，而只知道应该存在某种方法或属性。如果您需要多个类具有相同的额外属性和方法（可能是行为方式不同），就可以使用接口定义这些属性和方法。<em></em></p>
+<p>例如，除了测验之外，假设您还有类要用于调查问卷、食谱中的步骤或其他任何可以使用进度条的有序数据。您可以定义一个接口，指定每个类必须包含的方法和/或属性。</p>
+<p class="image-container"><img alt="eeed58ed687897be.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/eeed58ed687897be_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>接口使用 <code dir="ltr" translate="no">interface</code> 关键字定义，后跟大驼峰式命名法 (UpperCamelCase) 名称，再跟左大括号和右大括号。在大括号内，您可以定义任何符合接口标准的类必须实现的方法签名或 get-only 属性。</p>
+<p class="image-container"><img alt="6b04a8f50b11f2eb.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/6b04a8f50b11f2eb_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>接口是一种协定。系统会声明符合接口规范的类以扩展接口。类可以声明它想用“冒号 (<code dir="ltr" translate="no">:</code>) 后跟一个空格，再跟接口名称”的形式来扩展接口。</p>
+<p class="image-container"><img alt="78af59840c74fa08.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-generics/img/78af59840c74fa08_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>反过来，该类必须实现接口中指定的所有属性和方法。这样一来，您就可以轻松确保所有需要扩展接口的类都可使用完全相同的方法签名实现完全相同的方法。如果您以任何方式修改接口（例如添加或移除属性/方法，或者更改方法签名），编译器就会要求您更新扩展接口的所有类，这样可以保持代码的一致性且更易于维护。</p>
+<p>接口允许其扩展类的行为有变化。提供实现的方法取决于各个类。</p>
+<p>我们来看看如何重写进度条才能使用接口，并让 Quiz 类扩展该接口。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">Quiz</code> 类之前，定义一个名为 <code dir="ltr" translate="no">ProgressPrintable</code> 的接口。我们之所以选择名称 <code dir="ltr" translate="no">ProgressPrintable</code>，是因为它使所有扩展该接口的类都能输出进度条。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">ProgressPrintable</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">ProgressPrintable</code> 接口中，定义一个名为 <code dir="ltr" translate="no">progressText</code> 的属性。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">ProgressPrintable</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">progressText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>修改 <code dir="ltr" translate="no">Quiz</code> 类的声明，以扩展 <code dir="ltr" translate="no">ProgressPrintable</code> 接口。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Quiz</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ProgressPrintable</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">Quiz</code> 类中，添加一个名为 <code dir="ltr" translate="no">progressText</code> 且类型为 <code dir="ltr" translate="no">String</code> 的属性，如 <code dir="ltr" translate="no">ProgressPrintable</code> 接口中所指定。由于该属性来自 <code dir="ltr" translate="no">ProgressPrintable</code>，因此请在 <code dir="ltr" translate="no">val</code> 前面添加替换关键字。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">progressText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+</code></pre>
+<ol start="5" type="1">
+<li>从旧的 <code dir="ltr" translate="no">progressText</code> 扩展属性中复制属性 getter。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">progressText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">get</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">answered</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> of </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">total</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> answered"</span>
+</code></pre>
+<ol start="6" type="1">
+<li>移除旧的 <code dir="ltr" translate="no">progressText</code> 扩展属性。</li>
+</ol>
+<p><strong>要删除的代码：</strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">StudentProgress</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">get</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">answered</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> of </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">total</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> answered"</span>
+</code></pre>
+<ol start="7" type="1">
+<li>在 <code dir="ltr" translate="no">ProgressPrintable</code> 接口中，添加一个名为 <code dir="ltr" translate="no">printProgressBar</code> 的方法，该方法不接受任何参数，也没有返回值。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">ProgressPrintable</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">progressText</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printProgressBar</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="8" type="1">
+<li>在 <code dir="ltr" translate="no">Quiz</code> 类中，使用 <code dir="ltr" translate="no">override</code> 关键字添加 <code dir="ltr" translate="no">printProgressBar()</code> 方法。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printProgressBar</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="9" type="1">
+<li>将代码从旧的 <code dir="ltr" translate="no">printProgressBar()</code> 扩展函数移至接口中的新 <code dir="ltr" translate="no">printProgressBar()</code>。通过移除对 <code dir="ltr" translate="no">Quiz</code> 的引用，修改最后一行，以引用接口中新 <code dir="ltr" translate="no">progressText</code> 变量。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printProgressBar</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answered</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"▓"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">total</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answered</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"▒"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">progressText</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="10" type="1">
+<li>移除扩展函数 <code dir="ltr" translate="no">printProgressBar()</code>。此功能现在属于用于扩展 <code dir="ltr" translate="no">ProgressPrintable</code> 的 <code dir="ltr" translate="no">Quiz</code> 类。</li>
+</ol>
+<p><strong>要删除的代码：</strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nf">StudentProgress</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">printProgressBar</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answered</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"▓"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">repeat</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">total</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answered</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"▒"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">progressText</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="11" type="1">
+<li>更新 <code dir="ltr" translate="no">main()</code> 中的代码。由于 <code dir="ltr" translate="no">printProgressBar()</code> 函数现在是 <code dir="ltr" translate="no">Quiz</code> 类的一个方法，因此您需要先实例化 <code dir="ltr" translate="no">Quiz</code> 对象，然后再调用 <code dir="ltr" translate="no">printProgressBar()</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">printProgressBar</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="12" type="1">
+<li>运行您的代码。输出保持不变，但现在您的代码的模块化程度更高。随着代码库不断发展壮大，您可以轻松添加符合同一接口的类以重复使用代码，而无需继承父类。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">▓▓▓▒▒▒▒▒▒▒
+3 of 10 answered.
+</pre>
+<p>接口的许多用例可以帮助您构造代码，而且您将开始察觉到，常见单元中频繁用到了这些用例。在您继续使用 Kotlin 的过程中，您可能会遇到下面这些接口示例。</p>
+<ul>
+<li><a href="https://developer.android.com/training/dependency-injection/manual?hl=zh-cn" target="_blank">手动注入依赖项。</a>创建一个定义依赖项中所有属性和方法的接口。要求该接口作为依赖项的数据类型（活动、测试用例等），以便使用实现该接口的任何类的实例。这让您可以更换底层实现。</li>
+<li>模拟自动化测试。模拟类和真实类都符合同一接口标准。</li>
+<li>在 <a href="https://github.com/JetBrains/compose-jb" target="_blank">Compose Multiplatform</a> 应用中访问相同的依赖项。例如，创建一个能够为 Android 和桌面设备提供一组通用属性和方法的接口，即使每个平台的基础实现有所不同也适用。</li>
+<li>Compose 中的多个数据类型（例如 <a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Modifier</code></a>）都是接口。这样一来，您无需访问或修改底层源代码即可添加新的修饰符。</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 使用作用域函数来访问类属性和方法
+          </h2>
+          
+          <p>如您所见，Kotlin 包含大量功能，可让您的代码变得更简洁。</p>
+<p>随着您继续学习 Android 开发，您会遇到这样一个功能，那就是“作用域函数”。<em></em>借助作用域函数，您可以通过简洁的方式访问类中的属性和方法，而无需重复访问变量名称。这具体意味着什么？下面我们来看一个示例。</p>
+<h2 id="eliminate-repetitive-object-references-with-scope-functions">使用作用域函数消除重复的对象引用</h2>
+<p>作用域函数属于高阶函数，允许您在不引用对象名称的情况下访问对象的属性和方法。之所以将这些函数称为作用域函数，是因为传入的函数的正文会采用调用作用域函数时所涉及对象的作用域。例如，有些作用域函数允许您访问类中的属性和方法，就好像这些函数已被定义为相应类的方法一样。这样一来，如果包含对象名称会使代码变得冗余，您便可以省略对象名称，从而提高代码的可读性。</p>
+<p>为了更好地说明这一点，让我们来看一下您将在本课程的后续内容中遇到的几个不同的作用域函数。</p>
+<h2 id="replace-long-object-names-using-let">使用 <code dir="ltr" translate="no">let()</code> 替换过长的对象名称</h2>
+<p>借助 <code dir="ltr" translate="no">let()</code> 函数，您可以使用标识符 <code dir="ltr" translate="no">it</code> 来引用 lambda 表达式中的对象，而无需使用对象的实际名称。这有助于避免在访问多个属性时反复使用过长、更具描述性的对象名称。<code dir="ltr" translate="no">let()</code> 函数是一个扩展函数，可通过点表示法对任何 Kotlin 对象进行调用。</p>
+<p>尝试使用 <code dir="ltr" translate="no">let()</code> 访问 <code dir="ltr" translate="no">question1</code>、<code dir="ltr" translate="no">question2</code> 和 <code dir="ltr" translate="no">question3</code> 的属性：</p>
+<ol type="1">
+<li>向 <code dir="ltr" translate="no">Quiz</code> 类添加一个名为 <code dir="ltr" translate="no">printQuiz()</code> 的函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printQuiz</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>添加以下代码，以便输出问题的 <code dir="ltr" translate="no">questionText</code>、<code dir="ltr" translate="no">answer</code> 和 <code dir="ltr" translate="no">difficulty</code>。虽然系统会访问 <code dir="ltr" translate="no">question1</code>、<code dir="ltr" translate="no">question2</code> 和 <code dir="ltr" translate="no">question3</code> 的多个属性，但每次都会使用整个变量名称。如果变量的名称发生更改，您就需要对每个用法进行相应更改。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printQuiz</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">question1</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">questionText</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">question1</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answer</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">question1</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">difficulty</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">question2</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">questionText</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">question2</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answer</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">question2</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">difficulty</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">question3</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">questionText</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">question3</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answer</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">question3</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">difficulty</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>使用 <code dir="ltr" translate="no">question1</code>、<code dir="ltr" translate="no">question2</code> 和 <code dir="ltr" translate="no">question3</code> 上的 <code dir="ltr" translate="no">let()</code> 函数调用将访问 <code dir="ltr" translate="no">questionText</code>、<code dir="ltr" translate="no">answer</code> 和 <code dir="ltr" translate="no">difficulty</code> 属性的代码括起来。用它替换每个 lambda 表达式中的变量名称。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printQuiz</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">question1</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">let</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">questionText</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answer</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">difficulty</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">question2</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">let</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">questionText</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answer</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">difficulty</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">question3</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">let</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">questionText</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">answer</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">difficulty</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>更新 <code dir="ltr" translate="no">main()</code> 中的代码以创建名为 <code dir="ltr" translate="no">quiz</code> 的 <code dir="ltr" translate="no">Quiz</code> 类的实例。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">quiz</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>调用 <code dir="ltr" translate="no">printQuiz()</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">quiz</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">quiz</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">printQuiz</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>运行您的代码，验证是否一切正常。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Quoth the raven ___
+nevermore
+MEDIUM
+
+The sky is green. True or false
+false
+EASY
+
+How many days are there between full moons?
+28
+HARD
+</pre>
+<h2 id="call-an-objects-methods-without-a-variable-using-apply">使用 apply() 在没有变量的情况下调用对象方法</h2>
+<p>作用域函数有一项非常棒的功能，那就是即使尚未将某个对象分配到变量，您也可以对此对象调用作用域函数。例如，<code dir="ltr" translate="no">apply()</code> 函数是一个扩展函数，可通过点表示法调用对象。<code dir="ltr" translate="no">apply()</code> 函数还会返回对相应对象的引用，以便将其存储在变量中。</p>
+<p>更新 <code dir="ltr" translate="no">main()</code> 中的代码以调用 <code dir="ltr" translate="no">apply()</code> 函数。</p>
+<ol type="1">
+<li>在创建 <code dir="ltr" translate="no">Quiz</code> 类的实例时，请在右圆括号后面调用 <code dir="ltr" translate="no">apply()</code>。您可以在调用 <code dir="ltr" translate="no">apply()</code> 时省略圆括号，并使用尾随 lambda 语法。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">quiz</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">apply</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>将对 <code dir="ltr" translate="no">printQuiz()</code> 的调用移至 lambda 表达式内。您无需再引用 <code dir="ltr" translate="no">quiz</code> 变量或使用点表示法。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">quiz</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">apply</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">printQuiz</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li><code dir="ltr" translate="no">apply()</code> 函数会返回 <code dir="ltr" translate="no">Quiz</code> 类的实例，但由于您在任何位置都不再使用此实例了，因此请移除 <code dir="ltr" translate="no">quiz</code> 变量。借助 <code dir="ltr" translate="no">apply()</code> 函数，您甚至无需变量即可对 <code dir="ltr" translate="no">Quiz</code> 实例调用方法。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Quiz</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">apply</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">printQuiz</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>运行您的代码。请注意，您可以在不引用 <code dir="ltr" translate="no">Quiz</code> 实例的情况下调用此方法。<code dir="ltr" translate="no">apply()</code> 函数返回了存储在 <code dir="ltr" translate="no">quiz</code> 中的对象。</li>
+</ol>
+<div></div><pre translate="no" dir="ltr">Quoth the raven ___
+nevermore
+MEDIUM
+
+The sky is green. True or false
+false
+EASY
+
+How many days are there between full moons?
+28
+HARD
+</pre>
+<p>虽然并不强制要求您使用作用域函数来实现所需输出，但上述示例说明了作用域函数如何能够让您的代码变得更简洁，并避免重复使用相同的变量名称。</p>
+<p>以上代码仅展示了两个示例，但我们建议您为<a href="https://kotlinlang.org/docs/scope-functions.html" target="_blank">作用域函数文档</a>添加书签并参阅此文档，因为您会在本课程的后续内容中遇到使用此类函数的内容。</p>
+
+
+        
+          
+          <h2 class="" id="8">
+              9. 总结
+          </h2>
+          
+          <p>您刚刚了解了 Kotlin 的一些新功能的实际运用。泛型支持将数据类型作为形参传递到类，枚举类可以定义有限数量的可能值，而数据类有助于为类自动生成一些有用的方法。</p>
+<p>您还了解了如何创建单例对象（仅限一个实例）、如何使其成为另一个类的伴生对象，以及如何使用新的 get-only 属性和新的方法来扩展现有的类。最后，您看到了一些示例，了解了作用域函数如何能够在访问属性和方法时提供更简洁的语法。</p>
+<p>随着您深入学习 Kotlin、Android 开发和 Compose，您将在后续单元中见到这些概念。现在，您对它们的运作方式以及它们如何能够提升代码的可重用性和可读性有了更深入的了解。</p>
+
+
+        
+          
+          <h2 class="" id="9">
+              10. 了解更多内容
+          </h2>
+          
+          <ul>
+<li><a href="https://kotlinlang.org/docs/generics.html" target="_blank">泛型</a></li>
+<li><a href="https://kotlinlang.org/docs/enum-classes.html" target="_blank">枚举类</a></li>
+<li><a href="https://kotlinlang.org/docs/data-classes.html" target="_blank">数据类</a></li>
+<li><a href="https://kotlinlang.org/docs/object-declarations.html" target="_blank">对象表达式和声明</a></li>
+<li><a href="https://kotlinlang.org/docs/scope-functions.html" target="_blank">作用域函数</a></li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">上一节：创建 Art Space 应用</a><a href="./02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">下一节：02.在 Kotlin 中使用集合</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

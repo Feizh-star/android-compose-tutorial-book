@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>添加仓库和手动依赖项注入</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">简介：Compose 中的状态</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">创建 Art Space 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将常用高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题设置</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 添加简单的动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">为 ViewModel 编写单元测试</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：将 ViewModel 添加到 Dessert Clicker</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a class="active" href="./01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加仓库和手动依赖项注入</a></li>
+<li><a href="./02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="./03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="./04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">添加仓库和手动依赖项注入</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <h2 id="introduction"><strong>简介</strong></h2>
+<p>在上一个 Codelab 中，您学习了如何使用 API 服务让 <code dir="ltr" translate="no">ViewModel</code> 从网络中检索火星照片的网址，从而掌握了如何从网络服务中获取数据。尽管这种方法行之有效且易于实现，但无法很好地随着应用的增长而进行调整，并且需要使用多个数据源。为了解决此问题，建议您按照 Android 架构的最佳实践，把界面层和数据层分开。</p>
+<p>在此 Codelab 中，您会将 <strong>Mars Photos</strong> 应用重构为单独的界面层和数据层。您将了解如何实现仓库模式以及如何使用依赖项注入。依赖项注入可以创建更灵活的编码结构，有助于开发和测试。</p>
+<h2 id="prerequisites"><strong>前提条件</strong></h2>
+<ul>
+<li>能够从 REST 网络服务中检索 JSON，并使用 <a href="https://square.github.io/retrofit/" target="_blank">Retrofit</a> 库和<a href="https://kotlinlang.org/docs/serialization.html" target="_blank">序列化 (kotlinx.serialization)</a> 库将相应数据解析为 Kotlin 对象。</li>
+<li>了解如何使用 <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> 网络服务。</li>
+<li>能够在应用中实现协程。</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn"><strong>学习内容</strong></h2>
+<ul class="checklist">
+<li>仓库模式</li>
+<li>依赖项注入</li>
+</ul>
+<h2 id="what-youll-build"><strong>构建内容</strong></h2>
+<ul>
+<li>修改 <strong>Mars Photos</strong> 应用，将应用拆分为界面层和数据层。</li>
+<li>在拆分数据层时实现仓库模式。</li>
+<li>使用依赖项注入创建松散耦合的代码库。</li>
+</ul>
+<h2 id="what-you-need"><strong>所需条件</strong></h2>
+<ul>
+<li>一台安装了现代网络浏览器（如最新版 <a href="https://www.google.com/chrome/?hl=zh-cn" target="_blank">Chrome</a>）的计算机</li>
+</ul>
+<h2 id="get-the-starter-code">获取起始代码</h2>
+<p>首先，请下载起始代码：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/archive/refs/heads/repo-starter.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>或者，您也可以克隆该代码的 GitHub 代码库：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos.git
+$ cd basic-android-kotlin-compose-training-mars-photos
+$ git checkout repo-starter
+</pre>
+<aside class="special"><p><strong>注意</strong>：起始代码位于所克隆代码库的 <code dir="ltr" translate="no">repo-starter</code> 分支中。</p>
+</aside>
+<p>您可以在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/tree/repo-starter" target="_blank"><code dir="ltr" translate="no">Mars Photos</code></a> GitHub 代码库中浏览该代码。</p>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 拆分界面层和数据层
+          </h2>
+          
+          <h2 id="why-different-layers"><strong>为什么要使用不同的层？</strong></h2>
+<p>将代码拆分为不同的层可让您的应用具备更高的可伸缩性、更加稳定可靠、更易于测试。为不同的层定义清晰的边界还有助于多个开发者更轻松地开发同一应用，而不会对彼此产生负面影响。</p>
+<p>根据 <a href="https://developer.android.com/topic/architecture?hl=zh-cn#recommended-app-arch" target="_blank">Android 的推荐应用架构</a>，应用应至少具有一个界面层和一个数据层。</p>
+<p>在此 Codelab 中，您将重点关注数据层并做出一些更改，确保您的应用遵循推荐的最佳实践。</p>
+<h2 id="what-is-a-data-layer"><strong>什么是数据层？</strong></h2>
+<p>数据层负责应用的业务逻辑以及为应用寻源和保存数据。数据层使用<a href="https://developer.android.com/topic/architecture?hl=zh-cn#unidirectional-data-flow" target="_blank">单向数据流</a>模式向界面层公开数据。数据可能来自多个来源，例如网络请求、本地数据库或设备上的文件。</p>
+<p>一个应用甚至可能有多个数据源。当应用打开时，它会从设备上的本地数据库（第一个来源）检索数据。当应用运行时，它会向第二个来源发出网络请求以检索较新的数据。</p>
+<p>通过将数据与界面代码放在不同的层中，您可以在代码的某一部分进行更改，而不会影响其他部分。这种方法属于<a href="https://en.wikipedia.org/wiki/Separation_of_concerns" target="_blank">关注点分离</a>的设计原则。一段代码侧重于自身的关注点，并封装其内部运行，与其他代码相隔离。封装用于向代码的其他部分隐藏其内部运行。当一段代码需要与另一段代码进行交互时，就需要通过接口来实现。</p>
+<p>界面层的关注点是显示所提供的数据。界面不再检索数据，因为这是数据层的关注点。</p>
+<p>数据层由一个或多个仓库组成。仓库本身包含零个或多个数据源。</p>
+<p class="image-container"><img alt="dbf927072d3070f0.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/dbf927072d3070f0_2880.029cc721e4.png 2880w" style="width: 336.50px" loading="lazy" decoding="async"></p>
+<p>按照最佳实践，您应为应用所使用的每种数据源类型都提供一个仓库。</p>
+<p>在此 Codelab 中，应用有一个数据源，因此在您重构代码后，应用只有一个仓库。对于此应用，从互联网检索数据的仓库将完成数据源的职责。为此，它会向 API 发出网络请求。如果数据源编码比较复杂或添加了额外的数据源，则数据源职责会被封装在单独的数据源类中，而仓库将负责管理所有数据源。</p>
+<h3 id="what-is-a-repository"><strong>什么是仓库？</strong></h3>
+<p>通常，仓库类的作用包括：</p>
+<ul>
+<li>向应用的其余部分公开数据。</li>
+<li>集中管理数据更改。</li>
+<li>解决多个数据源之间的冲突。</li>
+<li>对应用其余部分的数据源进行抽象化处理。</li>
+<li>存放业务逻辑。</li>
+</ul>
+<p><strong>Mars Photos</strong> 应用只有一个数据源，即网络 API 调用。它只检索数据，因此没有任何业务逻辑。数据通过仓库类公开提供给应用，该类会对数据源进行抽象化处理。</p>
+<p class="image-container"><img alt="ff7a7cd039402747.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/ff7a7cd039402747_2880.029cc721e4.png 2880w" style="width: 339.50px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 创建数据层
+          </h2>
+          
+          <p>首先，您需要创建仓库类。Android 开发者指南指出，仓库类以其所负责的数据命名。<a href="https://developer.android.com/topic/architecture/data-layer?hl=zh-cn#naming-conventions" target="_blank">仓库命名惯例</a>是<strong>数据类型 + 仓库</strong>。在您的应用中，其名称为 <code dir="ltr" translate="no">MarsPhotosRepository</code>。</p>
+<h2 id="create-repository"><strong>创建仓库</strong></h2>
+<ol type="1">
+<li>右键点击 <strong>com.example.marsphotos</strong>，然后依次选择 <strong>New &gt; Package</strong>。</li>
+<li>在对话框中，输入 <code dir="ltr" translate="no">data</code>。</li>
+<li>右键点击 <code dir="ltr" translate="no">data</code> 软件包，然后依次选择 <strong>New &gt; Kotlin Class/File</strong>。</li>
+<li>在对话框中，选择 <strong>Interface</strong>，然后输入 <code dir="ltr" translate="no">MarsPhotosRepository</code> 作为接口的名称。</li>
+<li>在 <code dir="ltr" translate="no">MarsPhotosRepository</code> 接口内，添加一个名为 <code dir="ltr" translate="no">getMarsPhotos()</code> 的抽象函数，该函数会返回 <code dir="ltr" translate="no">MarsPhoto</code> 对象的列表。系统将通过协程调用它，因此请使用 <code dir="ltr" translate="no">suspend</code> 进行声明。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.model.MarsPhoto</span>
+
+<span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getMarsPhotos</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>在接口声明下，创建一个名称为 <code dir="ltr" translate="no">NetworkMarsPhotosRepository</code> 的类来实现 <code dir="ltr" translate="no">MarsPhotosRepository</code> 接口。</li>
+<li>将接口 <code dir="ltr" translate="no">MarsPhotosRepository</code> 添加到类声明中。</li>
+</ol>
+<p>由于您未替换接口的抽象方法，因此系统会显示错误消息。下一步将解决此错误。</p>
+<p class="image-container"><img alt="显示 MarsPhotosRepository 界面和 NetworkMarsPhotosRepository 类的 Android Studio 屏幕截图" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/9859856f31d7ec3c_2880.029cc721e4.png 2880w" style="width: 522.00px" loading="lazy" decoding="async"></p>
+<ol start="8" type="1">
+<li>在 <code dir="ltr" translate="no">NetworkMarsPhotosRepository</code> 类中，替换抽象函数 <code dir="ltr" translate="no">getMarsPhotos()</code>。此函数通过调用 <code dir="ltr" translate="no">MarsApi.retrofitService.getPhotos()</code> 返回数据。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.network.MarsApi</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">NetworkMarsPhotosRepository</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getMarsPhotos</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApi</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">retrofitService</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>接下来，您需要更新 <code dir="ltr" translate="no">ViewModel</code> 代码，以便按照 Android 最佳实践，使用仓库来获取数据。</p>
+<ol start="9" type="1">
+<li>打开 <code dir="ltr" translate="no">ui/screens/MarsViewModel.kt</code> 文件。</li>
+<li>向下滚动到 <code dir="ltr" translate="no">getMarsPhotos()</code> 方法。</li>
+<li>将“<code dir="ltr" translate="no">val listResult = MarsApi.retrofitService.getPhotos()</code>”行替换为以下代码：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.data.NetworkMarsPhotosRepository</span>
+
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">NetworkMarsPhotosRepository</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">listResult</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">marsPhotosRepository</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getMarsPhotos</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<p class="image-container"><img alt="5313985852c151aa.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/5313985852c151aa_2880.029cc721e4.png 2880w" style="width: 562.00px" loading="lazy" decoding="async"></p>
+<ol start="12" type="1">
+<li>运行应用。请注意，显示的结果与之前的结果相同。</li>
+</ol>
+<p>仓库将提供数据，而不是由 <code dir="ltr" translate="no">ViewModel</code> 直接发出关于数据的网络请求。<code dir="ltr" translate="no">ViewModel</code> 不再直接引用 <code dir="ltr" translate="no">MarsApi</code> 代码。<img alt="展示之前如何直接从 Viewmodel 访问数据层的流程图。我们现在拥有火星照片库" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/283b298f85030fc4_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>此方法有助于让代码检索与 <code dir="ltr" translate="no">ViewModel</code> 松散耦合的数据。通过松散耦合，您可以对 <code dir="ltr" translate="no">ViewModel</code> 或仓库进行更改，而不会对其他部分产生不利影响，只要仓库具有名为 <code dir="ltr" translate="no">getMarsPhotos()</code> 的函数即可。</p>
+<p>现在，我们可以在不影响调用方的情况下更改仓库内的实现。对于大型应用，此变更可支持多个调用方。</p>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 依赖项注入
+          </h2>
+          
+          <p>很多时候，类都需要其他类的对象才能正常运行。如果某个类需要另一个类，则所需的类称为<strong>依赖项</strong>。</p>
+<p>在以下示例中，<code dir="ltr" translate="no">Car</code> 对象依赖于 <code dir="ltr" translate="no">Engine</code> 对象。</p>
+<p>类可通过两种方法获取这些所需对象。一种方法是让类实例化所需的对象本身。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Engine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">start</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">GasEngine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Engine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">start</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"GasEngine started!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Car</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">engine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GasEngine</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">start</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">engine</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">car</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Car</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">car</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>另一种方法是将所需的对象作为实参传入。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Engine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">start</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">GasEngine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Engine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">start</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"GasEngine started!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Car</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">engine</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Engine</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">start</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">engine</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">engine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GasEngine</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">car</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Car</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">engine</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">car</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>让类实例化所需的对象非常简单，但这种方法会导致代码不够灵活且更加难以测试，因为类与所需对象是紧密耦合的。</p>
+<p>调用类需要调用对象的构造函数，其中包含实现细节。如果构造函数发生更改，调用代码也需要做出更改。</p>
+<p>为了提升代码的灵活性和适应性，类不得对其所依赖的对象进行实例化。它所依赖的对象必须在类外部进行实例化，然后再传入。这种方法可以创建更灵活的代码，因为类不再硬编码到特定对象中。可以对所需对象的实现进行更改，而无需修改调用代码。</p>
+<p>继续前面的示例，如果您需要 <code dir="ltr" translate="no">ElectricEngine</code>，则可以创建并将其传入 <code dir="ltr" translate="no">Car</code> 类。不需要通过任何方式对 <code dir="ltr" translate="no">Car</code> 类进行修改。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Engine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">start</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">ElectricEngine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Engine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">start</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"ElectricEngine started!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Car</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">engine</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Engine</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">start</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">engine</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">engine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ElectricEngine</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">car</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Car</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">engine</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">car</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>传入所需对象的过程称为<em></em>依赖项注入 (DI)。这种方法也称为<a href="https://en.wikipedia.org/wiki/Inversion_of_control" target="_blank">控制反转</a>。</p>
+<p>依赖项注入是指在运行时提供依赖项，而不是将其硬编码到调用类中。</p>
+<p>实现依赖项注入：</p>
+<ul>
+<li><strong>有助于提高代码的可重用性</strong>。代码不依赖于特定对象，从而提高灵活性。</li>
+<li><strong>使重构更轻松。</strong>代码是松散耦合的，因此重构一段代码不会影响另一段代码。</li>
+<li><strong>有助于进行测试。</strong>可以在测试期间传入测试对象。</li>
+</ul>
+<p>例如，在测试网络调用代码时，DI 有助于进行测试。在此测试中，您实际上将尝试测试是否进行了网络调用以及是否返回了数据。在测试期间，如果您每次发出网络请求都有开销，则可能会决定跳过测试此代码，因为这样的成本可能会很高。现在，假设我们能否伪造用于测试的网络请求。这会让您感觉更好吗？对于测试，您可以将测试对象传递给在调用时返回虚构数据的仓库，而无需实际执行实际的网络调用。<img alt="1ea410d6670b7670.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/1ea410d6670b7670_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>我们希望能够对 <code dir="ltr" translate="no">ViewModel</code> 进行测试，但它目前依赖于进行实际网络调用的仓库。使用真实的生产仓库进行测试时，系统进行许多网络调用。若要解决此问题，我们需要能够决定并传递用于动态生产和测试的仓库实例，而不是由 <code dir="ltr" translate="no">ViewModel</code> 来创建仓库。</p>
+<p>实现此流程的方法是实现一个为 <code dir="ltr" translate="no">MarsViewModel</code> 提供仓库的应用容器。</p>
+<p><a href="https://developer.android.com/training/dependency-injection/manual?hl=zh-cn#dependencies-container" target="_blank">容器</a>是一个包含应用所需的依赖项的对象。这些依赖项在整个应用中使用，因此它们必须位于所有 activity 都可以使用的通用位置。您可以创建 Application 类的子类并存储对容器的引用。</p>
+<h2 id="create-an-application-container">创建应用容器</h2>
+<ol type="1">
+<li>右键点击 <code dir="ltr" translate="no">data</code> 软件包，然后依次选择 <strong>New &gt; Kotlin Class/File</strong>。</li>
+<li>在对话框中，选择 <strong>Interface</strong>，然后输入 <code dir="ltr" translate="no">AppContainer</code> 作为接口的名称。</li>
+<li>在 <code dir="ltr" translate="no">AppContainer</code> 接口内，添加一个名为 <code dir="ltr" translate="no">marsPhotosRepository</code> 且类型为 <code dir="ltr" translate="no">MarsPhotosRepository</code> 的抽象属性。<img alt="7ed26c6dcf607a55.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7ed26c6dcf607a55_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></li>
+<li>在接口定义下，创建一个名为 <code dir="ltr" translate="no">DefaultAppContainer</code> 的类来实现 <code dir="ltr" translate="no">AppContainer</code> 接口。</li>
+<li>将 <code dir="ltr" translate="no">network/MarsApiService.kt</code> 中 <code dir="ltr" translate="no">BASE_URL</code>、<code dir="ltr" translate="no">retrofit</code> 和 <code dir="ltr" translate="no">retrofitService</code> 变量的代码移至 <code dir="ltr" translate="no">DefaultAppContainer</code> 类，让它们都位于用于维护依赖项的容器中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">retrofit2.Retrofit</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.network.MarsApiService</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.serialization.json.Json</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">okhttp3.MediaType.Companion.toMediaType</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">DefaultAppContainer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AppContainer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">BASE_URL</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"https://android-kotlin-fun-mars-server.appspot.com"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">retrofit</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Retrofit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Retrofit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">addConverterFactory</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Json</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">asConverterFactory</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"application/json"</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toMediaType</span><span class="devsite-syntax-p">()))</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">baseUrl</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">BASE_URL</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">retrofitService</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lazy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">retrofit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">create</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">MarsApiService</span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">class</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">java</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>对于变量 <code dir="ltr" translate="no">BASE_URL</code>，请移除 <code dir="ltr" translate="no">const</code> 关键字。您必须移除 <code dir="ltr" translate="no">const</code>，因为 <code dir="ltr" translate="no">BASE_URL</code> 现在不再是顶级变量，而已成为 <code dir="ltr" translate="no">DefaultAppContainer</code> 类的属性。将其重构为使用驼峰命名法的 <code dir="ltr" translate="no">baseUrl</code>。</li>
+<li>对于变量 <code dir="ltr" translate="no">retrofitService</code>，请添加 <code dir="ltr" translate="no">private</code> 可见性修饰符。之所以添加 <code dir="ltr" translate="no">private</code> 修饰符，是因为变量 <code dir="ltr" translate="no">retrofitService</code> 仅在类中使用（通过属性 <code dir="ltr" translate="no">marsPhotosRepository</code>），因此无需在类的外部访问。</li>
+<li><code dir="ltr" translate="no">DefaultAppContainer</code> 类会实现 <code dir="ltr" translate="no">AppContainer</code> 接口，因此我们需要替换 <code dir="ltr" translate="no">marsPhotosRepository</code> 属性。请在变量 <code dir="ltr" translate="no">retrofitService</code> 后面添加以下代码：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsPhotosRepository</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lazy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">NetworkMarsPhotosRepository</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">retrofitService</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>完成的 <code dir="ltr" translate="no">DefaultAppContainer</code> 类应如下所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">DefaultAppContainer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AppContainer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">baseUrl</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"https://android-kotlin-fun-mars-server.appspot.com"</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-cm">/**</span>
+<span class="devsite-syntax-cm">     * Use the Retrofit builder to build a retrofit object using a kotlinx.serialization converter</span>
+<span class="devsite-syntax-cm">     */</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">retrofit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Retrofit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">addConverterFactory</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Json</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">asConverterFactory</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"application/json"</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toMediaType</span><span class="devsite-syntax-p">()))</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">baseUrl</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">baseUrl</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">retrofitService</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lazy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">retrofit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">create</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">MarsApiService</span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">class</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">java</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsPhotosRepository</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lazy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">NetworkMarsPhotosRepository</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">retrofitService</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="9" type="1">
+<li>打开 <code dir="ltr" translate="no">data/MarsPhotosRepository.kt</code> 文件。现在，我们将 <code dir="ltr" translate="no">retrofitService</code> 传递给 <code dir="ltr" translate="no">NetworkMarsPhotosRepository</code>，并且您需要修改 <code dir="ltr" translate="no">NetworkMarsPhotosRepository</code> 类。</li>
+<li>在 <code dir="ltr" translate="no">NetworkMarsPhotosRepository</code> 类声明中，添加构造函数形参 <code dir="ltr" translate="no">marsApiService</code>，如以下代码所示。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.network.MarsApiService</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">NetworkMarsPhotosRepository</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsApiService</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApiService</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+</code></pre>
+<ol start="11" type="1">
+<li>在 <code dir="ltr" translate="no">NetworkMarsPhotosRepository</code> 类的 <code dir="ltr" translate="no">getMarsPhotos()</code> 函数中，更改 return 语句以从 <code dir="ltr" translate="no">marsApiService</code> 检索数据。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getMarsPhotos</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">marsApiService</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="12" type="1">
+<li>从 <code dir="ltr" translate="no">MarsPhotosRepository.kt</code> 文件中移除以下导入内容。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Remove</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.network.MarsApi</span>
+</code></pre>
+<p>我们已经将 <code dir="ltr" translate="no">network/MarsApiService.kt</code> 文件中的所有代码移出了对象。现在，我们可以删除不再需要的对象声明。</p>
+<ol start="13" type="1">
+<li>删除以下代码：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsApi</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 将应用容器附加到应用
+          </h2>
+          
+          <p>本部分中的步骤会将应用对象连接到应用容器，如下图所示。</p>
+<p class="image-container"><img alt="92e7d7b79c4134f0.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/92e7d7b79c4134f0_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<ol type="1">
+<li>右键点击 <code dir="ltr" translate="no">com.example.marsphotos</code>，然后依次选择 <strong>New &gt; Kotlin Class/File</strong>。</li>
+<li>在对话框中，输入 <code dir="ltr" translate="no">MarsPhotosApplication</code>。此类继承自应用对象，因此您需要将其添加到类声明中。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.app.Application</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsPhotosApplication</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Application</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">MarsPhotosApplication</code> 类中，声明一个名为 <code dir="ltr" translate="no">container</code> 且类型为 <code dir="ltr" translate="no">AppContainer</code> 的变量，用于存储 <code dir="ltr" translate="no">DefaultAppContainer</code> 对象。该变量会在调用 <code dir="ltr" translate="no">onCreate()</code> 期间初始化，因此需要使用 <code dir="ltr" translate="no">lateinit</code> 修饰符标记该变量。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.data.AppContainer</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.data.DefaultAppContainer</span>
+
+<span class="devsite-syntax-kd">lateinit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">container</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AppContainer</span>
+<span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreate</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onCreate</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">DefaultAppContainer</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>完整的 <code dir="ltr" translate="no">MarsPhotosApplication.kt</code> 文件应如下所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">package</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos</span>
+
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">android.app.Application</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.data.AppContainer</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.data.DefaultAppContainer</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsPhotosApplication</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Application</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">lateinit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">container</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AppContainer</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreate</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">super</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">onCreate</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">container</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">DefaultAppContainer</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>您需要更新 Android 清单，以便应用使用您刚刚定义的应用类。打开 <code dir="ltr" translate="no">manifests/AndroidManifest.xml</code> 文件。</li>
+</ol>
+<p class="image-container"><img alt="759144e4e0634ed8.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/759144e4e0634ed8_2880.029cc721e4.png 2880w" style="width: 416.94px" loading="lazy" decoding="async"></p>
+<ol start="6" type="1">
+<li>在 <code dir="ltr" translate="no">application</code> 部分，添加值为应用类名称 <code dir="ltr" translate="no">".MarsPhotosApplication"</code> 的 <code dir="ltr" translate="no">android:name</code> 属性。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">application</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">".MarsPhotosApplication"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">allowBackup</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"true"</span>
+<span class="devsite-syntax-p">...</span>
+&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">application</span>&gt;
+</code></pre>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 将仓库添加到 ViewModel
+          </h2>
+          
+          <p>完成这些步骤后，<code dir="ltr" translate="no">ViewModel</code> 可以调用仓库对象来检索火星数据。</p>
+<p class="image-container"><img alt="7425864315cb5e6f.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/7425864315cb5e6f_2880.029cc721e4.png 2880w" style="width: 443.15px" loading="lazy" decoding="async"></p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">ui/screens/MarsViewModel.kt</code> 文件。</li>
+<li>在 <code dir="ltr" translate="no">MarsViewModel</code> 的类声明中，添加一个类型为 <code dir="ltr" translate="no">MarsPhotosRepository</code> 的私有构造函数形参 <code dir="ltr" translate="no">marsPhotosRepository</code>。构造函数形参的值来自应用容器，因为应用现在在使用依赖项注入。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.data.MarsPhotosRepository</span>
+
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsViewModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsPhotosRepository</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotosRepository</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ViewModel</span><span class="devsite-syntax-p">(){</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">getMarsPhotos()</code> 函数中，移除以下代码行，因为现在构造函数调用中填充了 <code dir="ltr" translate="no">marsPhotosRepository</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">NetworkMarsPhotosRepository</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<ol start="4" type="1">
+<li>由于 Android 框架不允许在创建时向构造函数中的 <code dir="ltr" translate="no">ViewModel</code> 传递值，因此我们实现了一个 <code dir="ltr" translate="no">ViewModelProvider.Factory</code> 对象来绕过此限制。</li>
+</ol>
+<p><a href="https://en.wikipedia.org/wiki/Factory_method_pattern" target="_blank">工厂模式</a>是用于创建对象的创建模式。<code dir="ltr" translate="no">MarsViewModel.Factory</code> 对象使用应用容器检索 <code dir="ltr" translate="no">marsPhotosRepository</code>，然后在创建 <code dir="ltr" translate="no">ViewModel</code> 对象时将此仓库传递给 <code dir="ltr" translate="no">ViewModel</code>。</p>
+<ol start="5" type="1">
+<li>在函数 <code dir="ltr" translate="no">getMarsPhotos()</code> 下，输入伴生对象的代码。</li>
+</ol>
+<p>有了伴生对象，我们便有了一个可供所有人使用的单一对象实例，而无需创建新的对象实例，从而避免增加开销。这是实现细节。在对其进行分离之后，我们可以轻松做出更改，而不会影响应用代码的其他部分。</p>
+<p><code dir="ltr" translate="no">APPLICATION_KEY</code> 是 <code dir="ltr" translate="no">ViewModelProvider.AndroidViewModelFactory.Companion</code> 对象的一部分，用于查找应用的 <code dir="ltr" translate="no">MarsPhotosApplication</code> 对象，该对象具有 <code dir="ltr" translate="no">container</code> 属性，用于检索依赖项注入所使用的仓库。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.lifecycle.ViewModelProvider</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.lifecycle.viewModelScope</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.lifecycle.viewmodel.initializer</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.lifecycle.viewmodel.viewModelFactory</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.MarsPhotosApplication</span>
+
+<span class="devsite-syntax-kd">companion</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-err">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">Factory</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ViewModelProvider</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Factory</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">viewModelFactory</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">initializer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">application</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-k">this</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">APPLICATION_KEY</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">as</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotosApplication</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">application</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">container</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">marsPhotosRepository</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">MarsViewModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">marsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">marsPhotosRepository</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>打开 <code dir="ltr" translate="no">theme/MarsPhotosApp.kt</code> 文件，在 <code dir="ltr" translate="no">MarsPhotosApp()</code> 函数内，更新 <code dir="ltr" translate="no">viewModel()</code> 以使用工厂。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Surface</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsViewModel</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsViewModel</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">viewModel</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">factory</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsViewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Factory</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>此 <code dir="ltr" translate="no">marsViewModel</code> 变量由对 <code dir="ltr" translate="no">viewModel()</code> 函数的调用进行填充，该函数会将伴生对象中的 <code dir="ltr" translate="no">MarsViewModel.Factory</code> 作为实参传递以创建 <code dir="ltr" translate="no">ViewModel</code>。</p>
+<ol start="7" type="1">
+<li>运行应用，确认应用是否像之前一样正常运行。</li>
+</ol>
+<p>恭喜您重构了 <strong>Mars Photos</strong> 应用，它现已使用仓库和依赖项注入！通过仓库实现数据层之后，界面和数据源已实现分离，并且符合 Android 最佳实践。</p>
+<p>通过使用依赖项注入，您可以更轻松地测试 <code dir="ltr" translate="no">ViewModel</code>。您的应用现已具备更高的灵活性、稳健性和可扩缩性。</p>
+<p>完成这些改进后，接下来学习如何对它们进行测试。测试可确保您的代码按预期运行，并降低在继续编写代码时引入 bug 的可能性。</p>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 设置本地测试
+          </h2>
+          
+          <p>在前面的部分中，您已经实现了一个仓库，用于从 <code dir="ltr" translate="no">ViewModel</code> 中抽象出与 REST API 服务的直接交互。通过这种方式，您可以测试用途有限的小段代码。针对功能有限的小段代码进行测试，要比针对具有多种功能的大段代码编写的测试更容易构建、实现和理解。</p>
+<p>此外，您还利用接口、继承和依赖项注入实现了仓库。在接下来的部分中，您将了解这些架构最佳实践为何能够让测试变得更加简单易行。此外，您还使用 Kotlin 协程发出了网络请求。在测试使用协程的代码时，您需要执行额外的步骤来考虑异步执行代码的问题。此 Codelab 稍后将介绍这些步骤。</p>
+<h2 id="add-the-local-test-dependencies"><strong>添加本地测试依赖项</strong></h2>
+<p>将以下依赖项添加到 <code dir="ltr" translate="no">app/build.gradle.kts</code>。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">testImplementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"junit:junit:4.13.2"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">testImplementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<h2 id="create-the-local-test-directory"><strong>创建本地测试目录</strong></h2>
+<ol type="1">
+<li>创建一个本地测试目录，具体方法为：右键点击项目视图中的 <strong>src</strong> 目录，然后依次选择 <strong>New &gt; Directory &gt; test/java</strong>。</li>
+<li>在该测试目录中创建一个名为 <code dir="ltr" translate="no">com.example.marsphotos</code> 的新软件包。</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 为测试创建虚构数据和依赖项
+          </h2>
+          
+          <p>在本部分中，您将了解依赖项注入如何帮助您编写本地测试。在此 Codelab 前面的部分中，您创建了一个依赖于 API 服务的仓库。然后，您修改了 <code dir="ltr" translate="no">ViewModel</code>，使其依赖于仓库。</p>
+<p>每个本地测试只需测试一项内容。例如，在测试视图模型的功能时，您不希望测试仓库或 API 服务的功能。同样，在测试仓库时，您不希望测试 API 服务。</p>
+<p>通过使用接口并随后使用依赖项注入来包含从这些接口继承的类，您可以使用仅用于测试用途的虚构类来模拟这些依赖项的功能。通过注入虚构类和数据源来进行测试，您可以在隔离环境中单独测试代码，同时确保代码的可重复性和一致性。</p>
+<p>首先，您需要在稍后创建的虚构类中使用的虚构数据。</p>
+<ol type="1">
+<li>在测试目录中，在 <code dir="ltr" translate="no">com.example.marsphotos</code> 下创建一个名为 <code dir="ltr" translate="no">fake</code> 的软件包。</li>
+<li>在 <code dir="ltr" translate="no">fake</code> 目录中创建一个名为 <code dir="ltr" translate="no">FakeDataSource</code> 的新 Kotlin 对象。</li>
+<li>在此对象中，创建一个设置为 <code dir="ltr" translate="no">MarsPhoto</code> 对象列表的属性。该列表不需要太长，但至少应包含两个对象。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：对于您将在此 Codelab 中编写的测试而言，存储在对象中的数据并不一定需要代表 API 返回的数据。也就是说，您不需要包含有效的 ID 或网址。</p>
+</aside>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">FakeDataSource</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">idOne</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"img1"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">idTwo</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"img2"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">imgOne</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"url.1"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">imgTwo</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"url.2"</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">photosList</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listOf</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">MarsPhoto</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">idOne</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">imgSrc</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">imgOne</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">MarsPhoto</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">idTwo</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">imgSrc</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">imgTwo</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在此 Codelab 的前面部分中，我们在讨论依赖于 API 服务的仓库时也提到了这一点。要创建仓库测试，必须通过一个虚构 API 服务来返回您刚才创建的虚构数据。将此虚构 API 服务传入仓库之后，仓库会在系统调用虚构 API 服务中的方法时收到虚构数据。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">fake</code> 软件包中，新建一个名为 <code dir="ltr" translate="no">FakeMarsApiService</code> 的类。</li>
+<li>设置 <code dir="ltr" translate="no">FakeMarsApiService</code> 类，让其从 <code dir="ltr" translate="no">MarsApiService</code> 接口继承。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">FakeMarsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>替换 <code dir="ltr" translate="no">getPhotos()</code> 函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getPhotos</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>从 <code dir="ltr" translate="no">getPhotos()</code> 方法返回虚构照片列表。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getPhotos</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FakeDataSource</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">photosList</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>请记住，如果您仍不清楚此类的用途，也没有关系！下一部分将详细介绍此虚构类的作用。</p>
+
+
+        
+          
+          <h2 class="" id="8">
+              9. 编写仓库测试
+          </h2>
+          
+          <p>在本部分中，您将测试 <code dir="ltr" translate="no">NetworkMarsPhotosRepository</code> 类的 <code dir="ltr" translate="no">getMarsPhotos()</code> 方法。本部分介绍了虚构类的用法，并演示了如何测试协程。</p>
+<ol type="1">
+<li>在虚构目录中，新建一个名为 <code dir="ltr" translate="no">NetworkMarsRepositoryTest</code> 的类。</li>
+<li>在您刚才创建的类中新建一个名为 <code dir="ltr" translate="no">networkMarsPhotosRepository_getMarsPhotos_verifyPhotoList()</code> 的方法，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">networkMarsPhotosRepository_getMarsPhotos_verifyPhotoList</span><span class="devsite-syntax-p">(){</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>如需测试该仓库，您需要一个 <code dir="ltr" translate="no">NetworkMarsPhotosRepository</code> 实例。回想一下，此类依赖于 <code dir="ltr" translate="no">MarsApiService</code> 接口。您可以在此处利用上一部分中的虚构 API 服务。</p>
+<ol start="3" type="1">
+<li>创建一个 <code dir="ltr" translate="no">NetworkMarsPhotosRepository</code> 实例并将 <code dir="ltr" translate="no">FakeMarsApiService</code> 作为 <code dir="ltr" translate="no">marsApiService</code> 形参传递。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">networkMarsPhotosRepository_getMarsPhotos_verifyPhotoList</span><span class="devsite-syntax-p">(){</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">repository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">NetworkMarsPhotosRepository</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">marsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FakeMarsApiService</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>通过传递虚构 API 服务，对仓库中的 <code dir="ltr" translate="no">marsApiService</code> 属性的任何调用都会导致调用 <code dir="ltr" translate="no">FakeMarsApiService</code>。通过为依赖项传递虚构类，您可以精确控制依赖项返回的结果。这种方法可以确保您测试的代码不依赖于可能未经测试的代码或 API，因为这些代码或 API 可能会发生变化或出现意外问题。即使您所编写的代码没有任何问题，此类情况也可能会导致测试失败。虚构测试有助于创建更一致的测试环境、减少测试不稳定问题，以及简化针对单一功能的测试。</p>
+<ol start="4" type="1">
+<li>断言 <code dir="ltr" translate="no">getMarsPhotos()</code> 方法返回的数据等于 <code dir="ltr" translate="no">FakeDataSource.photosList</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">networkMarsPhotosRepository_getMarsPhotos_verifyPhotoList</span><span class="devsite-syntax-p">(){</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">repository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">NetworkMarsPhotosRepository</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">marsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FakeMarsApiService</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">FakeDataSource</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">photosList</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">repository</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getMarsPhotos</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>请注意，在 IDE 中，<code dir="ltr" translate="no">getMarsPhotos()</code> 方法调用带有红色下划线。</p>
+<p class="image-container"><img alt="2bd5f8999e0f3ec2.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/2bd5f8999e0f3ec2_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>如果将鼠标悬停在该方法上，您会看到一条显示为“Suspend function ‘getMarsPhotos' should be called only from a coroutine or another suspend function”的提示：</p>
+<p class="image-container"><img alt="d2d3b6d770677ef6.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-add-repository/img/d2d3b6d770677ef6_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>在 <code dir="ltr" translate="no">data/MarsPhotosRepository.kt</code> 中，查看 <code dir="ltr" translate="no">NetworkMarsPhotosRepository</code> 中的 <code dir="ltr" translate="no">getMarsPhotos()</code> 实现，您会看到 <code dir="ltr" translate="no">getMarsPhotos()</code> 函数是一个挂起函数。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">NetworkMarsPhotosRepository</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsApiService</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApiService</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-cm">/** Fetches list of MarsPhoto from marsApi*/</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getMarsPhotos</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">marsApiService</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>请记住，当您从 <code dir="ltr" translate="no">MarsViewModel</code> 调用此函数时，系统将通过一个协程来调用此方法，即通过传递到 <code dir="ltr" translate="no">viewModelScope.launch()</code> 的 lambda 来进行调用。此外，您还需要在测试中通过协程来调用挂起函数，例如 <code dir="ltr" translate="no">getMarsPhotos()</code>。只不过方法有所不同。下一部分将介绍如何解决此问题。</p>
+<h2 id="test-coroutines"><strong>测试协程</strong></h2>
+<p>在本部分中，您将修改 <code dir="ltr" translate="no">networkMarsPhotosRepository_getMarsPhotos_verifyPhotoList()</code> 测试，以便从协程运行测试方法的主体部分。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">NetworkMarsRepositoryTest.kt</code> 中，将 <code dir="ltr" translate="no">networkMarsPhotosRepository_getMarsPhotos_verifyPhotoList()</code> 函数修改为表达式。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">networkMarsPhotosRepository_getMarsPhotos_verifyPhotoList</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>
+</code></pre>
+<ol start="2" type="1">
+<li>将表达式设置为等于 <code dir="ltr" translate="no">runTest()</code> 函数。此方法需要 lambda。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.test.runTest</span>
+<span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">networkMarsPhotosRepository_getMarsPhotos_verifyPhotoList</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+</code></pre>
+<p>协程测试库提供 <code dir="ltr" translate="no">runTest()</code> 函数。该函数接受您在 lambda 中传递的方法，并通过 <code dir="ltr" translate="no">TestScope</code>（从 <code dir="ltr" translate="no">CoroutineScope</code> 继承而来）运行该方法。</p>
+<aside class="special"><p><strong>注意</strong>：为便于您参考，在您创建的 ViewModel 中调用仓库时，您可以使用 <code dir="ltr" translate="no">viewModelScope</code>（最终为 <code dir="ltr" translate="no">CoroutineScope</code>）来调用 <code dir="ltr" translate="no">getMarsPhotos()</code>。</p>
+</aside>
+<ol start="3" type="1">
+<li>将测试函数的内容移至 lambda 函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">networkMarsPhotosRepository_getMarsPhotos_verifyPhotoList</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">repository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">NetworkMarsPhotosRepository</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">marsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FakeMarsApiService</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">FakeDataSource</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">photosList</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">repository</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getMarsPhotos</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>请注意，<code dir="ltr" translate="no">getMarsPhotos()</code> 下的红线现已消失。如果运行此测试，测试将会通过！</p>
+
+
+        
+          
+          <h2 class="" id="9">
+              10. 编写 ViewModel 测试
+          </h2>
+          
+          <p>在本部分中，您将通过 <code dir="ltr" translate="no">MarsViewModel</code> 为 <code dir="ltr" translate="no">getMarsPhotos()</code> 函数编写一项测试。<code dir="ltr" translate="no">MarsViewModel</code> 依赖于 <code dir="ltr" translate="no">MarsPhotosRepository</code>。因此，如需编写此测试，您需要创建一个虚构 <code dir="ltr" translate="no">MarsPhotosRepository</code>。此外，除了使用 <code dir="ltr" translate="no">runTest()</code> 方法之外，还需要为协程考虑一些额外的步骤。</p>
+<h2 id="create-the-fake-repository"><strong>创建虚构仓库</strong></h2>
+<p>此步骤的目的是创建一个从 <code dir="ltr" translate="no">MarsPhotosRepository</code> 接口继承的虚构类，并替换 <code dir="ltr" translate="no">getMarsPhotos()</code> 函数以返回虚构数据。此方法类似于您在创建虚构 API 服务时使用的方法，不同之处在于此类会扩展 <code dir="ltr" translate="no">MarsPhotosRepository</code> 接口，而不是 <code dir="ltr" translate="no">MarsApiService</code>。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">fake</code> 目录中创建一个名为 <code dir="ltr" translate="no">FakeNetworkMarsPhotosRepository</code> 的新类。</li>
+<li>使用 <code dir="ltr" translate="no">MarsPhotosRepository</code> 接口扩展此类。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">FakeNetworkMarsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotosRepository</span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>替换 <code dir="ltr" translate="no">getMarsPhotos()</code> 函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">FakeNetworkMarsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotosRepository</span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getMarsPhotos</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>从 <code dir="ltr" translate="no">getMarsPhotos()</code> 函数返回 <code dir="ltr" translate="no">FakeDataSource.photosList</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">FakeNetworkMarsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsPhotosRepository</span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getMarsPhotos</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FakeDataSource</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">photosList</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="write-the-viewmodel-test"><strong>编写 ViewModel 测试</strong></h2>
+<ol type="1">
+<li>创建一个名为 <code dir="ltr" translate="no">MarsViewModelTest</code> 的新类。</li>
+<li>创建一个名为 <code dir="ltr" translate="no">marsViewModel_getMarsPhotos_verifyMarsUiStateSuccess()</code> 的函数，并为其添加 <code dir="ltr" translate="no">@Test</code> 注解。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">marsViewModel_getMarsPhotos_verifyMarsUiStateSuccess</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<ol start="3" type="1">
+<li>将此函数设为表达式并获取 <code dir="ltr" translate="no">runTest()</code> 方法的结果，以确保从协程运行测试，就像上一部分中的仓库测试一样。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">marsViewModel_getMarsPhotos_verifyMarsUiStateSuccess</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">runTest()</code> 的 lambda 主体部分中，创建一个 <code dir="ltr" translate="no">MarsViewModel</code> 实例并向其传递您所创建的虚构仓库的实例。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">marsViewModel_getMarsPhotos_verifyMarsUiStateSuccess</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsViewModel</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsViewModel</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">marsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FakeNetworkMarsPhotosRepository</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">         </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>断言 <code dir="ltr" translate="no">ViewModel</code> 实例的 <code dir="ltr" translate="no">marsUiState</code> 与成功调用 <code dir="ltr" translate="no">MarsPhotosRepository.getMarsPhotos()</code> 的结果相匹配。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：您无需直接调用 <code dir="ltr" translate="no">MarsViewlModel.getMarsPhotos()</code> 即可触发对 <code dir="ltr" translate="no">MarsPhotosRepository.getMarsPhotos()</code> 的调用。当初始化 <code dir="ltr" translate="no">ViewModel</code> 时，系统会调用 <code dir="ltr" translate="no">MarsViewModel.getMarsPhotos()</code>。</p>
+</aside>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Test</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">marsViewModel_getMarsPhotos_verifyMarsUiStateSuccess</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">runTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsViewModel</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsViewModel</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">marsPhotosRepository</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">FakeNetworkMarsPhotosRepository</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">assertEquals</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Success: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">FakeDataSource</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">photosList</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> Mars "</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-s">"photos retrieved"</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">marsViewModel</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">marsUiState</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>如果您尝试按原样运行此测试，测试将失败。错误如以下示例所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Exception</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">in</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">thread</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Test worker @coroutine#1"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">java</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">lang</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">IllegalStateException</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Module</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">with</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Main</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dispatcher</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">had</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">failed</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">initialize</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">For</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">tests</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Dispatchers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setMain</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">kotlinx</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">coroutines</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">test</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">module</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">can</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">be</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">used</span>
+</code></pre>
+<p>回想一下，<code dir="ltr" translate="no">MarsViewModel</code> 使用 <code dir="ltr" translate="no">viewModelScope.launch()</code> 调用仓库。此指令会在默认协程调度程序（称为 <code dir="ltr" translate="no">Main</code> 调度程序）下启动一个新的协程。<code dir="ltr" translate="no">Main</code> 调度程序会封装 Android 界面线程。出现此错误的原因是 Android 界面线程在单元测试中不可用。单元测试是在工作站（而非 Android 设备或模拟器）上执行的。如果本地单元测试下的代码引用 <code dir="ltr" translate="no">Main</code> 调度程序，则在运行单元测试时会抛出异常（如上所示）。为解决此问题，您需要在运行单元测试时明确定义默认调度程序。请继续阅读下一部分，了解如何实现此过程。</p>
+<h2 id="create-a-test-dispatcher">创建测试调度程序</h2>
+<p>由于 <code dir="ltr" translate="no">Main</code> 调度程序仅适用于界面上下文，因此您必须将其替换为支持单元测试的调度程序。Kotlin 协程库为此提供了一个名为 <code dir="ltr" translate="no">TestDispatcher</code> 的协程调度程序。在任何创建新协程的单元测试中，都需要使用 <code dir="ltr" translate="no">TestDispatcher</code>（而非 <code dir="ltr" translate="no">Main</code> 调度程序），类似于视图模型中的 <code dir="ltr" translate="no">getMarsPhotos()</code> 函数。</p>
+<p>如需在任何情况下将 <code dir="ltr" translate="no">Main</code> 调度程序替换为 <code dir="ltr" translate="no">TestDispatcher</code>，请使用 <code dir="ltr" translate="no">Dispatchers.setMain()</code> 函数。您可以使用 <code dir="ltr" translate="no">Dispatchers.resetMain()</code> 函数将线程调度程序重置为 <code dir="ltr" translate="no">Main</code> 调度程序。为避免在每项测试中重复使用替换 <code dir="ltr" translate="no">Main</code> 调度程序的代码，您可以将其提取到 JUnit 测试规则中。TestRule 提供了一种控制运行测试的环境的方法。TestRule 可能会添加其他检查，对测试执行必要的设置或清理，或者观察测试作业以向其他位置报告。可以在测试类之间轻松共享这些测试规则。</p>
+<p>创建一个专有类来编写 TestRule 以替换 <code dir="ltr" translate="no">Main</code> 调度程序。如需实现自定义 TestRule，请完成以下步骤：</p>
+<ol type="1">
+<li>在测试目录中创建一个名为 <code dir="ltr" translate="no">rules</code> 的新软件包。</li>
+<li>在 rules 目录中，新建一个名为 <code dir="ltr" translate="no">TestDispatcherRule</code> 的类。</li>
+<li>使用 <code dir="ltr" translate="no">TestWatcher</code> 扩展 <code dir="ltr" translate="no">TestDispatcherRule</code>。借助 <code dir="ltr" translate="no">TestWatcher</code> 类，您可以在测试的不同执行阶段执行操作。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">TestDispatcherRule</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestWatcher</span><span class="devsite-syntax-p">(){</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>为 <code dir="ltr" translate="no">TestDispatcherRule</code> 创建一个 <code dir="ltr" translate="no">TestDispatcher</code> 构造函数形参。</li>
+</ol>
+<p>此形参可让您使用不同的调度程序，例如 <code dir="ltr" translate="no">StandardTestDispatcher</code>。此构造函数形参需要将默认值设置为 <code dir="ltr" translate="no">UnconfinedTestDispatcher</code> 对象的实例。<a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-unconfined-test-dispatcher.html" target="_blank"><code dir="ltr" translate="no">UnconfinedTestDispatcher</code></a> 类继承自 <code dir="ltr" translate="no">TestDispatcher</code> 类，并指定不得以任何特定顺序执行任务。这种执行模式适用于简单的测试，因为系统会自动处理协程。与 <code dir="ltr" translate="no">UnconfinedTestDispatcher</code> 不同，<code dir="ltr" translate="no">StandardTestDispatcher</code> 类可以支持对协程执行进行全面的控制。这种方法更适合需要手动方法的复杂测试，但此 Codelab 中的测试并不需要这样做。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">TestDispatcherRule</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">testDispatcher</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestDispatcher</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">UnconfinedTestDispatcher</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestWatcher</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>此测试规则的主要目标是在测试开始执行之前将 <code dir="ltr" translate="no">Main</code> 调度程序替换为测试调度程序。<code dir="ltr" translate="no">TestWatcher</code> 类的 <code dir="ltr" translate="no">starting()</code> 函数会在执行特定测试之前执行。替换 <code dir="ltr" translate="no">starting()</code> 函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">TestDispatcherRule</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">testDispatcher</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestDispatcher</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">UnconfinedTestDispatcher</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestWatcher</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">starting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">description</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Description</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>添加对 <code dir="ltr" translate="no">Dispatchers.setMain()</code> 的调用，并传入 <code dir="ltr" translate="no">testDispatcher</code> 作为实参。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">TestDispatcherRule</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">testDispatcher</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestDispatcher</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">UnconfinedTestDispatcher</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestWatcher</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">starting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">description</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Description</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Dispatchers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setMain</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">testDispatcher</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="7" type="1">
+<li>在测试执行完成后，替换 <code dir="ltr" translate="no">finished()</code> 方法以重置 <code dir="ltr" translate="no">Main</code> 调度程序。调用 <code dir="ltr" translate="no">Dispatchers.resetMain()</code> 函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">TestDispatcherRule</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">testDispatcher</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestDispatcher</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">UnconfinedTestDispatcher</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestWatcher</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">starting</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">description</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Description</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Dispatchers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">setMain</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">testDispatcher</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">finished</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">description</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Description</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Dispatchers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">resetMain</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p><code dir="ltr" translate="no">TestDispatcherRule</code> 规则已可供重复使用。</p>
+<ol start="8" type="1">
+<li>打开 <code dir="ltr" translate="no">MarsViewModelTest.kt</code> 文件。</li>
+<li>在 <code dir="ltr" translate="no">MarsViewModelTest</code> 类中，对 <code dir="ltr" translate="no">TestDispatcherRule</code> 类进行实例化并将其分配给 <code dir="ltr" translate="no">testDispatcher</code> 只读属性。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsViewModelTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">testDispatcher</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestDispatcherRule</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="10" type="1">
+<li>如需将此规则应用于测试，请将 <code dir="ltr" translate="no">@get:Rule</code> 注解添加到 <code dir="ltr" translate="no">testDispatcher</code> 属性。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsViewModelTest</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@get</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">Rule</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">testDispatcher</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TestDispatcherRule</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="11" type="1">
+<li>重新运行测试。确认测试这次成功通过。</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="10">
+              11. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，可以使用以下命令：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos.git
+$ cd basic-android-kotlin-compose-training-mars-photos
+$ git checkout coil-starter
+</pre>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/archive/refs/heads/coil-starter.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">coil-starter</code> 分支中。</p>
+</aside>
+<p>如果您想查看此 Codelab 的解决方案代码，请前往 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/tree/coil-starter" target="_blank">GitHub</a> 查看。</p>
+
+
+        
+          
+          <h2 class="" id="11">
+              12. 总结
+          </h2>
+          
+          <p>恭喜您完成此 Codelab 并重构了 <strong>Mars Photos</strong> 应用，以实现仓库模式和依赖项注入！</p>
+<p>应用的代码现已遵循有关数据层的 Android 最佳实践，这意味着应用更加灵活、可靠且易于伸缩。</p>
+<p>这些更改还有助于让该应用更易于测试。这项优势非常重要，因为代码可以继续迭代，同时确保其行为符合预期。</p>
+<p>别忘了使用 #AndroidBasics 标签在社交媒体上分享您的作品！<em></em></p>
+
+
+        
+          
+          <h2 class="" id="12">
+              13. 了解更多内容
+          </h2>
+          
+          <p>Android 开发者文档：</p>
+<ul>
+<li><a href="https://developer.android.com/training/dependency-injection?hl=zh-cn" target="_blank">Android 中的依赖项注入</a></li>
+<li><a href="https://developer.android.com/topic/architecture/data-layer?hl=zh-cn" target="_blank">应用架构指南 - 数据层</a></li>
+</ul>
+<p>其他：</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Coupling_(computer_programming)" target="_blank">耦合</a></li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="../01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">上一节：从互联网获取数据</a><a href="./02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">下一节：02.从互联网加载和显示图片</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

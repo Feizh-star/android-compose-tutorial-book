@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>使用 Jetpack Compose 添加简单的动画</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">简介：Compose 中的状态</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../../02.%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%95%8C%E9%9D%A2/03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">创建 Art Space 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将常用高阶函数与集合结合使用</a></li>
+<li><a href="../01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="./01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题设置</a></li>
+<li><a class="active" href="./02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 添加简单的动画</a></li>
+<li><a href="./03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="./04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="./05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">使用 Jetpack Compose 添加简单的动画</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <p>在此 Codelab 中，您将学习如何为 Android 应用添加简单的动画。动画可以让您的应用更具互动性和趣味性，也更易于用户理解。在满是信息的屏幕上为状态的更新添加动画效果，有助于用户了解具体变化。</p>
+<p>在应用界面中，可以使用的动画有很多种。内容项在出现时可以淡入，在消失时可以淡出，可以移入或移出画面，也可以通过有趣的方式变换。这有助于打造生动有趣且易于使用的应用界面。</p>
+<p>动画还可以让应用更加精美，使其拥有精致优雅的外观和风格，同时为用户带来帮助：</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>了解 Kotlin，包括函数、lambda 和无状态可组合项。</li>
+<li>了解有关如何在 Jetpack Compose 中构建布局的基础知识。</li>
+<li>具备有关如何在 Jetpack Compose 中创建列表的基础知识。</li>
+<li>具备有关 Material Design 的基础知识。</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>如何使用 Jetpack Compose 构建简单的弹簧动画。</li>
+</ul>
+<h2 id="what-youll-build">构建内容</h2>
+<ul>
+<li>您将基于<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-material-theming?hl=zh-cn#0" target="_blank">使用 Jetpack Compose 实现 Material 主题设置</a> Codelab 中的 <strong>Woof</strong> 应用进行构建，并添加一个简单的动画来确认用户的操作。</li>
+</ul>
+<h2 id="what-youll-need">所需条件</h2>
+<ul>
+<li>最新的稳定版 Android Studio。</li>
+<li>互联网连接，以便下载起始代码。</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 应用概览
+          </h2>
+          
+          <p>在<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-material-theming?hl=zh-cn#0" target="_blank">使用 Jetpack Compose 实现 Material 主题设置</a> Codelab 中，您使用 Material Design 创建了一个 <strong>Woof</strong> 应用，该应用会显示狗狗列表及其信息。</p>
+<p class="image-container"><img alt="36c6cabd93421a92.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/36c6cabd93421a92_2880.029cc721e4.png 2880w" style="width: 227.52px" loading="lazy" decoding="async"></p>
+<p>在本 Codelab 中，您要为 <strong>Woof</strong> 应用添加动画。您要添加爱好信息，当展开列表项时，系统会显示这些信息。此外，您还要添加弹簧动画，为正在展开的列表项添加动画效果。</p>
+<p class="image-container"><img alt="c0d0a52463332875.gif" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c0d0a52463332875.029cc721e4.gif" style="width: 227.52px" loading="lazy" decoding="async"></p>
+<h2 id="get-the-starter-code"><strong>获取起始代码</strong></h2>
+<p>首先，请下载起始代码：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-woof/archive/refs/heads/material.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>或者，您也可以克隆该代码的 GitHub 代码库：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-woof.git
+$ cd basic-android-kotlin-compose-training-woof
+$ git checkout material
+</pre>
+<aside class="special"><p><strong>注意：</strong>起始代码位于所下载代码库的 <code dir="ltr" translate="no">material</code> 分支中。</p>
+</aside>
+<p>您可以在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-woof/tree/material" target="_blank"><code dir="ltr" translate="no">Woof app</code></a> GitHub 代码库中浏览该代码。</p>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 添加“展开”图标
+          </h2>
+          
+          <p>在此部分中，您将为应用添加<strong>展开</strong> <img alt="30c384f00846e69b.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_2880.029cc721e4.png 2880w" style="width: 21.00px" title="“向上箭头”图标" loading="lazy" decoding="async"> 和<strong>收起</strong> <img alt="f88173321938c003.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_2880.029cc721e4.png 2880w" style="width: 29.00px" title="“向下箭头”图标" loading="lazy" decoding="async"> 图标。</p>
+<p class="image-container"><img alt="def59d71015c0fbe.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/def59d71015c0fbe_2880.029cc721e4.png 2880w" style="width: 624.00px" title="带有按钮的 Woof 列表项" loading="lazy" decoding="async"></p>
+<h2 id="icons">Icons</h2>
+<p>图标是一种符号，可以形象地表示预期功能，帮助用户了解界面。图标设计通常会从用户在现实世界中可能接触到的对象中汲取灵感。图标设计通常对细节设计没有什么要求，只需确保用户熟悉即可。例如，在现实世界中，我们使用铅笔书写，因此铅笔图标通常表示<strong>创建</strong>或<strong>修改</strong>。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p><img alt="笔记本上放着一根铅笔" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837.029cc721e4.jpeg" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837_36.029cc721e4.jpeg 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837_48.029cc721e4.jpeg 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837_72.029cc721e4.jpeg 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837_96.029cc721e4.jpeg 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837_480.029cc721e4.jpeg 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837_720.029cc721e4.jpeg 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837_856.029cc721e4.jpeg 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837_960.029cc721e4.jpeg 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837_1440.029cc721e4.jpeg 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837_1920.029cc721e4.jpeg 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/1c71e91aa04d3837_2880.029cc721e4.jpeg 2880w" loading="lazy" decoding="async"> 照片由 <a href="https://unsplash.com/@linalitvina?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank">Angelina Litvin</a> 拍摄，选自 <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank">Unsplash</a> 网站</p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img alt="黑白铅笔图标" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b718af58f961d2b4_2880.029cc721e4.png 2880w" title="“铅笔”图标" loading="lazy" decoding="async"></p>
+</td></tr>
+</tbody></table>
+<p>Material Design 提供了<a href="https://material.io/resources/icons/?style=baseline" target="_blank">大量图标</a>，分成若干常见类别，可满足您的大多数需求。</p>
+<p class="image-container"><img alt="Material 图标库" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/254688426772346f_2880.029cc721e4.png 2880w" style="width: 336.00px" loading="lazy" decoding="async"></p>
+<h2 id="add-gradle-dependency">添加 Gradle 依赖项</h2>
+<p>为您的项目添加 <code dir="ltr" translate="no">material-icons-extended</code> 库依赖项。您将使用此库中的 <code dir="ltr" translate="no">Icons.Filled.ExpandLess</code> <img alt="30c384f00846e69b.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/30c384f00846e69b_2880.029cc721e4.png 2880w" style="width: 21.00px" title="“收起”图标" loading="lazy" decoding="async"> 和 <code dir="ltr" translate="no">Icons.Filled.ExpandMore</code> <img alt="f88173321938c003.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_2880.029cc721e4.png 2880w" style="width: 29.00px" title="“展开”图标" loading="lazy" decoding="async"> 图标。</p>
+<aside class="special"><p><strong>有关 Gradle 依赖项的注意事项：</strong>如需向您的项目添加依赖项，请在模块的 <code dir="ltr" translate="no">build.gradle.kts</code> 文件的 <code dir="ltr" translate="no">dependencies</code> 代码块中指定依赖项配置，例如“implementation”。在构建您的应用时，构建系统会编译该库模块，并将生成的编译内容打包到应用中。</p>
+<p>在后面的单元中，您将详细了解如何为应用添加库。</p>
+</aside>
+<ol type="1">
+<li>在 <strong>Project</strong> 窗格中，依次打开 <strong>Gradle Scripts &gt; build.gradle.kts (Module :app)</strong>。</li>
+<li>滚动到 <code dir="ltr" translate="no">build.gradle.kts (Module :app)</code> 文件的末尾。在 <code dir="ltr" translate="no">dependencies{}</code> 代码块中，添加以下行：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"androidx.compose.material:material-icons-extended"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<aside class="special"><p><strong>提示</strong>：每当您修改 Gradle 文件时，Android Studio 可能需要导入或更新库，并运行一些后台任务。Android Studio 会显示一个弹出式窗口，让您同步项目。点击 <strong>Sync Now</strong>。</p>
+<p class="image-container"><img alt="772f8f274e7d3f44.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/772f8f274e7d3f44_2880.029cc721e4.png 2880w" style="width: 610.00px" loading="lazy" decoding="async"></p>
+</aside>
+<h2 id="add-the-icon-composable">添加图标可组合项</h2>
+<p>添加一个函数，以显示 Material 图标库中的<strong>展开</strong>图标，并将其用作按钮。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity.kt</code> 中的 <code dir="ltr" translate="no">DogItem()</code> 函数后面，创建一个名为 <code dir="ltr" translate="no">DogItemButton()</code> 的全新可组合函数。</li>
+<li>传入针对展开状态的 <code dir="ltr" translate="no">Boolean</code>、针对 onClick 处理程序的 lambda 表达式和可选的 <code dir="ltr" translate="no">Modifier</code>，如下所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogItemButton</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w"> </span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">DogItemButton()</code> 函数内，添加一个 <a href="https://developer.android.com/reference/kotlin/androidx/compose/material/IconButton.composable?hl=zh-cn#IconButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)" target="_blank"><code dir="ltr" translate="no">IconButton()</code></a> 可组合项，该可组合项接受 <code dir="ltr" translate="no">onClick</code> 具名形参（一个使用尾随 lambda 语法的 lambda，会在按下此图标时调用），以及一个可选的 <code dir="ltr" translate="no">modifier</code>。将 <code dir="ltr" translate="no">IconButton's onClick</code> 和 <code dir="ltr" translate="no">modifier value parameters</code> 设置为等于传入 <code dir="ltr" translate="no">DogItemButton</code> 的函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogItemButton</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Boolean</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">){</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">IconButton</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">IconButton()</code> lambda 代码块内，添加一个 <a href="https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Icon</code></a> 可组合项，并将 <code dir="ltr" translate="no">imageVector value-parameter</code> 设置为 <code dir="ltr" translate="no">Icons.Filled.ExpandMore</code>。这是将在列表项 <img alt="f88173321938c003.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/f88173321938c003_2880.029cc721e4.png 2880w" style="width: 29.00px" title="“展开”图标" loading="lazy" decoding="async"> 末尾显示的按钮。Android Studio 会向您显示针对 <code dir="ltr" translate="no">Icon()</code> 可组合项形参的警告，您将在下一步中修复相应问题。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material.icons.filled.ExpandMore</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material.icons.Icons</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material3.Icon</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material3.IconButton</span>
+
+<span class="devsite-syntax-n">IconButton</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Icon</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">imageVector</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Icons</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Filled</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ExpandMore</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>添加值形参 <code dir="ltr" translate="no">tint</code>，并将图标的颜色设为 <code dir="ltr" translate="no">MaterialTheme.colorScheme.secondary</code>。添加具名形参 <code dir="ltr" translate="no">contentDescription</code>，并将其设置为字符串资源 <code dir="ltr" translate="no">R.string.expand_button_content_description</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">IconButton</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-p">){</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Icon</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">imageVector</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Icons</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Filled</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ExpandMore</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">expand_button_content_description</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">tint</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">colorScheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">secondary</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="display-the-icon">显示图标</h2>
+<p>通过将 <code dir="ltr" translate="no">DogItemButton()</code> 可组合项添加到布局中来显示它。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">DogItem()</code> 的开头，添加 <code dir="ltr" translate="no">var</code> 以保存列表项的展开状态。将初始值设置为 <code dir="ltr" translate="no">false</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.runtime.getValue</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.runtime.mutableStateOf</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.runtime.remember</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.runtime.setValue</span>
+
+<span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<aside class="special"><p><strong>回顾 remember() 和 mutableStateOf()</strong>：</p>
+<p>使用 <code dir="ltr" translate="no">mutableStateOf()</code> 函数，以便 Compose 观察状态值发生的更改，并触发重组来更新界面。使用 <code dir="ltr" translate="no">remember()</code> 函数封装 <code dir="ltr" translate="no">mutableStateOf()</code> 函数调用，以在初始组合期间将值存储在组合中，并在重组期间返回存储的值。</p>
+</aside>
+<ol start="2" type="1">
+<li>在列表项中显示图标按钮。在 <code dir="ltr" translate="no">DogItem()</code> 可组合项的 <code dir="ltr" translate="no">Row</code> 代码块的末尾，调用 <code dir="ltr" translate="no">DogInformation()</code> 之后添加 <code dir="ltr" translate="no">DogItemButton()</code>。针对回调传入 <code dir="ltr" translate="no">expanded</code> 状态和空 lambda。您将在后续步骤中定义 <code dir="ltr" translate="no">onClick</code> 操作。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Row</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_small</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">DogIcon</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imageResourceId</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">DogInformation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">age</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">DogItemButton</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-cm">/*TODO*/</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <strong>Design</strong> 窗格中查看 <code dir="ltr" translate="no">WoofPreview()</code>。</li>
+</ol>
+<p class="image-container"><img alt="5bbf09cd2828b6.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/5bbf09cd2828b6_2880.029cc721e4.png 2880w" style="width: 392.00px" title="添加了按钮的 WoofPreview()" loading="lazy" decoding="async"></p>
+<p>请注意，“展开”按钮未与列表项的末尾对齐。您将在下一步中修复该问题。</p>
+<h2 id="align-the-expand-more-button">对齐“展开”按钮</h2>
+<p>如要将“展开”按钮与列表项的末尾对齐，您需要使用 <a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/RowScope?hl=zh-cn#(androidx.compose.ui.Modifier).weight(kotlin.Float,kotlin.Boolean)" target="_blank"><code dir="ltr" translate="no">Modifier.weight()</code></a> 属性在布局中添加分隔符。</p>
+<aside class="special"><p><strong>注意：</strong><a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/RowScope?hl=zh-cn#(androidx.compose.ui.Modifier).weight(kotlin.Float,kotlin.Boolean)" target="_blank"><code dir="ltr" translate="no">Modifier.weight()</code></a> 会根据界面元素相对于其加权同级元素（相应行或列中的其他子元素）的权重，按比例设置界面元素的宽度和高度。</p>
+<p>示例：假设一行中的三个子元素的权重分别为 <code dir="ltr" translate="no">1f</code>、<code dir="ltr" translate="no">1f</code> 和 <code dir="ltr" translate="no">2f</code>。在本例中，系统为所有子元素都分配了权重。根据指定的权重值按比例划分可用的行空间，为权重值较高的子元素分配更多空间。子元素的权重分配情况如下所示：</p>
+<p class="image-container"><img alt="197842fd06abf239.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/197842fd06abf239_2880.029cc721e4.png 2880w" style="width: 610.00px" title="修饰符权重图表" loading="lazy" decoding="async"></p>
+<p>在上面的行中，系统为第一个和第二个子级可组合项分配了行宽的 ¼，而为第三个子级可组合项分配了行宽的 ½。</p>
+<p>如果系统没有为子级可组合项分配权重（权重为可选形参），那么子级可组合项的高度/宽度将默认为封装内容（封装界面元素中的内容）。</p>
+</aside>
+<aside class="special"><p><strong>有关浮点值的注意事项</strong>：Kotlin 中的浮点值为十进制数，以在数字末尾附上 <code dir="ltr" translate="no">f</code> 或 <code dir="ltr" translate="no">F</code> 表示。</p>
+</aside>
+<p>在 <strong>Woof</strong> 应用中，每个列表项行都包含狗狗图片、狗狗信息和一个“展开”按钮。您需要在“展开”按钮前添加一个 <code dir="ltr" translate="no">Spacer</code> 可组合项（权重为 <code dir="ltr" translate="no">1f</code>），以便与按钮图标适当对齐。由于分隔符是行中唯一加权的子元素，因此该元素会在测量其他未加权子元素的宽度之后，填充行中的剩余空间。</p>
+<p class="image-container"><img alt="733f6d9ef2939ab5.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/733f6d9ef2939ab5_2880.029cc721e4.png 2880w" style="width: 624.00px" title="带有分隔符的 Woof 列表项" loading="lazy" decoding="async"></p>
+<h3 id="add-the-spacer-to-the-list-item-row">在列表项行中添加分隔符</h3>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">DogItem()</code> 中的 <code dir="ltr" translate="no">DogInformation()</code> 和 <code dir="ltr" translate="no">DogItemButton()</code> 之间，添加 <code dir="ltr" translate="no">Spacer</code>。传入带 <code dir="ltr" translate="no">weight(1f)</code> 的 <code dir="ltr" translate="no">Modifier</code>。<a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/RowScope?hl=zh-cn#(androidx.compose.ui.Modifier).weight(kotlin.Float,kotlin.Boolean)" target="_blank"><code dir="ltr" translate="no">Modifier.weight()</code></a> 会使分隔符填充该行中剩余的空间。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.Spacer</span>
+
+<span class="devsite-syntax-n">Row</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_small</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">DogIcon</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imageResourceId</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">DogInformation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">age</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Spacer</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">weight</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1f</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">DogItemButton</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-cm">/*TODO*/</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 <strong>Design</strong> 窗格中查看 <code dir="ltr" translate="no">WoofPreview()</code>。请注意，“展开”按钮现在已与列表项的末尾对齐。</li>
+</ol>
+<p class="image-container"><img alt="8df42b9d85a5dbaa.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/8df42b9d85a5dbaa_2880.029cc721e4.png 2880w" style="width: 406.50px" title="将图标右对齐的 WoofPreview" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 添加可组合项以显示爱好信息
+          </h2>
+          
+          <p>在此任务中，您将添加 <code dir="ltr" translate="no">Text</code> 可组合项以显示狗狗的爱好信息。</p>
+<p class="image-container"><img alt="bba8146c6332cc37.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/bba8146c6332cc37_2880.029cc721e4.png 2880w" style="width: 495.50px" title="已展开的 Woof ListItem" loading="lazy" decoding="async"></p>
+<ol type="1">
+<li>创建一个新的名为 <code dir="ltr" translate="no">DogHobby()</code> 的可组合函数，用于接受狗狗的爱好字符串资源 ID 和可选的 <code dir="ltr" translate="no">Modifier</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogHobby</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nd">@StringRes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dogHobby</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">DogHobby()</code> 函数内，创建一个 <code dir="ltr" translate="no">Column</code> 并传入在 <code dir="ltr" translate="no">DogHobby()</code> 中传入的修饰符。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogHobby</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nd">@StringRes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dogHobby</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">){</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">Column</code> 代码块内，添加两个 <code dir="ltr" translate="no">Text</code> 可组合项：一个用于在爱好信息上方显示 <strong>About</strong> 文本，另一个用于显示爱好信息。</li>
+</ol>
+<p>将第一个可组合项的 <code dir="ltr" translate="no">text</code> 设置为 <strong>strings.xml</strong> 文件中的 <code dir="ltr" translate="no">about</code>，并将 <code dir="ltr" translate="no">style</code> 设置为 <code dir="ltr" translate="no">labelSmall</code>。将第二可组合项的 <code dir="ltr" translate="no">text</code> 设置为传入的 <code dir="ltr" translate="no">dogHobby</code>，并将 <code dir="ltr" translate="no">style</code> 设置为 <code dir="ltr" translate="no">bodyLarge</code>。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">about</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">style</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">typography</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">labelSmall</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dogHobby</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">style</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">typography</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">bodyLarge</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">DogItem()</code> 中，<code dir="ltr" translate="no">DogHobby()</code> 可组合项将位于包含 <code dir="ltr" translate="no">DogIcon()</code>、<code dir="ltr" translate="no">DogInformation()</code>、<code dir="ltr" translate="no">Spacer()</code> 和 <code dir="ltr" translate="no">DogItemButton()</code> 的 <code dir="ltr" translate="no">Row</code> 下方。为此，请使用 <code dir="ltr" translate="no">Column</code> 封装 <code dir="ltr" translate="no">Row</code>，以便将爱好添加到 <code dir="ltr" translate="no">Row</code> 下方。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Row</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_small</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">DogIcon</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imageResourceId</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">DogInformation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">age</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">Spacer</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">weight</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1f</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">DogItemButton</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-cm">/*TODO*/</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="5" type="1">
+<li>将 <code dir="ltr" translate="no">DogHobby()</code> 添加在 <code dir="ltr" translate="no">Row</code> 之后作为 <code dir="ltr" translate="no">Column</code> 的第二个子级。传入 <code dir="ltr" translate="no">dog.hobbies</code>，其中包含传入的狗狗的独特爱好，以及包含 <code dir="ltr" translate="no">DogHobby()</code> 可组合项内边距的 <code dir="ltr" translate="no">modifier</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Row</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">DogHobby</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">hobbies</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">start</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">top</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_small</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">end</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">bottom</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<aside class="special"><p><strong>有关狗狗爱好的注意事项：</strong>所有狗狗的爱好信息均已在起始代码中提供给您。如需在代码中查看此类信息，请打开 <code dir="ltr" translate="no">data/Dog.kt</code> 文件，查看预先填充了狗狗信息的 <code dir="ltr" translate="no">dogs</code> 列表。</p>
+</aside>
+<p>完整的 <code dir="ltr" translate="no">DogItem()</code> 函数应如下所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogItem</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Dog</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Card</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">Row</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_small</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">DogIcon</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imageResourceId</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">DogInformation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">age</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">Spacer</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">weight</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1f</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">DogItemButton</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-cm">/*TODO*/</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">DogHobby</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">hobbies</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-n">start</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-n">top</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_small</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-n">end</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-n">bottom</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>在 <strong>Design</strong> 窗格中查看 <code dir="ltr" translate="no">WoofPreview()</code>。请注意，狗狗的爱好信息会显示。</li>
+</ol>
+<p class="image-container"><img alt="带有展开列表项的 Woof 预览" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/2704a4ef191ef458_2880.029cc721e4.png 2880w" style="width: 240.00px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 在点击按钮时显示/隐藏爱好信息
+          </h2>
+          
+          <p>您的应用为每个列表项都提供了<strong>展开</strong>按钮，但该按钮还没有什么作用！在本部分中，您将添加用于在用户点击“展开”按钮时隐藏或显示爱好信息的选项。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">DogItem()</code> 可组合函数的 <code dir="ltr" translate="no">DogItemButton()</code> 函数调用中，定义 <code dir="ltr" translate="no">onClick()</code> lambda 表达式，在用户点击按钮时将 <code dir="ltr" translate="no">expanded</code> 布尔状态值更改为 <code dir="ltr" translate="no">true</code>，在用户再次点击按钮时将其改回 <code dir="ltr" translate="no">false</code>。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">DogItemButton</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!</span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<aside class="special"><p><strong>注意：</strong>逻辑 NOT 运算符 ( ! ) 会返回 <code dir="ltr" translate="no">Boolean</code> 表达式的否定值。</p>
+<p>例如，如果 <code dir="ltr" translate="no">expanded</code> 为 <code dir="ltr" translate="no">true</code>，则 <code dir="ltr" translate="no">!expanded</code> 的求值结果为 <code dir="ltr" translate="no">false</code>。</p>
+</aside>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">DogItem()</code> 函数中，使用对 <code dir="ltr" translate="no">expanded</code> 布尔值进行的 <code dir="ltr" translate="no">if</code> 检查来封装 <code dir="ltr" translate="no">DogHobby()</code> 函数调用。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogItem</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Dog</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Card</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">Row</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">DogHobby</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">hobbies</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                       </span><span class="devsite-syntax-n">start</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                       </span><span class="devsite-syntax-n">top</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_small</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                       </span><span class="devsite-syntax-n">end</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                       </span><span class="devsite-syntax-n">bottom</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>现在，只有当 <code dir="ltr" translate="no">expanded</code> 的值为 <code dir="ltr" translate="no">true</code> 时，系统才会显示狗狗的爱好信息。</p>
+<ol start="3" type="1">
+<li>预览会显示界面的外观，您还可以与之互动。如要与界面预览对象进行互动，请将鼠标悬停在 <strong>Design</strong> 窗格中的 WoofPreview 文本上，然后点击 <strong>Design</strong> 窗格右上角的 <strong>Interactive Mode</strong> 按钮 <img alt="42379dbe94a7a497.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/42379dbe94a7a497_2880.029cc721e4.png 2880w" style="width: 23.00px" loading="lazy" decoding="async">。这会在交互模式下启动预览。</li>
+</ol>
+<p class="image-container"><img alt="74e1624d68fb4131.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/74e1624d68fb4131_2880.029cc721e4.png 2880w" style="width: 611.00px" loading="lazy" decoding="async"></p>
+<ol start="4" type="1">
+<li>点击“展开”按钮与预览对象进行互动。请注意，点击“展开”按钮后，系统会隐藏或显示狗狗的爱好信息。</li>
+</ol>
+<p class="image-container"><img alt="Woof 列表项的展开和收缩动画" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/e4c793196993a9ae.029cc721e4.gif" style="width: 264.00px" loading="lazy" decoding="async"></p>
+<aside class="special"><p><strong>注意：</strong>如需停止交互模式，请点击预览窗格左上角的 <strong>Stop Interactive Mode</strong>。</p>
+<p class="image-container"><img alt="60829fbffe4d8302.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/60829fbffe4d8302_2880.029cc721e4.png 2880w" style="width: 610.00px" title="停止交互模式" loading="lazy" decoding="async"></p>
+</aside>
+<p>请注意，在列表项展开时，“展开”按钮图标没有发生变化。为了提供更加出色的用户体验，您将更改图标，使 <code dir="ltr" translate="no">ExpandMore</code> 显示向下箭头 <img alt="c761ef298c2aea5a.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_2880.029cc721e4.png 2880w" style="width: 22.00px" title="“展开”图标" loading="lazy" decoding="async">，<code dir="ltr" translate="no">ExpandLess</code> 显示向上箭头 <img alt="b380f933be0b6ff4.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_2880.029cc721e4.png 2880w" style="width: 29.00px" title="“收起”图标" loading="lazy" decoding="async">。</p>
+<ol start="5" type="1">
+<li>在 <code dir="ltr" translate="no">DogItemButton()</code> 函数中，添加一个根据 <code dir="ltr" translate="no">expanded</code> 状态更新 <code dir="ltr" translate="no">imageVector</code> 值的 <code dir="ltr" translate="no">if</code> 语句，如下所示：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material.icons.filled.ExpandLess</span>
+
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogItemButton</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">IconButton</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onClick</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">Icon</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">imageVector</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Icons</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Filled</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ExpandLess</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Icons</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Filled</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ExpandMore</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>请注意您在上一个代码段中是如何编写 <code dir="ltr" translate="no">if-else</code> 的。</p>
+<p><code dir="ltr" translate="no">if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore</code></p>
+<p>这与以下代码中使用大括号 { } 一样：</p>
+<p><code dir="ltr" translate="no">if (expanded) {</code></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">`Icons.Filled.ExpandLess`</span>
+</code></pre>
+<p><code dir="ltr" translate="no">} else {</code></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">`Icons.Filled.ExpandMore`</span>
+</code></pre>
+<p><code dir="ltr" translate="no">}</code></p>
+<p>如果 <code dir="ltr" translate="no">if</code>-<code dir="ltr" translate="no">else</code> 语句只有一行代码，那么大括号是可选的。</p>
+<ol start="6" type="1">
+<li>在设备或模拟器上运行应用，或再次使用预览中的交互模式。请注意，图标会在 <code dir="ltr" translate="no">ExpandMore</code> <img alt="c761ef298c2aea5a.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c761ef298c2aea5a_2880.029cc721e4.png 2880w" style="width: 22.00px" loading="lazy" decoding="async"> 和 <code dir="ltr" translate="no">ExpandLess</code> <img alt="b380f933be0b6ff4.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b380f933be0b6ff4_2880.029cc721e4.png 2880w" style="width: 29.00px" loading="lazy" decoding="async"> 之间切换。</li>
+</ol>
+<p class="image-container"><img alt="de5dc4a953f11e65.gif" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/de5dc4a953f11e65.029cc721e4.gif" style="width: 227.52px" loading="lazy" decoding="async"></p>
+<aside class="special"><p><strong>有关交互模式的注意事项</strong>：在交互模式下，您可以采用与在设备上互动的相同方式与预览对象互动。然而，使用预览模式无法替代在设备上运行应用来进行测试。</p>
+</aside>
+<p>您已成功更新图标，太棒了！</p>
+<p>展开列表项时，您是否注意到高度的变化有些突然？高度的突然变化会使应用看起来不那么精美。为了解决此问题，您接下来将为应用添加动画。</p>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 添加动画
+          </h2>
+          
+          <p>您可以通过动画添加视觉提示，通知用户应用中的动态。当界面状态发生改变时（例如有新内容加载或有新操作可用时），动画尤其有用。动画还可以为您的应用添加精美外观。</p>
+<p>在本部分中，您将添加一个弹簧动画，以动画形式呈现列表项高度的变化。</p>
+<h2 id="spring-animation">弹簧动画</h2>
+<p><a href="https://developer.android.com/jetpack/compose/animation?hl=zh-cn#spring" target="_blank">弹簧动画</a>是一种基于物理特性的动画，依靠<strong>弹簧弹力</strong>来驱动。使用弹簧动画时，移动的值和速度是根据应用的弹簧弹力计算得出的。</p>
+<p>例如，如果您在屏幕上拖动某个应用图标，然后松开手指释放它，那么该图标便会被一股看不见的力量拉回其原始位置。</p>
+<p>下图演示了弹簧动画效果。手指从图标上松开后，图标会弹回，就像弹簧弹跳一样。</p>
+<p class="image-container"><img alt="弹簧释放效果" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/af35a9d327d1cab0.029cc721e4.gif" style="width: 336.00px" loading="lazy" decoding="async"></p>
+<p>弹簧效果<em></em></p>
+<p>弹簧弹力基于以下两个属性：</p>
+<ul>
+<li><strong>阻尼比</strong>：弹簧的弹力。</li>
+<li><strong>刚度</strong>：弹簧的刚度，即弹簧移动到终点的速度。</li>
+</ul>
+<p>以下是一些具有<a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Spring?hl=zh-cn" target="_blank">不同阻尼比和刚度</a>的动画示例。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p><img alt="弹簧效果" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/d8e850d6eeec30a5.029cc721e4.gif" title="高弹力" loading="lazy" decoding="async">高弹力<em></em></p>
+</td><td colspan="1" rowspan="1"><p><img alt="弹簧效果" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/32eac117de778099.029cc721e4.gif" title="无弹力" loading="lazy" decoding="async">无弹力<em></em></p>
+</td></tr>
+</tbody></table>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p><img src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/7ba20cf822ecb900.029cc721e4.gif" loading="lazy" decoding="async">高刚度<em></em></p>
+</td><td colspan="1" rowspan="1"><p><img alt="低刚度" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/710c9cad92e2d7ad.029cc721e4.gif" loading="lazy" decoding="async">很低的刚度<em></em></p>
+</td></tr>
+</tbody></table>
+<p>查看 <code dir="ltr" translate="no">DogItem()</code> 可组合函数中的 <code dir="ltr" translate="no">DogHobby()</code> 函数调用。狗狗的爱好信息基于 <code dir="ltr" translate="no">expanded</code> 布尔值包含在组合中。根据狗狗的爱好信息处于可见状态还是隐藏状态，列表项的高度会发生变化。目前，该过渡过程不太自然。在此部分中，您将使用 <a href="https://developer.android.com/jetpack/compose/animation/composables-modifiers?hl=zh-cn#animateContentSize" target="_blank"><code dir="ltr" translate="no">animateContentSize</code></a> 修饰符在展开状态和非展开状态之间更流畅地进行过渡。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy over</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogItem</span><span class="devsite-syntax-p">(...)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">DogHobby</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">hobbies</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-n">start</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-n">top</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_small</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-n">end</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">              </span><span class="devsite-syntax-n">bottom</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">dimensionResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">dimen</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding_medium</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity.kt</code> 的 <code dir="ltr" translate="no">DogItem()</code> 内，向 <code dir="ltr" translate="no">Column</code> 布局添加 <code dir="ltr" translate="no">modifier</code> 形参。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogItem</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Dog</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Card</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">){</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>使用 <a href="https://developer.android.com/jetpack/compose/animation?hl=zh-cn#animateContentSize" target="_blank"><code dir="ltr" translate="no">animateContentSize</code></a> 修饰符链接该修饰符，以便为大小（列表项高度）变化添加动画效果。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.animation.animateContentSize</span>
+
+<span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">animateContentSize</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>在当前实现中，您要为应用中的列表项高度变化添加动画效果。但是，动画效果非常细微，在运行应用时很难觉察出来。为解决此问题，请使用可选的 <a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/AnimationSpec?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">animationSpec</code></a> 形参来自定义动画。</p>
+<ol start="3" type="1">
+<li>对于 Woof 而言，动画会缓入和缓出，不会有弹跳。为此，请将 <code dir="ltr" translate="no">animationSpec</code> 形参添加到 <code dir="ltr" translate="no">animateContentSize()</code> 函数调用中。使用 <a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Spring?hl=zh-cn#DampingRatioNoBouncy()" target="_blank"><code dir="ltr" translate="no">DampingRatioNoBouncy</code></a> 将其设置为弹簧动画，使其无弹跳，并使用 <a href="https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Spring?hl=zh-cn#StiffnessMedium()" target="_blank"><code dir="ltr" translate="no">StiffnessMedium</code></a> 形参让弹簧略硬。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.animation.core.Spring</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.animation.core.spring</span>
+
+<span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">animateContentSize</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">animationSpec</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">spring</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">dampingRatio</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Spring</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">DampingRatioNoBouncy</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">stiffness</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Spring</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">StiffnessMedium</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="4" type="1">
+<li>查看 <strong>Design</strong> 窗格中的 <code dir="ltr" translate="no">WoofPreview()</code>，然后使用交互模式或者在模拟器或设备上运行应用，以查看实际的弹簧动画效果。</li>
+</ol>
+<p class="image-container"><img alt="c0d0a52463332875.gif" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/c0d0a52463332875.029cc721e4.gif" style="width: 227.52px" loading="lazy" decoding="async"></p>
+<p>大功告成！尽情使用带有动画效果的精美应用。</p>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. （可选）尝试使用其他动画
+          </h2>
+          
+          <h2 id="animateasstate">animate*AsState</h2>
+<p><a href="https://developer.android.com/jetpack/compose/animation/value-based?hl=zh-cn#animate-as-state" target="_blank"><code dir="ltr" translate="no">animate*AsState()</code></a> 函数是 Compose 中最简单的 Animation API 之一，用于为单个值添加动画效果。您只需提供结束值（或目标值），该 API 就会从当前值开始向指定结束值播放动画。</p>
+<p>Compose 为 <code dir="ltr" translate="no">Float</code>、<code dir="ltr" translate="no">Color</code>、<code dir="ltr" translate="no">Dp</code>、<code dir="ltr" translate="no">Size</code>、<code dir="ltr" translate="no">Offset</code> 和 <code dir="ltr" translate="no">Int</code> 等提供了 <code dir="ltr" translate="no">animate*AsState()</code> 函数。您可以使用接受通用类型的 <code dir="ltr" translate="no">animateValueAsState()</code> 轻松添加对其他数据类型的支持。</p>
+<p>尝试使用 <code dir="ltr" translate="no">animateColorAsState()</code> 函数更改列表项处于展开状态时的颜色。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">DogItem()</code> 中，声明一种颜色并将其初始化委托给 <code dir="ltr" translate="no">animateColorAsState()</code> 函数。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.animation.animateColorAsState</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogItem</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Dog</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">color</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">animateColorAsState</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="2" type="1">
+<li>根据 <code dir="ltr" translate="no">expanded</code> 布尔值，设置 <code dir="ltr" translate="no">targetValue</code> 具名形参。如果列表项处于展开状态，请将列表项设置为 <code dir="ltr" translate="no">tertiaryContainer</code> 颜色。否则，请将其设置为 <code dir="ltr" translate="no">primaryContainer</code> 颜色。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.animation.animateColorAsState</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogItem</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Dog</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">expanded</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">false</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">color</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">animateColorAsState</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">targetValue</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">expanded</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">colorScheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tertiaryContainer</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-k">else</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">colorScheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">primaryContainer</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>将 <code dir="ltr" translate="no">color</code> 设置为 <code dir="ltr" translate="no">Column</code> 的背景修饰符。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">DogItem</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">dog</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Dog</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Card</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">animateContentSize</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">                   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">background</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">color</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">color</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{...}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>查看列表项处于展开状态时颜色如何变化。非展开列表项的颜色为 <code dir="ltr" translate="no">primaryContainer</code>，已展开列表项的颜色为 <code dir="ltr" translate="no">tertiaryContainer</code>。</li>
+</ol>
+<p class="image-container"><img alt="animateAsState 动画" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-woof-animation/img/b45e86eb53fd7d88_2880.029cc721e4.png 2880w" style="width: 268.80px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，您可以使用以下 Git 命令：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-woof.git
+</pre>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-woof/archive/refs/heads/main.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">main</code> 分支中。</p>
+</aside>
+<p>如果您想查看解决方案代码，请<a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-woof/tree/main" target="_blank">前往 GitHub 查看</a>。</p>
+
+
+        
+          
+          <h2 class="" id="8">
+              9. 总结
+          </h2>
+          
+          <p>恭喜！您添加了一个用于隐藏和显示狗狗相关信息的按钮。您利用弹簧动画提升了用户体验。您还学习了如何在 <strong>Design</strong> 窗格中使用交互模式。</p>
+<p>您还可以尝试使用其他类型的 <a href="https://developer.android.com/jetpack/compose/animation?hl=zh-cn" target="_blank">Jetpack Compose 动画</a>。别忘了使用 #AndroidBasics 标签在社交媒体上分享您的作品！</p>
+<h2 id="learn-more"><strong>了解详情</strong></h2>
+<ul>
+<li><a href="https://developer.android.com/jetpack/compose/animation?hl=zh-cn" target="_blank">Jetpack Compose 动画</a></li>
+<li>Codelab：<a href="https://developer.android.com/codelabs/jetpack-compose-animation?hl=zh-cn" target="_blank">在 Jetpack Compose 中为元素添加动画效果</a></li>
+<li>视频：<a href="https://www.youtube.com/watch?v=Z_T1bVjhMLk&amp;hl=zh-cn" target="_blank">重新构思动画</a></li>
+<li>视频：<a href="https://youtu.be/7yY2OocGiQU" target="_blank">Jetpack Compose - 动画</a></li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="./01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">上一节：使用 Jetpack Compose 实现 Material 主题设置</a><a href="./03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">下一节：03.测试无障碍功能</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

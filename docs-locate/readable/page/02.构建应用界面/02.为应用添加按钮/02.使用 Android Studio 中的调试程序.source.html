@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>使用 Android Studio 中的调试程序</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="./01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a class="active" href="./02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">Compose 中的状态简介</a></li>
+<li><a href="../03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="../03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">项目：创建艺术空间应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题效果</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 实现简单动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">使用 Android Studio 中的调试程序</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <p>在此 Codelab 中，您将学习如何使用 Android Studio 中的调试程序来检查 Dice Roller 应用在运行时会发生什么。</p>
+<p>调试程序是一个重要的工具，可让您检查为 Android 应用提供支持的代码的执行情况，以便修复其中的所有 bug。借助该工具，您可以指定何时暂停代码执行，并与变量、方法和代码的其他方面进行手动交互。</p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>基本熟悉 Android Studio</li>
+<li>能够在 Android Studio 中创建和运行基本 Jetpack Compose 应用</li>
+<li>完成<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-build-a-dice-roller-app?hl=zh-cn" target="_blank">“创建交互式 Dice Roller 应用”Codelab</a></li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>如何将调试程序连接到 Android 应用。</li>
+<li>如何在连接了调试程序的情况下启动应用。</li>
+<li>如何使用调试程序的一些基本功能。</li>
+<li>调试程序通常有什么用途。</li>
+</ul>
+<h2 id="what-youll-need">所需条件</h2>
+<ul>
+<li>一台安装了 Android Studio 的计算机</li>
+<li>Compose 中 Dice Roller 应用的解决方案代码</li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 观看配套代码演示视频（可选）
+          </h2>
+          
+          <p>如果您想要观看某位课程讲师完成此 Codelab 的过程，请播放以下视频。</p>
+<p>建议将视频全屏展开（使用视频右下角的 <img alt="此符号显示了一个方形，其中的 4 个角是突出显示的，表示全屏模式。" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adba01179d2b6579_2880.029cc721e4.png 2880w" style="width: 28.80px" loading="lazy" decoding="async"> 图标），以便更清楚地查看 Android Studio 和相关代码。</p>
+<p>这是可选步骤。您也可以跳过视频，立即开始按照此 Codelab 中的说明操作。</p>
+<devsite-youtube video-id="kjEmRCFgn0M"></devsite-youtube>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 获取起始代码
+          </h2>
+          
+          <p>首先，请下载代码：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dice-roller/archive/refs/heads/main.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>或者，您也可以克隆代码的 GitHub 代码库：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-dice-roller.git
+$ cd basic-android-kotlin-compose-training-dice-roller
+</pre>
+<aside class="special"><p><strong>注意：</strong>起始代码位于所下载代码库的 <code dir="ltr" translate="no">main</code> 分支中。</p>
+</aside>
+<p>您可以在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dice-roller" target="_blank"><strong>GitHub 代码库</strong></a>中浏览代码。</p>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 运行调试器
+          </h2>
+          
+          <p>您可以通过以下两种方式将调试程序与应用一起运行：</p>
+<ul>
+<li>将调试程序连接到在设备或模拟器上运行的现有应用进程。</li>
+<li>在连接了调试程序的情况下运行应用。</li>
+</ul>
+<p>无论采用哪种方式，均可在一定程度上实现相同的效果。熟悉这两种方式后，您可以选择您喜欢的方法，也可以视需要选择任一方法。</p>
+<h2 id="attach-the-debugger-to-an-app-process">将调试程序连接到应用进程</h2>
+<p>如果您的应用已在运行，您可以将调试程序连接到该应用。</p>
+<p>如需将调试程序连接到应用进程，请按以下步骤操作：</p>
+<ol type="1">
+<li>点击 <img alt="608818eddd06d35d.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/608818eddd06d35d_2880.029cc721e4.png 2880w" style="width: 24.00px" loading="lazy" decoding="async"> <strong>Attach Debugger to Android Process</strong>。</li>
+</ol>
+<p class="image-container"><img alt="9bd4c917bad56baa.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9bd4c917bad56baa_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>此时将打开 <strong>Choose Process</strong> 对话框，您可以从中选择要将调试程序连接到的进程。</p>
+<ol start="2" type="1">
+<li>选择 <strong><code dir="ltr" translate="no">com.example.diceroller</code></strong>，然后点击 <strong>OK</strong>。</li>
+</ol>
+<p class="image-container"><img alt="a4c65b5bc972bd46.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a4c65b5bc972bd46_2880.029cc721e4.png 2880w" style="width: 408.00px" loading="lazy" decoding="async"></p>
+<p>Android Studio 底部会显示 <strong>Debug</strong> 窗格，其中包含一条消息，指出调试程序已连接到目标设备或模拟器。</p>
+<p class="image-container"><img alt="adad34e172cbc49a.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/adad34e172cbc49a_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>您已将调试程序连接到您的应用！无需担心这意味着什么，亦或是您可以使用调试程序执行哪些操作，此 Codelab 稍后将对此进行介绍。接下来，您将了解如何启动连接了调试程序的应用。</p>
+<h2 id="run-the-app-with-the-debugger">在<strong>连接了调试程序</strong>的情况下运行应用</h2>
+<p>如果您从一开始就确定要使用调试程序，可以在连接了调试程序的情况下运行应用，这样能节省一些时间。此外，如果您想调试仅在应用启动时才运行的代码，则需要在连接了调试程序的情况下启动应用。</p>
+<p>如需在连接了调试程序的情况下运行应用，请按以下步骤操作：</p>
+<ol type="1">
+<li>在 <strong>Debug</strong> 窗格中，点击 <img alt="ca283f38f21b0cb7.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ca283f38f21b0cb7_2880.029cc721e4.png 2880w" style="width: 36.00px" loading="lazy" decoding="async"> <strong>Stop</strong>，然后在设备或模拟器上关闭应用。</li>
+</ol>
+<p class="image-container"><img alt="3c82e7f80c6c174d.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3c82e7f80c6c174d_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>点击 <img alt="67f9548b52d797b7.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_2880.029cc721e4.png 2880w" style="width: 24.00px" loading="lazy" decoding="async"> <strong>Debug 'app'</strong>。</li>
+</ol>
+<p class="image-container"><img alt="cbf915fde4e6b443.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/cbf915fde4e6b443_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>Android Studio 底部也显示相同的 <strong>Debug</strong> 窗格，其中包含一些控制台输出。</p>
+<p class="image-container"><img alt="f69e0370c2b5ad0e.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/f69e0370c2b5ad0e_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>现在，您已了解如何启动调试程序！接下来，您将了解如何使用调试程序。</p>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 使用调试程序
+          </h2>
+          
+          <h2 id="the-debug-pane"><strong>Debug</strong> <strong>窗格</strong></h2>
+<p>您可能已经注意到，<strong>Debug</strong> 窗格顶部有不少按钮，但这些按钮现在意义不大，大多数按钮呈灰显状态，无法点击。本部分将介绍调试程序中的常用功能。对于其他按钮，此 Codelab 会在与所学知识相关时进行介绍。</p>
+<p>首次启动调试程序时，您会在 <strong>Debug</strong> 窗格中看到多个按钮。在 <strong>Debug</strong> 窗格的顶部，您会看到 <strong>Debugger</strong> 和 <strong>Console</strong> 按钮。</p>
+<p class="image-container"><img alt="5f35f4c555240598.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/5f35f4c555240598_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>点击 <strong>Console</strong> 按钮会显示应用的 logcat 输出。如果您的代码中有任何日志语句，则输出会在执行这段代码时显示。</p>
+<p>点击 <strong>Debugger</strong> 按钮会显示三个单独的窗格，这些窗格目前是空的，因为您未使用调试程序：</p>
+<ol type="1">
+<li>Frames 显示</li>
+<li>求值和监视表达式条目</li>
+<li>“Variables”窗格</li>
+</ol>
+<p class="image-container"><img alt="3752c14cdd27b8c4.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/3752c14cdd27b8c4_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<h2 id="use-common-debugger-features">使用常用的调试程序功能</h2>
+<h3 id="set-a-breakpoint">设置断点</h3>
+<p>调试程序的一个主要功能是，可让您使用断点让特定代码行停止执行。</p>
+<p>如需在 Android Studio 中设置断点，您需要进入特定代码行，然后点击行号旁边的间距区域。如需取消设置某个断点，您需要点击间距区域中的现有断点以使其消失。</p>
+<ul>
+<li>如需自行尝试，请在设置 <code dir="ltr" translate="no">imageResource</code> 变量的位置设置一个断点。</li>
+</ul>
+<p class="image-container"><img alt="添加和移除断点" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/4e2a6dba91f67ab1.029cc721e4.gif" style="width: 414.00px" loading="lazy" decoding="async"></p>
+<h3 id="use-the-resume-program-button">使用“Resume Program”<strong>按钮</strong></h3>
+<p>在上一部分中，您在设置 <code dir="ltr" translate="no">imageResource</code> 变量的位置设置了一个断点。该断点会导致执行在遇到此指令时暂停。使用调试程序暂停代码执行后，您可能需要继续执行，以便继续运行应用。为此，最直接的方法就是使用 <strong>Resume Program</strong> 按钮。</p>
+<p>如需让程序继续运行，请按以下步骤操作：</p>
+<ol type="1">
+<li>点击 <img alt="67f9548b52d797b7.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_2880.029cc721e4.png 2880w" style="width: 24.00px" loading="lazy" decoding="async"> <strong>Debug 'app'</strong>。应用启动后，您应该会看到如下图所示的内容：</li>
+</ol>
+<p class="image-container"><img alt="c8a1660c4209458c.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/c8a1660c4209458c_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>在让程序继续运行之前，我们有必要对调试程序暂停执行时屏幕上显示的一些内容加以说明：</p>
+<ul>
+<li>现在，<strong>Debug</strong> 窗格中的许多按钮都是可点击的。</li>
+<li><strong>Frames</strong> 窗格会显示大量信息，其中会突出显示对设置了断点的代码行的引用。</li>
+<li><strong>Variables</strong> 窗格会显示许多项，但此应用的变量并不多，因此目前没有大量在此 Codelab 讨论范围内的相关信息。但是，检查变量是调试程序的一项重要功能，因为它可以反映代码在运行时发生的情况。稍后，此 Codelab 会详细介绍如何检查变量。</li>
+</ul>
+<p>如果您在设备或模拟器上查看应用，就会发现屏幕是空白的，因为应用在一行代码处暂停运行了。更具体地说，就是执行在断点处停止了，并且界面尚未呈现。</p>
+<p>请注意，仅仅是设置了断点，并不一定能让应用立即停止运行。这取决于您在代码中放置断点的位置。在本例中，您将断点放置在了应用启动时执行的代码行中。</p>
+<p>切记，只有在尝试执行设置了断点的代码行时，应用才会在断点处暂停运行。您可以通过多种方式让调试程序继续运行，但目前您要使用 <strong>Resume Program</strong> 按钮。</p>
+<ol start="2" type="1">
+<li>点击 <img alt="937f070d95764107.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_2880.029cc721e4.png 2880w" style="width: 24.00px" loading="lazy" decoding="async"> <strong>Resume Program</strong>。</li>
+</ol>
+<p class="image-container"><img alt="7d664cd5dd8a2d9b.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/7d664cd5dd8a2d9b_2880.029cc721e4.png 2880w" style="width: 432.00px" loading="lazy" decoding="async"></p>
+<p>现在，您应该会看到如下图所示的内容：</p>
+<p class="image-container"><img alt="388c58b0f31f797e.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/388c58b0f31f797e_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>大部分信息都会消失，按钮也会重新变为无法点击的状态。在您的设备或模拟器上，应用也会照常显示。这是因为代码在断点处已不再处于暂停状态，并且应用处于正常运行状态。调试程序已连接，但在尝试执行设置了断点的代码行之前，它不会执行很多操作。请保留该断点，因为它在后面的示例中有用。</p>
+<h3 id="use-the-step-into-button">使用“Step Into”<strong>按钮</strong></h3>
+<p>借助调试程序的 <strong>Step Into</strong> 按钮，您可以非常方便地在运行时深入探究代码。如果某个指令调用了方法或其他代码段，您可以通过 <strong>Step Into</strong> 按钮进入相应代码，而无需在启动调试程序以设置断点之前手动进入相应位置。</p>
+<p>如需使用 <strong>Step Into</strong> 按钮，请按以下步骤操作：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity</code> 类的 <code dir="ltr" translate="no">onCreate()</code> 函数的 <code dir="ltr" translate="no">setContent</code> lambda 正文（此处会调用 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数）中创建一个断点。</li>
+</ol>
+<p class="image-container"><img alt="aa4337eabccc85d.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/aa4337eabccc85d_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>点击 <img alt="67f9548b52d797b7.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_2880.029cc721e4.png 2880w" style="width: 24.00px" loading="lazy" decoding="async"> <strong>Debug ‘app'</strong>，在连接了调试程序的情况下重新运行应用。执行会在调用 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数的代码行处暂停。</li>
+<li>点击 <img alt="1e7236e85d113e8f.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/1e7236e85d113e8f_2880.029cc721e4.png 2880w" style="width: 24.00px" loading="lazy" decoding="async"> <strong>Step Into</strong>。</li>
+</ol>
+<p class="image-container"><img alt="73a80d2b10caea5f.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/73a80d2b10caea5f_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>现在，系统会突出显示第 40 行，<strong>Debug</strong> 窗格中的 <strong>Frames</strong> 窗格也会指示代码已在第 40 行暂停。</p>
+<p class="image-container"><img alt="ece32a03703a0531.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ece32a03703a0531_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>如果展开 <strong>Frames</strong> 窗格，您会看到突出显示的代码行后面的代码行以 <code dir="ltr" translate="no">invoke:</code> 开头，后跟行号（在上一张图片中为“32”）。这称为“调用堆栈”。<em></em>实质上，它显示的是引导代码执行到当前代码行的调用链。在本例中，第 32 行包含用于调用 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数的指令。</p>
+<p>当调试程序在相应函数调用中设置的断点处停止时，如果您点击 <strong>Step Into</strong> 按钮，调试程序会步入到相应函数，这会导致系统执行到第 40 行代码（即声明该函数的位置）。<em></em>突出显示的代码行指示执行暂停的位置。如果突出显示的代码行后面的各代码行有关联的行号，则表示执行路径。在本示例中，调试程序会指明第 32 行中的指令已将您带到第 40 行。</p>
+<ol start="4" type="1">
+<li>点击 <img alt="937f070d95764107.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_2880.029cc721e4.png 2880w" style="width: 24.00px" loading="lazy" decoding="async"> <strong>Resume Program</strong>。</li>
+</ol>
+<p>这应该会引导您前往您设置的原始断点。您或许能够进一步了解您在第一个示例中停止执行时看到的内容。下图与 <strong>Resume program</strong> 部分中第 6 步的图片相同：</p>
+<p class="image-container"><img alt="76a1bef8e6cdf656.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/76a1bef8e6cdf656_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>在调用堆栈中，您可以看到 <code dir="ltr" translate="no">DiceWithButtonAndImage()</code> 函数在第 50 行暂停执行，并且该函数是从 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数的第 41 行调用的，而后者是从第 32 行调用的。借助调用堆栈功能，您可以了解执行路径。如果应用中的许多不同位置都会调用某个函数，函数堆栈非常有用。</p>
+<p>借助 <strong>Step Into</strong> 按钮，您可以进入某个函数并暂停执行，而无需在函数本身内设置断点。在本例中，您是在对 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数的调用中设置了断点。当您点击 <strong>Step Into</strong> 按钮时，执行会在 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数中暂停。</p>
+<p>Dice Roller 是一款相当小的应用，因为文件、类或函数的数量都不多。当您处理大型应用时，调试程序的 <strong>Step Into</strong> 功能会变得更加实用，因为借助该功能，您可以详细展开代码，而无需自行浏览代码。</p>
+<h3 id="use-the-step-over-button">使用“Step Over”<strong>按钮</strong></h3>
+<p>借助 <strong>Step Over</strong> 按钮，您可以通过另一种方式在运行时逐步检查应用代码。它会将执行移至下一行代码，然后让调试程序继续执行。</p>
+<p>如需使用 <strong>Step Over</strong> 按钮，请按以下步骤操作：</p>
+<ul>
+<li>点击 <img alt="21e306488908a0f3.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/21e306488908a0f3_2880.029cc721e4.png 2880w" style="width: 24.00px" loading="lazy" decoding="async"> <strong>Step Over</strong>。</li>
+</ul>
+<p class="image-container"><img alt="25b1ea30948cfc31.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/25b1ea30948cfc31_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>现在，您会看到调试程序在执行下一代码行（即第 51 行）时暂停执行代码。您可以依次逐步检查每行代码。</p>
+<p class="image-container"><img alt="17e5998c76809c62.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/17e5998c76809c62_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<h3 id="use-the-step-out-button">使用“Step Out”<strong>按钮</strong></h3>
+<p><strong>Step Out</strong> 按钮的作用与 <strong>Step Into</strong> 按钮相反。<strong>Step Out</strong> 按钮用于在调用堆栈中上移，而非展开调用堆栈的细目。</p>
+<p>如需使用 <strong>Step Out</strong> 按钮，请按以下步骤操作：</p>
+<ol type="1">
+<li>点击 <img alt="fbe8baec2ab73e94.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fbe8baec2ab73e94_2880.029cc721e4.png 2880w" style="width: 24.00px" loading="lazy" decoding="async"> <strong>Step Out</strong>。</li>
+</ol>
+<p>您能否猜出程序会在哪个代码行暂停？</p>
+<p class="image-container"><img alt="9e7ce3969c28f091.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/9e7ce3969c28f091_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>请注意，调试程序已退出 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数，并已回到调用该函数的代码行。</li>
+</ol>
+<p class="image-container"><img alt="fd19d30216463877.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/fd19d30216463877_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>当您发现自己在方法调用堆栈中的位置过深时，<strong>Step Out</strong> 按钮是一个非常有用的工具。借助该按钮，您可以在调用堆栈中逐步上移，无需逐步检查您单步进入的每个方法的所有代码。</p>
+<h2 id="inspect-variables"><strong>检查变量</strong></h2>
+<p>此 Codelab 前面的部分简要介绍了 <strong>Variables</strong> 窗格，该窗格更深入地说明了如何检查其中所示的变量，帮助您调试应用中的问题。</p>
+<p>如需检查变量，请按以下步骤操作：</p>
+<ol type="1">
+<li>点击断点以将其从调用 <code dir="ltr" translate="no">DiceRollerApp()</code> 函数的位置移除，但应将断点保留在设置 <code dir="ltr" translate="no">imageResource</code> 变量的位置。</li>
+<li>点击 <img alt="67f9548b52d797b7.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/67f9548b52d797b7_2880.029cc721e4.png 2880w" style="width: 24.00px" loading="lazy" decoding="async"> <strong>Debug 'app'</strong>。您应该会看到，<code dir="ltr" translate="no">result$delegate</code> 变量处于 <code dir="ltr" translate="no">MutableState</code> 并且值为 1。这是因为，在定义该变量时，系统将其实例化为值为 1 的 <code dir="ltr" translate="no">mutableStateOf</code>。<code dir="ltr" translate="no">MutableState</code> 表示结果变量具有可以更改的状态。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：<strong>Variables</strong> 窗格中的 <code dir="ltr" translate="no">result$delegate</code> 变量是指代码中的 <code dir="ltr" translate="no">result</code> 变量。之所以使用 <code dir="ltr" translate="no">$delegate</code> 表示法，是因为 <code dir="ltr" translate="no">result</code> 变量是 <code dir="ltr" translate="no">remember</code> 代理。</p>
+</aside>
+<p class="image-container"><img alt="ac37c7436b5235c0.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/ac37c7436b5235c0_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<ol start="3" type="1">
+<li>点击 <img alt="937f070d95764107.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/937f070d95764107_2880.029cc721e4.png 2880w" style="width: 24.00px" loading="lazy" decoding="async"> <strong>Resume Program</strong>。</li>
+<li>在应用中，点击 <strong>Roll</strong>。您的代码将再次在断点处暂停，并且您可能会看到 <code dir="ltr" translate="no">result$delegate</code> 变量变为其他值。</li>
+</ol>
+<p>在此图中，<code dir="ltr" translate="no">result$delegate</code> 变量的可变状态值为 2，演示了如何在运行时使用调试程序检查变量。在功能更齐全的应用中，变量的值可能会导致崩溃。使用调试程序检查变量时，您可以更深入地了解崩溃详情，从而修复 bug。</p>
+<p class="image-container"><img alt="a869ec4ba3b66fbf.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-intro-debugger/img/a869ec4ba3b66fbf_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 总结
+          </h2>
+          
+          <p>恭喜！您使用了 Android Studio 中的调试程序。</p>
+<h2 id="summary">摘要</h2>
+<ul>
+<li>将调试程序连接到应用。</li>
+<li>在连接了调试程序的情况下启动应用。</li>
+<li>熟悉调试程序窗格。</li>
+<li>设置断点。</li>
+<li>从调试程序继续运行程序。</li>
+<li>使用 <strong>Step Into</strong> 按钮。</li>
+<li>使用 <strong>Step Over</strong> 按钮。</li>
+<li>使用 <strong>Step Out</strong> 按钮。</li>
+<li>使用调试程序检查变量。</li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="./01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">上一节：创建交互式 Dice Roller 应用</a><a href="../03.%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%92%8C%E7%8A%B6%E6%80%81%E4%BA%A4%E4%BA%92/01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">下一节：01.Compose 中的状态简介</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

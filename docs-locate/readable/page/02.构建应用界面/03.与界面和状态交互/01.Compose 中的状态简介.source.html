@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>简介：Compose 中的状态</title>
+  <link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+<link rel="stylesheet" href="../../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css">
+  <link rel="stylesheet" href="../../../assets/reader.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h1 class="sidebar-title"><a href="../../../index.html">Android Compose 基础</a></h1>
+      
+    <section class="nav-unit">
+      <h2>您的首个 Android 应用</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/01.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.source.html">准备工作</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/02.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Kotlin%20%E7%A8%8B%E5%BA%8F.source.html">您的首个 Kotlin 程序</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/03.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%8F%98%E9%87%8F.source.html">在 Kotlin 中创建和使用变量</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/04.%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%20Kotlin%20%E5%87%BD%E6%95%B0.source.html">在 Kotlin 中创建和使用函数</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/01.Kotlin%20%E7%AE%80%E4%BB%8B/05.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习题：Kotlin 基础知识</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">设置 Android Studio</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/01.%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Android%20Studio.source.html">下载并安装 Android Studio</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/02.%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8.source.html">创建您的首个 Android 应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/03.%E5%9C%A8%20Android%20%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%E5%BA%94%E7%94%A8.source.html">在 Android 模拟器上运行您的首个应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/02.%E8%AE%BE%E7%BD%AE%20Android%20Studio/04.%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%20Android%20%E8%AE%BE%E5%A4%87.source.html">如何连接 Android 设备</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建基本布局</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/01.%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8.source.html">使用文本可组合项构建简单的应用</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/02.%E5%90%91%20Android%20%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87.source.html">向 Android 应用添加图片</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/03.%E7%BB%83%E4%B9%A0%E9%A2%98%EF%BC%9ACompose%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">练习：Compose 基础知识</a></li>
+<li><a href="../../01.%E6%82%A8%E7%9A%84%E9%A6%96%E4%B8%AA%20Android%20%E5%BA%94%E7%94%A8/03.%E6%9E%84%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%90%8D%E7%89%87%E5%BA%94%E7%94%A8.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>构建应用界面</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E7%BC%96%E5%86%99%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.source.html">在 Kotlin 中编写条件</a></li>
+<li><a href="../01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%B8%BA%20null%20%E6%80%A7.source.html">在 Kotlin 中使用可为 null 性</a></li>
+<li><a href="../01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.source.html">在 Kotlin 中使用类和对象</a></li>
+<li><a href="../01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%20lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F.source.html">在 Kotlin 中使用函数类型和 lambda 表达式</a></li>
+<li><a href="../01.Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/05.%E7%BB%83%E4%B9%A0%EF%BC%9AKotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.source.html">项目：创建名片应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">为应用添加按钮</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/01.%E5%88%9B%E5%BB%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%20Dice%20Roller%20%E5%BA%94%E7%94%A8.source.html">创建交互式 Dice Roller 应用</a></li>
+<li><a href="../02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">使用 Android Studio 中的调试程序</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">与界面和状态交互</h3>
+          <ol style="padding-left: 52px;">
+            <li><a class="active" href="./01.Compose%20%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%80%E4%BB%8B.source.html">简介：Compose 中的状态</a></li>
+<li><a href="./02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">计算自定义小费</a></li>
+<li><a href="./03.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%89%BA%E6%9C%AF%E7%A9%BA%E9%97%B4%E5%BA%94%E7%94%A8.source.html">项目：创建艺术空间应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>显示列表并使用 Material Design</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">更多 Kotlin 基础知识</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01.%E6%B3%9B%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%89%A9%E5%B1%95.source.html">泛型、对象和扩展</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/02.%E5%9C%A8%20Kotlin%20%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88.source.html">在 Kotlin 中使用集合</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/03.%E5%B0%86%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9B%86%E5%90%88%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8.source.html">将高阶函数与集合结合使用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/01.%E6%9B%B4%E5%A4%9A%20Kotlin%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E9%9B%86%E5%90%88.source.html">练习：类和集合</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建可滚动列表</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/01.%E6%B7%BB%E5%8A%A0%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8.source.html">添加可滚动列表</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/02.%E6%9B%B4%E6%94%B9%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87.source.html">更改应用图标</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/02.%E6%9E%84%E5%BB%BA%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%88%97%E8%A1%A8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E7%BD%91%E6%A0%BC.source.html">练习：构建网格</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">构建精美应用</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/01.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%20Material%20%E4%B8%BB%E9%A2%98%E6%95%88%E6%9E%9C.source.html">使用 Jetpack Compose 实现 Material 主题效果</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/02.%E4%BD%BF%E7%94%A8%20Jetpack%20Compose%20%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB.source.html">使用 Jetpack Compose 实现简单动画</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/03.%E6%B5%8B%E8%AF%95%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8A%9F%E8%83%BD.source.html">测试无障碍功能</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%B6%85%E7%BA%A7%E8%8B%B1%E9%9B%84%E5%BA%94%E7%94%A8.source.html">练习：构建超级英雄应用</a></li>
+<li><a href="../../03.%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%20Material%20Design/03.%E6%9E%84%E5%BB%BA%E7%B2%BE%E7%BE%8E%E5%BA%94%E7%94%A8/05.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%B6%B5%E7%9B%96%2030%20%E5%A4%A9%E7%9A%84%E5%BA%94%E7%94%A8.source.html">项目：创建涵盖 30 天的应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>导航和应用架构</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">架构组件</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/01.activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E9%98%B6%E6%AE%B5.source.html">activity 生命周期的阶段</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/02.Compose%20%E4%B8%AD%E7%9A%84%20ViewModel%20%E5%92%8C%E7%8A%B6%E6%80%81.source.html">Compose 中的 ViewModel 和状态</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/03.%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B5%8B%E8%AF%95%20ViewModel.source.html">编写单元测试以测试 ViewModel</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/01.%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6/04.%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%90%91%20Dessert%20Clicker%20%E6%B7%BB%E5%8A%A0%20ViewModel.source.html">练习：向 Dessert Clicker 添加 ViewModel</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Jetpack Compose 中的 Navigation</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/01.%E4%BD%BF%E7%94%A8%20Compose%20%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%8F%E5%B9%95%E5%AF%BC%E8%88%AA.source.html">使用 Compose 实现多屏幕导航</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/02.%E6%B5%8B%E8%AF%95%20Cupcake%20%E5%BA%94%E7%94%A8.source.html">测试 Cupcake 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/02.Jetpack%20Compose%20%E4%B8%AD%E7%9A%84%20Navigation/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA.source.html">练习：添加导航</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">适应不同的屏幕尺寸</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/01.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E5%BA%94%E7%94%A8.source.html">构建具有动态导航栏的自适应应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/02.%E6%9E%84%E5%BB%BA%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E5%BA%94%E7%94%A8.source.html">构建具有自适应布局的应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Sports%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Sports 应用</a></li>
+<li><a href="../../04.%E5%AF%BC%E8%88%AA%E5%92%8C%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/03.%E9%80%82%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%20My%20City%20%E5%BA%94%E7%94%A8.source.html">项目：创建 My City 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>连接到互联网</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网获取数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/01.Kotlin%20%E5%9B%AD%E5%9C%B0%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Kotlin 园地中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/02.Android%20Studio%20%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B%E7%AE%80%E4%BB%8B.source.html">Android Studio 中的协程简介</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/01.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/03.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.source.html">从互联网获取数据</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">从互联网加载和显示图片</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/01.%E6%B7%BB%E5%8A%A0%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E6%89%8B%E5%8A%A8%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%B3%A8%E5%85%A5.source.html">添加存储库和手动依赖项注入</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87.source.html">从互联网加载和显示图片</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%E4%B8%A4%E6%A0%96%E5%8A%A8%E7%89%A9%E5%BA%94%E7%94%A8.source.html">练习：构建两栖动物应用</a></li>
+<li><a href="../../05.%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BA%92%E8%81%94%E7%BD%91/02.%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E8%BD%BD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/04.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B9%A6%E6%9E%B6%E5%BA%94%E7%94%A8.source.html">项目：创建书架应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>数据持久性</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">SQL 简介</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/01.SQL%20%E7%AE%80%E4%BB%8B/01.%E4%BD%BF%E7%94%A8%20SQL%20%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C.source.html">使用 SQL 对数据库执行读写操作</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 Room 持久保留数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE.source.html">使用 Room 持久保留数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/02.%E4%BD%BF%E7%94%A8%20Room%20%E8%AF%BB%E5%8F%96%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE.source.html">使用 Room 读取和更新数据</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/02.%E4%BD%BF%E7%94%A8%20Room%20%E6%8C%81%E4%B9%85%E4%BF%9D%E7%95%99%E6%95%B0%E6%8D%AE/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Bus%20Schedule%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Bus Schedule 应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">通过对 DataStore 使用键来存储和访问数据</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/01.%E4%BD%BF%E7%94%A8%20DataStore%20%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BF%9D%E5%AD%98%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE.source.html">使用 DataStore 在本地保存偏好设置</a></li>
+<li><a href="../../06.%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7/03.%E9%80%9A%E8%BF%87%E5%AF%B9%20DataStore%20%E4%BD%BF%E7%94%A8%E9%94%AE%E6%9D%A5%E5%AD%98%E5%82%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE/02.%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%88%9B%E5%BB%BA%E8%88%AA%E7%8F%AD%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8.source.html">项目：创建航班搜索应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>WorkManager</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">使用 WorkManager 调度任务</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E5%A4%84%E7%90%86%E5%90%8E%E5%8F%B0%E5%B7%A5%E4%BD%9C.source.html">使用 WorkManager 处理后台工作</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/02.%E9%AB%98%E7%BA%A7%20WorkManager%20%E5%92%8C%E6%B5%8B%E8%AF%95.source.html">高级 WorkManager 和测试</a></li>
+<li><a href="../../07.WorkManager/01.%E4%BD%BF%E7%94%A8%20WorkManager%20%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/03.%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%9E%84%E5%BB%BA%20Water%20Me%20%E5%BA%94%E7%94%A8.source.html">练习：构建 Water Me 应用</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+
+    <section class="nav-unit">
+      <h2>View 和 Compose</h2>
+      
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Android View 和 View 中的 Compose</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/01.%E4%BD%BF%E7%94%A8%20View%20%E6%9E%84%E5%BB%BA%20Android%20%E5%BA%94%E7%94%A8.source.html">使用 View 构建 Android 应用</a></li>
+<li><a href="../../08.View%20%E5%92%8C%20Compose/01.Android%20View%20%E5%92%8C%20View%20%E4%B8%AD%E7%9A%84%20Compose/02.%E5%B0%86%20Compose%20%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%97%A7%E7%89%88%E5%BA%94%E7%94%A8.source.html">将 Compose 添加到旧版应用</a></li>
+          </ol>
+        </div>
+      
+
+        <div class="nav-chapter">
+          <h3 style="padding-left: 16px;">Compose 中的 View</h3>
+          <ol style="padding-left: 52px;">
+            <li><a href="../../08.View%20%E5%92%8C%20Compose/02.Compose%20%E4%B8%AD%E7%9A%84%20View/01.Compose%20%E4%B8%AD%E7%9A%84%20View%20%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7.source.html">Compose 中的 View 互操作性</a></li>
+          </ol>
+        </div>
+      
+    </section>
+  
+    </nav>
+    <main class="reader-shell">
+      <article class="article">
+        <a class="back-link" href="../../../index.html">返回目录</a>
+        <h1 class="article-title">简介：Compose 中的状态</h1>
+        
+          
+            
+          
+          <h2 class="" id="0">
+              1. 前言
+          </h2>
+          
+          <p>在此 Codelab 中，您将了解状态，以及 Jetpack Compose 如何使用和操纵状态。</p>
+<p>从本质上讲，应用中的状态是指可以随时间变化的任何值。这个定义非常宽泛，包含应用中从数据库到变量等的所有元素。您会在后续单元中详细了解数据库，但现在，您只需要知道，数据库是结构化信息的有组织集合，就像计算机中的文件一样。</p>
+<p>所有 Android 应用都会向用户显示状态。下面是 Android 应用中的一些状态示例：</p>
+<ul>
+<li>在无法建立网络连接时显示的消息。</li>
+<li>表单，例如注册表单。状态可以填写和提交。</li>
+<li>可点按的控件，例如按钮。状态可以是“未点按”“正在点按”（显示动画）或“已点按”（一种 <code dir="ltr" translate="no">onClick</code> 操作）。<em></em><em></em><em></em></li>
+</ul>
+<p>在此 Codelab 中，您将探索在使用 Compose 时如何使用和看待状态。为此，您将使用以下内置 Compose 界面元素构建一个名为 Tip Time 的小费计算器应用：</p>
+<ul>
+<li><code dir="ltr" translate="no">TextField</code> 可组合项，用于输入和修改文本。</li>
+<li><code dir="ltr" translate="no">Text</code> 可组合项，用于显示文本。</li>
+<li><code dir="ltr" translate="no">Spacer</code> 可组合项，用于显示界面元素之间的空白空间。</li>
+</ul>
+<p>学完此 Codelab 后，您将构建一个交互式小费计算器，该计算器可在您输入服务金额后自动计算小费金额。最终应用如下图所示：</p>
+<p class="image-container"><img alt="e82cbb534872abcf.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_2880.029cc721e4.png 2880w" style="width: 249.60px" loading="lazy" decoding="async"></p>
+<h2 id="prerequisites">前提条件</h2>
+<ul>
+<li>对 Compose（如 <code dir="ltr" translate="no">@Composable</code> 注解）有基本的了解。</li>
+<li>基本熟悉 Compose 布局，例如 <code dir="ltr" translate="no">Row</code> 和 <code dir="ltr" translate="no">Column</code> 布局可组合项。</li>
+<li>基本熟悉修饰符，例如 <code dir="ltr" translate="no">Modifier.padding()</code> 函数。</li>
+<li>熟悉 <code dir="ltr" translate="no">Text</code> 可组合项。</li>
+</ul>
+<h2 class="checklist" id="what-youll-learn">学习内容</h2>
+<ul class="checklist">
+<li>如何看待界面中的状态。</li>
+<li>Compose 如何使用状态显示数据。</li>
+<li>如何向应用添加文本框。</li>
+<li>如何提升状态。</li>
+</ul>
+<h2 id="what-youll-build"><strong>您将构建的内容</strong></h2>
+<ul>
+<li>一款名为 Tip Time 的小费计算器应用，用于根据服务金额计算小费金额。</li>
+</ul>
+<h2 id="what-youll-need"><strong>所需条件</strong></h2>
+<ul>
+<li>可连接到互联网的计算机和网络浏览器</li>
+<li>了解 Kotlin</li>
+<li>最新版本的 <a href="https://developer.android.com/studio?hl=zh-cn" target="_blank">Android Studio</a></li>
+</ul>
+
+
+        
+          
+          <h2 class="" id="1">
+              2. 开始
+          </h2>
+          
+          <ol type="1">
+<li>请查看 <a href="https://www.google.com/search?q=tip+calculator&amp;hl=zh-cn" target="_blank">Google 的在线小费计算器</a>。请注意，这只是一个示例，它不是您将在本课程中创建的 Android 应用。</li>
+</ol>
+<p class="image-container"><img alt="46bf4366edc1055f.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/46bf4366edc1055f_2880.029cc721e4.png 2880w" style="width: 624.00px" title="已填写“Bill”和“Tip %”的 Google 小费计算器" loading="lazy" decoding="async"> <img alt="18da3c120daa0759.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/18da3c120daa0759_2880.029cc721e4.png 2880w" style="width: 624.00px" title="Google 小费计算器的默认屏幕" loading="lazy" decoding="async"></p>
+<ol start="2" type="1">
+<li>在 <strong>Bill</strong> 和 <strong>Tip %</strong> 框中输入不同的值。小费和总金额的值会随之改变。</li>
+</ol>
+<p class="image-container"><img alt="c0980ba3e9ebba02.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/c0980ba3e9ebba02_2880.029cc721e4.png 2880w" style="width: 624.00px" title="“Bill”和“Tip %”已填入不同值的 Google 小费计算器" loading="lazy" decoding="async"></p>
+<p>请注意，在您输入值后，系统会更新 <strong>Tip</strong> 和 <strong>Total</strong>。在下面的 Codelab 结束时，您将开发类似的 Android 小费计算器应用。</p>
+<p>在此在线课程中，您将构建一个简单的小费计算器 Android 应用。</p>
+<p>开发者通常会采取以下开发流程：准备一个简化版的应用，并使其能够正常运行（即使它看起来不是很好），之后添加更多功能，改进其外观，使其更有吸引力。</p>
+<p>学完此 Codelab 后，您的小费计算器应用将如以下屏幕截图所示。在用户输入 <strong>Bill Amount</strong>（账单金额）后，您的应用将显示建议的小费金额。目前，小费百分比已硬编码为 <strong>15%</strong>。在下一个 Codelab 中，您将继续构建该应用并添加更多功能，例如设置自定义小费百分比的功能。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p class="image-container"><img src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/9819649900a3a6f5_2880.029cc721e4.png 2880w" loading="lazy" decoding="async"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e82cbb534872abcf_2880.029cc721e4.png 2880w" loading="lazy" decoding="async"></p>
+</td></tr>
+</tbody></table>
+
+
+        
+          
+          <h2 class="" id="2">
+              3. 获取起始代码
+          </h2>
+          
+          <p>起始代码是一种预先编写的代码，可用作新项目的起始点。它还有助于您专注于此 Codelab 中所教的新概念。</p>
+<p>点击下方按钮将起始代码下载到此处，以便开始使用：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-tip-calculator/archive/refs/heads/starter.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>或者，您也可以克隆该代码的 GitHub 代码库：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-tip-calculator.git
+$ cd basic-android-kotlin-compose-training-tip-calculator
+$ git checkout starter
+</pre>
+<aside class="special"><p><strong>注意：</strong>起始代码位于所下载代码库的 <code dir="ltr" translate="no">starter</code> 分支中。</p>
+</aside>
+<p>您可以在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-tip-calculator/tree/starter" target="_blank"><code dir="ltr" translate="no">TipTime</code></a> GitHub 代码库中浏览该起始代码。</p>
+<h2 id="starter-app-overview"><strong>起始应用概览</strong></h2>
+<p>若要熟悉起始代码，请完成以下步骤：</p>
+<ol type="1">
+<li>在 Android Studio 中打开包含起始代码的项目。</li>
+<li>在 Android 设备或模拟器上运行该应用。</li>
+<li>您会发现两个文本组件；一个用于显示标签，另一个用于显示小费金额。</li>
+</ol>
+<p class="image-container"><img alt="e85b767a43c69a97.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e85b767a43c69a97_2880.029cc721e4.png 2880w" style="width: 226.56px" loading="lazy" decoding="async"></p>
+<h2 id="starter-code-walk-through">起始代码演示</h2>
+<p>起始代码包含文本可组合项。在本在线课程中，您将添加一个文本字段以供用户输入。下面简要介绍了一些文件，以帮助您上手。</p>
+<p><strong>res &gt; values &gt; strings.xml</strong></p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">resources</span>&gt;
+<span class="devsite-syntax-w">   </span>&lt;<span class="devsite-syntax-n">string</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"app_name"</span>&gt;<span class="devsite-syntax-n">Tip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Time</span>&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">string</span>&gt;
+<span class="devsite-syntax-w">   </span>&lt;<span class="devsite-syntax-n">string</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"calculate_tip"</span>&gt;<span class="devsite-syntax-n">Calculate</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Tip</span>&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">string</span>&gt;
+<span class="devsite-syntax-w">   </span>&lt;<span class="devsite-syntax-n">string</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"bill_amount"</span>&gt;<span class="devsite-syntax-n">Bill</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Amount</span>&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">string</span>&gt;
+<span class="devsite-syntax-w">   </span>&lt;<span class="devsite-syntax-n">string</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"tip_amount"</span>&gt;<span class="devsite-syntax-n">Tip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Amount</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">%</span><span class="devsite-syntax-n">s</span>&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">string</span>&gt;
+&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">resources</span>&gt;
+</code></pre>
+<p>这是资源中的 <code dir="ltr" translate="no">string.xml</code> 文件，其中包含您将在此应用中使用的所有字符串。</p>
+<p><strong>MainActivity</strong></p>
+<p>此文件主要包含模板生成的代码及下列函数。</p>
+<ul>
+<li><code dir="ltr" translate="no">TipTimeLayout()</code> 函数包含一个 <code dir="ltr" translate="no">Column</code> 元素，后者包含您在屏幕截图中看到的两个文本可组合项。这还包含一个 <code dir="ltr" translate="no">spacer</code> 可组合项，以出于美观原因而添加空间。</li>
+<li><code dir="ltr" translate="no">calculateTip()</code> 函数，用于接受账单金额并按 15% 的百分比来计算小费金额。<code dir="ltr" translate="no">tipPercent</code> 形参设置为一个 <code dir="ltr" translate="no">15.0</code> 默认实参值。这会暂时将默认小费百分比值设置为 15%。在下一个 Codelab 中，您将从用户那获取小费金额。</li>
+</ul>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">TipTimeLayout</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">statusBarsPadding</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">horizontal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">40.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">verticalScroll</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">rememberScrollState</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">safeDrawingPadding</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">horizontalAlignment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Alignment</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">CenterHorizontally</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">verticalArrangement</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Arrangement</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Center</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">calculate_tip</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">bottom</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">16.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">top</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">40.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">align</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">alignment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Alignment</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Start</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tip_amount</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">0</span><span class="devsite-syntax-s">.00"</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">style</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">typography</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">displaySmall</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Spacer</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">height</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">150.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">calculateTip</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">amount</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">tipPercent</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">15.0</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">tip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">tipPercent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">*</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amount</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">NumberFormat</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getCurrencyInstance</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">format</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">tip</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在 <code dir="ltr" translate="no">onCreate()</code> 函数的 <code dir="ltr" translate="no">Surface()</code> 代码块中，调用 <code dir="ltr" translate="no">TipTimeLayout()</code> 函数。这样便可在设备或模拟器中显示该应用的布局。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">onCreate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">savedInstanceState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Bundle?)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">setContent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">TipTimeTheme</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">Surface</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-n">TipTimeLayout</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在 <code dir="ltr" translate="no">TipTimeLayoutPreview()</code> 函数的 <code dir="ltr" translate="no">TipTimeTheme</code> 代码块中，调用 <code dir="ltr" translate="no">TipTimeLayout()</code> 函数。这样，在 <strong>Design</strong> 和 <strong>Split</strong> 窗格中便会显示该应用的布局。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Preview</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">showBackground</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">TipTimeLayoutPreview</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">TipTimeTheme</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">TipTimeLayout</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p class="image-container"><img alt="ae11354e61d2a2b9.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ae11354e61d2a2b9_2880.029cc721e4.png 2880w" style="width: 363.12px" loading="lazy" decoding="async"></p>
+<h2 id="take-input-from-the-user"><strong>接受用户的输入内容</strong></h2>
+<p>在本部分中，您将添加界面元素，让用户能够在应用中输入账单金额。该界面元素如下图所示：</p>
+<p class="image-container"><img alt="58671affa01fb9e1.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/58671affa01fb9e1_2880.029cc721e4.png 2880w" style="width: 232.30px" title="包含标签和文本的文本字段" loading="lazy" decoding="async"></p>
+<p>您的应用使用自定义样式和主题。</p>
+<p>样式和主题是一个属性集合，用于指定单个界面元素的外观。样式可以指定某些属性，例如字体颜色、字号、背景颜色等可以应用到整个应用的属性。后续 Codelab 将介绍如何在您的应用中实现这些方面。目前，我们已为您完成了样式设置以让您的应用更美观。</p>
+<p>为了帮助您更好地了解，下方对照比较了该应用采用和未采用自定义主题的解决方案版本。</p>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p><img src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/678d911263888d8f_2880.029cc721e4.png 2880w" loading="lazy" decoding="async">未采用自定义主题。</p>
+</td><td colspan="1" rowspan="1"><p><img src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ee8d440a5ed6bc6d_2880.029cc721e4.png 2880w" loading="lazy" decoding="async">采用了自定义主题。</p>
+</td></tr>
+</tbody></table>
+<aside class="special"><p><strong>注意：</strong>当您在应用中添加文本字段可组合函数时，配色方案会成为自定义主题的一部分，如下所示：</p>
+<p class="image-container"><img alt="f658ec4a43ef365b.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/f658ec4a43ef365b_2880.029cc721e4.png 2880w" style="width: 346.75px" loading="lazy" decoding="async"></p>
+</aside>
+<p>借助 <code dir="ltr" translate="no">TextField</code> 可组合函数，用户可以在应用中输入文本。例如，请注意下图中 Gmail 应用登录界面上的文本框：</p>
+<p class="image-container"><img alt="一个显示 Gmail 应用的手机屏幕，其中有用于输入电子邮件地址的文本字段" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2847d588a84cec09_2880.029cc721e4.png 2880w" style="width: 249.60px" loading="lazy" decoding="async"></p>
+<p>将 <code dir="ltr" translate="no">TextField</code> 可组合项添加到应用中：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MainActivity.kt</code> 文件中，添加一个接受 <code dir="ltr" translate="no">Modifier</code> 形参的 <code dir="ltr" translate="no">EditNumberField()</code> 可组合函数。</li>
+<li>在 <code dir="ltr" translate="no">TipTimeLayout()</code> 下的 <code dir="ltr" translate="no">EditNumberField()</code> 函数的正文中，添加一个 <code dir="ltr" translate="no">TextField</code>，用于接受设置为空字符串的 <code dir="ltr" translate="no">value</code> 具名形参以及一个设置为空 lambda 表达式的 <code dir="ltr" translate="no">onValueChange</code> 具名形参：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">EditNumberField</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{},</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="3" type="1">
+<li>请注意您传递的形参：</li>
+</ol>
+<ul>
+<li><code dir="ltr" translate="no">value</code> 形参是一个文本框，用于显示您在此处传递的字符串值。</li>
+<li><code dir="ltr" translate="no">onValueChange</code> 形参是用户在文本框中输入文本时触发的 lambda 回调。</li>
+</ul>
+<ol start="4" type="1">
+<li>导入以下函数：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material3.TextField</span>
+</code></pre>
+<ol start="5" type="1">
+<li>在 <code dir="ltr" translate="no">TipTimeLayout()</code> 可组合函数内第一个文本可组合函数后的代码行中，调用 <code dir="ltr" translate="no">EditNumberField()</code> 函数，并传递以下修饰符。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.fillMaxWidth</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">TipTimeLayout</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">statusBarsPadding</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">horizontal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">40.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">verticalScroll</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">rememberScrollState</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">safeDrawingPadding</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">horizontalAlignment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Alignment</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">CenterHorizontally</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">verticalArrangement</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Arrangement</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Center</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">EditNumberField</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">bottom</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">32.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>此时界面上会显示文本框。</p>
+<ol start="6" type="1">
+<li>在 <strong>Design</strong> 窗格中，您应该会看到 <code dir="ltr" translate="no">Calculate Tip</code> 文本、一个空文本框和 <code dir="ltr" translate="no">Tip Amount</code> 文本可组合项。</li>
+</ol>
+<p class="image-container"><img alt="2c208378cd4b8d41.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2c208378cd4b8d41_2880.029cc721e4.png 2880w" style="width: 285.95px" title="Android Studio 预览图，包含计算小费文本字段和小费金额文本" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="3">
+              4. 在 Compose 中使用状态
+          </h2>
+          
+          <p>应用中的状态是指可以随时间变化的任何值。在该应用中，状态是指账单金额。</p>
+<p>添加用于存储状态的变量：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">EditNumberField()</code> 函数的开头，使用 <code dir="ltr" translate="no">val</code> 关键字添加 <code dir="ltr" translate="no">amountInput</code> 变量，并将它设为 <code dir="ltr" translate="no">"0"</code> 值：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"0"</span>
+</code></pre>
+<p>这是应用的账单金额状态。</p>
+<ol start="2" type="1">
+<li>将 <code dir="ltr" translate="no">value</code> 具名形参设置为 <code dir="ltr" translate="no">amountInput</code> 值：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{},</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="3" type="1">
+<li>检查预览效果。文本框会显示设置为状态变量的值，如下图所示：</li>
+</ol>
+<p class="image-container"><img alt="e8e24821adfd9d8c.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/e8e24821adfd9d8c_2880.029cc721e4.png 2880w" style="width: 284.82px" title="显示了文本字段的预览，字段内填入了“0”" loading="lazy" decoding="async"></p>
+<ol start="4" type="1">
+<li>在模拟器中运行该应用，尝试输入其他值。硬编码状态保持不变，因为 <code dir="ltr" translate="no">TextField</code> 可组合项不会自行更新。当 <code dir="ltr" translate="no">value</code> 形参（设置为 <code dir="ltr" translate="no">amountInput</code> 属性）更改时，它会更新。</li>
+</ol>
+<p><code dir="ltr" translate="no">amountInput</code> 变量表示文本框的状态。具有硬编码状态并没有什么用处，因为它无法修改，也无法反映用户输入。您需要在用户更新账单金额时更新应用状态。</p>
+
+
+        
+          
+          <h2 class="" id="4">
+              5. 组合
+          </h2>
+          
+          <p>应用中的可组合项描述的界面将显示一个列，其中包含一些文本、一个空白区域和一个文本框。文本显示 <code dir="ltr" translate="no">Calculate Tip</code> 文本，文本框显示 <code dir="ltr" translate="no">0</code> 值或任何默认值。</p>
+<p>Compose 是一个声明性界面框架，这意味着您可以在代码中声明界面的外观。<em></em>如果您想让文本框一开始显示 <code dir="ltr" translate="no">100</code> 值，请在代码中将可组合项的初始值设置为 <code dir="ltr" translate="no">100</code> 值。</p>
+<p>如果您想让界面在应用运行时或用户与应用互动时发生变化，该怎么办？例如，如果您想使用用户输入的值更新 <code dir="ltr" translate="no">amountInput</code> 变量并将其显示在文本框中，该怎么办？此时，您需要依赖名为“重组”的进程来更新应用的组合。</p>
+<p>“组合”是对 Compose 在执行可组合项时所构建界面的描述。<em></em>Compose 应用调用可组合函数，以将数据转换为界面。如果发生状态更改，Compose 会使用新状态重新执行受影响的可组合函数，从而创建更新后的界面。这一过程称为“重组”。<em></em>Compose 会为您安排重组。<em></em></p>
+<p>当 Compose 首次运行可组合函数时，在<em></em>初始组合期间，它会跟踪您为了描述组合中的界面而调用的可组合函数。重组是指 Compose 重新执行可能因数据更改而更改的可组合项，然后更新组合以反映所有更改。<em></em></p>
+<p>组合只能通过初始组合生成且只能通过重组进行更新。<em></em><em></em>重组是修改组合的唯一方式。<em></em>为此，Compose 需要知道要跟踪的状态，以便在收到更新时能够安排重组。<em></em>在本例中，这个状态就是 <code dir="ltr" translate="no">amountInput</code> 变量，因此每当其值更改时，Compose 都会安排重组。</p>
+<p>在 Compose 中，您可以使用 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/State?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">State</code></a> 和 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">MutableState</code></a> 类型让应用中的状态可被 Compose 观察或跟踪。<code dir="ltr" translate="no">State</code> 类型不可变，因此您只能读取其中的值，而 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">MutableState</code></a> 类型是可变的。您可以使用 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary?hl=zh-cn#mutableStateOf(kotlin.Any,androidx.compose.runtime.SnapshotMutationPolicy)" target="_blank"><code dir="ltr" translate="no">mutableStateOf()</code></a> 函数来创建可观察的 <code dir="ltr" translate="no">MutableState</code>。它接受初始值作为封装在 <code dir="ltr" translate="no">State</code> 对象中的形参，这样便可使其 <code dir="ltr" translate="no">value</code> 变为可观察。</p>
+<p><code dir="ltr" translate="no">mutableStateOf()</code> 函数返回的值：</p>
+<ul>
+<li>会保持状态，即账单金额。</li>
+<li>可变，因此该值可以更改。</li>
+<li>可观察，因此 Compose 会观察值的所有更改并触发重组以更新界面。</li>
+</ul>
+<p>添加 cost-of-service 状态：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">EditNumberField()</code> 函数中，将 <code dir="ltr" translate="no">amountInput</code> 状态变量前面的 <code dir="ltr" translate="no">val</code> 关键字更改为 <code dir="ltr" translate="no">var</code> 关键字：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"0"</span>
+</code></pre>
+<p>这会使 <code dir="ltr" translate="no">amountInput</code> 可变。</p>
+<ol start="2" type="1">
+<li>使用 <code dir="ltr" translate="no">MutableState&lt;String&gt;</code> 类型（而非硬编码的 <code dir="ltr" translate="no">String</code> 变量），以便 Compose 知道要跟踪 <code dir="ltr" translate="no">amountInput</code> 状态，然后传入 <code dir="ltr" translate="no">"0"</code> 字符串，该字符串是 <code dir="ltr" translate="no">amountInput</code> 状态变量的初始默认值：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.runtime.MutableState</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.runtime.mutableStateOf</span>
+
+<span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amountInput</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MutableState&lt;String&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"0"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>也可以使用类型推断编写 <code dir="ltr" translate="no">amountInput</code> 初始化，如下所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"0"</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p><code dir="ltr" translate="no">mutableStateOf()</code> 函数接受初始值 <code dir="ltr" translate="no">"0"</code> 作为实参，这样便可使其 <code dir="ltr" translate="no">amountInput</code> 变为可观察。这会导致 Android Studio 中出现以下编译警告，但您很快就可以修复此问题：</p>
+<div></div><pre translate="no" dir="ltr">Creating a state object during composition without using remember.
+</pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">TextField</code> 可组合函数中，使用 <code dir="ltr" translate="no">amountInput.value</code> 属性：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{},</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>Compose 会跟踪每个读取状态 <code dir="ltr" translate="no">value</code> 属性的可组合项，并在其 <code dir="ltr" translate="no">value</code> 更改时触发重组。</p>
+<p>当文本框的输入更改时，系统会触发 <code dir="ltr" translate="no">onValueChange</code> 回调。在 lambda 表达式中，<code dir="ltr" translate="no">it</code> 变量包含新值。</p>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">onValueChange</code> 具名形参的 lambda 表达式中，将 <code dir="ltr" translate="no">amountInput.value</code> 属性设置为 <code dir="ltr" translate="no">it</code> 变量：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">EditNumberField</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"0"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>当 <code dir="ltr" translate="no">TextField</code> 通过 <code dir="ltr" translate="no">onValueChange</code> 回调函数通知您文本发生更改时，您将更新 <code dir="ltr" translate="no">TextField</code> 的状态（即 <code dir="ltr" translate="no">amountInput</code> 变量）。</p>
+<ol start="5" type="1">
+<li>运行应用并在文本框中输入文本。文本框仍会显示 <code dir="ltr" translate="no">0</code> 值，如下图所示：</li>
+</ol>
+<p class="image-container"><img alt="3a2c62f8ec55e339.gif" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/3a2c62f8ec55e339.029cc721e4.gif" style="width: 240.00px" loading="lazy" decoding="async"></p>
+<p>用户在文本框中输入文本后，系统会调用 <code dir="ltr" translate="no">onValueChange</code> 回调，并使用新值更新 <code dir="ltr" translate="no">amountInput</code> 变量。Compose 跟踪 <code dir="ltr" translate="no">amountInput</code> 状态，因此当其值更改时，系统会安排重组并再次执行 <code dir="ltr" translate="no">EditNumberField()</code> 可组合函数。在该可组合函数中，<code dir="ltr" translate="no">amountInput</code> 变量会重置为初始 <code dir="ltr" translate="no">0</code> 值。因此，文本框会显示 <code dir="ltr" translate="no">0</code> 值。</p>
+<p>在您添加代码后，状态更改会导致系统安排重组。</p>
+<p>不过您需要利用一种方法在重组后保留 <code dir="ltr" translate="no">amountInput</code> 变量的值，以免每次 <code dir="ltr" translate="no">EditNumberField()</code> 函数重组时它都重置为 <code dir="ltr" translate="no">0</code> 值。您将在下一部分中解决此问题。</p>
+
+
+        
+          
+          <h2 class="" id="5">
+              6. 使用 remember 函数保存状态
+          </h2>
+          
+          <p>可组合方法可能会因重组而被系统多次调用。如果不保存，可组合项就会在重组期间重置状态。</p>
+<p>可组合函数可以使用 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable?hl=zh-cn#remember(kotlin.Function0)" target="_blank"><code dir="ltr" translate="no">remember</code></a> 跨重组存储对象。初始组合期间，<code dir="ltr" translate="no">remember</code> 函数计算的值会存储在组合中，而存储的值会在重组期间返回。<code dir="ltr" translate="no">remember</code> 和 <code dir="ltr" translate="no">mutableStateOf</code> 函数通常在可组合函数中一起使用，以使状态及其更新正确反映在界面中。</p>
+<p>在 <code dir="ltr" translate="no">EditNumberField()</code> 函数中使用 <code dir="ltr" translate="no">remember</code> 函数：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">EditNumberField()</code> 函数中，使用 <code dir="ltr" translate="no">remember</code> 将对 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary?hl=zh-cn#mutableStateOf(kotlin.Any,androidx.compose.runtime.SnapshotMutationPolicy)" target="_blank"><code dir="ltr" translate="no">mutableStateOf</code></a><code dir="ltr" translate="no">()</code> 的调用括起来，以便使用 <code dir="ltr" translate="no">by</code> <code dir="ltr" translate="no">remember</code> Kotlin 属性委托来初始化 <code dir="ltr" translate="no">amountInput</code> 变量。</li>
+<li>在 <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary?hl=zh-cn#mutableStateOf(kotlin.Any,androidx.compose.runtime.SnapshotMutationPolicy)" target="_blank"><code dir="ltr" translate="no">mutableStateOf</code></a><code dir="ltr" translate="no">()</code> 函数中，传入一个空字符串（而非静态 <code dir="ltr" translate="no">"0"</code> 字符串）：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>现在，空字符串是 <code dir="ltr" translate="no">amountInput</code> 变量的初始默认值。<code dir="ltr" translate="no">by</code> 是 <a href="https://kotlinlang.org/docs/delegated-properties.html" target="_blank">Kotlin 属性委托</a>。<code dir="ltr" translate="no">amountInput</code> 属性的默认 getter 和 setter 函数分别委托给 <code dir="ltr" translate="no">remember</code> 类的 getter 和 setter 函数。</p>
+<ol start="3" type="1">
+<li>导入以下函数：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.runtime.remember</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.runtime.getValue</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.runtime.setValue</span>
+</code></pre>
+<aside class="warning"><p><strong>警告：</strong>此代码可能会抛出下图所示的关于 <code dir="ltr" translate="no">getValue()</code> 扩展函数的错误：</p>
+<p class="image-container"><img alt="b651ccb43a6fd25.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/b651ccb43a6fd25_2880.029cc721e4.png 2880w" style="width: 610.00px" loading="lazy" decoding="async"></p>
+<p>如果是这样，请将 <code dir="ltr" translate="no">getValue</code> 和 <code dir="ltr" translate="no">setValue</code> 导入内容手动添加到文件开头的 import 代码块中，如下图所示：</p>
+<p class="image-container"><img alt="bad619de4ecfefc.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/bad619de4ecfefc_2880.029cc721e4.png 2880w" style="width: 533.00px" loading="lazy" decoding="async"></p>
+</aside>
+<p>通过添加委托的 getter 和 setter 导入内容，您可以读取和设置 <code dir="ltr" translate="no">amountInput</code>，而无需引用 <code dir="ltr" translate="no">MutableState</code> 的 <code dir="ltr" translate="no">value</code> 属性。</p>
+<p>更新后的 <code dir="ltr" translate="no">EditNumberField()</code> 函数应如下所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">EditNumberField</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<aside class="special"><p><strong>注意：</strong>在初始组合期间，<code dir="ltr" translate="no">TextField</code> 中的 <code dir="ltr" translate="no">value</code> 会设置为初始值，该值为一个空字符串。</p>
+<p>当用户在文本字段中输入文本时，系统会调用 <code dir="ltr" translate="no">onValueChange</code> lambda 回调，执行 lambda，并将 <code dir="ltr" translate="no">amountInput.value</code> 设置为在文本字段中输入的更新后的值。</p>
+<p><code dir="ltr" translate="no">amountInput</code> 是 Compose 跟踪的可变状态，系统会安排重组。<code dir="ltr" translate="no">EditNumberField()</code> 可组合函数会重组。由于您使用的是 <code dir="ltr" translate="no">remember</code> <code dir="ltr" translate="no">{ },</code> 因此相应更改在重组后会保持不变，这就是状态不会重新初始化为 <code dir="ltr" translate="no">""</code> 的原因。</p>
+<p>文本字段的 <code dir="ltr" translate="no">value</code> 已设置为记住的 <code dir="ltr" translate="no">amountInput</code> 值。文本字段会重组（使用新值在屏幕上重新绘制）。</p>
+</aside>
+<ol start="4" type="1">
+<li>运行应用并在文本框中输入一些文本。现在，您应该会看到您输入的文本。</li>
+</ol>
+<p class="image-container"><img alt="59ac301a208b47c4.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/59ac301a208b47c4_2880.029cc721e4.png 2880w" style="width: 226.56px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="6">
+              7. 状态和重组的实际运用
+          </h2>
+          
+          <p>在本部分中，您将设置一个断点并调试 <code dir="ltr" translate="no">EditNumberField()</code> 可组合函数，以了解初始组合和重组的运作方式。</p>
+<aside class="special"><p><strong>注意</strong>：断点是指代码中的一个位置，您可以在该位置暂停应用的正常执行，以便执行其他操作（例如检查变量、评估表达式或逐行执行代码）。您可以在任何可执行代码行中设置断点。</p>
+</aside>
+<p>设置断点，然后在模拟器或设备上调试应用：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">onValueChange</code> 具名函数旁边的 <code dir="ltr" translate="no">EditNumberField()</code> 函数中，设置一个行断点。</li>
+<li>在导航菜单中，点击 <strong>Debug 'app'</strong> 图标。应用会在模拟器或设备上启动。创建 <code dir="ltr" translate="no">TextField</code> 元素后，应用执行会第一次暂停。</li>
+</ol>
+<p class="image-container"><img alt="154e060231439307.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/154e060231439307_2880.029cc721e4.png 2880w" style="width: 325.36px" loading="lazy" decoding="async"></p>
+<ol start="3" type="1">
+<li>在 <strong>Debug</strong> 窗格中，点击 <img alt="2a29a3bad712bec.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_2880.029cc721e4.png 2880w" style="width: 26.00px" loading="lazy" decoding="async"> <strong>Resume Program</strong>。文本框创建完毕。</li>
+<li>在模拟器或设备上的文本框中输入一个字母。当应用到达您设置的断点时，应用执行会再次暂停。</li>
+</ol>
+<p>当您输入文本时，系统会调用 <code dir="ltr" translate="no">onValueChange</code> 回调。在 lambda 内，<code dir="ltr" translate="no">it</code> 具有您在键盘中输入的新值。</p>
+<p>将“it”的值分配给 <code dir="ltr" translate="no">amountInput</code> 后，随着可观察的值发生变化，Compose 会触发使用新数据进行重组。</p>
+<p class="image-container"><img alt="1d5e08d32052d02e.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1d5e08d32052d02e_2880.029cc721e4.png 2880w" style="width: 601.00px" title="展示在行断点处暂停执行的代码段" loading="lazy" decoding="async"></p>
+<ol start="5" type="1">
+<li>在 <strong>Debug</strong> 窗格中，点击 <img alt="2a29a3bad712bec.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_2880.029cc721e4.png 2880w" style="width: 26.00px" loading="lazy" decoding="async"> <strong>Resume Program</strong>。在模拟器或设备上输入的文本会显示在包含断点的代码行旁边，如下图所示：</li>
+</ol>
+<p class="image-container"><img alt="1f5db6ab5ca5b477.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/1f5db6ab5ca5b477_2880.029cc721e4.png 2880w" style="width: 624.00px" loading="lazy" decoding="async"></p>
+<p>这是文本字段的状态。</p>
+<ol start="6" type="1">
+<li>点击 <img alt="2a29a3bad712bec.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/2a29a3bad712bec_2880.029cc721e4.png 2880w" style="width: 26.00px" loading="lazy" decoding="async"> <strong>Resume Program</strong>。输入的值会显示在模拟器或设备上。</li>
+</ol>
+
+
+        
+          
+          <h2 class="" id="7">
+              8. 修改外观
+          </h2>
+          
+          <p>在上一部分中，您已经让文本字段正常运行了。在本部分中，您将改进界面。</p>
+<h2 id="add-a-label-to-the-text-box"><strong>向文本框添加标签</strong></h2>
+<p>每个文本框都应包含一个标签，以便用户了解可以输入哪些信息。在以下示例图片的第 1 部分中，标签文本位于文本字段的中间，并与输入行对齐。在以下示例图片的第 2 部分中，当用户点击文本框以输入文本时，该标签会移到文本框中靠上的位置。如需详细了解文本字段剖析，请参阅<a href="https://material.io/components/text-fields#anatomy" target="_blank">剖析</a>。</p>
+<p class="image-container"><img alt="a2afd6c7fc547b06.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/a2afd6c7fc547b06_2880.029cc721e4.png 2880w" style="width: 399.00px" title="包含标签可组合项的文本字段" loading="lazy" decoding="async"></p>
+<p>修改 <code dir="ltr" translate="no">EditNumberField()</code> 函数，以向文本字段添加标签：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">EditNumberField()</code> 函数的 <code dir="ltr" translate="no">TextField()</code> 可组合函数中，添加一个设置为空 lambda 表达式的 <code dir="ltr" translate="no">label</code> 具名形参：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">label</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="2" type="1">
+<li>在 lambda 表达式中，调用接受 <code dir="ltr" translate="no">stringResource</code><code dir="ltr" translate="no">(R.string.</code><code dir="ltr" translate="no">bill_amount</code><code dir="ltr" translate="no">)</code> 的 <code dir="ltr" translate="no">Text()</code> 函数：<em></em><em></em></li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">label</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">bill_amount</span><span class="devsite-syntax-p">))</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+</code></pre>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">TextField()</code> 可组合函数中，添加设置为 <code dir="ltr" translate="no">true</code> 值的 <code dir="ltr" translate="no">singleLine</code> 具名形参：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">singleLine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>这样可以将文本框从多行压缩成可水平滚动的单行。</p>
+<ol start="4" type="1">
+<li>添加设置为 <code dir="ltr" translate="no">KeyboardOptions()</code> 的 <code dir="ltr" translate="no">keyboardOptions</code> 形参：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.text.KeyboardOptions</span>
+
+<span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">keyboardOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">KeyboardOptions</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>Android 提供了一个选项，用于配置屏幕上显示的键盘，以便输入数字、电子邮件地址、网址和密码等内容。如需详细了解其他键盘类型，请参阅 <a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/KeyboardType?hl=zh-cn" target="_blank">KeyboardType</a>。</p>
+<ol start="5" type="1">
+<li>将键盘类型设置为数字键盘即可输入数字。向 <code dir="ltr" translate="no">KeyboardOptions</code> 函数传递设置为 <code dir="ltr" translate="no">KeyboardType.Number</code> 的 <code dir="ltr" translate="no">keyboardType</code> 具名形参：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.text.input.KeyboardType</span>
+
+<span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">keyboardOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">KeyboardOptions</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">keyboardType</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">KeyboardType</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Number</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>完成后的 <code dir="ltr" translate="no">EditNumberField()</code> 函数应如以下代码段所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">EditNumberField</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">singleLine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">label</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">bill_amount</span><span class="devsite-syntax-p">))</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">keyboardOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">KeyboardOptions</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">keyboardType</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">KeyboardType</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Number</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="6" type="1">
+<li>运行应用。</li>
+</ol>
+<p>您可在以下屏幕截图中看到对拨号键盘所做的更改：</p>
+<p class="image-container"><img alt="55936268bf007ee9.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/55936268bf007ee9_2880.029cc721e4.png 2880w" style="width: 226.56px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="8">
+              9. 显示小费金额
+          </h2>
+          
+          <p>在本部分中，您将实现应用的主要功能，即计算和显示小费金额的功能。</p>
+<p>在 <code dir="ltr" translate="no">MainActivity.kt</code> 文件中，起始代码中已为您提供了 <code dir="ltr" translate="no">private</code> <code dir="ltr" translate="no">calculateTip()</code> 函数。您将使用此函数计算小费金额：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">calculateTip</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">amount</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">tipPercent</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Double</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">15.0</span><span class="devsite-syntax-p">):</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">tip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">tipPercent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">100</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">*</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amount</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">NumberFormat</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getCurrencyInstance</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">format</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">tip</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>在上述方法中，您使用 <a href="https://developer.android.com/reference/java/text/NumberFormat?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">NumberFormat</code></a> 将小费的格式显示为货币。</p>
+<p>现在，您的应用可以计算小费了，但您仍然需要通过该类来设置小费格式并显示小费。</p>
+<h2 id="use-the-calculatetip-function">使用 <code dir="ltr" translate="no">calculateTip()</code> 函数</h2>
+<p>用户在文本字段可组合项中输入的文本会作为 <code dir="ltr" translate="no">String</code> 返回 <code dir="ltr" translate="no">onValueChange</code> 回调函数，即使用户输入的是数字也是如此。如需修复此问题，您需要转换 <code dir="ltr" translate="no">amountInput</code> 值，其中包含用户输入的金额。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">EditNumberField()</code> 可组合函数中，于 <code dir="ltr" translate="no">amountInput</code> 定义之后创建一个名为 <code dir="ltr" translate="no">amount</code> 的新变量。对 <code dir="ltr" translate="no">amountInput</code> 变量调用 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-double-or-null.html" target="_blank"><code dir="ltr" translate="no">toDoubleOrNull</code></a> 函数，以将 <code dir="ltr" translate="no">String</code> 转换为 <code dir="ltr" translate="no">Double</code>：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toDoubleOrNull</span><span class="devsite-syntax-p">()</span>
+</code></pre>
+<p><code dir="ltr" translate="no">toDoubleOrNull()</code> 函数是一个预定义的 Kotlin 函数，该函数会将字符串解析为 <code dir="ltr" translate="no">Double</code> 数字并返回结果，而如果字符串不是有效的数字表示法，该函数会返回 <code dir="ltr" translate="no">null</code>。</p>
+<ol start="2" type="1">
+<li>在语句末尾，添加一个 <code dir="ltr" translate="no">?:</code> Elvis 运算符，以在 <code dir="ltr" translate="no">amountInput</code> 为 null 时返回 <code dir="ltr" translate="no">0.0</code> 值：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toDoubleOrNull</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">?:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0.0</span>
+</code></pre>
+<aside class="special"><p><strong>注意</strong>：如果值不为 <code dir="ltr" translate="no">null</code>，<code dir="ltr" translate="no">?:</code> Elvis 运算符会返回其前面的表达式；如果值为 <code dir="ltr" translate="no">null</code>，则会返回其后面的表达式。这样一来，您就能以更符合编程习惯的方式编写此代码。如需了解详情，请参阅 <a href="https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator" target="_blank">Elvis 运算符</a>。</p>
+</aside>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">amount</code> 变量后面，再创建一个名为 <code dir="ltr" translate="no">tip</code> 的 <code dir="ltr" translate="no">val</code> 变量。使用 <code dir="ltr" translate="no">calculateTip()</code> 对其进行初始化，并传递 <code dir="ltr" translate="no">amount</code> 形参。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">tip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">calculateTip</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">amount</span><span class="devsite-syntax-p">)</span>
+</code></pre>
+<p><code dir="ltr" translate="no">EditNumberField()</code> 函数应如以下代码段所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">EditNumberField</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toDoubleOrNull</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">?:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0.0</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">tip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">calculateTip</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">amount</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">label</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">bill_amount</span><span class="devsite-syntax-p">))</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">singleLine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">keyboardOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">KeyboardOptions</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">keyboardType</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">KeyboardType</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Number</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<h2 id="show-the-calculated-tip-amount">显示计算出的小费金额</h2>
+<p>您已经编写了用于计算小费金额的函数，下一步是显示计算出的小费金额：</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">TipTimeLayout()</code> 函数中的 <code dir="ltr" translate="no">Column()</code> 代码块的末尾，请注意那个显示 <code dir="ltr" translate="no">$0.00</code> 的文本可组合项。您将要把此值更新为计算出的小费金额。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">TipTimeLayout</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">statusBarsPadding</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">horizontal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">40.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">verticalScroll</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">rememberScrollState</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">safeDrawingPadding</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">horizontalAlignment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Alignment</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">CenterHorizontally</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">verticalArrangement</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Arrangement</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Center</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tip_amount</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">0</span><span class="devsite-syntax-s">.00"</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">style</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">typography</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">displaySmall</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>您需要访问 <code dir="ltr" translate="no">TipTimeLayout()</code> 函数中的 <code dir="ltr" translate="no">amountInput</code> 变量来计算和显示小费金额，但 <code dir="ltr" translate="no">amountInput</code> 变量是 <code dir="ltr" translate="no">EditNumberField()</code> 可组合函数中定义的文本字段的状态，因此您还无法从 <code dir="ltr" translate="no">TipTimeLayout()</code> 函数对其进行调用。相应代码的结构如下图所示：</p>
+<p class="image-container"><img alt="50bf0b9d18ede6be.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/50bf0b9d18ede6be_2880.029cc721e4.png 2880w" style="width: 507.48px" title="TipTimeLayout 函数包含 EditNumberField 和 Text 字段（一个用于显示小费金额的文本可组合项）" loading="lazy" decoding="async"></p>
+<p>该结构不允许您在新的 <code dir="ltr" translate="no">Text</code> 可组合项中显示小费金额，因为 <code dir="ltr" translate="no">Text</code> 可组合项需要访问根据 <code dir="ltr" translate="no">amountInput</code> 变量计算得出的 <code dir="ltr" translate="no">amount</code> 变量。您需要向 <code dir="ltr" translate="no">TipTimeLayout()</code> 函数公开 <code dir="ltr" translate="no">amount</code> 变量。所需代码结构（这会使 <code dir="ltr" translate="no">EditNumberField()</code> 可组合项变为无状态）如下图所示：</p>
+<p class="image-container"><img alt="ab4ec72388149f7c.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/ab4ec72388149f7c_2880.029cc721e4.png 2880w" style="width: 521.36px" loading="lazy" decoding="async"></p>
+<p>这种模式称为“状态提升”。<em></em>在下一部分中，您将“提升”可组合项的状态，使其变为无状态。<em></em></p>
+<aside class="special"><p><strong>注意：</strong>无状态可组合函数是指不存储自身状态的可组合函数。它会显示作为输入实参提供给它的任何状态。</p>
+</aside>
+
+
+        
+          
+          <h2 class="" id="9">
+              10. 状态提升
+          </h2>
+          
+          <p>在本部分中，您将了解如何决定在哪里定义状态，以便能够重复使用和共享可组合项。</p>
+<p>在可组合函数中，您可以定义一些变量，用于保存要在界面中显示的状态。例如，您在 <code dir="ltr" translate="no">EditNumberField()</code> 可组合项中将 <code dir="ltr" translate="no">amountInput</code> 变量定义为状态。</p>
+<p>当您的应用变得越来越复杂并且其他可组合项需要访问 <code dir="ltr" translate="no">EditNumberField()</code> 可组合项中的状态时，您需要考虑将 <code dir="ltr" translate="no">EditNumberField()</code> 可组合函数中的状态提升或提取出来。</p>
+<h2 id="understand-stateful-versus-stateless-composables">了解有状态和无状态<strong>可组合项</strong></h2>
+<p>当您需要执行以下操作时，应该提升状态：</p>
+<ul>
+<li>与多个可组合函数共享状态。</li>
+<li>创建可在应用中重复使用的无状态可组合项。</li>
+</ul>
+<p>在您从可组合函数中提取状态后，生成的可组合函数称为无状态函数。也就是说，通过从可组合函数中提取状态，可以将其变为无状态。</p>
+<p>无状态可组合项是指没有状态的可组合项，这意味着它不会保存、定义或修改新状态。<em></em>相反，有状态可组合项是指具有可以随时间变化的状态的可组合项。<em></em></p>
+<aside class="special"><p><strong>注意</strong>：在实际应用中，让可组合项完全无状态可能很难实现，具体取决于可组合项的职责。在设计可组合项时，您应该让可组合项拥有尽可能少的状态，并允许在提升状态有意义的情况下通过在可组合项的 API 中公开状态来实现状态提升。</p>
+</aside>
+<p>状态提升是一种将状态移到其调用方以使组件变为无状态的模式。</p>
+<p>当应用于可组合项时，这通常意味着向可组合项引入以下两个形参：</p>
+<ul>
+<li><code dir="ltr" translate="no">value: T</code> 形参，即要显示的当前值。</li>
+<li><code dir="ltr" translate="no">onValueChange: (T) -&gt; Unit</code> - 回调 lambda，会在值更改时触发，以便可以在其他位置更新状态（例如，当用户在文本框中输入一些文本时）。</li>
+</ul>
+<p>在 <code dir="ltr" translate="no">EditNumberField()</code> 函数中提升状态：</p>
+<ol type="1">
+<li>更新 <code dir="ltr" translate="no">EditNumberField()</code> 函数定义，以通过添加 <code dir="ltr" translate="no">value</code> 和 <code dir="ltr" translate="no">onValueChange</code> 形参来提升状态：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">EditNumberField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-c1">//...</span>
+</code></pre>
+<p><code dir="ltr" translate="no">value</code> 形参的类型为 <code dir="ltr" translate="no">String</code>，<code dir="ltr" translate="no">onValueChange</code> 形参的类型为 <code dir="ltr" translate="no">(String) -&gt; Unit</code>，因此它是一个接受 <code dir="ltr" translate="no">String</code> 值作为输入且没有返回值的函数。<code dir="ltr" translate="no">onValueChange</code> 形参用作传入 <code dir="ltr" translate="no">TextField</code> 可组合项的 <code dir="ltr" translate="no">onValueChange</code> 回调。</p>
+<aside class="special"><p><strong>注意</strong>：最佳实践是为所有可组合函数提供默认的 <a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">Modifier</code></a> 形参，从而提高可重用性。您应在所有必需形参的后面添加它作为第一个可选形参。</p>
+</aside>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">EditNumberField()</code> 函数中，更新 <code dir="ltr" translate="no">TextField()</code> 可组合函数以使用传入的形参：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-c1">// Rest of the code</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol start="3" type="1">
+<li>提升状态，将记住的状态从 <code dir="ltr" translate="no">EditNumberField()</code> 函数移至 <code dir="ltr" translate="no">TipTimeLayout()</code> 函数：</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">TipTimeLayout</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toDoubleOrNull</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">?:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0.0</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">tip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">calculateTip</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">amount</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">  </span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-c1">//...</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<ol start="4" type="1">
+<li>您已将状态提升到 <code dir="ltr" translate="no">TipTimeLayout()</code>，现在将其传递到 <code dir="ltr" translate="no">EditNumberField()</code>。在 <code dir="ltr" translate="no">TipTimeLayout()</code> 函数中，更新 <code dir="ltr" translate="no">EditNumberField</code><code dir="ltr" translate="no">()</code> 函数调用以使用提升的状态：<em></em></li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">EditNumberField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">bottom</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">32.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<p>这会使 <code dir="ltr" translate="no">EditNumberField</code> 变为无状态。<em></em>您已将界面状态提升到其祖先实体 <code dir="ltr" translate="no">TipTimeLayout()</code>。<code dir="ltr" translate="no">TipTimeLayout()</code> 现在是状态(<code dir="ltr" translate="no">amountInput</code>) 所有者。</p>
+<h2 id="positional-formatting"><strong>位置格式设置</strong></h2>
+<p>通过位置格式设置，您可以使用字符串显示动态内容。例如，假设您希望 <strong>Tip amount</strong> 文本框显示一个 <code dir="ltr" translate="no">xx.xx</code> 值，该值可以是在您的函数中计算并设置格式的任意金额。如需在 <code dir="ltr" translate="no">strings.xml</code> 文件中完成此操作，您需要使用占位符实参定义字符串资源，如以下代码段所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy.</span>
+
+<span class="devsite-syntax-c1">// In the res/values/strings.xml file</span>
+&lt;<span class="devsite-syntax-n">string</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"tip_amount"</span>&gt;<span class="devsite-syntax-n">Tip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Amount</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">%</span><span class="devsite-syntax-n">s</span>&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">string</span>&gt;
+</code></pre>
+<p>在 Compose 代码中，您可以拥有多个任意类型的占位符实参。<code dir="ltr" translate="no">string</code> 占位符为 <code dir="ltr" translate="no">%s</code>。</p>
+<p>请注意 <code dir="ltr" translate="no">TipTimeLayout()</code> 中的文本可组合项，您要将采用相应格式的小费金额作为实参传递到 <code dir="ltr" translate="no">stringResource()</code> 函数。</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy</span>
+<span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tip_amount</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">0</span><span class="devsite-syntax-s">.00"</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">style</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">typography</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">displaySmall</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre>
+<ol type="1">
+<li>在函数 <code dir="ltr" translate="no">TipTimeLayout()</code> 中，使用 <code dir="ltr" translate="no">tip</code> 属性显示小费金额。更新 <code dir="ltr" translate="no">Text</code> 可组合项的 <code dir="ltr" translate="no">text</code> 形参，以将 <code dir="ltr" translate="no">tip</code> 变量用作形参。</li>
+</ol>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tip_amount</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">tip</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-c1">// ...</span>
+</code></pre>
+<p>完成后的 <code dir="ltr" translate="no">TipTimeLayout()</code> 和 <code dir="ltr" translate="no">EditNumberField()</code> 函数应如以下代码段所示：</p>
+<div></div><pre class="devsite-click-to-copy" translate="no" dir="ltr" syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">TipTimeLayout</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">remember</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">amount</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toDoubleOrNull</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">?:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0.0</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">tip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">calculateTip</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">amount</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">statusBarsPadding</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">horizontal</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">40.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">verticalScroll</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">rememberScrollState</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">safeDrawingPadding</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">horizontalAlignment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Alignment</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">CenterHorizontally</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">verticalArrangement</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Arrangement</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Center</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">calculate_tip</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">bottom</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">16.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">top</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">40.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">align</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">alignment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Alignment</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Start</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">EditNumberField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">amountInput</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">it</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">bottom</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">32.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">               </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tip_amount</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">tip</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">style</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">typography</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">displaySmall</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">Spacer</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">height</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">150.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">EditNumberField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Unit</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">TextField</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">onValueChange</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">singleLine</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kc">true</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">label</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">bill_amount</span><span class="devsite-syntax-p">))</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">keyboardOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">KeyboardOptions</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">keyboardType</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">KeyboardType</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Number</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre>
+<p>总而言之，您将 <code dir="ltr" translate="no">amountInput</code> 状态从 <code dir="ltr" translate="no">EditNumberField()</code> 提升到了 <code dir="ltr" translate="no">TipTimeLayout()</code> 可组合项中。为了让文本框能够像以前一样工作，您必须向 <code dir="ltr" translate="no">EditNumberField()</code> 可组合函数传入两个实参：<code dir="ltr" translate="no">amountInput</code> 值，以及根据用户输入更新 <code dir="ltr" translate="no">amountInput</code> 值的 lambda 回调。借助这些更改，您即可根据 <code dir="ltr" translate="no">TipTimeLayout()</code> 中的 <code dir="ltr" translate="no">amountInput</code> 属性计算并向用户显示小费金额。</p>
+<ol start="2" type="1">
+<li>在模拟器或设备上运行应用，然后在 <strong>Bill Amount</strong> 文本框中输入一个值。系统即会显示小费金额（账单金额的 15%），如下图所示：</li>
+</ol>
+<p class="image-container"><img alt="de593783dc813e24.png" src="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24.029cc721e4.png" srcset="../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24_36.029cc721e4.png 36w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24_48.029cc721e4.png 48w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24_72.029cc721e4.png 72w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24_96.029cc721e4.png 96w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24_480.029cc721e4.png 480w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24_720.029cc721e4.png 720w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24_856.029cc721e4.png 856w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24_960.029cc721e4.png 960w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24_1440.029cc721e4.png 1440w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24_1920.029cc721e4.png 1920w, ../../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-using-state/img/de593783dc813e24_2880.029cc721e4.png 2880w" style="width: 249.60px" loading="lazy" decoding="async"></p>
+
+
+        
+          
+          <h2 class="" id="10">
+              11. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，您可以使用以下 Git 命令：</p>
+<div></div><pre translate="no" dir="ltr">$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-tip-calculator.git
+$ cd basic-android-kotlin-compose-training-tip-calculator
+$ git checkout state
+</pre>
+<p>或者，您也可以下载 ZIP 文件形式的仓库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-tip-calculator/archive/refs/heads/state.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">state</code> 分支中。</p>
+</aside>
+<p>如果您想查看解决方案代码，请<a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-tip-calculator/tree/state" target="_blank">前往 GitHub 查看</a>。</p>
+
+
+        
+          
+          <h2 class="" id="11">
+              12. 总结
+          </h2>
+          
+          <p>恭喜！您已完成此 Codelab，并学习了如何在 Compose 应用中使用状态！</p>
+<h2 id="summary">摘要</h2>
+<ul>
+<li>应用中的状态是指可以随时间变化的任何值。</li>
+<li>“组合”是对 Compose 在执行可组合项时所构建界面的描述。<em></em>Compose 应用调用可组合函数，以将数据转换为界面。</li>
+<li>初始组合是指 Compose 会在首次执行可组合函数时创建界面。</li>
+<li>重组过程会再次运行相同的可组合项，以便在其数据发生变化时更新树。</li>
+<li>状态提升是一种将状态移到其调用方以使组件变为无状态的模式。</li>
+</ul>
+<h2 id="learn-more"><strong>了解详情</strong></h2>
+<ul>
+<li><a href="https://developer.android.com/jetpack/compose/state?hl=zh-cn" target="_blank">状态和 Jetpack Compose</a></li>
+<li><a href="https://developer.android.com/codelabs/jetpack-compose-state?hl=zh-cn" target="_blank">“Jetpack Compose 中的状态”Codelab</a></li>
+<li><a href="https://developer.android.com/jetpack/compose/mental-model?hl=zh-cn" target="_blank">Compose 编程思想</a></li>
+<li><a href="https://youtu.be/mymWGMy9pYI" target="_blank">Jetpack Compose：状态</a></li>
+<li><a href="https://www.youtube.com/watch?v=rmv2ug-wW4U&amp;hl=zh-cn" target="_blank">Compose 状态思维：使用 Compose 的自动状态观察功能</a></li>
+<li><a href="https://developer.android.com/jetpack/compose/state-hoisting?hl=zh-cn" target="_blank">提升状态的场景 | Compose | Android 开发者</a></li>
+</ul>
+
+
+        
+        <nav class="pager"><a href="../02.%E4%B8%BA%E5%BA%94%E7%94%A8%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/02.%E4%BD%BF%E7%94%A8%20Android%20Studio%20%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F.source.html">上一节：使用 Android Studio 中的调试程序</a><a href="./02.%E8%AE%A1%E7%AE%97%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%8F%E8%B4%B9.source.html">下一节：02.计算自定义小费</a></nav>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
