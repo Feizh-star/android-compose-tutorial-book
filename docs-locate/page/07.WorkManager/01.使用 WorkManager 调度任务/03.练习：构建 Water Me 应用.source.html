@@ -1,0 +1,1791 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="robots" content="noindex"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="../../../offline-assets/developer.android.com/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    
+    
+    <link rel="stylesheet" href="../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+      <link rel="stylesheet"
+            href="../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css"><link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=vi" /><title>练习：Water Me! 应用 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="练习：Water Me! 应用 &nbsp;|&nbsp; Android Developers"><meta name="description" content="完善 Water Me! 应用，以便使用 WorkManager 调度植物浇水通知。">
+  <meta property="og:description" content="完善 Water Me! 应用，以便使用 WorkManager 调度植物浇水通知。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      练习：Water Me! 应用<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="17bGlwU0QBzXOR8reqAWQRqDkIHSM-TCcE6t7lRK0irM" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-waterme/issues/new?assignees=&amp;labels=&amp;template=practice-problems-water-me-app-issue-template.md&amp;title=Practice&#43;Problems&#43;Water&#43;Me&#43;App%3A&#43;Android&#43;Basics&#43;with&#43;Compose" id="basic-android-kotlin-compose-practice-water-me-app" layout="paginated" no-tooltip="" title="练习：Water Me! 应用">
+      
+        <google-codelab-step duration="0" step="0" label="准备工作">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2024-01-17T18:11:15Z" codelab-title="练习：Water Me! 应用">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 前言           " id="0" tabindex="-1">
+              1. 前言
+          </h2>
+          
+          <h2 data-text="简介" id="introduction" is-upgraded="" tabindex="-1">简介</h2>
+<p>在本单元中，您已学习了 WorkManager 的相关知识，它是一个适用于可延迟型后台工作的 Jetpack 库。即使您关闭了源应用，这类后台工作也一定会运行。</p>
+<p>在学习 WorkManager 的过程中，您学习了如何在 worker 类中定义工作、如何为 worker 创建 WorkRequest，以及如何将工作加入队列和调度工作。</p>
+<p>在本练习集内，您将运用所学的概念来完善 <strong>Water Me!</strong> 应用。</p>
+<p>解决方案代码就在文末。为了充分发挥此学习体验的效果，请尝试尽量自行进行实现和问题排查，之后再查看所提供的解决方案代码。只有亲自动手实践，才能获得最好的学习效果。</p>
+<h2 data-text="前提条件" id="prerequisites" is-upgraded="" tabindex="-1">前提条件</h2>
+<ul>
+<li>通过<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-verify-background-work?hl=zh-cn" target="_blank">高级 WorkManager 和测试</a> Codelab 完成“Android 之 Compose 开发基础”课程作业</li>
+</ul>
+<h2 data-text="所需条件" id="what-youll-need" is-upgraded="" tabindex="-1">所需条件</h2>
+<ul>
+<li>一台连接到互联网并安装了 Android Studio 的计算机</li>
+</ul>
+<h2 data-text="构建内容" id="what-youll-build" is-upgraded="" tabindex="-1">构建内容</h2>
+<p>在本练习集内，您将运用所学的概念来完善 <strong>Water Me!</strong> 应用。</p>
+<p>该应用目前在滚动式列表中显示了一系列植物。如果您点按某种植物，该应用就会让您为它设置浇水提醒。</p>
+<p class="image-container"><img alt="fb69d6519999f217.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/fb69d6519999f217_2880.029cc721e4.png 2880w" style="width: 240.00px" /> <img alt="d6b68d1e9f1026c5.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/d6b68d1e9f1026c5_2880.029cc721e4.png 2880w" style="width: 240.00px" /></p>
+<p>虽然您可以选择提醒时间范围，但系统不会显示提醒通知。</p>
+<p>您的任务是实现后台工作，使系统显示提醒通知。</p>
+<p>您完成代码后，该应用就会在选定的时长过后显示提醒通知。</p>
+<p class="image-container"><img alt="a8f9bceed83af5a9.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-practice-water-me-app/img/a8f9bceed83af5a9_2880.029cc721e4.png 2880w" style="width: 240.00px" /></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="获取起始代码">
+          
+          <h2 class="step-title" data-text="               2. 获取起始代码           " id="1" tabindex="-1">
+              2. 获取起始代码
+          </h2>
+          
+          <p>首先，请下载起始代码：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-waterme/archive/refs/heads/starter.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>或者，您也可以克隆该代码的 GitHub 代码库：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-waterme.git
+$ cd basic-android-kotlin-compose-training-waterme
+$ git checkout starter
+</pre></devsite-code>
+<aside class="special"><p><strong>注意：</strong>起始代码位于所克隆仓库的 <code dir="ltr" translate="no">starter</code> 分支中。</p>
+</aside>
+<p>您可以在此 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-waterme/tree/starter" target="_blank">GitHub</a> 代码库中浏览 <strong>Water Me!</strong> 应用的代码。</p>
+<h2 data-text="运行起始代码" id="run-starter-code" is-upgraded="" tabindex="-1">运行起始代码</h2>
+<p>若要熟悉起始代码，请完成以下步骤：</p>
+<ol type="1">
+<li>在 Android Studio 中打开包含起始代码的项目。</li>
+<li>在 Android 设备或模拟器上运行该应用。</li>
+</ol>
+<p>现在，您可以开始编码了！</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="使用 WorkManager 调度通知">
+          
+          <h2 class="step-title" data-text="               3. 使用 WorkManager 调度通知           " id="2" tabindex="-1">
+              3. 使用 WorkManager 调度通知
+          </h2>
+          
+          <p>除了调度提醒通知之外，<strong>Water Me!</strong> 应用的大部分功能都已经实现了。</p>
+<p>用于发送通知的代码位于 <code dir="ltr" translate="no">WaterReminderWorker.kt</code> 文件中，该文件位于 <strong>worker</strong> 软件包中。<code dir="ltr" translate="no">WaterReminderWorker</code> 类扩展了 <code dir="ltr" translate="no">CoroutineWorker</code> 类，用于发送通知的代码就是位于其 <code dir="ltr" translate="no">doWork()</code> 方法内。</p>
+<p>由于对您而言通知可能是一个新主题，所以此代码已经完成了。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">override</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">doWork</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Result</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">plantName</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">inputData</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getString</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">nameKey</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">makePlantReminderNotification</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">applicationContext</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">resources</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getString</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">time_to_water</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">plantName</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">applicationContext</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Result</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">success</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>您的任务是创建一个 <a href="https://developer.android.com/reference/androidx/work/OneTimeWorkRequest?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">OneTimeWorkRequest</code></a>，以便使用 <code dir="ltr" translate="no">WorkManagerWaterRepository</code> 中的正确参数调用此方法。</p>
+<p>如需更多帮助，请参阅<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-workmanager?hl=zh-cn" target="_blank">使用 WorkManager 处理后台工作</a>。</p>
+<h2 data-text="创建工作请求" id="create-work-requests" is-upgraded="" tabindex="-1">创建工作请求</h2>
+<p>若要调度通知，您需在 <code dir="ltr" translate="no">WorkManagerWaterRepository.kt</code> 文件中实现 <code dir="ltr" translate="no">scheduleReminder()</code> 方法。</p>
+<ol type="1">
+<li>使用 <code dir="ltr" translate="no">Data.Builder</code> 创建一个名为 <code dir="ltr" translate="no">data</code> 的变量。data 需要由单个字符串值组成，其中 <code dir="ltr" translate="no">WaterReminderWorker.nameKey</code> 是键，而传入 <code dir="ltr" translate="no">scheduleReminder()</code> 的 <code dir="ltr" translate="no">plantName</code> 是值。</li>
+<li>使用 <code dir="ltr" translate="no">WaterReminderWorker</code> 类创建一次性工作请求。使用传入 <code dir="ltr" translate="no">scheduleReminder()</code> 函数的 <code dir="ltr" translate="no">duration</code> 和 <code dir="ltr" translate="no">unit</code> 将输入数据设为您创建的数据变量。</li>
+<li>调用 <code dir="ltr" translate="no">workManager</code> 的 <code dir="ltr" translate="no">enqueueUniqueWork()</code> 方法。传入与时长串联的植物名称，使用 <code dir="ltr" translate="no">REPLACE</code> 作为 <code dir="ltr" translate="no">ExistingWorkPolicy</code>，并使用相应的工作请求对象。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：传入与时长串联的植物名称让您能为每种植物设置多次提醒。例如，您可为牡丹安排一次要在 5 秒后显示的提醒和一次要在 1 天后显示的提醒。如果您仅传入植物名称，当您为牡丹安排第二次提醒时，它会取代之前已为牡丹设定的提醒。</p>
+</aside>
+<p>现在，您的应用应该能按预期运行了。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="额外挑战（可选）">
+          
+          <h2 class="step-title" data-text="               4. 额外挑战（可选）           " id="3" tabindex="-1">
+              4. 额外挑战（可选）
+          </h2>
+          
+          <p>如需进行更多编码练习，请将时长选项改为：</p>
+<ul>
+<li>5 秒</li>
+<li>1 分钟</li>
+<li>2 分钟</li>
+<li>3 分钟</li>
+</ul>
+<p>完成后，请测试每个时长，确认其能否按预期运行。</p>
+<aside class="special"><p><strong>注意</strong>：所提供的解决方案代码不包含这项额外挑战的实现。</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="获取解决方案代码">
+          
+          <h2 class="step-title" data-text="               5. 获取解决方案代码           " id="4" tabindex="-1">
+              5. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，可以使用以下命令：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-waterme.git
+$ cd basic-android-kotlin-compose-training-waterme
+$ git checkout main
+</pre></devsite-code>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-waterme/archive/refs/heads/main.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>如果您想查看此 Codelab 的解决方案代码，请前往 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-waterme/tree/main" target="_blank">GitHub</a>。</p>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-x_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-x.029cc721e4.svg"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-youtube_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin.029cc721e4.svg"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="esuSuYfbLsVIYrfs/3EPq7UIajR/js">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    '../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["../../../offline-assets/developer.android.com/_pwa/android/manifest.json","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["Profiles__enable_public_developer_profiles","Profiles__enable_dashboard_curated_recommendations","BookNav__enable_tenant_cache_key","Analytics__enable_clearcut_logging","Cloud__enable_cloudx_experiment_ids","MiscFeatureFlags__enable_variable_operator","Search__enable_suggestions_from_borg","MiscFeatureFlags__fix_lower_breadcrumbs","MiscFeatureFlags__enable_explicit_template_dependencies","Profiles__require_profile_eligibility_for_signin","Profiles__enable_completecodelab_endpoint","DevPro__enable_cloud_innovators_plus","Profiles__enable_release_notes_notifications","DevPro__enable_embed_profile_creation","Cloud__enable_llm_concierge_chat","MiscFeatureFlags__enable_explain_this_code","DevPro__remove_eu_tax_intake_form","Profiles__enable_playlist_community_acl","EngEduTelemetry__enable_engedu_telemetry","Profiles__enable_complete_playlist_endpoint","Concierge__enable_pushui","Concierge__enable_actions_menu","Profiles__enable_page_saving","CloudShell__cloud_code_overflow_menu","CloudShell__cloud_shell_button","DevPro__enable_developer_subscriptions","Profiles__enable_developer_profile_benefits_ui_redesign","MiscFeatureFlags__developers_footer_image","DevPro__enable_google_one_card","DevPro__enable_nvidia_credits_card","MiscFeatureFlags__enable_view_transitions","DevPro__enable_g1_integration","DevPro__enable_google_payments_buyflow","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__enable_framebox_badge_methods","DevPro__enable_credits_banner","Profiles__enable_completequiz_endpoint","Search__enable_ai_search_summaries_for_all","Profiles__enable_user_type","Search__enable_page_map","DevPro__enable_free_benefits","Profiles__enable_developer_profile_pages_as_content","MiscFeatureFlags__enable_appearance_cookies","DevPro__enable_vertex_credit_card","Analytics__enable_devpro_interaction_logging","SignIn__enable_l1_signup_flow","Profiles__enable_auto_apply_credits","Cloud__enable_cloud_shell_fte_user_flow","DevPro__enable_enterprise","Cloud__enable_legacy_calculator_redirect","MiscFeatureFlags__enable_llms_txt","Profiles__enable_join_program_group_endpoint","DevPro__enable_firebase_workspaces_card","DevPro__enable_devpro_offers","Profiles__enable_purchase_prompts","MiscFeatureFlags__enable_dark_theme","Experiments__reqs_query_experiments","Profiles__enable_recognition_badges","Cloud__enable_cloud_dlp_service","MiscFeatureFlags__enable_project_variables","Profiles__enable_targeted_hero","MiscFeatureFlags__enable_firebase_utm","Cloud__enable_cloud_shell","Search__enable_ai_search_summaries","MiscFeatureFlags__gdp_dashboard_reskin_enabled","Cloud__cache_serialized_dynamic_content","MiscFeatureFlags__remove_cross_domain_tracking_params","TpcFeatures__proxy_prod_host","Profiles__enable_awarding_url","Profiles__enable_stripe_subscription_management","DevPro__enable_code_assist","Concierge__enable_remove_info_panel_tags","DevPro__enable_devsite_captcha","Profiles__enable_profile_collections","Profiles__enable_developer_profiles_callout","Concierge__enable_devsite_llm_tools","MiscFeatureFlags__enable_variable_operator_index_yaml","TpcFeatures__enable_unmirrored_page_left_nav","DevPro__enable_payments_first_batch","Cloud__fast_free_trial","Search__enable_ai_eligibility_checks","Profiles__enable_callout_notifications","Significatio__enable_by_tenant","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_free_trial_server_call"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[2,2],[1,1]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

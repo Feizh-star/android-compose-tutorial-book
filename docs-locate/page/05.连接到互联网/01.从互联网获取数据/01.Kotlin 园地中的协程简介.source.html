@@ -1,0 +1,2632 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="../../../offline-assets/developer.android.com/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    
+    
+    <link rel="stylesheet" href="../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+      <link rel="stylesheet"
+            href="../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css"><link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=vi" /><title>Kotlin 园地中的协程简介 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="Kotlin 园地中的协程简介 &nbsp;|&nbsp; Android Developers"><meta name="description" content="在 Kotlin Playground 中，了解如何使用 Kotlin 协程编写异步代码。">
+  <meta property="og:description" content="在 Kotlin Playground 中，了解如何使用 Kotlin 协程编写异步代码。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Kotlin 园地中的协程简介<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="1nyGJyAWaxxJom9RDRe8f4BT5h2Uzu1LvT7zPpxc_2G4" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-race-tracker/issues/new?assignees=&amp;labels=&amp;template=android-basics–introduction-to-coroutines-in-kotlin-playground.md&amp;title=Android&#43;Basics%3A&#43;Introduction&#43;to&#43;Coroutines&#43;in&#43;Kotlin&#43;Playground" id="basic-android-kotlin-compose-coroutines-kotlin-playground" layout="paginated" no-tooltip="" title="Kotlin 园地中的协程简介">
+      
+        <google-codelab-step duration="0" step="0" label="准备工作">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2024-01-16T22:01:26Z" codelab-title="Kotlin 园地中的协程简介">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 前言           " id="0" tabindex="-1">
+              1. 前言
+          </h2>
+          
+          <p>此 Codelab 将介绍并发，这是 Android 开发者为提供出色的用户体验而需要掌握的一项重要技能。<strong>并发</strong>涉及在应用中同时执行多项任务。例如，您的应用可以一边响应用户输入事件并相应更新界面，一边从网络服务器获取数据或将用户数据保存在设备上。</p>
+<p>如需在应用中并发执行工作，需要使用 Kotlin <strong>协程</strong>。使用协程可以挂起某个代码块的执行并于稍后恢复，以便在此期间完成其他工作。借助协程，您可以更轻松地编写<strong>异步</strong>代码，也就是说，无需等到彻底完成一个任务之后再开始下一个任务，多个任务可以并发运行。</p>
+<p>此 Codelab 将逐步引导您完成 Kotlin 园地中的一些基本示例，让您动手体验协程，更加熟练地掌握异步编程。</p>
+<h2 data-text="前提条件" id="prerequisites" is-upgraded="" tabindex="-1">前提条件</h2>
+<ul>
+<li>能够使用 <code dir="ltr" translate="no">main()</code> 函数创建基本的 Kotlin 程序</li>
+<li>了解 Kotlin 语言的基础知识，包括函数和 lambda</li>
+</ul>
+<h2 data-text="构建内容" id="what-youll-build" is-upgraded="" tabindex="-1"><strong>构建内容</strong></h2>
+<ul>
+<li>用于学习和实验协程基础知识的简短 Kotlin 程序</li>
+</ul>
+<h2 class="checklist" data-text="学习内容" id="what-youll-learn" is-upgraded="" tabindex="-1">学习内容</h2>
+<ul class="checklist">
+<li>Kotlin 协程如何简化异步编程？</li>
+<li>结构化并发的用途及其重要性</li>
+</ul>
+<h2 data-text="所需条件" id="what-youll-need" is-upgraded="" tabindex="-1">所需条件</h2>
+<ul>
+<li>能够通过互联网访问 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a></li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="同步代码">
+          
+          <h2 class="step-title" data-text="               2. 同步代码           " id="1" tabindex="-1">
+              2. 同步代码
+          </h2>
+          
+          <h2 data-text="简单的程序" id="simple-program" is-upgraded="" tabindex="-1">简单的程序</h2>
+<p>在<strong>同步</strong>代码中，一次只能执行一个概念性任务。您可以将其视为一条依序线性路径。必须彻底完成一项任务后才能开始下一项任务。以下是一个同步代码示例。</p>
+<ol type="1">
+<li>打开 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a>。</li>
+<li>将代码替换为以下代码，编写一个显示晴天天气预报的程序。在 <code dir="ltr" translate="no">main()</code> 函数中，先输出以下文本：<code dir="ltr" translate="no">Weather forecast</code>。然后输出以下文本：<code dir="ltr" translate="no">Sunny</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Sunny"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行代码。运行上述代码的输出应如下所示：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Sunny
+</pre></devsite-code>
+<p><code dir="ltr" translate="no">println()</code> 是一个同步调用，因为要完成输出文本的任务后才能执行下一行代码。由于 <code dir="ltr" translate="no">main()</code> 中的每个函数调用都是同步调用，因此整个 <code dir="ltr" translate="no">main()</code> 函数是同步函数。一个函数是同步函数还是异步函数取决于其组成部分。</p>
+<p>同步函数仅在其任务彻底完成后才会返回。因此，当 <code dir="ltr" translate="no">main()</code> 中的最后一个 print 语句执行完毕后，所有工作均已完成。<code dir="ltr" translate="no">main()</code> 函数返回，程序结束。</p>
+<h2 data-text="添加延迟" id="add-a-delay" is-upgraded="" tabindex="-1">添加延迟</h2>
+<p>现在，我们假设获取晴天天气预报需要向远程网络服务器发出网络请求。这样，我们就需要在代码中添加延迟来模拟网络请求，将其加到输出晴天天气预报之前。</p>
+<ol type="1">
+<li>首先，在代码顶部的 <code dir="ltr" translate="no">main()</code> 函数前面添加 <code dir="ltr" translate="no">import kotlinx.coroutines.*</code>。这会从 Kotlin 协程库导入您将使用的函数。</li>
+<li>修改代码以添加对 <code dir="ltr" translate="no">delay(1000)</code> 的调用，这会将 <code dir="ltr" translate="no">main()</code> 函数其余部分的执行延迟 <code dir="ltr" translate="no">1000</code> 毫秒（即 1 秒）。在用于输出 <code dir="ltr" translate="no">Sunny</code> 的 print 语句前面插入此 <code dir="ltr" translate="no">delay()</code> 调用。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Sunny"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p><code dir="ltr" translate="no">delay()</code> 实际上是 Kotlin 协程库提供的特殊<strong>挂起函数</strong>。<code dir="ltr" translate="no">main()</code> 函数的执行将在此时挂起（即暂停），然后在指定的延迟时长（在本例中为一秒）结束后恢复执行。</p>
+<p>如果您尝试在此时运行程序，将会遇到编译错误：<code dir="ltr" translate="no">Suspend function 'delay' should be called only from a coroutine or another suspend function</code>。</p>
+<p>为了学习 Kotlin 园地中的协程，您可以调用协程库中提供的 <code dir="ltr" translate="no">runBlocking()</code> 函数来封装现有代码。<code dir="ltr" translate="no">runBlocking()</code> 用于运行一个事件循环，该事件循环可在每项任务准备好恢复时从中断处继续执行任务，因此可以同时处理多项任务。</p>
+<ol start="3" type="1">
+<li>将 <code dir="ltr" translate="no">main()</code> 函数的现有内容移到 <code dir="ltr" translate="no">runBlocking {}</code> 调用的主体中。<code dir="ltr" translate="no">runBlocking{}</code> 的主体会在新协程中执行。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Sunny"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p><code dir="ltr" translate="no">runBlocking()</code> 是同步函数；在其 lambda 块中的所有工作完成之前，它不会返回。这意味着它会等待 <code dir="ltr" translate="no">delay()</code> 调用中的工作完成（一直到一秒钟过去），然后继续执行输出 <code dir="ltr" translate="no">Sunny</code> 的 print 语句。<code dir="ltr" translate="no">runBlocking()</code> 函数中的所有工作完成后，该函数返回并结束程序。</p>
+<ol start="4" type="1">
+<li>运行程序。输出内容如下：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Sunny
+</pre></devsite-code>
+<p>输出内容与先前一样。代码仍是同步代码，它沿着一条直线依序运行，一次只执行一项操作。不过，现在的区别在于，运行时间因存在延迟而比之前长。</p>
+<p>协程 (coroutine) 中的“co-”是指“协同”。在代码挂起等待时（这使其他工作得以在此期间运行），代码协同工作以共享底层事件循环。（“coroutine”中的“-routine”部分表示一组指令，例如函数）。在本示例的情况下，协程会在调用 <code dir="ltr" translate="no">delay()</code> 之后挂起。在协程处于挂起状态的这一秒之内，就可以完成其他工作（虽然此程序中没有其他工作需要完成）。一旦延迟时长过去，协程便会恢复执行，并可继续输出 <code dir="ltr" translate="no">Sunny</code>。</p>
+<aside class="special"><p><strong>注意</strong>：一般而言，只有出于学习目的才会像这样在 <code dir="ltr" translate="no">main()</code> 函数中使用 <code dir="ltr" translate="no">runBlocking()</code>。在 Android 应用代码中，您不需要使用 <code dir="ltr" translate="no">runBlocking()</code>，因为 Android 会为应用提供一个事件循环，用于在工作可以恢复时处理恢复的工作。不过，<code dir="ltr" translate="no">runBlocking()</code> 在测试中比较实用，可以让测试等到应用中的特定条件达到后再调用测试断言。</p>
+</aside>
+<h2 data-text="挂起函数" id="suspending-functions" is-upgraded="" tabindex="-1">挂起函数</h2>
+<p>如果用于执行网络请求以获取天气数据的实际逻辑变得更加复杂，您可能需要将该逻辑提取到其自己的函数中。让我们重构代码来看一看会产生什么影响。</p>
+<ol type="1">
+<li>提取用于模拟请求天气数据的网络请求的代码，并将其移到其自己的函数（名为 <code dir="ltr" translate="no">printForecast()</code>）中。从 <code dir="ltr" translate="no">runBlocking()</code> 代码调用 <code dir="ltr" translate="no">printForecast()</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">printForecast</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Sunny"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>如果现在运行程序，就会看到与之前所见相同的编译错误。挂起函数只能从协程或其他挂起函数中调用，因此请将 <code dir="ltr" translate="no">printForecast()</code> 定义为 <code dir="ltr" translate="no">suspend</code> 函数。</p>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">printForecast()</code> 函数声明中的 <code dir="ltr" translate="no">fun</code> 关键字前面添加 <code dir="ltr" translate="no">suspend</code> 修饰符，使其成为挂起函数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">printForecast</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Sunny"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>请注意，<code dir="ltr" translate="no">delay()</code> 是一个挂起函数，而您现在已将 <code dir="ltr" translate="no">printForecast()</code> 也定义为一个挂起函数。</p>
+<p><strong>挂起</strong>函数与常规函数类似，只不过它可以挂起并于稍后恢复。为了做到这一点，挂起函数只能从提供此功能的其他挂起函数中调用。</p>
+<p>挂起函数可包含零个或多个挂起点。<strong>挂起点</strong>是函数内可挂起函数执行的位置。函数执行恢复后，会从代码中上次中断的地方继续执行函数的其余部分。</p>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">printForecast()</code> 函数声明下，练习将另一个挂起函数添加到您的代码中。调用这个新挂起函数 <code dir="ltr" translate="no">printTemperature()</code>。您可以假装此调用会发出一个网络请求，用于获取天气预报的温度数据。</li>
+</ol>
+<p>在该函数中，同样会将执行延迟 <code dir="ltr" translate="no">1000</code> 毫秒，然后输出一个温度值，如摄氏 <code dir="ltr" translate="no">30</code> 度。您可以使用转义序列 <code dir="ltr" translate="no">"\u00b0"</code> 来输出度数符号 <code dir="ltr" translate="no">°</code>。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printTemperature</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"30\u00b0C"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>从 <code dir="ltr" translate="no">main()</code> 函数中的 <code dir="ltr" translate="no">runBlocking()</code> 代码调用新的 <code dir="ltr" translate="no">printTemperature()</code> 函数。完整的代码如下：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">printForecast</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">printTemperature</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Sunny"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printTemperature</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"30\u00b0C"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>运行程序。输出应如下所示：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Sunny
+30°C
+</pre></devsite-code>
+<p>在此代码中，先是使用 <code dir="ltr" translate="no">printForecast()</code> 函数中的延迟挂起协程，然后在时长为一秒的该延迟结束后恢复协程。输出 <code dir="ltr" translate="no">Sunny</code> 文本。<code dir="ltr" translate="no">printForecast()</code> 函数返回到调用方。</p>
+<p>接下来，调用 <code dir="ltr" translate="no">printTemperature()</code> 函数。该协程会在调用 <code dir="ltr" translate="no">delay()</code> 之后挂起，然后在一秒后恢复，并完成输出温度值的操作。<code dir="ltr" translate="no">printTemperature()</code> 函数已完成所有工作并返回。</p>
+<p>在 <code dir="ltr" translate="no">runBlocking()</code> 主体中，没有其他任务需要执行，因此 <code dir="ltr" translate="no">runBlocking()</code> 函数返回，程序结束。</p>
+<p>如前所述，<code dir="ltr" translate="no">runBlocking()</code> 是同步函数，主体中的每个调用将依序调用。请注意，精心设计的挂起函数只有在所有工作完成后才会返回。因此，这些挂起函数会相继运行。</p>
+<ol start="6" type="1">
+<li>（可选）如果您想知道执行此程序所用的时间（包含延迟时间在内），那么可以将代码封装在对 <code dir="ltr" translate="no">measureTimeMillis()</code> 的调用中，以毫秒为单位返回运行传入的代码块所用的时间。添加 import 语句 (<code dir="ltr" translate="no">import kotlin.system.*</code>) 以访问此函数。输出执行时间并除以 <code dir="ltr" translate="no">1000.0</code>，将毫秒转换为秒。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlin.system.*</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">time</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">measureTimeMillis</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">printForecast</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">printTemperature</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Execution time: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">time</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1000.0</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> seconds"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Sunny"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printTemperature</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"30\u00b0C"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span>
+</code></pre></devsite-code>
+<p>输出：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Sunny
+30°C
+Execution time: 2.128 seconds
+</pre></devsite-code>
+<p>输出内容显示，执行时间约为 2.1 秒。（您得出的确切执行时间可能略有不同）。这个时间看起来是合理的，因为每个挂起函数都有一秒延迟。</p>
+<p>到目前为止，您已经了解了协程中的代码在默认情况下会依序调用。如果您想让代码并发运行，就必须明确指定并发运行，我们将在下一部分介绍如何实现这一点。届时，您将利用协同工作的事件循环来同时执行多项任务，从而加快程序的执行速度。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="异步代码">
+          
+          <h2 class="step-title" data-text="               3. 异步代码           " id="2" tabindex="-1">
+              3. 异步代码
+          </h2>
+          
+          <h2 data-text="launch()" id="launch" is-upgraded="" tabindex="-1"><strong>launch()</strong></h2>
+<p>使用协程库中的 <code dir="ltr" translate="no">launch()</code> 函数启动一个新协程。如需并发执行任务，请向代码中添加多个 <code dir="ltr" translate="no">launch()</code> 函数，以便多个协程可以同时执行。</p>
+<p>Kotlin 中的协程遵循名为<a href="https://kotlinlang.org/docs/coroutines-basics.html#structured-concurrency" target="_blank"><strong>结构化并发</strong></a>的关键概念，即除非您明确要求并发执行（例如，使用 <code dir="ltr" translate="no">launch()</code>），否则代码在默认情况下依序执行并与底层事件循环协同工作。此原则假定，如果您调用一个函数，那么无论该函数在实现细节中使用了多少协程，都应在彻底完成其工作后再返回。即使因异常而失败，一旦系统抛出异常，该函数也不再有待处理的任务。因此，在函数返回控制流后，所有工作都会完成，无论函数抛出异常还是成功完成工作都是如此。</p>
+<ol type="1">
+<li>从前几步中的代码着手。使用 <code dir="ltr" translate="no">launch()</code> 函数将每个对 <code dir="ltr" translate="no">printForecast()</code> 和 <code dir="ltr" translate="no">printTemperature()</code> 的调用分别移到其各自的协程中。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">printForecast</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">printTemperature</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Sunny"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">printTemperature</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"30\u00b0C"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>运行程序。输出内容如下：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Sunny
+30°C
+</pre></devsite-code>
+<p>虽然输出内容没变，但您可能已经注意到，程序运行起来更快了。以前，您必须等到 <code dir="ltr" translate="no">printForecast()</code> 挂起函数彻底完成后才能执行 <code dir="ltr" translate="no">printTemperature()</code> 函数。现在，<code dir="ltr" translate="no">printForecast()</code> 和 <code dir="ltr" translate="no">printTemperature()</code> 可以并发运行，因为它们位于不同的协程中。</p>
+<p class="image-container"><img alt="println (Weather Forecast) 语句位于图表顶部的框中。下方有一个指向正下方的垂直箭头。该垂直箭头有一个向右延伸的分支，分支带有一个箭头，箭头指向一个包含 printForecast() 语句的框。这一原始的垂直箭头还有另一个向右延伸的分支，分支带有一个箭头，箭头指向包含 printTemperature() 语句的框。" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/32ec693170f3c1d7_2880.029cc721e4.png 2880w" style="width: 418.48px" /></p>
+<p>对 <code dir="ltr" translate="no">launch { printForecast() }</code> 的调用不等 <code dir="ltr" translate="no">printForecast()</code> 中的所有工作完成即可返回。这就是协程的优点。您可以移到下一个 <code dir="ltr" translate="no">launch()</code> 调用来启动下一个协程。同样，<code dir="ltr" translate="no">launch { printTemperature() }</code> 也可以不等所有工作完成即返回。</p>
+<ol start="3" type="1">
+<li>（可选）如果您想知道程序现在的运行速度快了多少，可以添加 <code dir="ltr" translate="no">measureTimeMillis()</code> 代码来检查执行时间。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlin.system.*</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">time</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">measureTimeMillis</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">printForecast</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">printTemperature</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Execution time: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">time</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1000.0</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> seconds"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-p">...</span>
+</code></pre></devsite-code>
+<p>输出：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Sunny
+30°C
+Execution time: 1.122 seconds
+</pre></devsite-code>
+<p>可以看到，执行时间已从约 2.1 秒缩短到约 1.1 秒，表明程序的执行速度在添加并发操作后更快！在继续学习后续步骤之前，可以先移除此时间衡量代码。</p>
+<p>如果在第二个 <code dir="ltr" translate="no">launch()</code> 调用之后、<code dir="ltr" translate="no">runBlocking()</code> 代码的末尾之前再添加一个 print 语句，您认为会发生什么情况？该语句中的信息会出现在输出中的什么位置？</p>
+<ol start="4" type="1">
+<li>修改 <code dir="ltr" translate="no">runBlocking()</code> 代码，在该代码块的末尾之前添加一个额外的 print 语句。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">printForecast</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">printTemperature</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have a good day!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-p">...</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>运行程序，输出内容如下：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Have a good day!
+Sunny
+30°C
+</pre></devsite-code>
+<p>根据此输出可以发现，启动 <code dir="ltr" translate="no">printForecast()</code> 和 <code dir="ltr" translate="no">printTemperature()</code> 的两个新协程后，您可以继续执行用于输出 <code dir="ltr" translate="no">Have a good day!</code> 的下一个指令。这表现了 <code dir="ltr" translate="no">launch()</code> 具有“触发后不理”的性质。您可以使用 <code dir="ltr" translate="no">launch()</code> 触发一个新协程，而无需担心其工作何时完成。</p>
+<p>随后，协程将完成工作，并输出剩下的输出语句。<code dir="ltr" translate="no">runBlocking()</code> 调用主体中的所有工作（包括所有协程）均完成后，<code dir="ltr" translate="no">runBlocking()</code> 返回，程序结束。</p>
+<p>现在，您已将您的同步代码更改为<strong>异步</strong>代码。当异步函数返回时，任务可能尚未完成。<code dir="ltr" translate="no">launch()</code> 就属于这种情况。该函数已返回，但其工作尚未完成。使用 <code dir="ltr" translate="no">launch()</code> 可以让代码中的多个任务并发运行，这是一项可在您开发的 Android 应用中使用的强大功能。</p>
+<h2 data-text="async()" id="async" is-upgraded="" tabindex="-1">async()</h2>
+<p>在现实的情况下，您不会知道请求获取天气预报和温度数据的网络请求需要多长时间。如果您想在这两项任务都完成后显示统一的天气预报，那么当前使用 <code dir="ltr" translate="no">launch()</code> 的方法是不够的。在这种情况下，<code dir="ltr" translate="no">async()</code> 就可以派上用场了。</p>
+<p>如果您关心协程何时完成并需要从中返回的值，请使用协程库中的 <code dir="ltr" translate="no">async()</code> 函数。</p>
+<p><code dir="ltr" translate="no">async()</code> 函数会返回一个类型为 <code dir="ltr" translate="no">Deferred</code> 的对象，就好像在承诺结果准备就绪后就会出现在其中。您可以使用 <code dir="ltr" translate="no">await()</code> 访问 <code dir="ltr" translate="no">Deferred</code> 对象上的结果。</p>
+<ol type="1">
+<li>首先，更改挂起函数以返回一个 <code dir="ltr" translate="no">String</code>，而不是输出天气预报和温度数据。将函数名称从 <code dir="ltr" translate="no">printForecast()</code> 和 <code dir="ltr" translate="no">printTemperature()</code> 更新为 <code dir="ltr" translate="no">getForecast()</code> 和 <code dir="ltr" translate="no">getTemperature()</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getForecast</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sunny"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getTemperature</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"30\u00b0C"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>修改 <code dir="ltr" translate="no">runBlocking()</code> 代码，使其对两个协程使用 <code dir="ltr" translate="no">async()</code> 而不是 <code dir="ltr" translate="no">launch()</code>。将每个 <code dir="ltr" translate="no">async()</code> 调用的返回值存储在名为 <code dir="ltr" translate="no">forecast</code> 和 <code dir="ltr" translate="no">temperature</code> 的变量中，这些变量是用于存储类型为 <code dir="ltr" translate="no">String</code> 的结果的 <code dir="ltr" translate="no">Deferred</code> 对象。（由于 Kotlin 可推断类型，因此您可以选择是否指定类型，不过，为了让您更清楚地了解 <code dir="ltr" translate="no">async()</code> 调用返回的内容，下面的示例中指定了类型。）</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">forecast</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Deferred&lt;String&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">getForecast</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">temperature</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Deferred&lt;String&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">getTemperature</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-p">...</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>稍后在协程中的两个 <code dir="ltr" translate="no">async()</code> 调用之后，您可以通过对 <code dir="ltr" translate="no">Deferred</code> 对象调用 <code dir="ltr" translate="no">await()</code> 来访问这些协程的结果。在本例中，您可以使用 <code dir="ltr" translate="no">forecast.await()</code> 和 <code dir="ltr" translate="no">temperature.await()</code> 输出每个协程的值。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">forecast</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Deferred&lt;String&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">getForecast</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">temperature</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Deferred&lt;String&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">getTemperature</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">forecast</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">temperature</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have a good day!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getForecast</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sunny"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getTemperature</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"30\u00b0C"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>运行程序，输出内容应如下所示：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Sunny 30°C
+Have a good day!
+</pre></devsite-code>
+<p>太棒了！您已创建了两个并发运行的协程来获取天气预报和温度数据。每个协程完成时，都会返回一个值。然后，您将这两个返回值合并为一个输出语句：<code dir="ltr" translate="no">Sunny 30°C</code>。</p>
+<aside class="special"><p><strong>注意</strong>：作为 <code dir="ltr" translate="no">async(),</code> 的真实示例，您可以查看 <a href="https://github.com/android/nowinandroid" target="_blank">Now in Android 应用</a>的这一部分。在 <a href="https://github.com/android/nowinandroid/blob/main/sync/work/src/main/java/com/google/samples/apps/nowinandroid/sync/workers/SyncWorker.kt#L65" target="_blank">SyncWorker</a> 类中，如果与特定后端同步成功，那么对 <code dir="ltr" translate="no">sync()</code> 的调用会返回一个布尔值。如果任何同步操作失败，应用就需要执行重试。</p>
+</aside>
+<h2 data-text="并行分解" id="parallel-decomposition" is-upgraded="" tabindex="-1"><strong>并行分解</strong></h2>
+<p>我们可以进一步研究此天气程序示例，看看协程在并行分解工作方面如何发挥作用。并行分解是将一个问题分解成可以并行解决的更小的子任务。子任务的结果准备好之后，您可以将其合并为最终结果。</p>
+<p>在您的代码中，将天气预报逻辑从 <code dir="ltr" translate="no">runBlocking()</code> 的主体中提取到单个 <code dir="ltr" translate="no">getWeatherReport()</code> 函数中，该函数会返回合并的字符串 <code dir="ltr" translate="no">Sunny 30°C</code>。</p>
+<ol type="1">
+<li>在代码中定义一个新的挂起函数 <code dir="ltr" translate="no">getWeatherReport()</code>。</li>
+<li>将该函数设置为等于使用空 lambda 代码块（最终会包含用于获取天气预报的逻辑）调用 <code dir="ltr" translate="no">coroutineScope{}</code> 函数的结果。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getWeatherReport</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-p">...</span>
+</code></pre></devsite-code>
+<p><code dir="ltr" translate="no">coroutineScope{}</code> 用于为此天气预报任务创建局部作用域。在此作用域内启动的协程会归入此作用域内，这对取消和异常都会产生影响，您很快就会了解这些内容。</p>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">coroutineScope()</code> 的主体中，使用 <code dir="ltr" translate="no">async()</code> 创建两个新协程，分别用于获取天气预报和温度数据。合并来自这两个协程的结果，创建天气预报字符串。您可以通过对 <code dir="ltr" translate="no">async()</code> 调用返回的每个 <code dir="ltr" translate="no">Deferred</code> 对象调用 <code dir="ltr" translate="no">await()</code> 来实现此目的。这可以确保在我们从此函数返回之前，每个协程都完成工作并返回结果。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getWeatherReport</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">forecast</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">temperature</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getTemperature</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">forecast</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">temperature</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-p">...</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>从 <code dir="ltr" translate="no">runBlocking()</code> 调用这个新的 <code dir="ltr" translate="no">getWeatherReport()</code> 函数。完整的代码如下：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">getWeatherReport</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have a good day!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getWeatherReport</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">forecast</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">temperature</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getTemperature</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">forecast</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">temperature</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getForecast</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sunny"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getTemperature</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"30\u00b0C"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>运行程序，您会看到以下输出：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Sunny 30°C
+Have a good day!
+</pre></devsite-code>
+<p>虽然输出内容没变，但是有一些要点值得注意。如前所述，<code dir="ltr" translate="no">coroutineScope()</code> 仅在其所有工作（包括其启动的所有协程）完成后才会返回。在本例中，协程 <code dir="ltr" translate="no">getForecast()</code> 和 <code dir="ltr" translate="no">getTemperature()</code> 都需要完成并返回各自的结果。然后，系统会合并 <code dir="ltr" translate="no">Sunny</code> 文本和 <code dir="ltr" translate="no">30°C</code> 并将其从该作用域中返回。系统会输出此天气预报（即 <code dir="ltr" translate="no">Sunny 30°C</code>），调用方可继续执行用于输出 <code dir="ltr" translate="no">Have a good day!</code> 的最后一个 print 语句。</p>
+<p>使用 <code dir="ltr" translate="no">coroutineScope()</code> 时，即使函数内部是并发完成工作的，调用方也会将其视为同步操作，因为 <code dir="ltr" translate="no">coroutineScope</code> 只有在所有工作完成后才会返回。</p>
+<p>这里有一个关于结构化并发的要点：您可以将多个并发操作放入单个同步操作中，在这种情况下，并发是一个实现细节。对发起调用的代码只有一个要求：它必须在挂起函数或协程中。除此之外，发起调用的代码的结构不需要考虑并发细节。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="异常和取消">
+          
+          <h2 class="step-title" data-text="               4. 异常和取消           " id="3" tabindex="-1">
+              4. 异常和取消
+          </h2>
+          
+          <p>现在，我们来介绍可能出现错误或系统可能取消某些工作的一些情况。</p>
+<h2 data-text="异常简介" id="introduction-to-exceptions" is-upgraded="" tabindex="-1">异常简介</h2>
+<p><a href="https://kotlinlang.org/docs/exceptions.html" target="_blank">异常</a>是指代码执行期间发生的意外事件。您应实现适当的方法来处理这些异常，以防止应用崩溃并对用户体验产生负面影响。</p>
+<p>以下示例程序会因发生异常而提前终止运行。该程序旨在通过除法运算“<code dir="ltr" translate="no">numberOfPizzas / numberOfPeople</code>”来计算每个人所能吃的披萨数量。假设您不小心忘了将 <code dir="ltr" translate="no">numberOfPeople</code> 的值设置为实际值。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">numberOfPeople</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">numberOfPizzas</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">20</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Slices per person: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">numberOfPizzas</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">numberOfPeople</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>运行时，该程序便会因发生计算异常而崩溃，因为您无法将 0 作为除数。</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Exception in thread &#34;main&#34; java.lang.ArithmeticException: / by zero
+ at FileKt.main (File.kt:4) 
+ at FileKt.main (File.kt:-1) 
+ at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (:-2)
+</pre></devsite-code>
+<p>这个问题有一个简单的解决方法：您可以将 <code dir="ltr" translate="no">numberOfPeople</code> 的初始值更改为非零数字。不过，随着代码变得越来越复杂，在某些情况下，您无法预测所有异常并阻止其发生。</p>
+<p>如果您的某个协程因发生异常而失败，会发生什么情况？请通过修改天气程序的代码一探究竟。</p>
+<h2 data-text="协程异常" id="exceptions-with-coroutines" is-upgraded="" tabindex="-1"><strong>协程</strong>异常</h2>
+<ol type="1">
+<li>从上一部分的天气程序入手。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">getWeatherReport</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have a good day!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getWeatherReport</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">forecast</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">temperature</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getTemperature</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">forecast</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">temperature</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getForecast</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sunny"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getTemperature</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"30\u00b0C"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>在其中一个挂起函数内，故意抛出一个异常，看看有何效果。这模拟了从服务器提取数据时发生意外错误的情况（确实存在这种情况）。</p>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">getTemperature()</code> 函数中，添加一行用于抛出异常的代码。使用 Kotlin 中的 <code dir="ltr" translate="no">throw</code> 关键字编写一个抛出表达式，后跟从 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/" target="_blank"><code dir="ltr" translate="no">Throwable</code></a> 扩展而来的异常的新实例。</li>
+</ol>
+<p>例如，您可以抛出 <code dir="ltr" translate="no">AssertionError</code> 并传入详细说明相应错误的消息字符串：<code dir="ltr" translate="no">throw AssertionError("Temperature is invalid")</code>。抛出此异常会使 <code dir="ltr" translate="no">getTemperature()</code> 函数停止进一步执行。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getTemperature</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">500</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">throw</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AssertionError</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Temperature is invalid"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"30\u00b0C"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>此外，您也可以将 <code dir="ltr" translate="no">getTemperature()</code> 方法的延迟时间更改为 <code dir="ltr" translate="no">500</code> 毫秒，以便您知道在另一个 <code dir="ltr" translate="no">getForecast()</code> 函数完成工作之前将出现异常。</p>
+<ol start="3" type="1">
+<li>运行该程序，看看结果如何。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Exception in thread &#34;main&#34; java.lang.AssertionError: Temperature is invalid
+ at FileKt.getTemperature (File.kt:24) 
+ at FileKt$getTemperature$1.invokeSuspend (File.kt:-1) 
+ at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith (ContinuationImpl.kt:33) 
+</pre></devsite-code>
+<p>为了理解这种行为，您需要明白协程之间存在父子关系。您可以从一个协程（称为“父”）启动另一个协程（称为“子”）。随着您从这些协程启动更多协程，您可以构建出整个协程层次结构。</p>
+<p>执行 <code dir="ltr" translate="no">getTemperature()</code> 和执行 <code dir="ltr" translate="no">getForecast()</code> 的协程是同一父协程的子协程。您所见到的协程中出现的异常行为是结构化并发造成的。当某个子协程因发生异常而失败时，异常会向上传播。系统会取消父协程，继而取消所有其他子协程（例如，本例中用于运行 <code dir="ltr" translate="no">getForecast()</code> 的协程）。最后，错误会向上传播，程序也会崩溃并出现 <code dir="ltr" translate="no">AssertionError</code>。</p>
+<h2 data-text="try-catch 异常" id="try-catch-exceptions" is-upgraded="" tabindex="-1">try-catch 异常</h2>
+<p>如果您知道代码的特定部分可能会抛出异常，那么可以使用 <a href="https://kotlinlang.org/docs/exceptions.html" target="_blank">try-catch</a> 块将相应代码括起来。您可以在应用中捕获异常并更妥善地加以处理，例如向用户显示有用的错误消息。其代码段可能如下所示：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Some code that may throw an exception</span>
+<span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">catch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">IllegalArgumentException</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Handle exception</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>这种方法也适用于包含协程的异步代码。您仍然可以使用 try-catch 表达式来捕获和处理协程中的异常。其原因在于，在结构化并发中，依序代码仍是同步代码，因此 try-catch 块仍会以同样的预期方式工作。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-k">throw</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">IllegalArgumentException</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"No city selected"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">catch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">IllegalArgumentException</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Caught exception </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-c1">// Handle error</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-p">...</span>
+</code></pre></devsite-code>
+<p>为了进一步熟悉如何处理异常，请修改天气程序以捕获您之前添加的异常，然后将异常输出到输出结果。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">runBlocking()</code> 函数中，在用于调用 <code dir="ltr" translate="no">getWeatherReport()</code> 的代码周围添加一个 try-catch 块。输出捕获的错误，同时输出一条内容为“weather report is not available”（天气预报不可用）的消息。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">getWeatherReport</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">catch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AssertionError</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Caught exception in runBlocking(): </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Report unavailable at this time"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have a good day!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getWeatherReport</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">forecast</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">temperature</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getTemperature</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">forecast</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">temperature</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getForecast</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sunny"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getTemperature</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">500</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">throw</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AssertionError</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Temperature is invalid"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"30\u00b0C"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>运行程序，现在，系统会妥善处理错误，程序也能成功完成执行。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Caught exception in runBlocking(): java.lang.AssertionError: Temperature is invalid
+Report unavailable at this time
+Have a good day!
+</pre></devsite-code>
+<p>从输出结果可以看出，<code dir="ltr" translate="no">getTemperature()</code> 会抛出异常。在 <code dir="ltr" translate="no">runBlocking()</code> 函数的主体中，将 try-catch 块中的 <code dir="ltr" translate="no">println(getWeatherReport())</code> 调用括起来。您可以捕获预期的异常类型（本例中为 <code dir="ltr" translate="no">AssertionError</code>）。然后，您将异常作为 <code dir="ltr" translate="no">"Caught exception"</code> 输出到输出结果，后跟错误消息字符串。为了处理该错误，您需要使用额外的 <code dir="ltr" translate="no">println()</code> 语句告知用户天气预报不可用：<code dir="ltr" translate="no">Report unavailable at this time</code>。</p>
+<p>请注意，这种行为意味着，如果无法获取温度信息，便无法发布任何天气预报（即使检索了有效的预报信息也是如此）。</p>
+<p>根据您预期的程序行为方式，您也可以使用其他方式来处理天气程序中的异常。</p>
+<ol start="3" type="1">
+<li>移动错误处理机制，让 try-catch 行为实际发生在由 <code dir="ltr" translate="no">async()</code> 启动的协程内，以提取温度信息。这样，即使未提取到温度信息，天气预报仍可输出预报信息。代码如下：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">getWeatherReport</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have a good day!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getWeatherReport</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">forecast</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">temperature</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">getTemperature</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">catch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AssertionError</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Caught exception </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-s">"{ No temperature found }"</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">forecast</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">temperature</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getForecast</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sunny"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getTemperature</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">500</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">throw</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AssertionError</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Temperature is invalid"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"30\u00b0C"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>运行程序。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Caught exception java.lang.AssertionError: Temperature is invalid
+Sunny { No temperature found }
+Have a good day!
+</pre></devsite-code>
+<p>从输出结果可以看出，调用 <code dir="ltr" translate="no">getTemperature()</code> 因出现异常而失败，但 <code dir="ltr" translate="no">async()</code> 中的代码可以捕获相应异常并妥善加以处理，只需让协程仍然返回表示未找到温度信息的 <code dir="ltr" translate="no">String</code> 即可。系统仍可输出天气预报，并成功预报 <code dir="ltr" translate="no">Sunny</code>。天气预报中缺少温度信息，但在用于显示温度信息的位置将显示一条消息，以说明未找到温度信息。与程序因此错误而崩溃相比，这种用户体验更好。</p>
+<p>为了帮助您理解这种错误处理方式，不妨这样设想：当协程以 <code dir="ltr" translate="no">async()</code> 开头时，<code dir="ltr" translate="no">async()</code> 是提供方。<code dir="ltr" translate="no">await()</code> 是使用方，因为它在等待使用来自协程的结果。提供方会执行工作并生成结果。使用方则使用相应结果。当提供方存在异常时，如果异常未得到处理，使用方便会获取相应异常，而协程也将失败。不过，如果提供方能够捕获并处理异常，使用方便不会看到相应异常，并会看到有效的结果。</p>
+<p>再次参考 <code dir="ltr" translate="no">getWeatherReport()</code> 代码：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getWeatherReport</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">forecast</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">temperature</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">getTemperature</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">catch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AssertionError</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Caught exception </span><span class="devsite-syntax-si">$</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-s">"{ No temperature found }"</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">forecast</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">temperature</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>在本例中，提供方 (<code dir="ltr" translate="no">async()</code>) 能够捕获并处理异常，并且仍会返回内容为 <code dir="ltr" translate="no">"{ No temperature found }"</code> 的 <code dir="ltr" translate="no">String</code> 结果。使用方 (<code dir="ltr" translate="no">await()</code>) 会收到这一 <code dir="ltr" translate="no">String</code> 结果，甚至都不需要知道发生了异常。选择这种方式也能妥善处理预计代码中会发生的异常。</p>
+<aside class="special"><p><strong>注意</strong>：对于以 <code dir="ltr" translate="no">launch()</code> 开头的协程与以 <code dir="ltr" translate="no">async()</code> 开头的协程，异常的传播方式有所不同。在以 <code dir="ltr" translate="no">launch()</code> 开头的协程内，系统会立即抛出异常。因此，如果预计代码会抛出异常，您可以使用 try-catch 块将代码括起来。查看<a href="https://developer.android.com/kotlin/coroutines?hl=zh-cn#handling-exceptions" target="_blank">示例</a>。</p>
+</aside>
+<aside class="warning"><p><strong>警告</strong>：在协程代码中的 try-catch 语句中，请避免捕获常规 <code dir="ltr" translate="no">Exception</code>，因为这包含的异常极多。您可能会无意中捕获并抑制某个错误，而实际上这个错误属于代码中应该予以修复的 bug。另一个重要原因是，协程的取消（参见下文）依赖于 <a href="https://kotlinlang.org/docs/exception-handling.html#cancellation-and-exceptions" target="_blank"><code dir="ltr" translate="no">CancellationException</code></a>。因此，如果您捕获任何类型的 <code dir="ltr" translate="no">Exception</code>（包括 <code dir="ltr" translate="no">CancellationExceptions</code>）而不重新将其抛出，协程内的取消行为便可能与预期不同。不过，您可以捕获预计会从代码中抛出的特定类型的异常。</p>
+</aside>
+<p>现在您已了解，除非得到处理，否则异常将在协程树中向上传播。此外，如果异常会一直传播到层次结构的根部，也请务必小心，因为这可能会导致整个应用崩溃。如需详细了解如何处理异常，请参阅<a href="https://medium.com/androiddevelopers/exceptions-in-coroutines-ce8da1ec060c" target="_blank">协程中的异常</a>这篇博文和<a href="https://kotlinlang.org/docs/exception-handling.html" target="_blank">协程异常处理</a>一文。</p>
+<h2 data-text="取消" id="cancellation" is-upgraded="" tabindex="-1"><strong>取消</strong></h2>
+<p>“协程的取消”这一主题与异常类似。当某个事件导致应用取消其先前启动的工作时，这种场景通常是由用户驱动的。</p>
+<p>例如，假设用户在应用中选择了一项偏好设置，以指示自己不想在应用中再看到温度值了。他们只想知道天气预报信息（例如 <code dir="ltr" translate="no">Sunny</code>），但不想知道确切温度。因此，要取消目前用于获取温度数据的协程。</p>
+<ol type="1">
+<li>先从下面的初始代码入手（无取消）。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Weather forecast"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">getWeatherReport</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Have a good day!"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getWeatherReport</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">forecast</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">temperature</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getTemperature</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">forecast</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">temperature</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getForecast</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Sunny"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getTemperature</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"30\u00b0C"</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>延迟一段时间后，取消用于获取温度信息的协程，以便让天气预报只显示预报信息。将 <code dir="ltr" translate="no">coroutineScope</code> 代码块的返回值更改为仅包含天气预报字符串。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getWeatherReport</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">coroutineScope</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">forecast</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getForecast</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">temperature</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">getTemperature</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">200</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">temperature</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">cancel</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">forecast</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">await</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s">"</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-p">...</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行程序。现在，输出结果将如下所示。天气预报只包含天气预报信息 <code dir="ltr" translate="no">Sunny</code>，但不包含温度，因为相应协程已取消。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Weather forecast
+Sunny
+Have a good day!
+</pre></devsite-code>
+<p>您在这里学到的是，协程可以取消，但不会影响同一作用域内的其他协程，并且父协程不会取消。</p>
+<aside class="special"><p><strong>注意</strong>：如需详细了解如何<a href="https://medium.com/androiddevelopers/cancellation-in-coroutines-aa6b90163629" target="_blank">取消协程</a>，请参阅这篇 Android 开发者博文。取消操作必须协同工作，因此您应实现协程，这样才能将其取消。</p>
+</aside>
+<p>在本部分中，您了解了取消和异常在协程中的行为方式，以及这与协程层次结构的关联。我们来详细了解一下协程背后的正式概念，以便了解所有重要部分是如何协同工作的。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="协程概念">
+          
+          <h2 class="step-title" data-text="               5. 协程概念           " id="4" tabindex="-1">
+              5. 协程概念
+          </h2>
+          
+          <p>异步或并发执行工作时，您需要回答一些问题，包括执行工作的方式、协程应存在的时长、协程取消或因错误而失败时应执行的操作等。协程遵循<strong>结构化并发</strong>原则，当您在结合使用不同机制的代码中使用协程时，这一原则会迫使您不得不回答这些问题。</p>
+<h2 data-text="作业" id="job" is-upgraded="" tabindex="-1"><strong>作业</strong></h2>
+<p>当您使用 <code dir="ltr" translate="no">launch()</code> 函数启动协程时，它会返回一个 <code dir="ltr" translate="no">Job</code> 实例。作业包含协程的句柄（即对协程的引用），因此您可以管理其生命周期。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">job</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">...</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：从以 <code dir="ltr" translate="no">async()</code> 函数开头的协程返回的 <code dir="ltr" translate="no">Deferred</code> 对象也是 <code dir="ltr" translate="no">Job</code>，并且包含相应协程未来的结果。</p>
+</aside>
+<p>此作业可用于控制协程的生命周期或持续时间，例如，在您不再需要相应任务时取消协程。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">job</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">cancel</span><span class="devsite-syntax-p">()</span>
+</code></pre></devsite-code>
+<p>对于作业，您可以检查它是处于活跃状态、已取消还是已完成。如果协程及其启动的所有协程均已完成所有工作，那么该作业就已经完成。请注意，协程可能会因其他原因（例如被取消或失败并引发异常）而完成，但届时作业仍会被视为已完成。</p>
+<p>作业还会跟踪协程之间的父子关系。</p>
+<h2 data-text="作业层次结构" id="job-hierarchy" is-upgraded="" tabindex="-1">作业层次结构</h2>
+<p>当一个协程启动另一个协程时，从新协程返回的作业称为原始父作业的子级。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">job</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span><span class="devsite-syntax-w">            </span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">childJob</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">...</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>这些父级与子级关系形成了作业层次结构，其中的每个作业都可以启动其他作业，依此类推。</p>
+<p class="image-container"><img alt="下图所示为作业的树状层次结构。层次结构的根部是一个父作业。该作业有 3 个子级，分别名为“子级 1 作业”“子级 2 作业”和“子级 3 作业”。然后，“子级 1 作业”本身有两个子级：“子级 1a 作业”和“子级 1b 作业”。此外，“子级 2 作业”也有一个名为“子级 2a 作业”的子级。最后，“子级 3 作业”有两个子级：“子级 3a 作业”和“子级 3b 作业”。" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-coroutines-kotlin-playground/img/d6f120976b283e0_2880.029cc721e4.png 2880w" style="width: 573.51px" /></p>
+<p>这种父级与子级关系很重要，因为它会规定子级和父级以及属于同一个父级的其他子级的某些行为。您在之前的天气程序示例中见过这种行为。</p>
+<ul>
+<li>如果某个父作业被取消，那么其子作业也会被取消。</li>
+<li>使用 <code dir="ltr" translate="no">job.cancel()</code> 取消某个子作业时，该子作业会终止，但其父级不会被取消。</li>
+<li>如果某个作业失败并引发异常，其父级中具有该异常的作业也会被取消。这称为错误向上传播（到父级、父级的父级，依此类推）。</li>
+</ul>
+<h2 data-text="CoroutineScope" id="coroutinescope" is-upgraded="" tabindex="-1"><strong>CoroutineScope</strong></h2>
+<p>协程通常启动到 <code dir="ltr" translate="no">CoroutineScope</code> 中。这可以确保没有不受管理而不知所踪的协程，因此不会浪费资源。</p>
+<p><code dir="ltr" translate="no">launch()</code> 和 <code dir="ltr" translate="no">async()</code> 是 <code dir="ltr" translate="no">CoroutineScope</code> 的<a href="https://kotlinlang.org/docs/extensions.html" target="_blank">扩展函数</a>。对该作用域调用 <code dir="ltr" translate="no">launch()</code> 或 <code dir="ltr" translate="no">async()</code>，以在该作用域内创建新协程。</p>
+<p><code dir="ltr" translate="no">CoroutineScope</code> 与生命周期相关联，生命周期对该作用域内的协程存留时长设置了界限。如果某个作用域被取消，那么其作业也会被取消，而且取消会传播到其子作业。如果作用域内的某个子作业失败并引发异常，那么其他子作业会被取消，父作业也会被取消，而且会向调用方重新抛出异常。</p>
+<h3 data-text="Kotlin 园地中的 CoroutineScope" id="coroutinescope-in-kotlin-playground" is-upgraded="" tabindex="-1">Kotlin 园地中的 CoroutineScope</h3>
+<p>在此 Codelab 中，您使用了 <code dir="ltr" translate="no">runBlocking()</code>，它为您的程序提供了 <code dir="ltr" translate="no">CoroutineScope</code>。您还学习了如何使用 <code dir="ltr" translate="no">coroutineScope { }</code> 在 <code dir="ltr" translate="no">getWeatherReport()</code> 函数中创建新的作用域。</p>
+<h3 data-text="Android 应用中的 CoroutineScope" id="coroutinescope-in-android-apps" is-upgraded="" tabindex="-1"><strong>Android 应用中的 CoroutineScope</strong></h3>
+<p>在具有定义明确的生命周期的实体中，例如 <code dir="ltr" translate="no">Activity</code> (<code dir="ltr" translate="no">lifecycleScope</code>) 和 <code dir="ltr" translate="no">ViewModel</code> (<code dir="ltr" translate="no">viewModelScope</code>) 中，Android 支持协程作用域。在这些作用域内启动的协程将遵循相应实体（例如 <code dir="ltr" translate="no">Activity</code> 或 <code dir="ltr" translate="no">ViewModel</code>）的生命周期。</p>
+<p>举例而言，假设您在某个 <code dir="ltr" translate="no">Activity</code> 中使用提供的协程作用域 <code dir="ltr" translate="no">lifecycleScope</code> 启动协程。如果该 activity 被销毁，那么 <code dir="ltr" translate="no">lifecycleScope</code> 会被取消，并且其所有子协程也会被自动取消。您只需要确定协程遵循该 <code dir="ltr" translate="no">Activity</code> 的生命周期是不是您需要的行为。</p>
+<p>在您将要构建的 Race Tracker Android 应用中，您将学习如何将协程的作用域限定为可组合项的生命周期。</p>
+<h3 data-text="CoroutineScope 的实现细节" id="implementation-details-of-coroutinescope" is-upgraded="" tabindex="-1"><strong>CoroutineScope 的实现细节</strong></h3>
+<p>如果您查看源代码以了解 <a href="https://cs.android.com/android/platform/superproject/+/master:external/kotlinx.coroutines/kotlinx-coroutines-core/common/src/CoroutineScope.kt?q=coroutinescope&hl=zh-cn" target="_blank"><code dir="ltr" translate="no">CoroutineScope.kt</code></a> 在 Kotlin 协程库中是如何实现的，就会看到 <code dir="ltr" translate="no">CoroutineScope</code> 被声明为一个接口并包含一个 <code dir="ltr" translate="no">CoroutineContext</code> 作为变量。</p>
+<p><code dir="ltr" translate="no">launch()</code> 和 <code dir="ltr" translate="no">async()</code> 函数会在该作用域内创建一个新的子协程，此子级还会从该作用域继承上下文。上下文中包含哪些内容？下面我们就来讨论这个问题。</p>
+<h2 data-text="CoroutineContext" id="coroutinecontext" is-upgraded="" tabindex="-1"><strong>CoroutineContext</strong></h2>
+<p><code dir="ltr" translate="no">CoroutineContext</code> 提供将在其中运行协程的上下文的相关信息。<code dir="ltr" translate="no">CoroutineContext</code> 本质上是一个用于存储元素的映射，其中的每个元素都有一个唯一的键。这些并非必填字段，不过下面列举了一些上下文中可能包含的字段：</p>
+<ul>
+<li>name - 协程的名称，用于唯一标识协程</li>
+<li>job - 控制协程的生命周期</li>
+<li>dispatcher - 将工作分派到适当的线程</li>
+<li>exception handler - 处理协程中执行的代码所抛出的异常</li>
+</ul>
+<aside class="special"><p><strong>注意</strong>：以下是 <code dir="ltr" translate="no">CoroutineContext</code> 的默认值，如果您没有为其提供值，则会使用这些值：</p>
+<ul>
+<li>协程名称的默认值为“coroutine”</li>
+<li>父作业无默认值</li>
+<li>协程调度程序的默认值为 <code dir="ltr" translate="no">Dispatchers.Default</code></li>
+<li>异常处理程序无默认值</li>
+</ul>
+</aside>
+<p>上下文中的每个元素可以通过 <code dir="ltr" translate="no">+</code> 运算符加到一起。例如，可以如下定义一个 <code dir="ltr" translate="no">CoroutineContext</code>：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">Job</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Dispatchers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Main</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">exceptionHandler</span>
+</code></pre></devsite-code>
+<p>由于未提供名称，因此使用了默认的协程名称。</p>
+<p>如果在协程中启动一个新协程，子协程将从父协程继承 <code dir="ltr" translate="no">CoroutineContext</code>，但只会为刚创建的协程替换作业。您也可以替换从父上下文继承的任何元素，只需针对上下文中您希望更改的部分向 <code dir="ltr" translate="no">launch()</code> 或 <code dir="ltr" translate="no">async()</code> 函数传入参数即可。</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">scope</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">launch</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Dispatchers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Default</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">...</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>您可以观看此 <a href="https://youtu.be/w0kfnydnFWI?t=256" target="_blank">KotlinConf 会议讲座视频</a>，详细了解 <code dir="ltr" translate="no">CoroutineContext</code> 以及如何从父级继承上下文。</p>
+<p>前文已多次提到调度程序。它的作用是将工作分派或分配到线程。下面我们就详细介绍一下线程和调度程序。</p>
+<h2 data-text="调度程序" id="dispatcher" is-upgraded="" tabindex="-1"><strong>调度程序</strong></h2>
+<p>协程使用调度程序来确定用于执行协程的线程。<strong>线程</strong>可以启动、执行一些工作（执行一些代码），然后在没有更多工作要完成时终止。</p>
+<p>当用户启动您的应用时，Android 系统会为您的应用创建一个新进程和一个执行线程（称为<strong>主线程</strong>）。主线程负责为应用处理许多重要的操作，包括 Android 系统事件、在屏幕上绘制界面、处理用户输入事件等。因此，您为应用编写的大多数代码可能都在主线程上运行。</p>
+<p>对于代码的线程行为，有两个术语需要了解：<strong>阻塞</strong>和<strong>非阻塞</strong>。常规函数会阻塞发起调用的线程，直到其工作完成。这意味着，它不会让出发起调用的线程，直到工作完成为止，因此在此期间无法执行任何其他工作。相反，非阻塞代码会让出发起调用的线程，直到满足特定条件为止，因此在此期间您可以执行其他工作。您可以使用异步函数执行非阻塞工作，因为它会在其工作完成前返回。</p>
+<p>对于 Android 应用，只有当主线程执行速度非常快时，您才能对主线程调用阻塞代码。目的是让主线程保持未阻塞状态，以便主线程能够在触发新事件时立即执行工作。主线程是 activity 的<strong>界面线程</strong>，负责界面绘制和界面相关事件。当屏幕发生变化时，需要重新绘制界面。对于屏幕上的某些元素（例如动画），界面需要频繁地重新绘制，以使这些元素具有平滑过渡效果。如果主线程需要执行长时间运行的工作块，屏幕更新频率就会下降，用户就会看到生硬的过渡（称为“卡顿”），或者应用可能会挂起或响应缓慢。</p>
+<p>因此，我们需要将任何长时间运行的工作项移出主线程，在其他线程中进行处理。应用开始时只有一个主线程，但您可以选择创建多个线程来执行其他工作。这些额外的线程可以称为工作器线程。长时间运行的任务如果长时间阻塞工作线程，是完全没有问题的，因为在此期间，主线程会保持畅通，可以积极响应用户。</p>
+<p>Kotlin 提供了一些内置调度程序：</p>
+<ul>
+<li><strong>Dispatchers.Main:</strong>：使用此调度程序可在 Android 主线程上运行协程。此调度程序主要用于处理界面更新和互动以及执行快速工作。</li>
+<li><strong>Dispatchers.IO:</strong>：此调度程序经过了专门优化，适合在主线程之外执行磁盘或网络 I/O。例如，读取或写入文件以及执行任何网络操作。</li>
+<li><strong>Dispatchers.Default:</strong>：在调用 <code dir="ltr" translate="no">launch()</code> 和 <code dir="ltr" translate="no">async()</code> 时，如果其上下文中未指定调度程序，就会使用此默认调度程序。您可以使用此调度程序在主线程之外执行计算密集型工作。例如，处理位图图片文件。</li>
+</ul>
+<aside class="special"><p><strong>注意</strong>：还有 <code dir="ltr" translate="no">Executor.asCoroutineDispatcher()</code> 和 <code dir="ltr" translate="no">Handler.asCoroutineDispatcher()</code> 扩展（如果您需要从可用的 <code dir="ltr" translate="no">Handler</code> 或 <code dir="ltr" translate="no">Executor</code> 创建 <code dir="ltr" translate="no">CoroutineDispatcher</code> 的话）。</p>
+</aside>
+<p>不妨尝试一下 Kotlin 园地中的以下示例，更好地了解协程调度程序。</p>
+<ol type="1">
+<li>将 Kotlin 园地中您有的任何代码替换为以下代码：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"10 results found."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Loading..."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>现在，使用对 <code dir="ltr" translate="no">withContext()</code> 的调用封装已启动协程的内容，以更改在其中执行该协程的 <code dir="ltr" translate="no">CoroutineContext</code>，并明确替换调度程序。改为使用 <code dir="ltr" translate="no">Dispatchers.Default</code>（而不是程序中其余协程代码当前使用的 <code dir="ltr" translate="no">Dispatchers.Main</code>）。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-p">...</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">withContext</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Dispatchers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Default</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"10 results found."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Loading..."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>您可以切换调度程序，因为 <a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/with-context.html" target="_blank"><code dir="ltr" translate="no">withContext()</code></a> 本身是一个挂起函数。它使用新的 <code dir="ltr" translate="no">CoroutineContext</code> 执行提供的代码块。新的上下文来自父作业的上下文（外部 <code dir="ltr" translate="no">launch()</code> 块），但它会将父上下文中使用的调度程序替换为此处指定的调度程序：<code dir="ltr" translate="no">Dispatchers.Default</code>。如此一来，我们就能从使用 <code dir="ltr" translate="no">Dispatchers.Main</code> 执行工作改为使用 <code dir="ltr" translate="no">Dispatchers.Default</code>。</p>
+<ol start="3" type="1">
+<li>运行程序。输出应如下所示：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Loading...
+10 results found.
+</pre></devsite-code>
+<ol start="4" type="1">
+<li>添加 print 语句，通过调用 <code dir="ltr" translate="no">Thread.currentThread().name</code> 查看您正在使用的线程。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.*</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">runBlocking</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">Thread</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentThread</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> - runBlocking function"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">Thread</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentThread</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> - launch function"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">withContext</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Dispatchers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Default</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">Thread</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentThread</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> - withContext function"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">delay</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">1000</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"10 results found."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"</span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">Thread</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">currentThread</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> - end of launch function"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Loading..."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>运行程序。输出应如下所示：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>main @coroutine#1 - runBlocking function
+Loading...
+main @coroutine#2 - launch function
+DefaultDispatcher-worker-1 @coroutine#2 - withContext function
+10 results found.
+main @coroutine#2 - end of launch function
+</pre></devsite-code>
+<p>根据此输出可以发现，大部分代码是在主线程上的协程中执行的。不过，<code dir="ltr" translate="no">withContext(Dispatchers.Default)</code> 块中的这部分代码是在一个默认调度程序工作器线程（它不是主线程）上的协程中执行的。请注意，在 <code dir="ltr" translate="no">withContext()</code> 返回后，协程会返回到在主线程上运行（输出语句 <code dir="ltr" translate="no">main @coroutine#2 - end of launch function</code> 表明了这一点）。此示例证明，您可以通过修改用于协程的上下文来切换调度程序。</p>
+<p>如果您有在主线程上启动的协程，并且您希望将某些操作移出主线程，就可以使用 <code dir="ltr" translate="no">withContext</code> 切换用于相应工作的调度程序。从可用调度程序（<code dir="ltr" translate="no">Main</code>、<code dir="ltr" translate="no">Default</code> 和 <code dir="ltr" translate="no">IO</code>）中进行相应选择，具体取决于操作的类型。然后，就可以将工作分配到指定用于相应用途的线程（或称为线程池的线程组）。协程可以自行挂起，而调度程序也会影响协程的恢复方式。</p>
+<p>请注意，在使用 Room 和 Retrofit（本单元和下一单元的学习内容）等热门库时，如果库代码已对使用其他协程调度程序（例如 <code dir="ltr" translate="no">Dispatchers.IO.</code>）来执行此工作做出相应处理，您可能就不必自己明确切换调度程序了。在此类情况下，这些库显示的 <code dir="ltr" translate="no">suspend</code> 函数可能已经具有<strong>主线程安全性</strong>，可以从主线程上运行的协程中进行调用。库本身会负责处理将调度程序切换为使用工作器线程的调度程序。</p>
+<p>现在，您已经大致了解协程的各个重要组成部分以及 <code dir="ltr" translate="no">CoroutineScope</code>、<code dir="ltr" translate="no">CoroutineContext</code>、<code dir="ltr" translate="no">CoroutineDispatcher</code> 和 <code dir="ltr" translate="no">Jobs</code> 在塑造协程的生命周期和行为方面所起的作用。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="5" label="总结">
+          
+          <h2 class="step-title" data-text="               6. 总结           " id="5" tabindex="-1">
+              6. 总结
+          </h2>
+          
+          <p>您学习协程这个具有挑战性的主题学得不错！您已经了解到协程非常实用，因为您可以挂起协程的执行，腾出底层线程来执行其他工作，稍后再恢复协程。这样，您就可以在代码中运行并发操作。</p>
+<p>Kotlin 中的协程代码遵循结构化并发的原则。默认情况下，代码会依序执行，因此如果您想实现并发（例如使用 <code dir="ltr" translate="no">launch()</code> 或 <code dir="ltr" translate="no">async()</code>），就需要明确指定并发。借助结构化并发机制，您可以将多个并发操作放入单个同步操作中，在这种情况下，并发是一个实现细节。对发起调用的代码只有一个要求：它必须在挂起函数或协程中。除此之外，发起调用的代码的结构不需要考虑并发细节。这使异步代码更易于阅读和推断。</p>
+<p>结构化并发会跟踪应用中每个已启动的协程，确保其不会不知所踪。协程可以具有层次结构 - 任务可以启动子任务，而子任务也可以继续启动子任务。作业可在协程间保持父级与子级关系，而且您可以通过作业来控制协程的生命周期。</p>
+<p>启动、完成、取消和失败是协程执行中的四个常见操作。为了更轻松地维护并发程序，结构化并发定义了一些原则，为如何在层次结构中管理通用操作奠定了基础：</p>
+<ol type="1">
+<li><strong>启动</strong>：将协程启动到一个限定了协程存留时长的作用域中。</li>
+<li><strong>完成</strong>：只有在子作业完成后，作业才会完成。</li>
+<li><strong>取消</strong>：此操作需要向下传播。如果取消某个协程，那么也需要取消子协程。</li>
+<li><strong>失败</strong>：此操作应向上传播。如果协程抛出异常，那么父级会取消其所有子级，取消本身，并将异常向上传播到其父级。此过程会一直持续到捕获失败并进行处理为止。这可以确保正确报告代码中的所有错误，绝不错过任何错误。</li>
+</ol>
+<p>通过动手体验协程并了解协程背后的概念，您现在可以更好地在 Android 应用中编写并发代码了。使用协程进行异步编程，可以让代码更易于读取和推断，在取消和异常情况下更可靠，还可以为最终用户提供更出色、响应更迅速的体验。</p>
+<h2 data-text="摘要" id="summary" is-upgraded="" tabindex="-1"><strong>摘要</strong></h2>
+<ul>
+<li>借助协程，您无需学习新的编程方式，即可编写以并发方式长时间运行的代码。协程采用依序执行的设计。</li>
+<li>协程遵循结构化并发的原则，不仅有助于确保工作不会不知所踪，还能将工作与限定了工作存留时长的作用域相关联。除非您明确要求并发执行（例如，使用 <code dir="ltr" translate="no">launch()</code> 或 <code dir="ltr" translate="no">async()</code>），否则代码在默认情况下依序执行并与底层事件循环协同工作。此原则假定，如果您调用一个函数，那么无论该函数在实现细节中使用了多少协程，都应在彻底完成其工作（除非因异常而失败）后再返回。</li>
+<li><code dir="ltr" translate="no">suspend</code> 修饰符用于标记函数，表示可以挂起并于稍后恢复该函数的执行。</li>
+<li><code dir="ltr" translate="no">suspend</code> 函数只能从其他挂起函数或协程中调用。</li>
+<li>您可以使用 <code dir="ltr" translate="no">CoroutineScope</code> 的 <code dir="ltr" translate="no">launch()</code> 或 <code dir="ltr" translate="no">async()</code> 扩展函数启动新协程。</li>
+<li>Job 可管理协程的生命周期并维护父级与子级关系，在确保结构化并发方面发挥着重要作用。</li>
+<li><code dir="ltr" translate="no">CoroutineScope</code> 通过其 Job 来控制协程的生命周期，并以递归方式对其子级和子级的子级执行取消和其他规则。</li>
+<li><code dir="ltr" translate="no">CoroutineContext</code> 定义协程的行为，并可包含对作业和协程调度程序的引用。</li>
+<li>协程使用 <code dir="ltr" translate="no">CoroutineDispatcher</code> 来确定用于其执行的线程。</li>
+</ul>
+<h2 data-text="了解更多内容" id="learn-more" is-upgraded="" tabindex="-1">了解更多内容</h2>
+<ul>
+<li><a href="https://developer.android.com/kotlin/coroutines?hl=zh-cn" target="_blank">Android 上的 Kotlin 协程</a></li>
+<li><a href="https://developer.android.com/kotlin/coroutines/additional-resources?hl=zh-cn" target="_blank">有关 Kotlin 协程和数据流的其他资源</a></li>
+<li><a href="https://kotlinlang.org/docs/coroutines-guide.html" target="_blank">协程指南</a></li>
+<li><a href="https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html" target="_blank">协程上下文和调度程序</a></li>
+<li><a href="https://medium.com/androiddevelopers/coroutines-first-things-first-e6187bf3bb21" target="_blank">协程中的取消和异常</a></li>
+<li><a href="https://medium.com/androiddevelopers/coroutines-on-android-part-i-getting-the-background-3e0e54d20bb" target="_blank">Android 上的协程</a></li>
+<li><a href="https://www.youtube.com/watch?v=ZTDXo0-SKuU&t=2s&sa=D&source=docs&ust=1664866751197807&usg=AOvVaw19xcRyp5y7Sdx1dzcf-YQP&hl=zh-cn" target="_blank">Kotlin 协程 101</a></li>
+<li><a href="https://www.youtube.com/watch?v=w0kfnydnFWI&hl=zh-cn" target="_blank">KotlinConf 2019：协程：取消和异常处理全解</a></li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-x_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-x.029cc721e4.svg"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-youtube_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin.029cc721e4.svg"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="D63c3SK/MNdSREHPG1NQfXjHRGI1YL">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    '../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["../../../offline-assets/developer.android.com/_pwa/android/manifest.json","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["DevPro__enable_firebase_workspaces_card","MiscFeatureFlags__enable_framebox_badge_methods","Concierge__enable_remove_info_panel_tags","Profiles__enable_user_type","CloudShell__cloud_code_overflow_menu","DevPro__enable_embed_profile_creation","DevPro__enable_google_one_card","DevPro__enable_cloud_innovators_plus","Cloud__enable_llm_concierge_chat","Profiles__enable_targeted_hero","Profiles__enable_developer_profile_benefits_ui_redesign","Search__enable_ai_search_summaries","Search__enable_ai_search_summaries_for_all","DevPro__enable_payments_first_batch","DevPro__enable_nvidia_credits_card","Profiles__enable_developer_profile_pages_as_content","Profiles__enable_awarding_url","Search__enable_suggestions_from_borg","Analytics__enable_clearcut_logging","MiscFeatureFlags__enable_view_transitions","MiscFeatureFlags__fix_lower_breadcrumbs","DevPro__enable_google_payments_buyflow","DevPro__enable_devsite_captcha","MiscFeatureFlags__developers_footer_dark_image","Search__enable_page_map","MiscFeatureFlags__developers_footer_image","MiscFeatureFlags__remove_cross_domain_tracking_params","Profiles__enable_playlist_community_acl","Cloud__enable_free_trial_server_call","DevPro__enable_free_benefits","Profiles__enable_developer_profiles_callout","Profiles__enable_dashboard_curated_recommendations","Significatio__enable_by_tenant","Cloud__enable_cloudx_experiment_ids","Search__enable_ai_eligibility_checks","Analytics__enable_devpro_interaction_logging","DevPro__enable_developer_subscriptions","TpcFeatures__proxy_prod_host","BookNav__enable_tenant_cache_key","DevPro__enable_enterprise","CloudShell__cloud_shell_button","Cloud__fast_free_trial","DevPro__remove_eu_tax_intake_form","MiscFeatureFlags__enable_project_variables","MiscFeatureFlags__enable_llms_txt","MiscFeatureFlags__enable_appearance_cookies","Profiles__enable_complete_playlist_endpoint","Profiles__enable_completequiz_endpoint","MiscFeatureFlags__enable_dark_theme","Cloud__enable_legacy_calculator_redirect","DevPro__enable_code_assist","Experiments__reqs_query_experiments","Concierge__enable_devsite_llm_tools","MiscFeatureFlags__enable_variable_operator","Profiles__require_profile_eligibility_for_signin","Cloud__enable_cloud_shell","Profiles__enable_stripe_subscription_management","DevPro__enable_g1_integration","Profiles__enable_completecodelab_endpoint","Cloud__enable_cloud_shell_fte_user_flow","Profiles__enable_purchase_prompts","Concierge__enable_actions_menu","Profiles__enable_recognition_badges","Concierge__enable_pushui","DevPro__enable_credits_banner","Profiles__enable_profile_collections","TpcFeatures__enable_unmirrored_page_left_nav","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__enable_firebase_utm","SignIn__enable_l1_signup_flow","Profiles__enable_public_developer_profiles","DevPro__enable_devpro_offers","Profiles__enable_callout_notifications","Profiles__enable_page_saving","Cloud__cache_serialized_dynamic_content","EngEduTelemetry__enable_engedu_telemetry","Profiles__enable_auto_apply_credits","MiscFeatureFlags__gdp_dashboard_reskin_enabled","Profiles__enable_release_notes_notifications","MiscFeatureFlags__enable_explicit_template_dependencies","Cloud__enable_cloud_dlp_service","Profiles__enable_join_program_group_endpoint","MiscFeatureFlags__enable_explain_this_code","DevPro__enable_vertex_credit_card","MiscFeatureFlags__enable_variable_operator_index_yaml"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[1,1],[2,2]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

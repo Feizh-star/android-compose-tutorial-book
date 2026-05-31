@@ -1,0 +1,2145 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="../../../offline-assets/developer.android.com/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    
+    
+    <link rel="stylesheet" href="../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+      <link rel="stylesheet"
+            href="../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css"><link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=vi" /><title>添加可滚动列表 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="添加可滚动列表 &nbsp;|&nbsp; Android Developers"><meta name="description" content="构建一个应用，在其中显示带文字和图片且可滚动的自我肯定话语列表。">
+  <meta property="og:description" content="构建一个应用，在其中显示带文字和图片且可滚动的自我肯定话语列表。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      添加可滚动列表<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="android,kotlin" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="1C05Sug7-fcRzocw62rnNkOrTvS6sIK0mFvyop0KE06g" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations/issues/new?assignees=&amp;labels=&amp;template=add-a-scrollable-list.md&amp;title=Android&#43;Compose&#43;Add&#43;a&#43;Scrollable&#43;List" id="basic-android-kotlin-compose-training-add-scrollable-list" layout="paginated" no-tooltip="" title="添加可滚动列表">
+      
+        <google-codelab-step duration="0" step="0" label="使用前须知">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2026-03-30T17:29:44Z" codelab-title="添加可滚动列表">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 前言           " id="0" tabindex="-1">
+              1. 前言
+          </h2>
+          
+          <p>在此 Codelab 中，您将学习如何使用 Jetpack Compose 在应用中创建可滚动列表。</p>
+<p>您将使用 <strong>Affirmations</strong> 应用，该应用会显示配有精美图片的自我肯定话语列表，为您的日常生活带来满满正能量！</p>
+<p>数据已经有了，您只需获取数据并将其显示在界面中即可。</p>
+<h2 data-text="前提条件" id="prerequisites" is-upgraded="" tabindex="-1">前提条件</h2>
+<ul>
+<li>熟悉以 Kotlin 编写的列表</li>
+<li>拥有使用 Jetpack Compose 构建布局的经验</li>
+<li>拥有在设备或模拟器上运行应用的经验</li>
+</ul>
+<h2 class="checklist" data-text="学习内容" id="what-youll-learn" is-upgraded="" tabindex="-1">学习内容</h2>
+<ul class="checklist">
+<li>如何使用 Jetpack Compose 创建 Material Design 卡片？</li>
+<li>如何使用 Jetpack Compose 创建可滚动列表？</li>
+</ul>
+<h2 data-text="构建内容" id="what-youll-build" is-upgraded="" tabindex="-1">构建内容</h2>
+<ul>
+<li>您将使用一个现有应用，在其界面中添加可滚动列表</li>
+</ul>
+<p>完成后的效果将如下所示：</p>
+<p class="image-container"><img alt="286f5132aa155fa6.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_2880.029cc721e4.png 2880w" style="width: 270.54px" /></p>
+<h2 data-text="所需条件" id="what-youll-need" is-upgraded="" tabindex="-1">所需条件</h2>
+<ul>
+<li>一台连接到互联网并安装了网络浏览器和 Android Studio 的计算机</li>
+<li>能够访问 GitHub</li>
+</ul>
+<h2 data-text="下载起始代码" id="download-the-starter-code" is-upgraded="" tabindex="-1">下载起始代码</h2>
+<p>在 Android Studio 中，打开 <code dir="ltr" translate="no">basic-android-kotlin-compose-training-affirmations</code> 文件夹。</p>
+<aside class="special"><p><strong>起始代码网址</strong>：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations/tree/starter" target="_blank"><code dir="ltr" translate="no">https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations</code></a></p>
+<p><strong>包含起始代码的分支名称：</strong><code dir="ltr" translate="no">starter</code></p>
+</aside>
+<p>根据 <code dir="ltr" translate="no">starter</code> 分支代码构建应用时，应用应显示空白屏幕。</p>
+<p class="image-container"><img alt="3beea0789e2eeaba.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/3beea0789e2eeaba_2880.029cc721e4.png 2880w" style="width: 268.80px" /></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="创建列表项数据类">
+          
+          <h2 class="step-title" data-text="               2. 创建列表项数据类           " id="1" tabindex="-1">
+              2. 创建列表项数据类
+          </h2>
+          
+          <h2 data-text="为 Affirmation 创建数据类" id="create-a-data-class-for-an-affirmation" is-upgraded="" tabindex="-1">为 Affirmation 创建数据类</h2>
+<p>在 Android 应用中，列表由列表项组成。如果包含单项数据，列表项可以是字符串或整数等简单内容。对于包含多项数据的列表项（例如图片和文本），您需要一个包含所有这些属性的类。数据类是一种仅包含属性的类，可以提供一些可与这些属性配合使用的实用程序方法。</p>
+<ol type="1">
+<li>在 <strong>com.example.affirmations</strong> 下创建一个新的软件包。</li>
+</ol>
+<p class="image-container"><img alt="89c8d8485c685fac.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/89c8d8485c685fac_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p>将新软件包命名为 <strong>model</strong>。“model”软件包会包含将由一个数据类表示的数据模型。该数据类由表示“自我肯定话语”内容相关信息的属性组成；“自我肯定话语”将包含字符串资源和图片资源。软件包是包含类以及其他目录的目录。</p>
+<p class="image-container"><img alt="b54fb6bf57de44c8.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/b54fb6bf57de44c8_2880.029cc721e4.png 2880w" style="width: 342.00px" /></p>
+<ol start="2" type="1">
+<li>在 <strong>com.example.affirmations.model</strong> 软件包中创建一个新类。</li>
+</ol>
+<p class="image-container"><img alt="58510a651bd49100.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/58510a651bd49100_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p>将新类命名为 <strong>Affirmation</strong>，并将其设为 <strong>Data class</strong>。</p>
+<p class="image-container"><img alt="7f94b65ee3d8407f.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/7f94b65ee3d8407f_2880.029cc721e4.png 2880w" style="width: 341.00px" /></p>
+<ol start="3" type="1">
+<li>每个 <code dir="ltr" translate="no">Affirmation</code> 均包含一张图片和一个字符串。在 <code dir="ltr" translate="no">Affirmation</code> 数据类中创建两个 <code dir="ltr" translate="no">val</code> 属性，将其中一个属性命名为 <code dir="ltr" translate="no">stringResourceId</code>，另一个命名为 <code dir="ltr" translate="no">imageResourceId</code>。这两个属性的值都应为整数。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">Affirmation.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Affirmation</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">stringResourceId</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">imageResourceId</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>为 <code dir="ltr" translate="no">stringResourceId</code> 属性添加 <code dir="ltr" translate="no">@StringRes</code> 注解，并为 <code dir="ltr" translate="no">imageResourceId</code> 添加 <code dir="ltr" translate="no">@DrawableRes</code> 注解。<code dir="ltr" translate="no">stringResourceId</code> 表示存储在字符串资源中的自我肯定话语文本的 ID。<code dir="ltr" translate="no">imageResourceId</code> 表示存储在可绘制资源中的自我肯定话语图片的 ID。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">Affirmation.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.annotation.DrawableRes</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.annotation.StringRes</span>
+
+<span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Affirmation</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@StringRes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">stringResourceId</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@DrawableRes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">imageResourceId</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">Int</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>在 <strong>com.example.affirmations.data</strong> 软件包中，打开 <strong>Datasource.kt</strong> 文件并取消注释两个 import 语句和 <code dir="ltr" translate="no">Datasource</code> 类的内容。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">Datasource.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.affirmations.R</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.affirmations.model.Affirmation</span>
+
+<span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Datasource</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">loadAffirmations</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;Affirmation&gt;</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listOf&lt;Affirmation&gt;</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">affirmation1</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">image1</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">affirmation2</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">image2</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">affirmation3</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">image3</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">affirmation4</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">image4</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">affirmation5</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">image5</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">affirmation6</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">image6</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">affirmation7</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">image7</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">affirmation8</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">image8</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">affirmation9</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">image9</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">affirmation10</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">image10</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意：</strong><code dir="ltr" translate="no">loadAffirmations()</code> 方法会收集起始代码中提供的所有数据，并以列表形式将其返回。稍后，您将使用这些数据来构建可滚动列表。</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="向应用添加列表">
+          
+          <h2 class="step-title" data-text="               3. 向应用中添加列表           " id="2" tabindex="-1">
+              3. 向应用中添加列表
+          </h2>
+          
+          <h2 data-text="创建列表项卡片" id="create-a-list-item-card" is-upgraded="" tabindex="-1">创建列表项卡片</h2>
+<p>此应用旨在显示自我肯定话语列表。将界面配置为显示列表的第一步是，创建列表项。每个自我肯定话语项都包含一张图片和一个字符串。每个项的数据都随附起始代码，您将创建界面组件来显示这样的项。</p>
+<p>该项将由一个 <code dir="ltr" translate="no">Card</code> 可组合项组成，后者包含一个 <code dir="ltr" translate="no">Image</code> 和一个 <code dir="ltr" translate="no">Text</code> 可组合项。在 Compose 中，<code dir="ltr" translate="no">Card</code> 是一种在单个容器中显示内容和操作的 Surface。自我肯定话语卡片在预览中将如下所示：</p>
+<p class="image-container"><img alt="4f657540712a069f.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/4f657540712a069f_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p>该卡片会显示一张图片并在其下方显示一些文本。这种垂直布局可以使用封装在 <code dir="ltr" translate="no">Card</code> 可组合项中的 <code dir="ltr" translate="no">Column</code> 可组合项来实现。您可以自己尝试创建该布局，也可以按照以下步骤操作来实现它。</p>
+<ol type="1">
+<li>打开 <strong>MainActivity.kt</strong> 文件。</li>
+<li>在 <code dir="ltr" translate="no">AffirmationsApp()</code> 方法下创建一个名为 <code dir="ltr" translate="no">AffirmationCard()</code> 的新方法，并使用 <code dir="ltr" translate="no">@Composable</code> 注解对其进行注解。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationsApp</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationCard</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>修改方法签名，以接受 <code dir="ltr" translate="no">Affirmation</code> 对象作为形参。<code dir="ltr" translate="no">Affirmation</code> 对象来自 <code dir="ltr" translate="no">model</code> 软件包。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.affirmations.model.Affirmation</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>向签名添加 <code dir="ltr" translate="no">modifier</code> 参数。将该参数的默认值设置为 <code dir="ltr" translate="no">Modifier</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：最佳实践是向每个可组合项都传递一个修饰符，并为其设置默认值。</p>
+</aside>
+<ol start="5" type="1">
+<li>在 <code dir="ltr" translate="no">AffirmationCard</code> 方法内，调用 <code dir="ltr" translate="no">Card</code> 可组合项。传入 <code dir="ltr" translate="no">modifier</code> 参数。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material3.Card</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Card</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>在 <code dir="ltr" translate="no">Card</code> 可组合项内添加一个 <code dir="ltr" translate="no">Column</code> 可组合项。<code dir="ltr" translate="no">Column</code> 可组合项中包含的项会自行在界面中垂直排列。这样一来，您就可以在相关文本上方放置图片。相反，<code dir="ltr" translate="no">Row</code> 可组合项会以水平方式排列其包含的项。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.Column</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Card</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="7" type="1">
+<li>在 <code dir="ltr" translate="no">Column</code> 可组合项的 lambda 正文内添加 <code dir="ltr" translate="no">Image</code> 可组合项。之前提到，<code dir="ltr" translate="no">Image</code> 可组合项始终需要一项用于显示的资源和一个 <code dir="ltr" translate="no">contentDescription</code>。该资源应该是传递给 <code dir="ltr" translate="no">painter</code> 参数的 <code dir="ltr" translate="no">painterResource</code>。<code dir="ltr" translate="no">painterResource</code> 方法会加载矢量可绘制对象或光栅化资源格式（例如 PNG）。另外，为 <code dir="ltr" translate="no">contentDescription</code> 参数传递 <code dir="ltr" translate="no">stringResource</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.Image</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.res.painterResource</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.res.stringResource</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Card</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Image</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">painter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imageResourceId</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">stringResourceId</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="8" type="1">
+<li>除了 <code dir="ltr" translate="no">painter</code> 和 <code dir="ltr" translate="no">contentDescription</code> 参数之外，还应传递 <code dir="ltr" translate="no">modifier</code> 和 <code dir="ltr" translate="no">contentScale</code>。<code dir="ltr" translate="no">contentScale</code> 用于决定图片应如何缩放和显示。<code dir="ltr" translate="no">Modifier</code> 对象应设置 <code dir="ltr" translate="no">fillMaxWidth</code> 属性，并将高度设置为 <code dir="ltr" translate="no">194.dp</code>。<code dir="ltr" translate="no">contentScale</code> 应为 <code dir="ltr" translate="no">ContentScale.Crop</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.fillMaxWidth</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.height</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.unit.dp</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.layout.ContentScale</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Card</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Image</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">painter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imageResourceId</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">stringResourceId</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">height</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">194.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">contentScale</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ContentScale</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Crop</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="9" type="1">
+<li>在 <code dir="ltr" translate="no">Column</code> 内，在 <code dir="ltr" translate="no">Image</code> 可组合项之后创建一个 <code dir="ltr" translate="no">Text</code> 可组合项。将 <code dir="ltr" translate="no">affirmation.stringResourceId</code> 的 <code dir="ltr" translate="no">stringResource</code> 传递给 <code dir="ltr" translate="no">text</code> 形参，传递 <code dir="ltr" translate="no">padding</code> 属性已设置为 <code dir="ltr" translate="no">16.dp</code> 的 <code dir="ltr" translate="no">Modifier</code> 对象，并通过将 <code dir="ltr" translate="no">MaterialTheme.typography.headlineSmall</code> 传递给 <code dir="ltr" translate="no">style</code> 形参来设置文本主题。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.material3.Text</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.padding</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.platform.LocalContext</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Card</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Image</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">painter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">imageResourceId</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">stringResourceId</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">height</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">194.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">contentScale</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ContentScale</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Crop</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalContext</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getString</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">stringResourceId</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">16.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">style</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MaterialTheme</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">typography</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">headlineSmall</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<h2 data-text="预览 AffirmationCard 可组合项" id="preview-the-affirmationcard-composable" is-upgraded="" tabindex="-1">预览 AffirmationCard 可组合项</h2>
+<p>卡片是 <strong>Affirmations</strong> 应用界面的核心，通过您的辛勤努力，它已经创建好了！如要检查卡片能否正确显示，您可以创建一个无需启动整个应用即可预览的可组合项。</p>
+<ol type="1">
+<li>创建一个名为 <code dir="ltr" translate="no">AffirmationCardPreview()</code> 的私有方法。使用 <code dir="ltr" translate="no">@Preview</code> 和 <code dir="ltr" translate="no">@Composable</code> 为该方法添加注解。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.tooling.preview.Preview</span>
+
+<span class="devsite-syntax-nd">@Preview</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationCardPreview</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>在该方法内，调用 <code dir="ltr" translate="no">AffirmationCard</code> 可组合项，并向其传递一个新的 <code dir="ltr" translate="no">Affirmation</code> 对象，同时 <code dir="ltr" translate="no">R.string.affirmation1</code> 字符串资源和 <code dir="ltr" translate="no">R.drawable.image1</code> 可绘制资源已传递到该对象的构造函数中。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Preview</span>
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationCardPreview</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">AffirmationCard</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Affirmation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">affirmation1</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">image1</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>打开 <strong>Split</strong> 标签页，您将看到 <code dir="ltr" translate="no">AffirmationCard</code> 的预览。如有必要，请点击 <strong>Design</strong> 窗格中的 <strong>Build &amp; Refresh</strong>，使系统显示预览。</li>
+</ol>
+<p class="image-container"><img alt="924a4df2c1db236c.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/924a4df2c1db236c_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<h2 data-text="创建列表" id="create-the-list" is-upgraded="" tabindex="-1">创建列表</h2>
+<p>列表项组件是列表的构建块。创建列表项后，您可以利用它来创建列表组件。</p>
+<ol type="1">
+<li>创建一个名为 <code dir="ltr" translate="no">AffirmationList()</code> 的函数，使用 <code dir="ltr" translate="no">@Composable</code> 注解对其进行注解，并在方法签名中将 <code dir="ltr" translate="no">Affirmation</code> 对象的 <code dir="ltr" translate="no">List</code> 声明为形参。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationList</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmationList</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;Affirmation&gt;</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>在方法签名中将 <code dir="ltr" translate="no">modifier</code> 对象声明为形参，并将默认值设为 <code dir="ltr" translate="no">Modifier</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationList</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmationList</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;Affirmation&gt;</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>在 Jetpack Compose 中，可以使用 <code dir="ltr" translate="no">LazyColumn</code> 可组合项创建可滚动列表。<code dir="ltr" translate="no">LazyColumn</code> 和 <code dir="ltr" translate="no">Column</code> 之间的区别在于，当要显示的项数量较少时，应使用 <code dir="ltr" translate="no">Column</code>，因为 Compose 会一次性加载所有项。<code dir="ltr" translate="no">Column</code> 只能保存预定义或固定数量的可组合项。<code dir="ltr" translate="no">LazyColumn</code> 可以按需添加内容，因此非常适合较长的列表，尤其是当列表长度未知时。<code dir="ltr" translate="no">LazyColumn</code> 还提供默认滚动行为，无需添加其他代码。在 <code dir="ltr" translate="no">AffirmationList()</code> 函数内声明一个 <code dir="ltr" translate="no">LazyColumn</code> 可组合项。将 <code dir="ltr" translate="no">modifier</code> 对象作为参数传递给 <code dir="ltr" translate="no">LazyColumn</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.lazy.LazyColumn</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationList</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmationList</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;Affirmation&gt;</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">LazyColumn</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">LazyColumn</code> 的 lambda 正文中，调用 <code dir="ltr" translate="no">items()</code> 方法并传入 <code dir="ltr" translate="no">affirmationList</code>。<code dir="ltr" translate="no">items()</code> 方法用于向 <code dir="ltr" translate="no">LazyColumn</code> 添加项。此方法对该可组合项有些许独特，对于大多数可组合项来说并不常见。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.lazy.items</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationList</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmationList</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;Affirmation&gt;</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">LazyColumn</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">items</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmationList</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>调用 <code dir="ltr" translate="no">items()</code> 方法需要 lambda 函数。在该函数中，指定一个 <code dir="ltr" translate="no">affirmation</code> 形参，用于表示 <code dir="ltr" translate="no">affirmationList</code> 中的一个自我肯定话语项。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationList</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmationList</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;Affirmation&gt;</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">LazyColumn</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">items</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmationList</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>针对列表中的每个自我肯定话语，调用 <code dir="ltr" translate="no">AffirmationCard()</code> 可组合项。向其传递 <code dir="ltr" translate="no">affirmation</code>，以及一个将 <code dir="ltr" translate="no">padding</code> 属性设置为 <code dir="ltr" translate="no">8.dp</code> 的 <code dir="ltr" translate="no">Modifier</code> 对象。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationList</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmationList</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;Affirmation&gt;</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">LazyColumn</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">items</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">affirmationList</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">AffirmationCard</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">affirmation</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">8.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<h2 data-text="显示列表" id="display-the-list" is-upgraded="" tabindex="-1">显示列表</h2>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">AffirmationsApp</code> 可组合项中，检索当前的布局方向并将其保存在变量中。它们将用于稍后配置内边距。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.affirmations.data.Datasource</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationsApp</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">layoutDirection</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalLayoutDirection</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>现在，创建一个 <code dir="ltr" translate="no">Surface</code> 可组合项。此可组合项将设置 <code dir="ltr" translate="no">AffirmationsList</code> 可组合项的内边距。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.affirmations.data.Datasource</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationsApp</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">layoutDirection</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalLayoutDirection</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Surface</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>将 <code dir="ltr" translate="no">Modifier</code> 传递给 <code dir="ltr" translate="no">Surface</code> 可组合项，该可组合项可填充其父项的最大宽度和高度、设置状态栏内边距，以及将开头和结尾内边距设置为 <code dir="ltr" translate="no">layoutDirection</code>。以下示例展示了如何将 <code dir="ltr" translate="no">LayoutDirection</code> 对象转换为内边距：<code dir="ltr" translate="no">WindowInsets.safeDrawing.asPaddingValues().calculateStartPadding(layoutDirection)</code>。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.affirmations.data.Datasource</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationsApp</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">layoutDirection</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalLayoutDirection</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Surface</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxSize</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">statusBarsPadding</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">start</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">WindowInsets</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">safeDrawing</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">asPaddingValues</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">calculateStartPadding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">layoutDirection</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">end</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">WindowInsets</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">safeDrawing</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">asPaddingValues</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">calculateEndPadding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">layoutDirection</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">Surface</code> 可组合项的 lambda 中，调用 <code dir="ltr" translate="no">AffirmationList</code> 可组合项，并将 <code dir="ltr" translate="no">DataSource().loadAffirmations()</code> 传递给 <code dir="ltr" translate="no">affirmationList</code> 参数。</li>
+</ol>
+<aside class="special"><p><strong>注意：</strong><code dir="ltr" translate="no">DataSource</code> 类位于 <code dir="ltr" translate="no">data</code> 软件包中。</p>
+</aside>
+<p><strong><code dir="ltr" translate="no">MainActivity.kt</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.affirmations.data.Datasource</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">AffirmationsApp</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">layoutDirection</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalLayoutDirection</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">current</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Surface</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxSize</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">statusBarsPadding</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">start</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">WindowInsets</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">safeDrawing</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">asPaddingValues</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">calculateStartPadding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">layoutDirection</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">end</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">WindowInsets</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">safeDrawing</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">asPaddingValues</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">                    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">calculateEndPadding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">layoutDirection</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">AffirmationsList</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">affirmationList</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Datasource</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-na">loadAffirmations</span><span class="devsite-syntax-p">(),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>在设备或模拟器上运行 <strong>Affirmations</strong> 应用，并查看最终效果！</p>
+<p class="image-container"><img alt="286f5132aa155fa6.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-add-scrollable-list/img/286f5132aa155fa6_2880.029cc721e4.png 2880w" style="width: 268.80px" /></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="获取解决方案代码">
+          
+          <h2 class="step-title" data-text="               4. 获取解决方案代码           " id="3" tabindex="-1">
+              4. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，您可以使用以下 Git 命令：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations.git
+$ cd basic-android-kotlin-compose-training-affirmations
+$ git checkout intermediate
+</pre></devsite-code>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations/archive/refs/heads/intermediate.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">intermediate</code> 分支中。</p>
+</aside>
+<p>如果您想查看解决方案代码，请<a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations/tree/intermediate" target="_blank">前往 GitHub 查看</a>。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="总结">
+          
+          <h2 class="step-title" data-text="               5. 总结           " id="4" tabindex="-1">
+              5. 总结
+          </h2>
+          
+          <p>现在，您已了解如何使用 Jetpack Compose 创建卡片、列表项和可滚动列表！请注意，这些只是用于创建列表的基本工具。您可以尽情挥洒创意，按自己的喜好自定义列表项！</p>
+<h2 data-text="摘要" id="summary" is-upgraded="" tabindex="-1">摘要</h2>
+<ul>
+<li>使用 <a href="https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable?hl=zh-cn#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)" target="_blank"><code dir="ltr" translate="no">Card</code></a> 可组合项创建列表项。</li>
+<li>修改 <code dir="ltr" translate="no">Card</code> 可组合项中包含的界面。</li>
+<li>使用 <a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary?hl=zh-cn#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1)" target="_blank"><code dir="ltr" translate="no">LazyColumn</code></a> 可组合项创建可滚动列表。</li>
+<li>使用自定义列表项构建列表。</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-x_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-x.029cc721e4.svg"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-youtube_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin.029cc721e4.svg"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="eUpI8iBMzIia5+h6lqY9VcDE5AD0py">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    '../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["../../../offline-assets/developer.android.com/_pwa/android/manifest.json","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["TpcFeatures__proxy_prod_host","Profiles__enable_release_notes_notifications","TpcFeatures__enable_unmirrored_page_left_nav","DevPro__enable_g1_integration","SignIn__enable_l1_signup_flow","EngEduTelemetry__enable_engedu_telemetry","Significatio__enable_by_tenant","Profiles__enable_completecodelab_endpoint","MiscFeatureFlags__enable_explain_this_code","MiscFeatureFlags__enable_llms_txt","CloudShell__cloud_shell_button","Profiles__enable_purchase_prompts","MiscFeatureFlags__enable_appearance_cookies","Profiles__enable_profile_collections","Profiles__enable_public_developer_profiles","MiscFeatureFlags__enable_explicit_template_dependencies","DevPro__enable_credits_banner","DevPro__enable_embed_profile_creation","Profiles__enable_developer_profiles_callout","MiscFeatureFlags__developers_footer_image","Profiles__enable_stripe_subscription_management","Cloud__enable_cloud_shell_fte_user_flow","MiscFeatureFlags__fix_lower_breadcrumbs","Profiles__enable_targeted_hero","DevPro__enable_devsite_captcha","Profiles__enable_completequiz_endpoint","Analytics__enable_devpro_interaction_logging","Concierge__enable_actions_menu","Cloud__enable_cloud_shell","MiscFeatureFlags__enable_variable_operator_index_yaml","Profiles__enable_join_program_group_endpoint","DevPro__enable_devpro_offers","Cloud__enable_legacy_calculator_redirect","Profiles__require_profile_eligibility_for_signin","DevPro__enable_code_assist","DevPro__enable_cloud_innovators_plus","Cloud__enable_llm_concierge_chat","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__enable_project_variables","Profiles__enable_developer_profile_pages_as_content","MiscFeatureFlags__enable_dark_theme","DevPro__enable_firebase_workspaces_card","Cloud__enable_cloudx_experiment_ids","Profiles__enable_playlist_community_acl","Concierge__enable_remove_info_panel_tags","Search__enable_suggestions_from_borg","Search__enable_ai_search_summaries_for_all","Search__enable_ai_search_summaries","Cloud__cache_serialized_dynamic_content","Cloud__enable_cloud_dlp_service","Cloud__fast_free_trial","MiscFeatureFlags__gdp_dashboard_reskin_enabled","DevPro__enable_nvidia_credits_card","CloudShell__cloud_code_overflow_menu","MiscFeatureFlags__enable_view_transitions","DevPro__enable_enterprise","Profiles__enable_dashboard_curated_recommendations","Profiles__enable_awarding_url","BookNav__enable_tenant_cache_key","Profiles__enable_complete_playlist_endpoint","Concierge__enable_pushui","DevPro__remove_eu_tax_intake_form","Experiments__reqs_query_experiments","Profiles__enable_recognition_badges","Concierge__enable_devsite_llm_tools","Analytics__enable_clearcut_logging","DevPro__enable_developer_subscriptions","MiscFeatureFlags__enable_variable_operator","DevPro__enable_vertex_credit_card","Search__enable_ai_eligibility_checks","MiscFeatureFlags__remove_cross_domain_tracking_params","Profiles__enable_auto_apply_credits","DevPro__enable_google_payments_buyflow","Profiles__enable_user_type","Profiles__enable_callout_notifications","DevPro__enable_google_one_card","DevPro__enable_free_benefits","Cloud__enable_free_trial_server_call","Profiles__enable_page_saving","MiscFeatureFlags__enable_framebox_badge_methods","Profiles__enable_developer_profile_benefits_ui_redesign","Search__enable_page_map","MiscFeatureFlags__developers_footer_dark_image","MiscFeatureFlags__enable_firebase_utm","DevPro__enable_payments_first_batch"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[2,2],[1,1]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

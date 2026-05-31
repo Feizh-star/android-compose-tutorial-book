@@ -1,0 +1,2509 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="../../../offline-assets/developer.android.com/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    
+    
+    <link rel="stylesheet" href="../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+      <link rel="stylesheet"
+            href="../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css"><link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=vi" /><title>从互联网获取数据 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="从互联网获取数据 &nbsp;|&nbsp; Android Developers"><meta name="description" content="了解如何使用社区开发的库连接到 Web 服务，以便在您的 Android Kotlin Compose 应用中检索和显示数据。此外，还将学习如何处理潜在的网络连接错误。">
+  <meta property="og:description" content="了解如何使用社区开发的库连接到 Web 服务，以便在您的 Android Kotlin Compose 应用中检索和显示数据。此外，还将学习如何处理潜在的网络连接错误。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      从互联网获取数据<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="1eYyIxi6CQOky63Y34WeaO9S-wuqec-3_9JIxx_FpsDU" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/issues/new?assignees=&amp;labels=&amp;template=get-data-from-the-internet.md&amp;title=Get&#43;Data&#43;from&#43;the&#43;Internet" id="basic-android-kotlin-compose-getting-data-internet" layout="paginated" no-tooltip="" title="从互联网获取数据">
+      
+        <google-codelab-step duration="0" step="0" label="开始前须知">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2024-05-10T19:33:21Z" codelab-title="从互联网获取数据">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 开始前须知           " id="0" tabindex="-1">
+              1. 开始前须知
+          </h2>
+          
+          <p>市场中的大多数 Android 应用都需要连接到互联网才能执行网络操作，例如从后端服务器检索电子邮件、消息或其他信息。Gmail、YouTube 和 Google 相册等应用就需要连接到互联网才能显示用户数据。</p>
+<p>在此 Codelab 中，您将使用依托于社区的开源库来构建数据层，并从后端服务器获取数据。这样可以简化数据提取，还有利于应用遵循 Android 最佳实践，例如在后台线程上执行操作。此外，如果互联网速度较慢或不可用，应用界面将显示一条错误消息，让用户及时获知网络连接问题。</p>
+<h2 data-text="前提条件" id="prerequisites" is-upgraded="" tabindex="-1">前提条件</h2>
+<ul>
+<li>了解有关如何创建可组合函数的基础知识。</li>
+<li>了解有关如何使用 Android 架构组件 <code dir="ltr" translate="no">ViewModel</code> 的基础知识。</li>
+<li>了解有关如何使用协程处理长时间运行的任务的基础知识。</li>
+<li>了解有关如何在 <code dir="ltr" translate="no">build.gradle.kts</code> 中添加依赖项的基础知识。</li>
+</ul>
+<h2 class="checklist" data-text="学习内容" id="what-youll-learn" is-upgraded="" tabindex="-1"><strong>学习内容</strong></h2>
+<ul class="checklist">
+<li>什么是 <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> Web 服务。</li>
+<li>如何使用 <a href="https://square.github.io/retrofit/" target="_blank">Retrofit</a> 库连接到互联网上的 REST Web 服务，并获取响应。</li>
+<li>如何使用<a href="https://kotlinlang.org/docs/serialization.html#0" target="_blank">序列化 (kotlinx.serialization)</a> 库将 JSON 响应解析为数据对象。</li>
+</ul>
+<h2 data-text="实践内容" id="what-youll-do" is-upgraded="" tabindex="-1"><strong>实践内容</strong></h2>
+<ul>
+<li>修改起始应用以发出 Web 服务 API 请求，并处理响应。</li>
+<li>使用 Retrofit 库为您的应用实现数据层。</li>
+<li>使用 <em>kotlinx.serialization</em> 库将 Web 服务的 JSON 响应解析为应用的数据对象列表，并将其附加到界面状态。</li>
+<li>使用 Retrofit 对协程的支持来简化代码。</li>
+</ul>
+<h2 data-text="所需条件" id="what-you-need" is-upgraded="" tabindex="-1"><strong>所需条件</strong></h2>
+<ul>
+<li>一台安装了 Android Studio 的计算机</li>
+<li>Mars Photos 应用的起始代码</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="应用概览">
+          
+          <h2 class="step-title" data-text="               2. 应用概览           " id="1" tabindex="-1">
+              2. 应用概览
+          </h2>
+          
+          <p>您将使用名为 <strong>Mars Photos</strong> 的应用，其中显示了火星表面的图片。该应用需要连接到 Web 服务，才能检索并显示火星照片。这些图片是由 NASA 的火星探测器拍摄的真实照片。下图是最终应用的屏幕截图，其中以网格形式列出了多张图片。</p>
+<p class="image-container"><img alt="68f4ff12cc1e2d81.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/68f4ff12cc1e2d81_2880.029cc721e4.png 2880w" style="width: 360.00px" /></p>
+<aside class="special"><p><strong>注意</strong>：上图是您在此 Codelab 中构建并在后续 Codelab 中进行其他更新后得到的最终应用的屏幕截图。在此 Codelab 中显示此屏幕截图是为了让您更好地了解整体应用功能。</p>
+</aside>
+<p>您在此 Codelab 中构建的应用版本不会有很多视觉上的亮点；此 Codelab 侧重于应用的数据层部分，旨在连接到互联网并使用 Web 服务下载原始资源数据。为了确保该应用正确检索和解析这些数据，您可以在 <code dir="ltr" translate="no">Text</code> 可组合项中输出从后端服务器接收的照片数。</p>
+<p class="image-container"><img alt="a59e55909b6e9213.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_2880.029cc721e4.png 2880w" style="width: 360.00px" /></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="探索 MarsPhotos 起始应用">
+          
+          <h2 class="step-title" data-text="               3. 探索 Mars Photos 起始应用           " id="2" tabindex="-1">
+              3. 探索 Mars Photos 起始应用
+          </h2>
+          
+          <h3 data-text="下载起始代码" id="download-starter-code" is-upgraded="" tabindex="-1">下载起始代码</h3>
+<p>首先，请下载起始代码：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/archive/refs/heads/starter.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<p>或者，您也可以克隆该代码的 GitHub 代码库：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos.git
+$ cd basic-android-kotlin-compose-training-mars-photos
+$ git checkout starter
+</pre></devsite-code>
+<aside class="special"><p><strong>注意：</strong>起始代码位于所下载代码库的 <code dir="ltr" translate="no">starter</code> 分支中。</p>
+</aside>
+<p>您可以在 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/tree/starter" target="_blank"><code dir="ltr" translate="no">Mars Photos</code></a> GitHub 代码库中浏览该代码。</p>
+<h2 data-text="运行起始代码" id="run-starter-code" is-upgraded="" tabindex="-1">运行起始代码</h2>
+<ol type="1">
+<li>在 Android Studio 中打开下载的项目。该项目的文件夹名称为 <code dir="ltr" translate="no">basic-android-kotlin-compose-training-mars-photos</code>。</li>
+<li>在 <strong>Android</strong> 窗格中，展开 <strong>app</strong> > <strong>kotlin + java</strong>。请注意，该应用有一个名为 <code dir="ltr" translate="no">ui</code> 的软件包文件夹。这是应用的界面层。</li>
+</ol>
+<p class="image-container"><img alt="de3d8666ecee9d1c.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/de3d8666ecee9d1c_2880.029cc721e4.png 2880w" style="width: 298.17px" /></p>
+<ol start="3" type="1">
+<li>运行应用。编译和运行应用时，您会看到以下界面，其中占位文本居中显示。在此 Codelab 结束时，您将使用检索的照片数更新此占位文本。</li>
+</ol>
+<p class="image-container"><img alt="95328ffbc9d7104b.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/95328ffbc9d7104b_2880.029cc721e4.png 2880w" style="width: 360.00px" /></p>
+<h2 data-text="起始代码演示" id="starter-code-walkthrough" is-upgraded="" tabindex="-1"><strong>起始代码演示</strong></h2>
+<p>在此任务中，您将熟悉项目的结构。下面列出了项目中的重要文件和文件夹。</p>
+<p><code dir="ltr" translate="no">ui\MarsPhotosApp.kt</code>：</p>
+<ul>
+<li>此文件包含可组合项 <code dir="ltr" translate="no">MarsPhotosApp</code>，它会在屏幕上显示内容，例如顶部应用栏和 <code dir="ltr" translate="no">HomeScreen</code> 可组合项。上一步中的占位文本会显示在此可组合项中。</li>
+<li>在下一个 Codelab 中，此可组合项将显示从火星照片后端服务器接收的数据。</li>
+</ul>
+<p><code dir="ltr" translate="no">screens\MarsViewModel.kt</code>：</p>
+<ul>
+<li>此文件是 <code dir="ltr" translate="no">MarsPhotosApp</code> 的对应视图模型。</li>
+<li>此类包含一个名为 <code dir="ltr" translate="no">marsUiState</code> 的 <code dir="ltr" translate="no">MutableState</code> 属性。更新此属性的值会更新屏幕上显示的占位文本。</li>
+<li><code dir="ltr" translate="no">getMarsPhotos()</code> 方法会更新占位符响应。您稍后将在此 Codelab 中使用此方法显示从服务器提取的数据。此 Codelab 的目标是使用您从互联网获得的真实数据更新 <code dir="ltr" translate="no">ViewModel</code> 中的 <code dir="ltr" translate="no">MutableState</code>。</li>
+</ul>
+<p><code dir="ltr" translate="no">screens\HomeScreen.kt</code>：</p>
+<ul>
+<li>此文件包含 <code dir="ltr" translate="no">HomeScreen</code> 和 <code dir="ltr" translate="no">ResultScreen</code> 可组合项。<code dir="ltr" translate="no">ResultScreen</code> 具有一个简单的 <code dir="ltr" translate="no">Box</code> 布局，它会在 <code dir="ltr" translate="no">Text</code> 可组合项中显示 <code dir="ltr" translate="no">marsUiState</code> 的值。</li>
+</ul>
+<p><code dir="ltr" translate="no">MainActivity.kt</code>：</p>
+<ul>
+<li>此 activity 的唯一任务就是加载 <code dir="ltr" translate="no">ViewModel</code> 并显示 <code dir="ltr" translate="no">MarsPhotosApp</code> 可组合项。</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="网络服务简介">
+          
+          <h2 class="step-title" data-text="               4. Web 服务简介           " id="3" tabindex="-1">
+              4. Web 服务简介
+          </h2>
+          
+          <p>在此 Codelab 中，您将为网络服务创建一个层，与后端服务器进行通信并提取所需数据。您将使用名为 <a href="https://square.github.io/retrofit/" target="_blank">Retrofit</a> 的第三方库来完成此任务。我们稍后会对此进行详细介绍。<code dir="ltr" translate="no">ViewModel</code> 与该数据层进行通信，其余应用对此实现是透明的。</p>
+<p class="image-container"><img alt="76551dbe9fc943aa.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/76551dbe9fc943aa_2880.029cc721e4.png 2880w" style="width: 384.00px" title="包含 Retrofit 服务的数据层，以及包含视图模型和其他界面类的界面层" /></p>
+<p><code dir="ltr" translate="no">MarsViewModel</code> 负责发出网络调用以获取火星照片数据。在 <code dir="ltr" translate="no">ViewModel</code> 中，您使用 <code dir="ltr" translate="no">MutableState</code>，以在数据发生更改时更新应用界面。</p>
+<aside class="special"><p><strong>注意</strong>：在后续 Codelab 中，您将向数据层添加一个代码库。然后，该代码库会与 Retrofit 服务通信以提取数据。代码库负责向应用的其余部分公开数据。</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="网络服务和 Retrofit">
+          
+          <h2 class="step-title" data-text="               5. Web 服务和 Retrofit           " id="4" tabindex="-1">
+              5. Web 服务和 Retrofit
+          </h2>
+          
+          <p>火星照片数据存储在网络服务器中。为了将这些数据传输到您的应用中，需要与互联网上的服务器建立连接并进行通信。</p>
+<p class="image-container"><img alt="301162f0dca12fcf.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/301162f0dca12fcf_2880.029cc721e4.png 2880w" style="width: 576.00px" title="手机客户端请求服务器提供火星照片" /></p>
+<p class="image-container"><img alt="7ced9b4ca9c65af3.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/7ced9b4ca9c65af3_2880.029cc721e4.png 2880w" style="width: 576.00px" title="服务器将火星照片网址发送到手机客户端" /></p>
+<aside class="special"><p><strong>注意</strong>：在此 Codelab 中，您仅检索记录（网址）数，而非火星照片数。在后续的 Codelab 中，您将检索火星照片，并将其显示在网格中。</p>
+</aside>
+<p>如今，大多数 Web 服务器都使用一种名为表征状态转移 (<a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a>, <strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer) 的常用无状态网络架构来运行 Web 服务。提供此架构的 Web 服务称为 RESTful 服务。</p>
+<p>通过<a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank">统一资源标识符</a> (URI) 以标准化方式向 RESTful Web 服务发出请求。URI 可按名称识别服务器中的资源，而不会暗示其位置或访问方式。例如，在本节课的应用中，您将使用以下服务器 URI 检索图片网址（此服务器同时托管火星地产和火星照片）：</p>
+<p><a href="https://android-kotlin-fun-mars-server.appspot.com?hl=zh-cn" target="_blank">android-kotlin-fun-mars-server.appspot.com</a></p>
+<aside class="special"><p><strong>注意</strong>：上述服务器由展示火星地产的另一个示例应用访问，因此，此服务器有两个不同的端点：一个用于访问火星地产，另一个用于访问照片。在本课程中，您将使用服务器检索火星照片。</p>
+</aside>
+<p>网址（统一资源定位符）是 URI 的子集，用于指定资源的位置以及检索资源的机制。</p>
+<p><strong>例如：</strong></p>
+<p>以下网址将获取火星上可用的地产资源列表：</p>
+<p><a href="https://android-kotlin-fun-mars-server.appspot.com/realestate?hl=zh-cn" target="_blank">https://android-kotlin-fun-mars-server.appspot.com/realestate</a></p>
+<p>以下网址将获取火星照片列表：</p>
+<p><a href="https://android-kotlin-fun-mars-server.appspot.com/photos?hl=zh-cn" target="_blank">https://android-kotlin-fun-mars-server.appspot.com/photos</a></p>
+<p>这些网址指的是可通过超文本传输协议 (http:) 从网络获取的标识资源，如 <a href="https://android-kotlin-fun-mars-server.appspot.com/realestate?hl=zh-cn" target="_blank">/realestate</a> 或 <a href="https://android-kotlin-fun-mars-server.appspot.com/photos?hl=zh-cn" target="_blank">/photos</a>。<em></em>您将在此 Codelab 中使用 <a href="https://android-kotlin-fun-mars-server.appspot.com/photos?hl=zh-cn" target="_blank">/photos</a> 端点。端点是一个网址，您可以通过它访问在服务器上运行的 Web 服务。</p>
+<aside class="special"><p><strong>注意</strong>：我们熟悉的网址实际上是一种 URI。在本课程中，“网址”和“URI”可以互换使用。</p>
+</aside>
+<h2 data-text="Web 服务请求" id="web-service-request" is-upgraded="" tabindex="-1"><strong>Web 服务请求</strong></h2>
+<p>每个 Web 服务请求均包含 URI，并使用网络浏览器（例如 Chrome）所使用的 HTTP 协议传输至服务器。HTTP 请求包含一项用于告知服务器该执行什么操作的操作。</p>
+<p>常见的 HTTP 操作包括：</p>
+<ul>
+<li>GET，用于检索服务器数据。</li>
+<li>POST，用于在服务器上创建新数据。</li>
+<li>PUT，用于更新服务器上现有的数据。</li>
+<li>DELETE，用于从服务器中删除数据。</li>
+</ul>
+<p>您的应用将向服务器发出获取火星照片信息的 HTTP GET 请求，然后服务器会返回对应用的响应（包括图片网址）。</p>
+<p class="image-container"><img alt="5bbeef4ded3e84cf.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/5bbeef4ded3e84cf_2880.029cc721e4.png 2880w" style="width: 576.00px" title="客户端应用向服务器发出获取火星照片的 HTTP GET 请求" /></p>
+<p class="image-container"><img alt="83e8a6eb79249ebe.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/83e8a6eb79249ebe_2880.029cc721e4.png 2880w" style="width: 576.00px" title="服务器返回对客户端应用的响应（包括图片网址）" /></p>
+<p>Web 服务的响应会采用一种常用的数据格式，例如 XML（可扩展标记语言）或 JSON（JavaScript 对象表示法）。JSON 格式以键值对形式表示结构化数据。应用使用 JSON 与 REST API 进行通信，我们将在后续任务中对此进行详细介绍。</p>
+<p>在此任务中，您将与服务器建立网络连接、与服务器通信并接收 JSON 响应。您将使用已经为您编写的后端服务器。在此 Codelab 中，您将使用 Retrofit 库，这是一个用于与后端服务器进行通信的第三方库。</p>
+<h3 data-text="外部库" id="external-libraries" is-upgraded="" tabindex="-1"><strong>外部库</strong></h3>
+<p>外部库或第三方库就像对核心 Android API 的扩展。您在本课程中使用的库是社区开发的开源库，并通过世界各地的大型 Android 社区共同贡献进行维护。这些资源可帮助像您这样的 Android 开发者构建更出色的应用。</p>
+<aside class="warning"><p><strong>警告</strong>：使用社区开发和维护的库可能会节省大量时间，但在选择这些库时务必谨慎，因为您的应用最终要负责这些库中的代码工作。</p>
+</aside>
+<h3 data-text="Retrofit 库" id="retrofit-library" is-upgraded="" tabindex="-1">Retrofit 库</h3>
+<p>您将在此 Codelab 中用来与 RESTful Mars Web 服务通信的 Retrofit 库，就是得到良好支持和维护的库的一个很好的例子。您可以查看其 <a href="https://github.com/square/retrofit" target="_blank">GitHub</a> 页面，查看尚未解决及已解决的问题（其中一些是功能请求）。如果开发者定期解决问题并响应功能请求，则意味着该库可能得到了良好维护，并且非常适合在应用中使用。您还可以参阅 <a href="https://square.github.io/retrofit/" target="_blank">Retrofit</a> 文档，详细了解该库。</p>
+<p>Retrofit 库与 REST 后端进行通信。它会生成代码，但您需要根据我们传递给它的参数为 Web 服务提供 URI。我们将在后面的部分中详细了解此主题。</p>
+<p class="image-container"><img alt="26043df178401c6a.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/26043df178401c6a_2880.029cc721e4.png 2880w" style="width: 624.00px" title="Retrofit 库与后端和客户端应用通信" /></p>
+<h2 data-text="添加 Retrofit 依赖项" id="add-retrofit-dependencies" is-upgraded="" tabindex="-1">添加 Retrofit 依赖项</h2>
+<p>Android Gradle 允许您将外部库添加到项目中。除了库依赖项之外，您还需要添加托管库的代码库。</p>
+<ol type="1">
+<li>打开模块级 Gradle 文件 <code dir="ltr" translate="no">build.gradle.kts (Module :app)</code>。</li>
+<li>在 <code dir="ltr" translate="no">dependencies</code> 部分，为 Retrofit 库添加以下几行代码：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Retrofit </span>
+<span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"com.squareup.retrofit2:retrofit:2.9.0"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-c1">// Retrofit with Scalar Converter</span>
+<span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"com.squareup.retrofit2:converter-scalars:2.9.0"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>这两个库协同工作。第一个依赖项用于 Retrofit 2 库本身，而第二个依赖项则用于 Retrofit 标量转换器。Retrofit2 是 Retrofit 库的更新版本。此标量转换器允许 Retrofit 将 JSON 结果作为 <code dir="ltr" translate="no">String</code> 返回。JSON 是一种在客户端和服务器之间存储和传输数据的格式。我们将在后面的部分中介绍 JSON。</p>
+<ol start="3" type="1">
+<li>点击 <strong>Sync Now</strong>，以使用新的依赖项重建项目。</li>
+</ol>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="5" label="连接互联网">
+          
+          <h2 class="step-title" data-text="               6. 连接互联网           " id="5" tabindex="-1">
+              6. 连接互联网
+          </h2>
+          
+          <p>您将使用 Retrofit 库与 Mars Web 服务通信，并将原始 JSON 响应显示为 <code dir="ltr" translate="no">String</code>。占位符 <code dir="ltr" translate="no">Text</code> 将显示返回的 JSON 响应字符串或指明连接错误的消息。</p>
+<p>Retrofit 会根据 Web 服务的内容为应用创建网络 API。它从 Web 服务提取数据，并通过独立的转换器库来路由数据。该库知道如何解码数据，并以 <code dir="ltr" translate="no">String</code> 等对象形式返回这些数据。Retrofit 内置对 XML 和 JSON 等常用数据格式的支持。Retrofit 最终会创建一个代码来为您调用和使用此服务，包括关键详细信息（例如在后台线程上运行请求）。</p>
+<p class="image-container"><img alt="8c3a5c3249570e57.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/8c3a5c3249570e57_2880.029cc721e4.png 2880w" style="width: 624.00px" title="Retrofit 库，包含转换器库，用于与 Mars Web 服务和视图模型通信" /></p>
+<p>在此任务中，您将向 <strong>Mars Photos</strong> 项目添加一个数据层，供 <code dir="ltr" translate="no">ViewModel</code> 用来与 Web 服务通信。您将按照以下步骤实现 Retrofit 服务 API。</p>
+<ul>
+<li>创建一个数据源：<code dir="ltr" translate="no">MarsApiService</code> 类。</li>
+<li>使用基准网址和转换器工厂创建 Retrofit 对象，以转换字符串。</li>
+<li>创建一个可说明 Retrofit 如何与网络服务器通信的接口。</li>
+<li>创建一个 Retrofit 服务，并向应用的其余 API 服务公开实例。</li>
+</ul>
+<p>实现上述步骤：</p>
+<ol type="1">
+<li>右键点击 Android 项目窗格中的 com.example.marsphotos 软件包，然后依次选择 <strong>New > Package</strong>。</li>
+<li>在弹出式窗口中，将 <strong>network</strong> 附加到建议软件包名称的末尾。</li>
+<li>在新软件包“network”下创建新的 Kotlin 文件。将该文件命名为 <code dir="ltr" translate="no">MarsApiService</code>。</li>
+<li>打开 <code dir="ltr" translate="no">network/MarsApiService.kt</code>。</li>
+<li>为 Web 服务的基础网址添加以下常量。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">BASE_URL</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-s">"https://android-kotlin-fun-mars-server.appspot.com"</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>在该常量正下方添加 Retrofit 构建器，用于构建和创建 Retrofit 对象。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">retrofit2.Retrofit</span>
+
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">retrofit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Retrofit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">()</span>
+</code></pre></devsite-code>
+<p>Retrofit 需要 Web 服务的基础 URI 和转换器工厂来构建 Web 服务 API。转换器会告知 Retrofit 如何处理它从 Web 服务获取的数据。在这种情况下，您需要 Retrofit 从 Web 服务提取 JSON 响应，并将该响应作为 <code dir="ltr" translate="no">String</code> 返回。Retrofit 包含一个 <code dir="ltr" translate="no">ScalarsConverter</code>，它支持字符串和其他基元类型。</p>
+<ol start="7" type="1">
+<li>使用 <code dir="ltr" translate="no">ScalarsConverterFactory</code> 实例对构建器调用 <code dir="ltr" translate="no">addConverterFactory()</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">retrofit2.converter.scalars.ScalarsConverterFactory</span>
+
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">retrofit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Retrofit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">addConverterFactory</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">ScalarsConverterFactory</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">create</span><span class="devsite-syntax-p">())</span>
+</code></pre></devsite-code>
+<ol start="8" type="1">
+<li>使用 <code dir="ltr" translate="no">baseUrl()</code> 方法为 Web 服务添加基础网址。</li>
+<li>调用 <code dir="ltr" translate="no">build()</code> 以创建 Retrofit 对象。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">retrofit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Retrofit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">addConverterFactory</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">ScalarsConverterFactory</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">create</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">baseUrl</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">BASE_URL</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">()</span>
+</code></pre></devsite-code>
+<ol start="10" type="1">
+<li>在对 Retrofit 构建器的调用的下方，定义一个名为 <code dir="ltr" translate="no">MarsApiService</code> 的接口，该接口定义 Retrofit 如何使用 HTTP 请求与网络服务器通信。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="11" type="1">
+<li>向 <code dir="ltr" translate="no">MarsApiService</code> 接口添加一个名为 <code dir="ltr" translate="no">getPhotos()</code> 的函数，以从 Web 服务中获取响应字符串。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w">    </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="12" type="1">
+<li>使用 <code dir="ltr" translate="no">@GET</code> 注解告知 Retrofit 这是 GET 请求，并为该 Web 服务方法指定端点。在这种情况下，端点为 <code dir="ltr" translate="no">photos</code>。如上个任务中所述，您将在此 Codelab 中使用 <a href="https://android-kotlin-fun-mars-server.appspot.com/photos?hl=zh-cn" target="_blank">/photos</a> 端点。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">retrofit2.http.GET</span>
+
+
+<span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@GET</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"photos"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>调用 <code dir="ltr" translate="no">getPhotos()</code> 方法时，Retrofit 会将端点 <code dir="ltr" translate="no">photos</code> 附加到您用于启动请求的基准网址（由您在 Retrofit 构建器中定义）。</p>
+<ol start="13" type="1">
+<li>将函数的返回值类型添加到 <code dir="ltr" translate="no">String</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@GET</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"photos"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getPhotos</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<h3 data-text="对象声明" id="object-declarations" is-upgraded="" tabindex="-1"><strong>对象声明</strong></h3>
+<p>在 Kotlin 中，<a href="https://kotlinlang.org/docs/reference/object-declarations.html#object-declarations" target="_blank">对象声明</a>用于声明单例对象。<a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank">单例模式</a>可确保对于一个对象只创建一个实例，并提供一个对该对象的全局访问点。对象的初始化是线程安全操作，在首次访问时完成。</p>
+<p>以下是对象声明及其访问的示例。对象声明的名称后面跟有 <code dir="ltr" translate="no">object</code> 关键字。</p>
+<p><strong>示例</strong>：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Example for Object declaration, do not copy over</span>
+
+<span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">SampleDataProvider</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">register</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">provider</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">SampleProvider</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-err">​</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// ...</span>
+<span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-c1">// To refer to the object, use its name directly.</span>
+<span class="devsite-syntax-n">SampleDataProvider</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">register</span><span class="devsite-syntax-p">(...)</span>
+</code></pre></devsite-code>
+<aside class="warning"><p><strong>警告</strong>：不推荐使用单例模式。单例表示难以预测的全局状态，尤其是在测试中。对象应定义所需的依赖项，而不是描述如何创建它们。</p>
+<p>请使用<a href="https://developer.android.com/training/dependency-injection?hl=zh-cn" target="_blank">依赖项注入</a>，而非单例模式。在后续的 Codelab 中，您将了解如何实现依赖项注入。</p>
+</aside>
+<p>在内存、速度和性能方面，对 Retrofit 对象调用 <code dir="ltr" translate="no">create()</code> 函数的成本很高。该应用只需要一个 Retrofit API 服务实例，因此，您可以使用对象声明向应用的其余部分公开该服务。<em></em><em></em></p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MarsApiService</code> 接口声明外，定义一个名为 <code dir="ltr" translate="no">MarsApi</code> 的公共对象，以初始化 Retrofit 服务。此对象是应用的其余部分可以访问的公开单例对象。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsApi</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">MarsApi</code> 对象声明内，添加一个名为 <code dir="ltr" translate="no">retrofitService</code>、类型为 <code dir="ltr" translate="no">MarsApiService</code> 的延迟初始化的 Retrofit 对象属性。您可以进行这种延迟初始化，确保其在首次使用时进行初始化。忽略这个错误，您将在后续步骤中修复它。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：请记住，“延迟初始化”是指特意延迟创建对象，直至需要该对象为止，以此避免不必要的计算或使用其他计算资源。Kotlin 提供对延迟初始化的<a href="https://kotlinlang.org/docs/reference/delegated-properties.html#lazy" target="_blank">一流支持</a>。</p>
+</aside>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsApi</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">retrofitService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lazy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>使用带有 <code dir="ltr" translate="no">MarsApiService</code> 界面的 <code dir="ltr" translate="no">retrofit.create()</code> 方法初始化 <code dir="ltr" translate="no">retrofitService</code> 变量。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsApi</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">retrofitService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lazy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">retrofit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">create</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">MarsApiService</span><span class="devsite-syntax-o">::</span><span class="devsite-syntax-n">class</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">java</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>Retrofit 设置已完成！每次您的应用调用 <code dir="ltr" translate="no">MarsApi.retrofitService</code> 时，调用方都会访问同一个单例 Retrofit 对象，该对象会实现在首次访问时创建的 <code dir="ltr" translate="no">MarsApiService</code>。在下一个任务中，您将使用您实现的 Retrofit 对象。</p>
+<h2 data-text="在 MarsViewModel 中调用 Web 服务" id="call-the-web-service-in-marsviewmodel" is-upgraded="" tabindex="-1">在 MarsViewModel 中调用 Web 服务</h2>
+<p>在此步骤中，您将实现 <code dir="ltr" translate="no">getMarsPhotos()</code> 方法，该方法会调用 REST 服务，然后处理返回的 JSON 字符串。</p>
+<aside class="special"><p><strong>注意</strong>：建议的方法是从代码库调用 Web 服务，这会将数据层与应用的其余部分隔离开来。在后续的 Codelab 中，您将向应用添加一个代码库。</p>
+</aside>
+<h3 data-text="ViewModelScope" id="viewmodelscope" is-upgraded="" tabindex="-1">ViewModelScope</h3>
+<p><a href="https://developer.android.com/topic/libraries/architecture/coroutines?hl=zh-cn#viewmodelscope" target="_blank"><code dir="ltr" translate="no">viewModelScope</code></a> 是为应用中的每个 <code dir="ltr" translate="no">ViewModel</code> 定义的内置协程作用域。在此作用域内启动的协程会在 <code dir="ltr" translate="no">ViewModel</code> 被清除时自动取消。</p>
+<p>您可以使用 <code dir="ltr" translate="no">viewModelScope</code> 启动协程，并在后台发出 Web 服务请求。由于 <code dir="ltr" translate="no">viewModelScope</code> 属于 <code dir="ltr" translate="no">ViewModel</code>，因此，即使应用发生配置更改，请求也会继续发出。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">MarsApiService.kt</code> 文件中，将 <code dir="ltr" translate="no">getPhotos()</code> 设置为挂起函数，使其异步，并且不会阻塞发起调用的线程。您可以从 <a href="https://developer.android.com/topic/libraries/architecture/coroutines?hl=zh-cn#viewmodelscope" target="_blank"><code dir="ltr" translate="no">viewModelScope</code></a> 内调用此函数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@GET</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"photos"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getPhotos</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>打开 <code dir="ltr" translate="no">ui/screens/MarsViewModel.kt</code> 文件。向下滚动到 <code dir="ltr" translate="no">getMarsPhotos()</code> 方法。删除用于将状态响应设置为 <code dir="ltr" translate="no">"Set the Mars API Response here!"</code> 的代码行，使 <code dir="ltr" translate="no">getMarsPhotos()</code> 方法为空。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getMarsPhotos</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">getMarsPhotos()</code> 中，使用 <code dir="ltr" translate="no">viewModelScope.launch</code> 启动协程。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.lifecycle.viewModelScope</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.coroutines.launch</span>
+
+
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getMarsPhotos</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">viewModelScope</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">viewModelScope</code> 中，使用单例对象 <code dir="ltr" translate="no">MarsApi</code> 从 <code dir="ltr" translate="no">retrofitService</code> 接口调用 <code dir="ltr" translate="no">getPhotos()</code> 方法。将返回的响应保存在名为 <code dir="ltr" translate="no">listResult</code> 的 <code dir="ltr" translate="no">val</code> 中。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.marsphotos.network.MarsApi</span>
+
+<span class="devsite-syntax-n">viewModelScope</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">listResult</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApi</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">retrofitService</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>将刚刚从后端服务器收到的结果分配给 <code dir="ltr" translate="no">marsUiState</code>。<code dir="ltr" translate="no">marsUiState</code> 是一个可变状态对象，表示最近的网络请求的状态。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">listResult</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApi</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">retrofitService</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listResult</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>运行应用。请注意，该应用会立即关闭，不一定会显示错误弹出窗口。应用发生了崩溃。</li>
+<li>点击 Android Studio 中的 <strong>Logcat</strong> 标签页，并记下日志中以如下所示的代码行开头的错误消息：“<code dir="ltr" translate="no">------- beginning of crash</code>”。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>    --------- beginning of crash
+22803-22865/com.example.android.marsphotos E/AndroidRuntime: FATAL EXCEPTION: OkHttp Dispatcher
+    Process: com.example.android.marsphotos, PID: 22803
+    java.lang.SecurityException: Permission denied (missing INTERNET permission?)
+...
+</pre></devsite-code>
+<p>此错误消息表示应用可能缺少 <code dir="ltr" translate="no">INTERNET</code> 权限。下一项任务介绍了如何向应用添加互联网权限并解决此问题。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="6" label="添加互联网权限和异常处理">
+          
+          <h2 class="step-title" data-text="               7. 添加互联网权限和异常处理           " id="6" tabindex="-1">
+              7. 添加互联网权限和异常处理
+          </h2>
+          
+          <h2 data-text="Android 权限" id="android-permissions" is-upgraded="" tabindex="-1"><strong>Android 权限</strong></h2>
+<p>Android 上的权限旨在保护 Android 用户的隐私。Android 应用必须声明或请求访问敏感用户数据（如联系人、通话记录和某些系统功能，如相机或互联网）的权限。</p>
+<p>应用需要 <code dir="ltr" translate="no">INTERNET</code> 权限才能访问互联网。连接到互联网会引起安全问题，因此我们默认应用没有连接互联网。您需要明确声明该应用需要访问互联网。系统会将此声明视为正常权限。如需详细了解 Android 权限及其类型，请参阅 <a href="https://developer.android.com/guide/topics/permissions/overview?hl=zh-cn" target="_blank">Android 中的权限</a>。</p>
+<p>在此步骤中，您的应用通过在 <code dir="ltr" translate="no">AndroidManifest.xml</code> 文件中添加 <code dir="ltr" translate="no">&lt;uses-permission&gt;</code> 标签来声明它所需的权限。</p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">manifests/AndroidManifest.xml</code>。将下面这行代码添加到 <code dir="ltr" translate="no">&lt;application&gt;</code> 标签的前面：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-n">uses</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">permission</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"android.permission.INTERNET"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>编译并再次运行应用。</li>
+</ol>
+<p>如果互联网连接正常，您应该会看到包含火星照片相关数据的 JSON 文本。观察每条图片记录的 <code dir="ltr" translate="no">id</code> 和 <code dir="ltr" translate="no">img_src</code> 的重复规律。此 Codelab 稍后会详细介绍 JSON 格式。</p>
+<p class="image-container"><img alt="b82ddb79eff61995.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_2880.029cc721e4.png 2880w" style="width: 360.00px" /></p>
+<ol start="3" type="1">
+<li>点按设备或模拟器中的<strong>返回</strong>按钮，关闭应用。</li>
+</ol>
+<h2 data-text="异常处理" id="exception-handling" is-upgraded="" tabindex="-1"><strong>异常处理</strong></h2>
+<p>代码中存在一个 bug。若要查看，请执行以下步骤：</p>
+<ol type="1">
+<li>将设备或模拟器设为飞行模式，以模拟网络连接错误。</li>
+<li>从“最近”菜单中重新打开应用，或从 Android Studio 中重启应用。</li>
+<li>点击 Android Studio 中的 <strong>Logcat</strong> 标签页，并记下日志中如下所示的严重异常：</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>3302-3302/com.example.android.marsphotos E/AndroidRuntime: FATAL EXCEPTION: main
+    Process: com.example.android.marsphotos, PID: 3302
+</pre></devsite-code>
+<p>此错误消息表示应用尝试连接并超时。在现实环境中，诸如此类的异常非常常见。与权限问题不同，此错误无法解决，但您可以自行处理。在下一步中，您将了解如何处理此类异常。</p>
+<h3 data-text="例外情况" id="exceptions" is-upgraded="" tabindex="-1"><strong>例外情况</strong></h3>
+<p><a href="https://developer.android.com/reference/java/lang/Exception?hl=zh-cn" target="_blank">异常</a>是指在不通知用户的情况下，可能在运行时（并非编译时）出现并最终导致应用突然终止的错误。<em></em>这可能会导致糟糕的用户体验。异常处理是一种机制，您可以利用该机制防止应用突然终止，并以人性化方式处理这种情况。<em></em></p>
+<p>发生异常的原因可能非常简单，比如除以零就可能抛出异常，或者是网络连接错误。这些异常类似于上一个 Codelab 中讨论过的 <code dir="ltr" translate="no">IllegalArgumentException</code>。</p>
+<p>连接到服务器时可能出现的问题包括：</p>
+<ul>
+<li>在 API 中使用的网址或 URI 不正确。</li>
+<li>服务器不可用，应用无法连接到服务器。</li>
+<li>网络延迟问题。</li>
+<li>设备的互联网连接状况不佳或无互联网连接。</li>
+</ul>
+<p>这些异常无法在编译时进行处理，但您可以使用 <code dir="ltr" translate="no">try-catch</code> 代码块在运行时处理异常。如需了解详情，请参阅<a href="https://kotlinlang.org/docs/reference/exceptions.html" target="_blank">异常</a>。</p>
+<p><strong>try-catch 代码块的语法示例</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// some code that can cause an exception.</span>
+<span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-k">catch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">SomeException</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// handle the exception to avoid abrupt termination.</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>在 <code dir="ltr" translate="no">try</code> 代码块中，您可以在预期会引发异常的位置添加代码。在您的应用中，这会是一次网络调用。在 <code dir="ltr" translate="no">catch</code> 代码块中，您需要实现用于防止应用突然终止的代码。如果存在异常，系统会执行 <code dir="ltr" translate="no">catch</code> 代码块，以从错误中恢复，而不是突然终止应用。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">getMarsPhotos()</code> 中的 <code dir="ltr" translate="no">launch</code> 代码块内，围绕 <code dir="ltr" translate="no">MarsApi</code> 调用添加一个 <code dir="ltr" translate="no">try</code> 代码块来处理异常。</li>
+<li>在 <code dir="ltr" translate="no">try</code> 代码块之后添加一个 <code dir="ltr" translate="no">catch</code> 代码块。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">java.io.IOException</span>
+
+
+<span class="devsite-syntax-n">viewModelScope</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">listResult</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApi</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">retrofitService</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listResult</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">catch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">IOException</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>再次运行该应用。请注意，应用这次不会崩溃。</li>
+</ol>
+<h3 data-text="添加状态界面" id="add-state-ui" is-upgraded="" tabindex="-1">添加状态界面</h3>
+<p>在 <code dir="ltr" translate="no">MarsViewModel</code> 类中，最近的网络请求的状态 <code dir="ltr" translate="no">marsUiState</code> 会保存为可变状态对象。但是，这个类缺乏保存如下不同状态的功能：正在加载、成功和失败。</p>
+<ul>
+<li><strong>正在加载</strong>状态表示应用正在等待数据。</li>
+<li><strong>成功</strong>状态表示已成功从 Web 服务检索到数据。</li>
+<li><strong>错误</strong>状态表示存在网络或连接错误。</li>
+</ul>
+<p>如需表示应用中的这三种状态，您将使用封装接口。<em></em><code dir="ltr" translate="no">sealed interface</code> 通过限制可能的值来轻松管理状态。在 Mars Photos 应用中，您将 <code dir="ltr" translate="no">marsUiState</code> 网络响应限制为三种状态（数据类对象）：正在加载、成功和错误，如以下代码所示：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// No need to copy over</span>
+<span class="devsite-syntax-kd">sealed</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Success</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Loading</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Error</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>在上述代码段中，如果返回成功响应，您会从服务器收到火星照片信息。为了存储数据，请向 <code dir="ltr" translate="no">Success</code> 数据类添加一个构造函数参数。</p>
+<p>对于 <code dir="ltr" translate="no">Loading</code> 和 <code dir="ltr" translate="no">Error</code> 状态，您无需设置新数据和创建新对象；只需传递网络响应即可。将 <code dir="ltr" translate="no">data</code> 类更改为 <code dir="ltr" translate="no">Object</code>，以便为网络响应创建对象。</p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">ui/MarsViewModel.kt</code> 文件。在 import 语句后，添加 <code dir="ltr" translate="no">MarsUiState</code> 封装接口。添加后，<code dir="ltr" translate="no">MarsUiState</code> 对象的值就会变得详尽。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">sealed</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Success</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">photos</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Error</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">object</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">Loading</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>在 <code dir="ltr" translate="no">MarsViewModel</code> 类中，更新 <code dir="ltr" translate="no">marsUiState</code> 定义。将类型更改为 <code dir="ltr" translate="no">MarsUiState</code>，将 <code dir="ltr" translate="no">MarsUiState.Loading</code> 作为其默认值。将 setter 设为不公开，以保护写入 <code dir="ltr" translate="no">marsUiState</code> 的内容。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">marsUiState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableStateOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Loading</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-n">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">set</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>向下滚动到 <code dir="ltr" translate="no">getMarsPhotos()</code> 方法。将 <code dir="ltr" translate="no">marsUiState</code> 值更新为 <code dir="ltr" translate="no">MarsUiState.Success</code>，并传递 <code dir="ltr" translate="no">listResult</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">listResult</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApi</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">retrofitService</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">listResult</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">catch</code> 代码块内部，处理故障响应。将 <code dir="ltr" translate="no">MarsUiState</code> 设为 <code dir="ltr" translate="no">Error</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">catch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">IOException</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Error</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>您可以从 <code dir="ltr" translate="no">try-catch</code> 代码块中取出 <code dir="ltr" translate="no">marsUiState</code> 分配。完成后的函数应如以下代码所示：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getMarsPhotos</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">viewModelScope</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">launch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">try</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">listResult</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApi</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">retrofitService</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">listResult</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">catch</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">e</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">IOException</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">           </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Error</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>在 <code dir="ltr" translate="no">screens/HomeScreen.kt</code> 文件中，对 <code dir="ltr" translate="no">marsUiState</code> 添加一个 <code dir="ltr" translate="no">when</code> 表达式。如果 <code dir="ltr" translate="no">marsUiState</code> 为 <code dir="ltr" translate="no">MarsUiState.Success</code>，则调用 <code dir="ltr" translate="no">ResultScreen</code> 并传入 <code dir="ltr" translate="no">marsUiState.photos</code>。现阶段，请忽略错误。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.fillMaxWidth</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">HomeScreen</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">when</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">is</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ResultScreen</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">photos</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：<code dir="ltr" translate="no">marsUiState</code> 属性不再是字符串。您已将其更改为 <code dir="ltr" translate="no">MarsUiState</code> 封装接口，该接口有三个不同的对象值：<code dir="ltr" translate="no">MarsUiState.Loading</code>、<code dir="ltr" translate="no">MarsUiState.Success</code> 和 <code dir="ltr" translate="no">MarsUiState.Error</code>。</p>
+</aside>
+<ol start="7" type="1">
+<li>在 <code dir="ltr" translate="no">when</code> 代码块内，为 <code dir="ltr" translate="no">MarsUiState.Loading</code> 和 <code dir="ltr" translate="no">MarsUiState.Error</code> 添加检查项。让该应用显示 <code dir="ltr" translate="no">LoadingScreen</code>、<code dir="ltr" translate="no">ResultScreen</code> 和 <code dir="ltr" translate="no">ErrorScreen</code> 可组合项，稍后您会实现这些可组合项。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.fillMaxSize</span>
+
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">HomeScreen</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span>
+<span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">when</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">is</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Loading</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LoadingScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxSize</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">is</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ResultScreen</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">photos</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxWidth</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-k">is</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Error</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ErrorScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">fillMaxSize</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：如果实现 <code dir="ltr" translate="no">MarsUiState</code> <code dir="ltr" translate="no">interface</code> 时未使用 <code dir="ltr" translate="no">sealed</code> 关键字，则需要添加一个 Success、Error、Loading 和 <code dir="ltr" translate="no">else</code> 分支。由于没有第四个选项 (else)，因此，您可以使用 <code dir="ltr" translate="no">sealed</code> 接口告知编译器只有三个选项（这会使条件语句变得详尽）。</p>
+</aside>
+<ol start="8" type="1">
+<li>打开 <code dir="ltr" translate="no">res/drawable/loading_animation.xml</code>。该可绘制对象是围绕中心点旋转图片可绘制对象 <code dir="ltr" translate="no">loading_img.xml</code> 的动画。（您在预览中看不到这段动画。）</li>
+</ol>
+<p class="image-container"><img alt="92a448fa23b6d1df.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/92a448fa23b6d1df_2880.029cc721e4.png 2880w" style="width: 96.00px" title="加载动画" /></p>
+<ol start="9" type="1">
+<li>在 <code dir="ltr" translate="no">screens/HomeScreen.kt</code> 文件中的 <code dir="ltr" translate="no">HomeScreen</code> 可组合项下方，添加以下 <code dir="ltr" translate="no">LoadingScreen</code> 可组合函数以显示加载动画。起始代码中包含 <code dir="ltr" translate="no">loading_img</code> 可绘制资源。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.res.painterResource</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.ui.unit.dp</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.size</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.Image</span>
+
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">LoadingScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Image</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">200.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">painter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">loading_img</span><span class="devsite-syntax-p">),</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">loading</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="10" type="1">
+<li>在 <code dir="ltr" translate="no">LoadingScreen</code> 可组合项下方，添加以下 <code dir="ltr" translate="no">ErrorScreen</code> 可组合函数，以便应用显示错误消息。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.Arrangement</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.Column</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">androidx.compose.foundation.layout.padding</span>
+
+<span class="devsite-syntax-nd">@Composable</span>
+<span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">ErrorScreen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Column</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">verticalArrangement</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Arrangement</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Center</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">horizontalAlignment</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Alignment</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">CenterHorizontally</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Image</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">painter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">painterResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">id</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">drawable</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">ic_connection_error</span><span class="devsite-syntax-p">),</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">contentDescription</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">""</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">Text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">stringResource</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">R</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">string</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">loading_failed</span><span class="devsite-syntax-p">),</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">modifier</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Modifier</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">padding</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">16.</span><span class="devsite-syntax-n">dp</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="11" type="1">
+<li>再次运行应用，保持飞行模式开启状态。应用这次不会突然关闭，而是会显示错误消息：</li>
+</ol>
+<p class="image-container"><img alt="28ba37928e0a9334.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/28ba37928e0a9334_2880.029cc721e4.png 2880w" style="width: 360.00px" /></p>
+<ol start="12" type="1">
+<li>在手机或模拟器上，关闭飞行模式。运行并测试您的应用，确保一切正常，并且您能够看到 JSON 字符串。</li>
+</ol>
+<table class="vertical-rules">
+<tbody><tr><td colspan="1" rowspan="1"><p class="image-container"><img sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/3931a215bc8e35fb_2880.029cc721e4.png 2880w" /></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b82ddb79eff61995_2880.029cc721e4.png 2880w" /></p>
+</td></tr>
+</tbody></table>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="7" label="使用 kotlinx.serialization 解析 JSON 响应">
+          
+          <h2 class="step-title" data-text="               8. 使用 kotlinx.serialization 解析 JSON 响应           " id="7" tabindex="-1">
+              8. 使用 kotlinx.serialization 解析 JSON 响应
+          </h2>
+          
+          <h2 data-text="JSON" id="json" is-upgraded="" tabindex="-1"><strong>JSON</strong></h2>
+<p>请求的数据通常采用 XML 或 JSON 等常见数据格式之一。每次调用都会返回结构化数据，并且您的应用需要知道该结构是什么，才能从响应中读取数据。</p>
+<p>例如，在此应用中，您将从 <a href="https://mars.udacity.com/realestate" target="_blank">https://</a><a href="https://android-kotlin-fun-mars-server.appspot.com/photos?hl=zh-cn" target="_blank">android-kotlin-fun-mars-server.appspot.com/photos</a> 服务器检索数据。如果在浏览器中输入此网址，您会看到以 JSON 格式显示的火星表面的 ID 和图片网址列表！</p>
+<h3 data-text="示例 JSON 响应的结构" id="structure-of-sample-json-response" is-upgraded="" tabindex="-1"><strong>示例 JSON 响应的结构</strong></h3>
+<p class="image-container"><img alt="显示键值对和 JSON 对象" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/fde4f6f199990ae8_2880.029cc721e4.png 2880w" style="width: 576.00px" title="JSON 数组结构" /></p>
+<p>JSON 响应的结构具有以下特征：</p>
+<ul>
+<li>JSON 响应是一个数组（以英文方括号表示）。该数组包含 JSON 对象。</li>
+<li>JSON 对象括在英文大括号中。</li>
+<li>每个 JSON 对象都包含一组以英文逗号分隔的键值对。</li>
+<li>键值对中的键和值以英文冒号分隔。</li>
+<li>名称会用英文引号引起来。</li>
+<li>值可以是数字、字符串、布尔值、数组、对象（JSON 对象）或 null。</li>
+</ul>
+<p>例如，<code dir="ltr" translate="no">img_src</code> 是一个网址，而该网址是一个字符串。如果将该网址粘贴到网络浏览器中，您会看到一张火星表面图片。</p>
+<p class="image-container"><img alt="b4f9f196c64f02c3.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/b4f9f196c64f02c3_2880.029cc721e4.png 2880w" style="width: 288.00px" title="显示火星照片的网络浏览器" /></p>
+<p>现在，在您的应用中，您将从 Mars Web 服务获得 JSON 响应，这是一个不错的开始。但显示图片实际上需要的是 Kotlin 对象，而不是大型 JSON 字符串。这个过程称为“反序列化”。<em></em></p>
+<p><a href="https://kotlinlang.org/docs/serialization.html" target="_blank">序列化</a>是将应用所用的数据转换成可通过网络传输的格式的过程。<em></em>与“序列化”相反，“反序列化”是从外部来源（如服务器）读取数据并将其转换为运行时对象的过程。<em></em><em></em>这两者是大多数通过网络交换数据的应用的必备组件。</p>
+<p><code dir="ltr" translate="no">kotlinx.serialization</code> 提供了一系列库，用于将 JSON 字符串转换为 Kotlin 对象。<a href="https://github.com/JakeWharton/retrofit2-kotlinx-serialization-converter#kotlin-serialization-converter" target="_blank">Kotlin 序列化转换器</a>是一个社区开发的第三方库，可与 Retrofit 配合使用。</p>
+<p>在此任务中，您将使用 <code dir="ltr" translate="no">kotlinx.serialization</code> 库，将 Web 服务的 JSON 响应解析成表示火星照片的有用 Kotlin 对象。您需要更改应用，而不是显示原始 JSON，而该应用会显示返回的火星照片数。</p>
+<h2 data-text="添加 kotlinx.serialization 库依赖项" id="add-kotlinx.serialization-library-dependencies" is-upgraded="" tabindex="-1">添加 <code dir="ltr" translate="no">kotlinx.serialization</code> 库依赖项</h2>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">build.gradle.kts (Module :app)</code>。</li>
+<li>在 <code dir="ltr" translate="no">plugins</code> 代码块中，添加 <code dir="ltr" translate="no">kotlinx serialization</code> 插件。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">id</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"org.jetbrains.kotlin.plugin.serialization"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">version</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"1.8.10"</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>在 <code dir="ltr" translate="no">dependencies</code> 部分，添加以下代码以包含 <code dir="ltr" translate="no">kotlinx.serialization</code> 依赖项。此依赖项可为 Kotlin 项目提供 JSON 序列化。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Kotlin serialization </span>
+<span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">dependencies</code> 代码块中，找到 Retrofit 标量转换器所在的代码行，并将其更改为使用 <code dir="ltr" translate="no">kotlinx-serialization-converter</code>：</li>
+</ol>
+<p><strong>将以下代码</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Retrofit with scalar Converter</span>
+<span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"com.squareup.retrofit2:converter-scalars:2.9.0"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p><strong>替换为以下代码</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// Retrofit with Kotlin serialization Converter</span>
+
+<span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">implementation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"com.squareup.okhttp3:okhttp:4.11.0"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>点击 <strong>Sync Now</strong>，以使用新的依赖项重建项目。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：该项目可能会显示与已移除的 Retrofit 标量依赖项相关的编译器错误。您将在接下来的步骤中修复这些错误。</p>
+</aside>
+<h2 data-text="实现火星照片数据类" id="implement-the-mars-photo-data-class" is-upgraded="" tabindex="-1"><strong>实现火星照片数据类</strong></h2>
+<p>您从 Web 服务中获取的 JSON 响应的示例条目类似于您之前看到的内容：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-o">[</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"id"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-s">"424906"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-s">"img_src"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-s">"../../../offline-assets/mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044631300305227E03_DXXX.jpg"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-p">...</span><span class="devsite-syntax-o">]</span>
+</code></pre></devsite-code>
+<p>请注意，在上面的示例中，每个火星照片条目都具有以下 JSON 键值对：</p>
+<ul>
+<li><strong><code dir="ltr" translate="no">id</code></strong><strong></strong>：资源的 ID，用字符串表示。由于它封装在英文引号 (<code dir="ltr" translate="no">" "</code>) 中，因此它是 <code dir="ltr" translate="no">String</code> 类型，而不是 <code dir="ltr" translate="no">Integer</code>。</li>
+<li><strong><code dir="ltr" translate="no">img_src</code></strong><strong></strong>：图片的网址，用字符串表示。</li>
+</ul>
+<p>kotlinx.serialization 会解析此 JSON 数据并将其转换为 Kotlin 对象。为此，kotlinx.serialization 需要一个 Kotlin 数据类来存储解析后的结果。在此步骤中，您将创建数据类 <code dir="ltr" translate="no">MarsPhoto</code>。</p>
+<ol type="1">
+<li>右键点击 <strong>network</strong> 软件包，然后依次选择 <strong>New > Kotlin File/Class</strong>。</li>
+<li>在对话框中，选择 <strong>Class</strong>，然后输入 <code dir="ltr" translate="no">MarsPhoto</code> 作为类的名称。系统将在 <code dir="ltr" translate="no">network</code> 软件包中创建一个名为 <code dir="ltr" translate="no">MarsPhoto.kt</code> 的新文件。</li>
+<li>在类定义前添加 <code dir="ltr" translate="no">data</code> 关键字，使 <code dir="ltr" translate="no">MarsPhoto</code> 成为数据类。</li>
+<li>将英文大括号 <code dir="ltr" translate="no">{}</code> 更改为英文圆括号 <code dir="ltr" translate="no">()</code>。此更改会引发错误，因为数据类必须至少定义一个属性。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsPhoto</span><span class="devsite-syntax-p">()</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>将以下属性添加到 <code dir="ltr" translate="no">MarsPhoto</code> 类定义中。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsPhoto</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w">  </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">img_src</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>使 <code dir="ltr" translate="no">MarsPhoto</code> 类可序列化，并为其添加 <code dir="ltr" translate="no">@Serializable</code> 注解。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.serialization.Serializable</span>
+
+<span class="devsite-syntax-nd">@Serializable</span>
+<span class="devsite-syntax-kd">data</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsPhoto</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">id</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w">  </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">img_src</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>请注意，<code dir="ltr" translate="no">MarsPhoto</code> 类中的每个变量都对应于 JSON 对象中的一个键名。为了匹配特定 JSON 响应中的类型，您可以为所有值使用 <code dir="ltr" translate="no">String</code> 对象。</p>
+<p><code dir="ltr" translate="no">kotlinx serialization</code> 解析 JSON 时，它会按名称匹配键，并用适当的值填充数据对象。</p>
+<h3 data-text="@SerialName 注解" id="serialname-annotation" is-upgraded="" tabindex="-1"><strong>@SerialName 注解</strong></h3>
+<p>有时，JSON 响应中的键名可能会使 Kotlin 属性引起混淆，或者可能与建议的编码样式不匹配。例如，在 JSON 文件中，<code dir="ltr" translate="no">img_src</code> 键使用下划线，而按照惯例，Kotlin 属性则使用大写和小写字母（“驼峰命名法”）。</p>
+<p>如需在数据类中使用与 JSON 响应中的键名不同的变量名称，请使用 <code dir="ltr" translate="no">@SerialName</code> 注解。在下例中，数据类中变量的名称为 <code dir="ltr" translate="no">imgSrc</code>。您可以使用 <code dir="ltr" translate="no">@SerialName(value = "img_src")</code> 将该变量映射到 JSON 属性 <code dir="ltr" translate="no">img_src</code>。</p>
+<ol type="1">
+<li>将 <code dir="ltr" translate="no">img_src</code> 键所在的代码行替换为如下所示的代码行。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.serialization.SerialName</span>
+
+<span class="devsite-syntax-nd">@SerialName</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">value</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"img_src"</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span>
+<span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">imgSrc</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">String</span>
+</code></pre></devsite-code>
+<h2 data-text="更新 MarsApiService 和 MarsViewModel" id="update-marsapiservice-and-marsviewmodel" is-upgraded="" tabindex="-1">更新 MarsApiService 和 MarsViewModel</h2>
+<p>在此任务中，您将使用 <code dir="ltr" translate="no">kotlinx.serialization</code> 转换器将 JSON 对象转换为 Kotlin 对象。</p>
+<ol type="1">
+<li>打开 <code dir="ltr" translate="no">network/MarsApiService.kt</code>。</li>
+<li>请注意 <code dir="ltr" translate="no">ScalarsConverterFactory</code> 的未解析引用错误。这些错误是由上一部分中的 Retrofit 依赖项更改导致的。</li>
+<li>删除 <code dir="ltr" translate="no">ScalarConverterFactory</code> 的导入作业。您稍后将修复另一个错误。</li>
+</ol>
+<p><strong>移除</strong>：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">retrofit2.converter.scalars.ScalarsConverterFactory</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>在 <code dir="ltr" translate="no">retrofit</code> 对象声明中，将 Retrofit 构建器更改为使用 <code dir="ltr" translate="no">kotlinx.serialization</code> 而不是 <code dir="ltr" translate="no">ScalarConverterFactory</code>。<em></em></li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">kotlinx.serialization.json.Json</span>
+<span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">okhttp3.MediaType</span>
+
+<span class="devsite-syntax-kd">private</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">retrofit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Retrofit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">addConverterFactory</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">Json</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">asConverterFactory</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"application/json"</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">toMediaType</span><span class="devsite-syntax-p">()))</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">baseUrl</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">BASE_URL</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">()</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：如果 Android Studio 显示任何关于 <code dir="ltr" translate="no">kotlinx.serialization.ExperimentalSerializationApi</code> 的警告，请暂时忽略它。您不必担心这个警告。我们会在更高版本的 Kotlin 中解决此问题。</p>
+<p class="image-container"><img alt="857006993db2a1a3.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/857006993db2a1a3_2880.029cc721e4.png 2880w" style="width: 610.00px" /></p>
+</aside>
+<p>现在，您已具备 <code dir="ltr" translate="no">kotlinx.serialization</code>，可以要求 Retrofit 从 JSON 数组中返回 <code dir="ltr" translate="no">MarsPhoto</code> 对象列表，而不是返回 JSON 字符串。</p>
+<ol start="5" type="1">
+<li>更新 <code dir="ltr" translate="no">MarsApiService</code> 接口，以便 Retrofit 返回 <code dir="ltr" translate="no">MarsPhoto</code> 对象列表，而不是返回 <code dir="ltr" translate="no">String</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">interface</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nc">MarsApiService</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@GET</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"photos"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">suspend</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">getPhotos</span><span class="devsite-syntax-p">():</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;MarsPhoto&gt;</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>对 <code dir="ltr" translate="no">viewModel</code> 进行类似的更改。打开 <code dir="ltr" translate="no">MarsViewModel.kt</code>，并向下滚动到 <code dir="ltr" translate="no">getMarsPhotos()</code> 方法。</li>
+</ol>
+<p>在 <code dir="ltr" translate="no">getMarsPhotos()</code> 方法中，<code dir="ltr" translate="no">listResult</code> 是 <code dir="ltr" translate="no">List&lt;MarsPhoto&gt;</code>，而不再是 <code dir="ltr" translate="no">String</code>。该列表的大小就是已接收和解析的照片数。</p>
+<ol start="7" type="1">
+<li>如需输出检索的照片数，请按如下方式更新 <code dir="ltr" translate="no">marsUiState</code>：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">listResult</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsApi</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">retrofitService</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">getPhotos</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">marsUiState</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">MarsUiState</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">Success</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-s">"Success: </span><span class="devsite-syntax-si">${</span><span class="devsite-syntax-n">listResult</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s"> Mars photos retrieved"</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="8" type="1">
+<li>确保在设备或模拟器中关闭飞行模式。<em></em>编译并运行应用。</li>
+</ol>
+<p>这一次，消息应显示 Web 服务返回的资源数，而不是较大的 JSON 字符串：</p>
+<p class="image-container"><img alt="a59e55909b6e9213.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-getting-data-internet/img/a59e55909b6e9213_2880.029cc721e4.png 2880w" style="width: 360.00px" /></p>
+<aside class="special"><p><strong>注意</strong>：如果互联网连接不正常，请务必在设备或模拟器上关闭飞行模式。</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="8" label="解决方案代码">
+          
+          <h2 class="step-title" data-text="               9. 解决方案代码           " id="8" tabindex="-1">
+              9. 解决方案代码
+          </h2>
+          
+          <p>如需下载已完成的 Codelab 的代码，您可以使用以下 Git 命令：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos.git
+$ cd basic-android-kotlin-compose-training-mars-photos
+$ git checkout repo-starter
+</pre></devsite-code>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/archive/refs/heads/repo-starter.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">repo-starter</code> 分支中。</p>
+</aside>
+<p>如果您想查看此 Codelab 的解决方案代码，请前往 <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-mars-photos/tree/repo-starter" target="_blank">GitHub</a> 查看。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="9" label="摘要">
+          
+          <h2 class="step-title" data-text="               10. 总结           " id="9" tabindex="-1">
+              10. 总结
+          </h2>
+          
+          <h3 data-text="REST Web 服务" id="rest-web-services" is-upgraded="" tabindex="-1"><strong>REST Web 服务</strong></h3>
+<ul>
+<li>Web 服务是通过互联网提供的基于软件的功能，可让您的应用发出请求并获取返回的数据。<em></em></li>
+<li>常见 Web 服务使用的是 <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> 架构。提供 REST 架构的 Web 服务称为 RESTful 服务。<em>RESTful</em>RESTful Web 服务是使用标准网络组件和协议构建的。</li>
+<li>您可通过 URI 以标准化方式向 REST Web 服务发出请求。</li>
+<li>若要使用 Web 服务，应用必须建立网络连接，然后与该服务进行通信。然后，应用必须接收响应数据，并将该数据解析成应用可以使用的格式。</li>
+<li><a href="https://square.github.io/retrofit/" target="_blank">Retrofit</a> 库是一个客户端库，可让应用向 REST Web 服务发出请求。</li>
+<li>使用转换器指示 Retrofit 如何处理它发送至 Web 服务的数据，以及它从 Web 服务获取的返回数据。例如，<code dir="ltr" translate="no">ScalarsConverter</code> 会将 Web 服务数据视为 <code dir="ltr" translate="no">String</code> 或其他基元。</li>
+<li>如需让应用能够连接到互联网，请在 Android 清单中添加 <code dir="ltr" translate="no">"android.permission.INTERNET"</code> 权限。</li>
+<li>延迟初始化会将对象创建操作委派为在首次使用时执行。它会创建引用，但不会创建对象。在首次访问对象后，此后每次访问都会创建并使用引用。</li>
+</ul>
+<h3 data-text="JSON 解析" id="json-parsing" is-upgraded="" tabindex="-1"><strong>JSON 解析</strong></h3>
+<ul>
+<li>Web 服务的响应通常会采用 <a href="https://www.json.org/" target="_blank">JSON</a> 格式（一种表示结构化数据的通用格式）。</li>
+<li>JSON 对象是键值对的集合。</li>
+<li>JSON 对象集合是一个 JSON 数组。作为 Web 服务的响应，您会得到一个 JSON 数组。</li>
+<li>键值对中的键会用英文引号引起来。值可以是数字或字符串。</li>
+<li>在 Kotlin 中，数据序列化工具位于单独的组件 <a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank">kotlinx.serialization</a> 中。<em>kotlinx.serialization</em>kotlinx.serialization 提供了一系列库，用于将 JSON 字符串转换为 Kotlin 对象。<em>kotlinx.serialization</em></li>
+<li>Kotlin 序列化转换器库是一个由社区开发的库，适用于 Retrofit：<a href="https://github.com/JakeWharton/retrofit2-kotlinx-serialization-converter#kotlin-serialization-converter" target="_blank">retrofit2-kotlinx-serialization-converter</a>。</li>
+<li>kotlinx.serialization 可将 JSON 响应中的键与具有相同名称的数据对象中的属性进行匹配。<em>kotlinx.serialization</em></li>
+<li>如需为键使用不同的属性名称，请使用 <code dir="ltr" translate="no">@SerialName</code> 注解和 JSON 键 <code dir="ltr" translate="no">value</code> 为该属性添加注解。</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="10" label="了解更多内容">
+          
+          <h2 class="step-title" data-text="               11. 了解更多内容           " id="10" tabindex="-1">
+              11. 了解更多内容
+          </h2>
+          
+          <p>Android 开发者文档：</p>
+<ul>
+<li><a href="https://developer.android.com/topic/architecture?hl=zh-cn" target="_blank">应用架构指南 | Android 开发者</a></li>
+<li><a href="https://developer.android.com/topic/libraries/architecture/viewmodel?hl=zh-cn" target="_blank">ViewModel 概览</a></li>
+<li><a href="https://developer.android.com/topic/libraries/architecture/coroutines?hl=zh-cn#viewmodelscope" target="_blank">ViewModelScope</a></li>
+</ul>
+<p>Kotlin 文档：</p>
+<ul>
+<li><a href="https://kotlinlang.org/docs/reference/exceptions.html" target="_blank">异常：try、catch、final、throw、Nothing</a></li>
+<li><a href="https://kotlinlang.org/docs/reference/coroutines-overview.html" target="_blank">协程和官方文档</a></li>
+<li><a href="https://kotlinlang.org/docs/reference/coroutines/coroutine-context-and-dispatchers.html" target="_blank">协程上下文和调度程序</a></li>
+<li><a href="https://kotlinlang.org/docs/serialization.html#0" target="_blank">序列化 | Kotlin</a></li>
+</ul>
+<p>其他：</p>
+<ul>
+<li><a href="https://square.github.io/retrofit/" target="_blank">Retrofit</a></li>
+<li><a href="https://github.com/JakeWharton/retrofit2-kotlinx-serialization-converter" target="_blank">用于 Kotlin 序列化的 Retrofit 2 Converter.Factory</a></li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-x_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-x.029cc721e4.svg"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-youtube_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin.029cc721e4.svg"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="LIXTgiHG+IJd3hhCQ9ZBUGUoHCSq7C">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    '../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["../../../offline-assets/developer.android.com/_pwa/android/manifest.json","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["MiscFeatureFlags__enable_explicit_template_dependencies","MiscFeatureFlags__developers_footer_image","DevPro__enable_enterprise","Profiles__enable_developer_profile_pages_as_content","CloudShell__cloud_code_overflow_menu","Concierge__enable_remove_info_panel_tags","MiscFeatureFlags__enable_appearance_cookies","Cloud__enable_cloud_dlp_service","DevPro__enable_developer_subscriptions","DevPro__enable_vertex_credit_card","MiscFeatureFlags__developers_footer_dark_image","BookNav__enable_tenant_cache_key","MiscFeatureFlags__enable_framebox_badge_methods","DevPro__enable_firebase_workspaces_card","MiscFeatureFlags__gdp_dashboard_reskin_enabled","MiscFeatureFlags__enable_view_transitions","DevPro__enable_embed_profile_creation","MiscFeatureFlags__fix_lower_breadcrumbs","Cloud__enable_cloud_shell","DevPro__enable_devsite_captcha","MiscFeatureFlags__remove_cross_domain_tracking_params","Profiles__enable_profile_collections","DevPro__enable_cloud_innovators_plus","DevPro__enable_free_benefits","MiscFeatureFlags__enable_firebase_utm","Concierge__enable_devsite_llm_tools","MiscFeatureFlags__enable_dark_theme","Search__enable_page_map","Profiles__enable_dashboard_curated_recommendations","Concierge__enable_pushui","Profiles__enable_developer_profile_benefits_ui_redesign","Profiles__enable_awarding_url","Cloud__enable_legacy_calculator_redirect","DevPro__enable_payments_first_batch","Search__enable_suggestions_from_borg","CloudShell__cloud_shell_button","Analytics__enable_clearcut_logging","DevPro__enable_g1_integration","EngEduTelemetry__enable_engedu_telemetry","Search__enable_dynamic_content_confidential_banner","TpcFeatures__proxy_prod_host","Profiles__enable_callout_notifications","Cloud__cache_serialized_dynamic_content","MiscFeatureFlags__enable_llms_txt","Cloud__enable_llm_concierge_chat","DevPro__enable_google_one_card","DevPro__remove_eu_tax_intake_form","Profiles__enable_release_notes_notifications","Cloud__enable_cloud_shell_fte_user_flow","SignIn__enable_l1_signup_flow","MiscFeatureFlags__enable_project_variables","Profiles__enable_auto_apply_credits","Experiments__reqs_query_experiments","Concierge__enable_actions_menu","Profiles__enable_join_program_group_endpoint","DevPro__enable_credits_banner","Cloud__enable_free_trial_server_call","Profiles__enable_complete_playlist_endpoint","DevPro__enable_code_assist","DevPro__enable_nvidia_credits_card","Search__enable_ai_search_summaries_for_all","Profiles__enable_playlist_community_acl","Profiles__enable_completequiz_endpoint","Search__enable_ai_eligibility_checks","Profiles__enable_public_developer_profiles","Profiles__enable_targeted_hero","Profiles__enable_developer_profiles_callout","DevPro__enable_devpro_offers","Cloud__enable_cloudx_experiment_ids","Profiles__enable_recognition_badges","Cloud__fast_free_trial","Profiles__enable_completecodelab_endpoint","MiscFeatureFlags__enable_variable_operator_index_yaml","Profiles__enable_user_type","Profiles__require_profile_eligibility_for_signin","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_page_saving","Analytics__enable_devpro_interaction_logging","Profiles__enable_stripe_subscription_management","Profiles__enable_purchase_prompts","Search__enable_ai_search_summaries","DevPro__enable_google_payments_buyflow","Significatio__enable_by_tenant","TpcFeatures__enable_unmirrored_page_left_nav","MiscFeatureFlags__enable_variable_operator"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[1,1],[2,2]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

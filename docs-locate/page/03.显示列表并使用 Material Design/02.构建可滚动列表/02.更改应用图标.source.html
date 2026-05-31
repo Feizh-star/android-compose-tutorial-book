@@ -1,0 +1,2088 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="../../../offline-assets/developer.android.com/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    
+    
+    <link rel="stylesheet" href="../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+      <link rel="stylesheet"
+            href="../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css"><link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon" /><link rel="alternate" hreflang="x-default" href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon" /><link rel="alternate" hreflang="zh-Hans"
+          href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=fr" /><link rel="alternate" hreflang="id"
+          href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=id" /><link rel="alternate" hreflang="ja"
+          href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=vi" /><title>更改应用图标 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="更改应用图标 &nbsp;|&nbsp; Android Developers"><meta name="description" content="更改 Affirmations 应用的应用图标。">
+  <meta property="og:description" content="更改 Affirmations 应用的应用图标。"><meta property="og:url" content="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="../../../offline-assets/developer.android.com/codelabs/basic-android-kotlin-compose-training-change-app-icon?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      更改应用图标<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="19-Atd5I5nExWatdKhC0seEhzirmOn9701E3V3pWXETw" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations/issues/new?assignees=&amp;labels=&amp;template=add-a-scrollable-list.md&amp;title=Android&#43;Compose&#43;Change&#43;the&#43;App&#43;Icon" id="basic-android-kotlin-compose-training-change-app-icon" layout="paginated" no-tooltip="" title="更改应用图标">
+      
+        <google-codelab-step duration="0" step="0" label="准备工作">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2024-05-08T14:34:21Z" codelab-title="更改应用图标">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 前言           " id="0" tabindex="-1">
+              1. 前言
+          </h2>
+          
+          <p>应用图标是一种区分应用的重要方式，您可以为图标添加独特的样式和外观。应用图标会出现在多个位置，包括主屏幕、“所有应用”界面和“设置”应用。</p>
+<p>应用图标也可能会被称为<strong>启动器</strong>图标。启动器是指当您点按 Android 设备上的主屏幕按钮时所看到的界面，在该界面中可以查看和整理应用、添加 widget 和快捷方式，以及执行其他多种操作。</p>
+<p class="image-container"><img alt="ec0237fb600dd2a9.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/ec0237fb600dd2a9_2880.029cc721e4.png 2880w" style="width: 240.00px" /> <img alt="e7a9b86b35f7d6c3.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/e7a9b86b35f7d6c3_2880.029cc721e4.png 2880w" style="width: 240.00px" /></p>
+<p>如果您使用过不同的 Android 设备，就可能会注意到，启动器界面可能因设备制造商而异。有时，设备制造商会量身打造能够体现其品牌特色的启动器界面。例如，不同制造商可能会以不同的形状显示应用图标，而不一定是上方所示的圆形图标。</p>
+<p>例如，他们可能会以方形、圆角方形或方圆形（介于方形和圆形之间）显示所有应用图标。</p>
+<p class="image-container"><img alt="一张图片，其中展示了各种形状的应用图标" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/16e235142627947_2880.029cc721e4.png 2880w" style="width: 480.00px" title="图标形状" /></p>
+<p>无论设备制造商选择哪种形状，其目的都是为了使单个设备上的所有应用图标具有统一的形状，以便提供一致的用户体验。</p>
+<p class="image-container"><img alt="一张图片，其中展示了统一形状的图标。" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/3c94e41bcbfd9a3c_2880.029cc721e4.png 2880w" style="width: 192.00px" title="统一的图标" /></p>
+<p>正因如此，Android 平台引入了对<strong>自适应图标</strong>的支持（自 API 级别 26 起）。为应用实现自适应图标后，您的应用将能够为设备的显示屏量身定制启动器图标，从而适应各种设备。</p>
+<p>此 Codelab 为您提供了 <strong>Affirmations</strong> 应用启动器图标的图片源文件。您将使用 Android Studio 中名为 <strong>Image Asset Studio</strong> 的工具生成各种版本的启动器图标。之后，您可以将自己所学的知识运用到其他应用的应用图标中！</p>
+<p class="image-container"><img alt="Affirmations 应用的启动器图标的图片。" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/7ddbfb08a71c2742_2880.029cc721e4.png 2880w" style="width: 203.70px" title="Affirmations 应用的启动器图标" /></p>
+<h2 data-text="前提条件" id="prerequisites" is-upgraded="" tabindex="-1">前提条件</h2>
+<ul>
+<li>能够浏览基本 Android 项目的文件，包括资源文件。</li>
+<li>能够通过 Android Studio 在模拟器或实体设备上安装 Android 应用。</li>
+</ul>
+<h2 class="checklist" data-text="学习内容" id="what-youll-learn" is-upgraded="" tabindex="-1">学习内容</h2>
+<ul class="checklist">
+<li>如何更改应用的启动器图标。</li>
+<li>如何使用 Android Studio 中的 Image Asset Studio 生成启动器图标资源。</li>
+<li>什么是自适应图标，以及为什么它包含两个图层。</li>
+</ul>
+<h2 data-text="将制作的内容" id="what-youll-make" is-upgraded="" tabindex="-1">将制作的内容</h2>
+<ul>
+<li><strong>Affirmations</strong> 应用的自定义启动器图标。</li>
+</ul>
+<h2 data-text="所需条件" id="what-you-need" is-upgraded="" tabindex="-1">所需条件</h2>
+<ul>
+<li>一台安装了最新稳定版 Android Studio 的计算机。</li>
+<li>能连接互联网，以便下载图片资源文件。</li>
+<li>能够访问 GitHub</li>
+</ul>
+<h2 data-text="下载起始代码" id="download-the-starter-code" is-upgraded="" tabindex="-1">下载起始代码</h2>
+<p>在 Android Studio 中，打开 <code dir="ltr" translate="no">basic-android-kotlin-compose-training-affirmations</code> 文件夹。</p>
+<aside class="special"><p><strong>起始代码网址</strong>：</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations/tree/intermediate" target="_blank"><code dir="ltr" translate="no">https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations</code></a></p>
+<p><strong>包含起始代码的分支名称</strong>：<code dir="ltr" translate="no">intermediate</code></p>
+</aside>
+<ol type="1">
+<li>进入为此项目提供的 GitHub 代码库页面。</li>
+<li>验证分支名称是否与此 Codelab 中指定的分支名称一致。例如，在以下屏幕截图中，分支名称为 <strong>main</strong>。</li>
+</ol>
+<p class="image-container"><img alt="1e4c0d2c081a8fd2.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_2880.029cc721e4.png 2880w" style="width: 412.80px" /></p>
+<ol start="3" type="1">
+<li>在项目的 GitHub 页面上，点击 <strong>Code</strong> 按钮，以打开一个弹出式窗口。</li>
+</ol>
+<p class="image-container"><img alt="1debcf330fd04c7b.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_2880.029cc721e4.png 2880w" style="width: 384.00px" /></p>
+<ol start="4" type="1">
+<li>在弹出式窗口中，点击 <strong>Download ZIP</strong> 按钮，将项目保存到计算机上。等待下载完成。</li>
+<li>在计算机上找到该文件（很可能在 <strong>Downloads</strong> 文件夹中）。</li>
+<li>双击 ZIP 文件进行解压缩。系统将创建一个包含项目文件的新文件夹。</li>
+</ol>
+<h2 data-text="在 Android Studio 中打开项目" id="open-the-project-in-android-studio" is-upgraded="" tabindex="-1">在 Android Studio 中打开项目</h2>
+<ol type="1">
+<li>启动 Android Studio。</li>
+<li>在 <strong>Welcome to Android Studio</strong> 窗口中，点击 <strong>Open</strong>。</li>
+</ol>
+<p class="image-container"><img alt="d8e9dbdeafe9038a.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_2880.029cc721e4.png 2880w" style="width: 481.08px" /></p>
+<p>注意：如果 Android Studio 已经打开，则改为依次选择 <strong>File</strong> > <strong>Open</strong> 菜单选项。</p>
+<p class="image-container"><img alt="8d1fda7396afe8e5.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_2880.029cc721e4.png 2880w" style="width: 434.00px" /></p>
+<ol start="3" type="1">
+<li>在文件浏览器中，前往解压缩的项目文件夹所在的位置（很可能在 <strong>Downloads</strong> 文件夹中）。</li>
+<li>双击该项目文件夹。</li>
+<li>等待 Android Studio 打开项目。</li>
+<li>点击 <strong>Run</strong> 按钮 <img alt="8de56cba7583251f.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_2880.029cc721e4.png 2880w" style="width: 27.73px" /> 以构建并运行应用。请确保该应用按预期构建。</li>
+</ol>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="启动器图标">
+          
+          <h2 class="step-title" data-text="               2. 启动器图标           " id="1" tabindex="-1">
+              2. 启动器图标
+          </h2>
+          
+          <p>设置启动图标的目标是，无论设备型号或屏幕密度如何，您的启动器图标都会呈现清晰简洁的效果。屏幕密度是指屏幕上每英寸的像素数或每英寸的点数 (dpi)。对于中密度设备 (mdpi)，屏幕上每英寸有 160 个点，而超超超高密度设备 (xxxhdpi) 的屏幕上每英寸有 640 个点。</p>
+<p>为适应不同屏幕密度的设备，您需要提供不同版本的应用图标。</p>
+<h2 data-text="浏览启动器图标文件" id="explore-launcher-icon-files" is-upgraded="" tabindex="-1">浏览启动器图标文件</h2>
+<ol type="1">
+<li>如需查看启动器图标在项目内的呈现效果，请在 Android Studio 中打开项目。</li>
+<li>在<strong>“Project”窗口</strong>中，切换到 <strong>Project</strong> 视图。此视图将显示您项目的文件结构。</li>
+</ol>
+<p class="image-container"><img alt="eef1b274888f2a1c.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/eef1b274888f2a1c_2880.029cc721e4.png 2880w" style="width: 467.00px" /></p>
+<ol start="3" type="1">
+<li>前往资源目录 (<strong>app > src > main > res</strong>)，然后展开一些 <code dir="ltr" translate="no">mipmap</code> 文件夹。您应将 Android 应用的启动器图标资源放到这些 <code dir="ltr" translate="no">mipmap</code> 文件夹中。</li>
+</ol>
+<p class="image-container"><img alt="b725c14ee21fce54.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b725c14ee21fce54_2880.029cc721e4.png 2880w" style="width: 428.00px" /></p>
+<p>drawable 文件夹中以 XML 文件的形式包含了启动器图标所对应的矢量。就可绘制图标而言，矢量是指一系列在编译时绘制图像的指令。<code dir="ltr" translate="no">mdpi</code>、<code dir="ltr" translate="no">hdpi</code>、<code dir="ltr" translate="no">xhdpi</code> 等是密度限定符，您可以将其附加到资源目录的名称（例如 <code dir="ltr" translate="no">mipmap,</code>）上，以表明其中的资源适用于特定屏幕密度的设备。以下是 Android 上的<a href="https://developer.android.com/training/multiscreen/screendensities?hl=zh-cn#TaskProvideAltBmp" target="_blank">密度限定符</a>列表：</p>
+<ul>
+<li><code dir="ltr" translate="no">mdpi</code> - 适用于中密度屏幕（约 160dpi）的资源</li>
+<li><code dir="ltr" translate="no">hdpi</code> - 适用于高密度屏幕（约 240dpi）的资源</li>
+<li><code dir="ltr" translate="no">xhdpi</code> - 适用于超高密度屏幕（约 320dpi）的资源</li>
+<li><code dir="ltr" translate="no">xxhdpi</code> - 适用于超超高密度屏幕（约 480dpi）的资源</li>
+<li><code dir="ltr" translate="no">xxxhdpi</code> - 适用于超超超高密度屏幕（约 640dpi）的资源</li>
+<li><code dir="ltr" translate="no">nodpi</code> - 不能缩放的资源（无论屏幕的像素密度是多少）</li>
+<li><code dir="ltr" translate="no">anydpi</code> - 可针对任何密度进行缩放的资源</li>
+</ul>
+<aside class="special"><p><strong>注意</strong>：您可能会好奇，为何启动器图标资源位于 <code dir="ltr" translate="no">mipmap</code> 目录中，而其他应用资源位于 <code dir="ltr" translate="no">drawable</code> 目录中。这是因为，某些启动器显示的应用图标尺寸可能会比设备默认密度级别提供的应用图标尺寸要大。例如，在 <code dir="ltr" translate="no">hdpi</code> 设备上，某种设备启动器可能需要改用 <code dir="ltr" translate="no">xhdpi</code> 版本的应用图标。这些目录包含的图标适用于相比默认密度需要更高或更低密度的图标的设备。</p>
+</aside>
+<ol start="4" type="1">
+<li>如果您点击图片文件，将会看到预览。<code dir="ltr" translate="no">ic_launcher.webp</code> 文件包含图标的方形版本，而 <code dir="ltr" translate="no">ic_launcher_round.webp</code> 文件包含图标的圆形版本。每个 mipmap 目录中均提供了这两个版本。</li>
+</ol>
+<p>例如，以下便是 <strong>res > mipmap-xxxhdpi > ic_launcher_round.webp</strong> 的预览效果。请注意，相应资源的尺寸位于右上角。此图片的尺寸为 192px x 192px。</p>
+<p class="image-container"><img alt="1da42b08b39e8560.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1da42b08b39e8560_2880.029cc721e4.png 2880w" style="width: 358.00px" /></p>
+<p>以下是 <strong>res > mipmap-mdpi > ic_launcher_round.webp</strong> 的预览效果。它的尺寸仅为 48px x 48px。</p>
+<p class="image-container"><img alt="5a5eaf5d0c2f67de.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/5a5eaf5d0c2f67de_2880.029cc721e4.png 2880w" style="width: 326.70px" /></p>
+<p>如您所见，这些位图图片文件由一个固定的像素网格组成。它们是针对特定屏幕分辨率创建的。因此，如果您调整它们的尺寸，图标画质可能会降低。</p>
+<aside class="special"><p><strong>注意</strong>：为了避免应用图标模糊不清，请务必针对每个密度级别（<code dir="ltr" translate="no">mdpi</code>、<code dir="ltr" translate="no">hdpi</code>、<code dir="ltr" translate="no">xhdpi</code> 等）提供不同的图标位图图片。请注意，设备屏幕密度不会刚好是 160 dpi、240 dpi、320 dpi 等。Android 会根据设备的屏幕密度，以最接近的较大密度级别选择资源，然后将其缩小。</p>
+</aside>
+<p>现在，您已对启动器图标有所了解，接下来您将学习自适应图标。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="自适应图标">
+          
+          <h2 class="step-title" data-text="               3. 自适应图标           " id="2" tabindex="-1">
+              3. 自适应图标
+          </h2>
+          
+          <h2 data-text="前景图层和背景图层" id="foreground-and-background-layers" is-upgraded="" tabindex="-1">前景图层和背景图层</h2>
+<p>自 <a href="https://developer.android.com/about/versions/oreo?hl=zh-cn" target="_blank">Android 8.0 版本</a>（API 级别 26）起，系统支持自适应图标，这种图标能够使应用图标更加灵活并呈现出有趣的视觉效果。对于开发者来说，这意味着应用图标由两个图层组成：前景图层和背景图层。</p>
+<p class="image-container"><img alt="1af36983e3677abe.gif" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1af36983e3677abe.029cc721e4.gif" style="width: 336.00px" /></p>
+<p>在上面的示例中，白色的 Android 图标位于前景图层中，而蓝白网格位于背景图层中。前景图层会叠加在背景图层上。系统会在其上再叠加一个蒙版（在此例中为圆形蒙版），这样就产生了一个圆形应用图标。</p>
+<h2 data-text="浏览自适应图标文件" id="explore-adaptive-icon-files" is-upgraded="" tabindex="-1">浏览自适应图标文件</h2>
+<p>我们以 <strong>Affirmations</strong> 应用代码中已经提供的默认自适应图标文件为例进行说明。</p>
+<ol type="1">
+<li>在 Android Studio 的<strong>“Project”窗口</strong>中，找到 <strong>res > mipmap-anydpi-v26</strong> 资源目录并将其展开。</li>
+</ol>
+<p class="image-container"><img alt="29758558d7509497.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/29758558d7509497_2880.029cc721e4.png 2880w" style="width: 339.73px" /></p>
+<aside class="special"><p><strong>注意</strong>：添加自适应图标的是 API 级别为 26 的平台，因此自适应图标应该是在具有 <code dir="ltr" translate="no">-v26</code> 资源限定符的 <code dir="ltr" translate="no">mipmap</code> 资源目录中声明的。这个限定符意味着，此目录中的资源只会应用到搭载 API 26 (Android 8.0) 或更高版本的设备。在搭载版本 25 或更低版本，且支持密度级别 mipmap 目录的设备上，系统会忽略此目录中的资源文件。</p>
+</aside>
+<ol start="2" type="1">
+<li>打开 <code dir="ltr" translate="no">ic_launcher.xml</code> 文件。您会看到：</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-o">?</span><span class="devsite-syntax-n">xml</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">version</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"1.0"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">encoding</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"utf-8"</span><span class="devsite-syntax-o">?</span>&gt;
+&lt;<span class="devsite-syntax-n">adaptive</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">icon</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">xmlns</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"http://schemas.android.com/apk/res/android"</span>&gt;
+<span class="devsite-syntax-w">    </span>&lt;<span class="devsite-syntax-n">background</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">drawable</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@drawable/ic_launcher_background"</span><span class="devsite-syntax-o">/</span>&gt;
+<span class="devsite-syntax-w">    </span>&lt;<span class="devsite-syntax-n">foreground</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">drawable</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@drawable/ic_launcher_foreground"</span><span class="devsite-syntax-o">/</span>&gt;
+<span class="devsite-syntax-w">    </span>&lt;<span class="devsite-syntax-n">monochrome</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">drawable</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"@drawable/ic_launcher_foreground"</span><span class="devsite-syntax-o">/</span>&gt;
+&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">adaptive</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">icon</span>&gt;
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>请注意，该文件中使用了 <code dir="ltr" translate="no">&lt;adaptive-icon&gt;</code> 元素为应用图标的 <code dir="ltr" translate="no">&lt;background&gt;</code> 图层和 <code dir="ltr" translate="no">&lt;foreground&gt;</code> 图层分别提供资源可绘制对象，从而完成对它们的声明。</li>
+<li>返回 <strong>Project</strong> 视图，并定位背景和前景可绘制对象：<strong>res > drawable > ic_launcher_background.xml</strong> 和 <strong>res > drawable > ic_launcher_foreground.xml</strong>。</li>
+<li>切换到 <strong>Design</strong> 视图，查看每个图层的预览效果。</li>
+</ol>
+<p>背景：</p>
+<p class="image-container"><img alt="b24d4a67be43b6d9.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/b24d4a67be43b6d9_2880.029cc721e4.png 2880w" style="width: 240.00px" /></p>
+<p>前台：</p>
+<p class="image-container"><img alt="c05923559b5541f1.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c05923559b5541f1_2880.029cc721e4.png 2880w" style="width: 240.00px" /></p>
+<ol start="6" type="1">
+<li>这两个都是矢量可绘制对象文件。它们没有以像素为单位的固定尺寸。如果您切换到 <strong>Code</strong> 视图，就会看到使用 <code dir="ltr" translate="no">&lt;vector&gt;</code> 元素声明矢量可绘制对象的 XML 代码。</li>
+</ol>
+<p><strong><code dir="ltr" translate="no">ic_launcher_foreground.xml</code></strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr">&lt;<span class="devsite-syntax-o">!--</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Copyright</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">C</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2023</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">The</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Android</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Open</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Source</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Project</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Licensed</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">under</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Apache</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">License</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Version</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2.0</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"License"</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">you</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">may</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">not</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">use</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">this</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">file</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">except</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">in</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">compliance</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">with</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">License</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">You</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">may</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">obtain</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">a</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">copy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">of</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">License</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">at</span>
+
+<span class="devsite-syntax-w">         </span><span class="devsite-syntax-n">https</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-c1">//www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Unless</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">required</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">by</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">applicable</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">law</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">or</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">agreed</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">in</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">writing</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">software</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">distributed</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">under</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">License</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">is</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">distributed</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">on</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">an</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"AS IS"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">BASIS</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">WITHOUT</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">WARRANTIES</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">OR</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">CONDITIONS</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">OF</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ANY</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">KIND</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">either</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">express</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">or</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">implied</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">See</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">License</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">for</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">specific</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">language</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">governing</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">permissions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">and</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">limitations</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">under</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">License</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-o">--</span>&gt;
+
+&lt;<span class="devsite-syntax-n">vector</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">xmlns</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"http://schemas.android.com/apk/res/android"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">xmlns</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">aapt</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"http://schemas.android.com/aapt"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">width</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"108dp"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">height</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"108dp"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">viewportWidth</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"108"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">viewportHeight</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"108"</span>&gt;
+<span class="devsite-syntax-w">  </span>&lt;<span class="devsite-syntax-n">path</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">pathData</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z"</span>&gt;
+<span class="devsite-syntax-w">    </span>&lt;<span class="devsite-syntax-n">aapt</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">attr</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"android:fillColor"</span>&gt;
+<span class="devsite-syntax-w">      </span>&lt;<span class="devsite-syntax-n">gradient</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">endX</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"85.84757"</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">endY</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"92.4963"</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">startX</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"42.9492"</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">startY</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"49.59793"</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">type</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"linear"</span>&gt;
+<span class="devsite-syntax-w">        </span>&lt;<span class="devsite-syntax-n">item</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">color</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"#44000000"</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">offset</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"0.0"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+<span class="devsite-syntax-w">        </span>&lt;<span class="devsite-syntax-n">item</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">color</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"#00000000"</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">offset</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"1.0"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+<span class="devsite-syntax-w">      </span>&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">gradient</span>&gt;
+<span class="devsite-syntax-w">    </span>&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">aapt</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">attr</span>&gt;
+<span class="devsite-syntax-w">  </span>&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">path</span>&gt;
+<span class="devsite-syntax-w">  </span>&lt;<span class="devsite-syntax-n">path</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">fillColor</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"#FFFFFF"</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">fillType</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"nonZero"</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">pathData</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">strokeWidth</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"1"</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-n">android</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-n">strokeColor</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"#00000000"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span>&gt;
+&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">vector</span>&gt;
+</code></pre></devsite-code>
+<p>尽管矢量可绘制对象和位图图片描述的都是图片，但二者之间存在一些重要的区别。</p>
+<p>除了各个像素处的颜色信息之外，位图图片对其存储的图片并不太了解。而另一方面，矢量图形知道如何绘制用于定义图片的形状。这些指令由一组点、线条和曲线以及相关颜色信息组成。其优势在于，矢量图形可针对任意屏幕密度的任意画布尺寸进行缩放，而不会损害图片质量。</p>
+<p><a href="https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources?hl=zh-cn" target="_blank">矢量可绘制对象</a>是 Android 平台的矢量图形实现，可在移动设备上展现灵活性。您可以使用 XML 并利用这些<a href="https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable?hl=zh-cn" target="_blank">可能的元素</a>对其进行定义。您只需要定义一次图片，而不必针对所有密度级别提供各种版本的位图资源。这样可以减少应用的大小，并使其更易于维护。</p>
+<aside class="special"><p><strong>注意</strong>：在选择使用矢量可绘制对象还是位图图片时，需要进行<a href="https://medium.com/androiddevelopers/understanding-androids-vector-image-format-vectordrawable-ab09e41d5c68" target="_blank">权衡</a>。例如，对于图标来说，矢量可绘制对象是理想之选，因为它们由简单的形状组成；而对于照片，却很难用一系列形状来描述。在这种情况下，使用位图资源会更加有效。</p>
+</aside>
+<p>现在，是时候真正地更改应用图标了！</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="下载新资源">
+          
+          <h2 class="step-title" data-text="               4. 下载新资源           " id="3" tabindex="-1">
+              4. 下载新资源
+          </h2>
+          
+          <p>下载以下两个新资源，借助它们，您可为 <strong>Affirmations</strong> 应用创建自适应图标，而不必费心了解矢量可绘制对象文件的所有细节。其中的内容是利用设计工具自动生成的。</p>
+<ol type="1">
+<li>下载 <a href="https://raw.githubusercontent.com/google-developer-training/basic-android-kotlin-compose-training-affirmations/main/app/src/main/res/drawable/ic_launcher_background.xml" target="_blank"><code dir="ltr" translate="no">ic_launcher_background.xml</code></a>，即背景图层的矢量可绘制对象。如果您的浏览器显示了相应的文件而没有下载该文件，请依次选择<strong>文件 > 网页另存为…</strong>，以将其保存到计算机上。</li>
+<li>下载 <a href="https://raw.githubusercontent.com/google-developer-training/basic-android-kotlin-compose-training-affirmations/main/app/src/main/res/drawable/ic_launcher_foreground.xml" target="_blank"><code dir="ltr" translate="no">ic_launcher_foreground.xml</code></a>，即前景图层的矢量可绘制对象。</li>
+</ol>
+<p>请注意，系统对这些前景和背景图层资源有特定要求，例如它们的尺寸都必须为 108dp x 108dp。您可以在 <a href="https://developer.android.com/reference/kotlin/android/graphics/drawable/AdaptiveIconDrawable?hl=zh-cn" target="_blank">AdaptiveIconDrawable 文档</a>中查看更多详细信息，还可以在 Material Design 网站上查看 <a href="https://m3.material.io/styles/icons/overview" target="_blank">Android 图标</a>的设计指南。</p>
+<p>由于图标的边缘可能会根据设备制造商提供的蒙版的形状进行剪裁，请务必将图标的关键信息放置在“<a href="https://medium.com/google-design/designing-adaptive-icons-515af294c783" target="_blank">安全区域</a>”内。安全区域是一个位于前景图层中心且直径为 66dpi 的圆圈。该安全区域之外的内容不应是重要信息（例如背景颜色），即使被裁剪掉也没关系。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="更改应用图标">
+          
+          <h2 class="step-title" data-text="               5. 更改应用图标           " id="4" tabindex="-1">
+              5. 更改应用图标
+          </h2>
+          
+          <p>返回到 Android Studio，使用刚刚下载的新资源。</p>
+<ol type="1">
+<li>首先，删除带有 Android 图标和绿色网格背景的旧版可绘制资源。在<strong>“Project”视图</strong>中，右键点击相应文件，然后选择 <strong>Delete</strong>。</li>
+</ol>
+<p>删除：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">drawable</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher_background</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">xml</span>
+<span class="devsite-syntax-n">drawable</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher_foreground</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">xml</span>
+</code></pre></devsite-code>
+<p>删除：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">anydpi</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">v26</span><span class="devsite-syntax-o">/</span>
+<span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">hdpi</span><span class="devsite-syntax-o">/</span>
+<span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">mdpi</span><span class="devsite-syntax-o">/</span>
+<span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">xhdpi</span><span class="devsite-syntax-o">/</span>
+<span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">xxhdpi</span><span class="devsite-syntax-o">/</span>
+<span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">xxxhdpi</span><span class="devsite-syntax-o">/</span>
+</code></pre></devsite-code>
+<p>您可以取消选中 <strong>Safe delete (with usage search)</strong> 框，然后点击 <strong>OK</strong>。<strong>Safe delete (with usage search)</strong> 功能会通过搜索代码来找出要删除的资源的使用情况。在这种情况下，您需要将这些文件夹替换为名称相同的新文件夹，这样就无需担心<strong>安全删除</strong>了。</p>
+<ol start="2" type="1">
+<li>创建一个新的 <strong>Image Asset</strong>。您可以右键点击 <strong>res</strong> 目录，然后依次选择 <strong>New > Image Asset</strong>；也可以先点击 <strong>Resource Manager</strong> 标签页，再点击 <strong>+</strong> 图标，然后从下拉菜单中选择 <strong>Image Asset</strong>。</li>
+</ol>
+<p class="image-container"><img alt="dbe59156de9fde40.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dbe59156de9fde40_2880.029cc721e4.png 2880w" style="width: 479.00px" /></p>
+<ol start="3" type="1">
+<li>系统将打开 Android Studio 的 <strong>Image Asset Studio</strong> 工具。</li>
+<li>保留默认设置：</li>
+</ol>
+<ul>
+<li><strong>Icon Type:</strong> Launcher Icons (Adaptive and Legacy)</li>
+<li><strong>Name:</strong> ic_launcher</li>
+</ul>
+<p class="image-container"><img alt="4729e4abc9542d87.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4729e4abc9542d87_2880.029cc721e4.png 2880w" style="width: 662.40px" /></p>
+<ol start="5" type="1">
+<li>选中 <strong>Foreground Layer</strong> 标签页后，前往 <strong>Source Asset</strong> 子部分。在 <strong>Path</strong> 字段中，点击文件夹图标。</li>
+<li>此时系统会弹出浏览计算机并选择文件的提示。找到您刚下载的新 <code dir="ltr" translate="no">ic_launcher_foreground.xml</code> 文件的位置。它可能位于计算机的<strong>下载</strong>文件夹中。找到该文件后，点击 <strong>Open</strong>。</li>
+<li><strong>Path</strong> 现已更新为新前景矢量可绘制对象的位置。将 <strong>Layer Name</strong> 保留为 <strong>ic_launcher_foreground</strong>，<strong>Asset Type</strong> 保留为 <strong>Image</strong>。</li>
+</ol>
+<p class="image-container"><img alt="2f59e5ac70a8a033.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/2f59e5ac70a8a033_2880.029cc721e4.png 2880w" style="width: 400.00px" /></p>
+<ol start="8" type="1">
+<li>接下来，切换到界面的 <strong>Background Layer</strong> 标签页。保留默认值。</li>
+<li>点击 <strong>Path</strong> 字段中的文件夹图标。</li>
+<li>找到您刚下载的 <code dir="ltr" translate="no">ic_launcher_background.xml</code> 文件的位置。点击 <strong>Open</strong>。</li>
+</ol>
+<p class="image-container"><img alt="dc0aee541c8039e7.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/dc0aee541c8039e7_2880.029cc721e4.png 2880w" style="width: 401.00px" /></p>
+<ol start="11" type="1">
+<li>在您选择新资源文件时，预览应该会相应地进行更新。以下便是使用新的前景图层和背景图层后的图标预览效果。</li>
+</ol>
+<p class="image-container"><img alt="a111303e7703fc99.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/a111303e7703fc99_2880.029cc721e4.png 2880w" style="width: 614.00px" /></p>
+<p>用两个图层呈现应用图标后，设备制造商（即原始设备制造商，或简称为“OEM”）便可以根据具体的 Android 设备创建不同的形状，如上面的预览所示。OEM 会提供一个将应用到设备上所有应用图标的蒙版。</p>
+<p>如果向应用图标的两个图层应用圆形蒙版，将生成一个带有蓝色网格背景且其中显示 Android 图片的圆形图标（如上图左侧图片所示）。或者，可以应用圆角方形蒙版，以生成如上图右侧图片所示的应用图标。</p>
+<p>同时具有前景图层和背景图层，便可实现有趣的视觉效果，因为这两个图层可以彼此独立移动并缩放。不妨查看<a href="https://medium.com/google-design/designing-adaptive-icons-515af294c783" target="_blank">博文“设计自适应图标”</a>中“设计注意事项”下的内容，了解一些有关视觉效果的有趣示例。由于您不知道用户将会使用什么设备，或者 OEM 将会为您的图标应用哪种蒙版，您需要设置自己的自适应图标，以免重要信息被裁剪掉。</p>
+<ol start="12" type="1">
+<li>如果重要的内容会被裁减掉，或者显示的太小，您可以使用每个图层的 <strong>Scaling</strong> 部分下的 <strong>Resize</strong> 滑动条，确保每个元素都显示在安全区域中。为了确保所有内容均不会被裁剪，请拖动 <strong>Foreground Layer</strong> 和 <strong>Background Layer</strong> 标签页中的 <strong>Resize</strong> 滑块，将前景图片和背景图片的大小调整至 99%。</li>
+</ol>
+<p class="image-container"><img alt="57fec53a0411f206.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/57fec53a0411f206_2880.029cc721e4.png 2880w" style="width: 390.00px" /></p>
+<ol start="13" type="1">
+<li>点击<strong>下一步</strong>。</li>
+<li>此步骤为 <strong>Confirm Icon Path</strong>。您可以点击各个文件，查看预览效果。</li>
+</ol>
+<p class="image-container"><img alt="4b0a24f0cbd9a2a2.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/4b0a24f0cbd9a2a2_2880.029cc721e4.png 2880w" style="width: 662.40px" /></p>
+<ol start="15" type="1">
+<li>点击<strong>完成</strong>。</li>
+<li>确认 <code dir="ltr" translate="no">mipmap</code> 文件夹中所有生成的资源均正确显示。示例：</li>
+</ol>
+<p class="image-container"><img alt="339af1a3b9ff550c.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/339af1a3b9ff550c_2880.029cc721e4.png 2880w" style="width: 192.00px" /> <img alt="31bc221b0e4b8206.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/31bc221b0e4b8206_2880.029cc721e4.png 2880w" style="width: 192.00px" /></p>
+<p>太棒了！现在，您将需要再进行一项更改。</p>
+<h2 data-text="测试应用" id="test-your-app" is-upgraded="" tabindex="-1">测试应用</h2>
+<ol type="1">
+<li>测试是否显示新的应用图标。在设备（模拟器或实体设备）上运行应用。</li>
+<li>点击设备上的<strong>主屏幕</strong>按钮。</li>
+<li>向上滑动以显示<strong>所有应用</strong>列表。</li>
+<li>查找您刚刚更新的应用。您应该会看到系统显示新的应用图标。</li>
+</ol>
+<p class="image-container"><img alt="c943f8c37c450545.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/c943f8c37c450545_2880.029cc721e4.png 2880w" style="width: 240.00px" /></p>
+<aside class="special"><p><strong>注意：</strong>根据设备型号，您可能会看到不同形状的启动器图标。无论如何，系统都应在背景图层上显示前景图层，并应用某类蒙版。</p>
+</aside>
+<p>非常棒！新的应用图标看起来非常棒。</p>
+<h2 data-text="自适应和旧版启动器图标" id="adaptive-and-legacy-launcher-icons" is-upgraded="" tabindex="-1">自适应和旧版启动器图标</h2>
+<p>现在，您的自适应图标可以正常运行了，您可能会好奇，为何不能删除所有的应用图标位图图片。您仍需要这些文件，以便应用图标能够在旧版 Android 上呈现出较高的质量，这被称为向后兼容性。</p>
+<p>在搭载 <strong>Android 8.0 或更高版本</strong>（API 26 及更高版本）的设备上，系统可以使用<strong>自适应图标</strong>（由前景矢量可绘制对象、背景矢量可绘制对象以及在其上应用的 OEM 蒙版组合而成）。以下是您项目中的相关文件：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">drawable</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher_background</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">xml</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">drawable</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher_foreground</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">xml</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">anydpi</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">v26</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">xml</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">anydpi</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">v26</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher_round</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">xml</span>
+</code></pre></devsite-code>
+<p>在搭载 <strong>Android 8.0 以下</strong>的任意版本（但高于您的应用所需的最低 API 级别）的设备上，系统将使用<strong>旧版启动器图标</strong>（位于不同密度级别的 <code dir="ltr" translate="no">mipmap</code> 文件夹中的位图图片）。以下是您项目中的相关文件：</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">mdpi</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">webp</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">mdpi</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher_round</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">webp</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">hdpi</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">webp</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">hdpi</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher_round</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">webp</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">xhdpi</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">png</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">xhdpi</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher_round</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">webp</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">xxhdpi</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">webp</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">xxhdpi</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher_round</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">webp</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">xxxhdpi</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">webp</span>
+<span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">mipmap</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">xxxhdpi</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">ic_launcher_round</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">webp</span>
+</code></pre></devsite-code>
+<p>实际上，在不支持自适应图标的旧版设备上，Android 将回退为使用位图图片。</p>
+<p>恭喜！您已完成更改应用图标的所有步骤！</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="5" label="获取解决方案代码">
+          
+          <h2 class="step-title" data-text="               6. 获取解决方案代码           " id="5" tabindex="-1">
+              6. 获取解决方案代码
+          </h2>
+          
+          <p>如需下载完成后的 Codelab 代码，您可以使用以下 Git 命令：</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$ git clone https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations.git
+$ cd basic-android-kotlin-compose-training-affirmations
+$ git checkout main
+</pre></devsite-code>
+<p>或者，您也可以下载 ZIP 文件形式的代码库，将其解压缩并在 Android Studio 中打开。</p>
+<p><a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations/archive/refs/heads/main.zip" target="_blank"><button class="button button-primary button-with-icon"><span aria-hidden="true" class="material-icons" translate="no">file_download</span>下载 ZIP 文件</button></a></p>
+<aside class="special"><p><strong>注意：</strong>解决方案代码位于所下载代码库的 <code dir="ltr" translate="no">main</code> 分支中。</p>
+</aside>
+<p>如果您想查看解决方案代码，请<a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations" target="_blank">前往 GitHub 查看</a>。</p>
+<ol type="1">
+<li>进入为此项目提供的 GitHub 代码库页面。</li>
+<li>验证分支名称是否与此 Codelab 中指定的分支名称一致。例如，在以下屏幕截图中，分支名称为 <strong>main</strong>。</li>
+</ol>
+<p class="image-container"><img alt="1e4c0d2c081a8fd2.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1e4c0d2c081a8fd2_2880.029cc721e4.png 2880w" style="width: 412.80px" /></p>
+<ol start="3" type="1">
+<li>在项目的 GitHub 页面上，点击 <strong>Code</strong> 按钮，以打开一个弹出式窗口。</li>
+</ol>
+<p class="image-container"><img alt="1debcf330fd04c7b.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/1debcf330fd04c7b_2880.029cc721e4.png 2880w" style="width: 384.00px" /></p>
+<ol start="4" type="1">
+<li>在弹出式窗口中，点击 <strong>Download ZIP</strong> 按钮，将项目保存到计算机上。等待下载完成。</li>
+<li>在计算机上找到该文件（很可能在 <strong>Downloads</strong> 文件夹中）。</li>
+<li>双击 ZIP 文件进行解压缩。系统将创建一个包含项目文件的新文件夹。</li>
+</ol>
+<h2 data-text="在 Android Studio 中打开项目" id="open-the-project-in-android-studio_1" is-upgraded="" tabindex="-1">在 Android Studio 中打开项目</h2>
+<ol type="1">
+<li>启动 Android Studio。</li>
+<li>在 <strong>Welcome to Android Studio</strong> 窗口中，点击 <strong>Open</strong>。</li>
+</ol>
+<p class="image-container"><img alt="d8e9dbdeafe9038a.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/d8e9dbdeafe9038a_2880.029cc721e4.png 2880w" style="width: 481.08px" /></p>
+<p>注意：如果 Android Studio 已经打开，则改为依次选择 <strong>File</strong> > <strong>Open</strong> 菜单选项。</p>
+<p class="image-container"><img alt="8d1fda7396afe8e5.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8d1fda7396afe8e5_2880.029cc721e4.png 2880w" style="width: 434.00px" /></p>
+<ol start="3" type="1">
+<li>在文件浏览器中，前往解压缩的项目文件夹所在的位置（很可能在 <strong>Downloads</strong> 文件夹中）。</li>
+<li>双击该项目文件夹。</li>
+<li>等待 Android Studio 打开项目。</li>
+<li>点击 <strong>Run</strong> 按钮 <img alt="8de56cba7583251f.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-training-change-app-icon/img/8de56cba7583251f_2880.029cc721e4.png 2880w" style="width: 27.73px" /> 以构建并运行应用。请确保该应用按预期构建。</li>
+</ol>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="6" label="摘要">
+          
+          <h2 class="step-title" data-text="               7. 总结           " id="6" tabindex="-1">
+              7. 总结
+          </h2>
+          
+          <ul>
+<li>将应用图标文件放到 <code dir="ltr" translate="no">mipmap</code> 资源目录中。</li>
+<li>针对各个密度级别（<code dir="ltr" translate="no">mdpi</code>、<code dir="ltr" translate="no">hdpi</code>、<code dir="ltr" translate="no">xhdpi</code>、<code dir="ltr" translate="no">xxhdpi</code>、<code dir="ltr" translate="no">xxxhdpi</code>）提供不同版本的应用图标位图图片，以便向后兼容旧版 Android。</li>
+<li>向资源目录添加资源限定符，以指定应在具有特定配置的设备上使用的资源（<code dir="ltr" translate="no">v24</code> 或 <code dir="ltr" translate="no">v26</code>）。</li>
+<li>矢量可绘制对象是 Android 平台的矢量图形实现。它们使用 XML 以一组点、线条和曲线以及相关颜色信息的形式进行定义。矢量可绘制对象可针对任何密度进行缩放，而不会降低图片质量。</li>
+<li>API 级别为 26 的 Android 平台中引入了自适应图标。它们由符合特定要求的前景和背景图层组成，因此您的应用图标在采用不同 OEM 蒙版的各种设备上都能呈现出较高的质量。</li>
+<li>使用 Android Studio 中的 <strong>Image Asset Studio</strong> 为您的应用创建旧版图标和自适应图标。</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="7" label="了解更多内容">
+          
+          <h2 class="step-title" data-text="               8. 了解更多内容           " id="7" tabindex="-1">
+              8. 了解更多内容
+          </h2>
+          
+          <ul>
+<li><a href="https://m3.material.io/styles/icons/designing-icons" target="_blank">有关 Android 图标的设计指南</a></li>
+<li><a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive?hl=zh-cn" target="_blank">自适应图标</a></li>
+<li><a href="https://medium.com/google-design/understanding-android-adaptive-icons-cee8a9de93e2" target="_blank">了解 Android 自适应图标</a></li>
+<li><a href="https://medium.com/google-design/designing-adaptive-icons-515af294c783" target="_blank">设计自适应图标</a></li>
+<li><a href="https://medium.com/androiddevelopers/implementing-adaptive-icons-1e4d1795470e" target="_blank">实现自适应图标</a></li>
+<li><a href="https://github.com/nickbutcher/AdaptiveIconPlayground" target="_blank">Adaptive Icon Playground 应用</a></li>
+<li><a href="https://developer.android.com/studio/write/image-asset-studio?hl=zh-cn#create-adaptive" target="_blank">创建自适应和旧版启动器图标</a></li>
+<li><a href="https://developer.android.com/training/multiscreen/screendensities?hl=zh-cn#TaskProvideAltBmp" target="_blank">支持不同的像素密度</a></li>
+<li><a href="https://developer.android.com/training/multiscreen/screendensities?hl=zh-cn#mipmap" target="_blank">将应用图标放在 mipmap 目录中</a></li>
+<li><a href="https://developer.android.com/guide/topics/graphics/vector-drawable-resources?hl=zh-cn" target="_blank">矢量可绘制对象概览</a></li>
+<li><a href="https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable?hl=zh-cn" target="_blank"><code dir="ltr" translate="no">VectorDrawable</code> 类</a></li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-x_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-x.029cc721e4.svg"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-youtube_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin.029cc721e4.svg"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="Z7OgcwBLx7v+3SS4l53wNLJ3cvh7FO">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    '../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["../../../offline-assets/developer.android.com/_pwa/android/manifest.json","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["Concierge__enable_actions_menu","Profiles__enable_release_notes_notifications","Search__enable_ai_search_summaries","DevPro__enable_nvidia_credits_card","DevPro__enable_devsite_captcha","Experiments__reqs_query_experiments","MiscFeatureFlags__enable_explain_this_code","MiscFeatureFlags__enable_appearance_cookies","MiscFeatureFlags__enable_framebox_badge_methods","Search__enable_suggestions_from_borg","Cloud__enable_cloudx_experiment_ids","Profiles__enable_completecodelab_endpoint","Profiles__require_profile_eligibility_for_signin","DevPro__enable_developer_subscriptions","Cloud__fast_free_trial","MiscFeatureFlags__enable_variable_operator","Profiles__enable_profile_collections","DevPro__enable_payments_first_batch","MiscFeatureFlags__gdp_dashboard_reskin_enabled","MiscFeatureFlags__enable_dark_theme","Profiles__enable_completequiz_endpoint","Profiles__enable_user_type","DevPro__enable_google_payments_buyflow","DevPro__enable_g1_integration","DevPro__remove_eu_tax_intake_form","DevPro__enable_vertex_credit_card","Profiles__enable_recognition_badges","Profiles__enable_callout_notifications","DevPro__enable_google_one_card","Profiles__enable_auto_apply_credits","DevPro__enable_enterprise","Cloud__cache_serialized_dynamic_content","DevPro__enable_credits_banner","BookNav__enable_tenant_cache_key","Profiles__enable_stripe_subscription_management","MiscFeatureFlags__fix_lower_breadcrumbs","Profiles__enable_playlist_community_acl","CloudShell__cloud_code_overflow_menu","Concierge__enable_pushui","MiscFeatureFlags__enable_firebase_utm","Concierge__enable_devsite_llm_tools","Cloud__enable_free_trial_server_call","Cloud__enable_cloud_shell_fte_user_flow","Cloud__enable_legacy_calculator_redirect","Cloud__enable_cloud_shell","Profiles__enable_developer_profile_pages_as_content","Profiles__enable_targeted_hero","TpcFeatures__enable_unmirrored_page_left_nav","DevPro__enable_cloud_innovators_plus","Profiles__enable_page_saving","Cloud__enable_llm_concierge_chat","Search__enable_page_map","Profiles__enable_public_developer_profiles","Concierge__enable_remove_info_panel_tags","MiscFeatureFlags__remove_cross_domain_tracking_params","Significatio__enable_by_tenant","MiscFeatureFlags__enable_explicit_template_dependencies","Profiles__enable_join_program_group_endpoint","MiscFeatureFlags__enable_variable_operator_index_yaml","Profiles__enable_awarding_url","Profiles__enable_complete_playlist_endpoint","DevPro__enable_devpro_offers","Profiles__enable_dashboard_curated_recommendations","Search__enable_dynamic_content_confidential_banner","Search__enable_ai_search_summaries_for_all","Analytics__enable_clearcut_logging","Profiles__enable_developer_profiles_callout","Profiles__enable_purchase_prompts","EngEduTelemetry__enable_engedu_telemetry","MiscFeatureFlags__developers_footer_image","DevPro__enable_embed_profile_creation","Analytics__enable_devpro_interaction_logging","Cloud__enable_cloud_dlp_service","MiscFeatureFlags__enable_llms_txt","SignIn__enable_l1_signup_flow","DevPro__enable_code_assist","MiscFeatureFlags__enable_view_transitions","MiscFeatureFlags__developers_footer_dark_image","TpcFeatures__proxy_prod_host","MiscFeatureFlags__enable_project_variables","Profiles__enable_developer_profile_benefits_ui_redesign","CloudShell__cloud_shell_button","DevPro__enable_free_benefits","DevPro__enable_firebase_workspaces_card","Search__enable_ai_eligibility_checks"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[1,1],[2,2]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

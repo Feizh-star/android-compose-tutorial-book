@@ -1,0 +1,2249 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="zh-CN-x-mtfrom-en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Android Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#34a853"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="../../../offline-assets/developer.android.com/_pwa/android/manifest.json"
+          crossorigin="use-credentials">
+    
+    
+    <link rel="stylesheet" href="../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css">
+      <link rel="stylesheet"
+            href="../../../offline-assets/fonts.googleapis.com/css2.e38860b30a.css"><link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/app.css">
+      
+        <link rel="stylesheet" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg">
+    <link rel="apple-touch-icon" href="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/touchicon-180.png"><link rel="canonical" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=zh-cn"><link rel="search" type="application/opensearchdescription+xml"
+            title="Android Developers" href="https://developer.android.com/s/opensearch.xml?hl=zh-cn">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections" /><link rel="alternate" hreflang="x-default" href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=zh-tw" /><link rel="alternate" hreflang="fr"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=fr" /><link rel="alternate" hreflang="id"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=id" /><link rel="alternate" hreflang="ja"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=ko" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=pt-br" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=es-419" /><link rel="alternate" hreflang="vi"
+          href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=vi" /><title>在 Kotlin 中使用集合 &nbsp;|&nbsp; Android Developers</title>
+
+<meta property="og:title" content="在 Kotlin 中使用集合 &nbsp;|&nbsp; Android Developers"><meta name="description" content="了解如何使用数组和集合，包括列表、集和映射。">
+  <meta property="og:description" content="了解如何使用数组和集合，包括列表、集和映射。"><meta property="og:url" content="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=zh-cn"><meta property="og:locale" content="zh_cn"><link rel="alternate machine-translated-from" hreflang="en"
+        href="https://developer.android.com/codelabs/basic-android-kotlin-compose-collections?hl=en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="android-theme"
+        type="codelab"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      跳至主要内容
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="打开菜单">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    
+    
+    tenant-name="Android Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.android.com/s/results?hl=zh-cn" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="打开搜索框"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="搜索"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="搜索"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="关闭搜索框"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+            <a class="devsite-header-link devsite-top-button button gc-analytics-event "
+    href="https://developer.android.com/studio?hl=zh-cn"
+    data-category="Site-Wide Custom Events"
+    data-label="Site header link: Android Studio"
+    >
+  Android Studio
+</a>
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>登录</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="过滤条件"
+         
+         aria-label="输入文本以进行过滤"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="清除过滤条件"
+        aria-label="清除过滤条件"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="侧边菜单">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="关闭导航栏">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="androidDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-dark-theme.png"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png" class="devsite-site-logo" alt="Android Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+    
+    
+<li class="devsite-nav-item">
+
+  
+  <a href="/studio"
+    
+       class="devsite-nav-title gc-analytics-event "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Android Studio"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Android Studio
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+  
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="本页内容"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      在 Kotlin 中使用集合<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="关闭"
+
+      
+      close-button-text="知道了">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      使用集合让一切井井有条
+    </span>
+    <span slot="popout-contents">
+      
+      根据您的偏好保存内容并对其进行分类。
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    
+    <google-codelab-analytics ga4id="G-JTFZSJVVVZ" gaid="UA-49880327-14"></google-codelab-analytics>
+    <google-codelab category="" codelab-ga4id="" codelab-gaid="UA-81734179-1" doc-id="1WS0TYAdtLRTwDXpaIJUCKhM1Scy0rrZpMalHoTE1h1I" environment="web" feedback-link="https://github.com/google-developer-training/basic-android-kotlin-compose-training-affirmations/issues/new?assignees=&amp;labels=&amp;template=add-a-scrollable-list.md&amp;title=Android&#43;Compose&#43;Use&#43;Collections&#43;in&#43;Kotlin" id="basic-android-kotlin-compose-collections" layout="paginated" no-tooltip="" title="在 Kotlin 中使用集合">
+      
+        <google-codelab-step duration="0" step="0" label="简介">
+          
+            <google-codelab-about authors="Google Developers Training team" last-updated="2023-09-21T19:59:23Z" codelab-title="在 Kotlin 中使用集合">
+            </google-codelab-about>
+          
+          <h2 class="step-title" data-text="               1. 简介           " id="0" tabindex="-1">
+              1. 简介
+          </h2>
+          
+          <p>在很多应用中，您可能会看到以列表形式显示的数据：通讯录、设置、搜索结果等。</p>
+<p class="image-container"><img alt="46df844b170f4272.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/46df844b170f4272_2880.029cc721e4.png 2880w" style="width: 299.83px" /></p>
+<p>但是，在您到目前为止编写过的代码中，您使用的数据大多包含单个值（例如屏幕上显示的数字或文本段）。如需构建涉及任意数量的数据的应用，您需要了解如何使用集合。</p>
+<p>集合类型（有时称为数据结构）可让您以井然有序的方式存储多个值，这些值通常属于同一数据类型。集合可以是有序列表、唯一值分组，或一种数据类型的值到另一种数据类型的值的映射。通过有效地使用集合，您可以实现 Android 应用的常见功能（例如滚动列表），以及解决各种涉及任意数量的数据的实际编程问题。</p>
+<p>此 Codelab 讨论了如何在代码中处理多个值，并介绍了各种数据结构（包括数组、列表、集和映射）。</p>
+<h2 data-text="前提条件" id="prerequisites" is-upgraded="" tabindex="-1">前提条件</h2>
+<ul>
+<li>熟悉如何使用 Kotlin 进行面向对象的编程，包括编写类、接口和泛型。</li>
+</ul>
+<h2 class="checklist" data-text="学习内容" id="what-youll-learn" is-upgraded="" tabindex="-1">学习内容</h2>
+<ul class="checklist">
+<li>如何创建和修改数组。</li>
+<li>如何使用 <code dir="ltr" translate="no">List</code> 和 <code dir="ltr" translate="no">MutableList</code>。</li>
+<li>如何使用 <code dir="ltr" translate="no">Set</code> 和 <code dir="ltr" translate="no">MutableSet</code>。</li>
+<li>如何使用 <code dir="ltr" translate="no">Map</code> 和 <code dir="ltr" translate="no">MutableMap</code>。</li>
+</ul>
+<h2 data-text="所需条件" id="what-youll-need" is-upgraded="" tabindex="-1">所需条件</h2>
+<ul>
+<li>一个能够访问 Kotlin Playground 的网络浏览器。</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="1" label="Kotlin 中的数组">
+          
+          <h2 class="step-title" data-text="               2. Kotlin 中的数组           " id="1" tabindex="-1">
+              2. Kotlin 中的数组
+          </h2>
+          
+          <h2 data-text="什么是数组？" id="what-is-an-array" is-upgraded="" tabindex="-1">什么是数组？</h2>
+<p>数组是对程序中的任意数量的值进行分组的最简单方法。</p>
+<p>比如说，太阳能板的分组称为太阳能数组，或者学习 Kotlin 可以为您的编程生涯开启无限可能（机会数组），<code dir="ltr" translate="no">Array</code> 代表<strong>多个值</strong>。具体而言，数组是属于同一数据类型的一系列值。</p>
+<p class="image-container"><img alt="33986e4256650b8b.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/33986e4256650b8b_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<ul>
+<li>数组包含多个值，这些值称为元素，有时也称为项。<em></em><em></em></li>
+<li>数组中的元素是有序的，可以通过索引进行访问。</li>
+</ul>
+<p>什么是索引？索引是与数组中的某个元素对应的整数。索引可以指示某个项与数组起始元素之间的距离。这称为“零索引”。数组的第一个元素位于索引 0 处，第二个元素位于索引 1 处，因为它与第一个元素相距一个位置，以此类推。</p>
+<p class="image-container"><img alt="bb77ec7506ac1a26.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/bb77ec7506ac1a26_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p>在设备的内存中，数组中的元素彼此相邻地存储在一起。虽然底层细节不在本 Codelab 的讨论范围之内，但这有两个重要影响：</p>
+<ul>
+<li>通过索引可以快速地访问数组元素。您可以通过索引访问数组的任何随机元素，并且访问任何其他随机元素预计需要大约相同的时间。因此，有人说数组具有随机访问特性。<em></em></li>
+<li>数组具有固定的大小。这意味着您向数组添加元素时不能超过该数组的大小。如果尝试访问某个数组（包含 100 个元素）中位于索引 100 处的元素，则会引发异常，因为最高索引为 99（请注意，第一个索引为 0，而不是 1）。但是，您可以修改数组中位于相关索引处的值。</li>
+</ul>
+<aside class="special"><p><strong>注意</strong>：在本 Codelab 中，内存是指设备的短期随机存取存储器 (RAM)，而不是长期永久性存储。之所以称为“随机访问”，是因为它支持快速访问内存中的任意位置。</p>
+</aside>
+<p>如需在代码中声明数组，请使用 <code dir="ltr" translate="no">arrayOf()</code> 函数。</p>
+<p class="image-container"><img alt="69e283b32d35f799.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/69e283b32d35f799_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p><code dir="ltr" translate="no">arrayOf()</code> 函数将数组元素作为形参，并返回类型与传入的形参相符的数组。这可能与您看到的其他函数略有不同，因为 <code dir="ltr" translate="no">arrayOf()</code> 的参数数量会变化。如果您向 <code dir="ltr" translate="no">arrayOf()</code> 传入两个参数，生成的数组将包含两个元素（索引为 0 和 1）。如果您传入三个实参，生成的数组将包含 3 个元素，索引为 0 到 2。</p>
+<p>下面，我们对太阳系进行一些探索，以了解数组的实际运用！</p>
+<ol type="1">
+<li>前往 <a href="https://developer.android.com/training/kotlinplayground?hl=zh-cn" target="_blank">Kotlin 园地</a>。</li>
+<li>在 <code dir="ltr" translate="no">main()</code> 中，创建一个 <code dir="ltr" translate="no">rockPlanets</code> 变量。调用 <code dir="ltr" translate="no">arrayOf()</code>，传入 <code dir="ltr" translate="no">String</code> 类型以及四个字符串 - 太阳系中的每个岩石行星分别对应一个。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">rockPlanets</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">arrayOf&lt;String&gt;</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Mercury"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Venus"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Earth"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Mars"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>由于 Kotlin 使用类型推断，因此在调用 <code dir="ltr" translate="no">arrayOf()</code> 时可以省略类型名称。在 <code dir="ltr" translate="no">rockPlanets</code> 变量下方，添加另一个变量 <code dir="ltr" translate="no">gasPlanets</code>，而不将类型传递到尖括号中。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">gasPlanets</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">arrayOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Jupiter"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Saturn"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Uranus"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Neptune"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>您可以使用数组进行一些很酷的操作。例如，就像数字类型 <code dir="ltr" translate="no">Int</code> 或 <code dir="ltr" translate="no">Double</code> 一样，您可以同时添加两个数组。创建一个名为 <code dir="ltr" translate="no">solarSystem</code> 的新变量，并使用加号 (<code dir="ltr" translate="no">+</code>) 运算符将其设为 <code dir="ltr" translate="no">rockPlanets</code> 和 <code dir="ltr" translate="no">gasPlanets</code> 的结果。结果是一个新数组，其中包含 <code dir="ltr" translate="no">rockPlanets</code> 数组的所有元素以及 <code dir="ltr" translate="no">gasPlanets</code> 数组的元素。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">solarSystem</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">rockPlanets</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">gasPlanets</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>运行程序，验证它是否正常运行。您目前应该不会看到任何输出。</li>
+</ol>
+<h2 data-text="访问数组中的元素" id="access-an-element-in-an-array" is-upgraded="" tabindex="-1">访问数组中的元素</h2>
+<p>您可以通过索引访问数组的元素。</p>
+<p class="image-container"><img alt="1f8398eaee30c7b0.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/1f8398eaee30c7b0_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p>这称为下标语法。它包含三个部分：</p>
+<ul>
+<li>数组的名称。</li>
+<li>左方括号 (<code dir="ltr" translate="no">[</code>) 和右方括号 (<code dir="ltr" translate="no">]</code>)。</li>
+<li>方括号内数组元素的索引。</li>
+</ul>
+<p>我们按索引访问 <code dir="ltr" translate="no">solarSystem</code> 数组的各元素。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 中，访问并输出 <code dir="ltr" translate="no">solarSystem</code> 数组的每个元素。请注意，第一个索引是 <code dir="ltr" translate="no">0</code>，最后一个索引是 <code dir="ltr" translate="no">7</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">1</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">2</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">3</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">4</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">5</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">6</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">7</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>运行程序。这些元素的顺序与您在调用 <code dir="ltr" translate="no">arrayOf()</code> 时列出它们的顺序相同。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Mercury
+Venus
+Earth
+Mars
+Jupiter
+Saturn
+Uranus
+Neptune
+</pre></devsite-code>
+<p>您还可以按索引设置数组元素的值。</p>
+<p class="image-container"><img alt="9469e321ed79c074.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9469e321ed79c074_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p>访问索引的方式和之前一样：数组的名称，后跟包含索引的左方括号和右方括号，而后是赋值运算符 (<code dir="ltr" translate="no">=</code>) 和新值。</p>
+<p>我们来练习修改 <code dir="ltr" translate="no">solarSystem</code> 数组中的值。</p>
+<ol type="1">
+<li>为 Mars 取个适合其未来定居者的新名字。访问位于索引 <code dir="ltr" translate="no">3</code> 处的元素，并将其设置为 <code dir="ltr" translate="no">"Little Earth"</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">3</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Little Earth"</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>输出位于索引 <code dir="ltr" translate="no">3</code> 处的元素。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">3</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行程序。数组的第四个元素（位于索引 <code dir="ltr" translate="no">3</code> 处）已更新。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+Little Earth
+</pre></devsite-code>
+<ol start="4" type="1">
+<li>现在，假设科学家发现了海王星轨道之外的第九颗行星“冥王星”(Pluto)。我们之前提到过，您无法调整数组的大小。如果尝试一下，会出现什么情况？我们尝试将 Pluto 添加到 <code dir="ltr" translate="no">solarSystem</code> 数组。在索引 <code dir="ltr" translate="no">8</code> 处添加 Pluto，因为它是数组中的第 9 个元素。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">8</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Pluto"</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>运行代码。它会抛出 <code dir="ltr" translate="no">ArrayIndexOutOfBounds</code> 异常。由于该数组已包含 8 个元素（符合预期），因此您不能直接添加第 9 个元素。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Exception in thread &#34;main&#34; java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 8
+</pre></devsite-code>
+<ol start="6" type="1">
+<li>移除添加到该数组中的 Pluto。</li>
+</ol>
+<p><strong>要移除的代码</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">8</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Pluto"</span>
+</code></pre></devsite-code>
+<ol start="7" type="1">
+<li>如果您想增加数组的现有大小，则需要创建一个新数组。定义一个名为 <code dir="ltr" translate="no">newSolarSystem</code> 的新变量，如下所示。此数组可以存储 9 个元素，而不是 8 个。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">newSolarSystem</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">arrayOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Mercury"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Venus"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Earth"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Mars"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Jupiter"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Saturn"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Uranus"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Neptune"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="8" type="1">
+<li>现在，尝试输出位于索引 <code dir="ltr" translate="no">8</code> 处的元素。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">newSolarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">8</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="9" type="1">
+<li>运行代码，观察发现它运行正常，而不会出现任何异常。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+Pluto
+</pre></devsite-code>
+<p>太棒了！掌握了数组之后，您就可以使用集合执行几乎任何操作了。</p>
+<p>等等，别着急！虽然数组是编程的一个基本方面，但是，如果处理的任务需要添加和移除元素、保持在集合中的唯一性或者将一些对象映射到其他对象，那么使用数组并不简单也不直接，而且应用代码很快就会变得混乱。</p>
+<p>正因如此，大多数编程语言（包括 Kotlin）都实现了特殊的集合类型，以处理实际应用中常见的情况。在后面几部分中，您将了解三个常见的集合：<code dir="ltr" translate="no">List</code>、<code dir="ltr" translate="no">Set</code> 和 <code dir="ltr" translate="no">Map</code>。您还将了解常见的属性和方法，以及使用这些集合类型的情况。</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="2" label="列表">
+          
+          <h2 class="step-title" data-text="               3. 列表           " id="2" tabindex="-1">
+              3. 列表
+          </h2>
+          
+          <p>列表是有序且可调整大小的集合，通常作为可调整大小的数组实现。当数组达到容量上限时，如果您尝试插入新元素，需要将该数组复制到一个新的较大数组。</p>
+<p class="image-container"><img alt="a4970d42cd1d2b66.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a4970d42cd1d2b66_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p>使用列表，您还可以在特定索引处（介于其他元素之间）插入新元素。</p>
+<p class="image-container"><img alt="a678d6a41e6afd46.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a678d6a41e6afd46_2880.029cc721e4.png 2880w" style="width: 560.81px" /></p>
+<p>上图显示了在列表中添加和移除元素的方式。在大多数情况下，无论列表中包含多少个元素，向列表中添加任何元素所需的时间都是相同的。每隔一段时间，如果添加新元素会使数组超出其定义的大小，那么数组元素可能必须移动，以便为新元素腾出空间。列表会为您执行所有这些操作，但在后台，它只是一个在需要时换成新数组的数组。</p>
+<h2 data-text="List 和 MutableList" id="list-and-mutablelist" is-upgraded="" tabindex="-1"><code dir="ltr" translate="no">List</code> 和 <code dir="ltr" translate="no">MutableList</code></h2>
+<p>您在 Kotlin 中遇到的集合类型会实现一个或多个接口。正如您在本单元前面的<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-generics?hl=zh-cn" target="_blank">泛型、对象和扩展</a> Codelab 中所学到的，接口提供了一组供类实现的标准属性和方法。<em></em>实现 <code dir="ltr" translate="no">List</code> 接口的类可为 <code dir="ltr" translate="no">List</code> 接口的所有属性和方法提供实现。<code dir="ltr" translate="no">MutableList</code> 也是如此。</p>
+<p><code dir="ltr" translate="no">List</code> 和 <code dir="ltr" translate="no">MutableList</code> 有什么用？</p>
+<ul>
+<li><code dir="ltr" translate="no">List</code> 是一个接口，用于定义与只读有序项集合相关的属性和方法。</li>
+<li><code dir="ltr" translate="no">MutableList</code> 通过定义修改列表的方法（例如添加和移除元素）来扩展 <code dir="ltr" translate="no">List</code> 接口。</li>
+</ul>
+<p>这些接口仅指定 <code dir="ltr" translate="no">List</code> 和/或 <code dir="ltr" translate="no">MutableList</code> 的属性和方法。每个属性和方法的实现方式均由扩展这些接口的类决定。上述基于数组的实现将是您最常使用（如果不是始终使用）的实现，但 Kotlin 允许其他类扩展 <code dir="ltr" translate="no">List</code> 和 <code dir="ltr" translate="no">MutableList</code>。</p>
+<h2 data-text="listOf() 函数" id="the-listof-function" is-upgraded="" tabindex="-1"><code dir="ltr" translate="no">listOf()</code> 函数</h2>
+<p>与 <code dir="ltr" translate="no">arrayOf()</code> 类似，<code dir="ltr" translate="no">listOf()</code> 函数将相关项作为形参，但返回 <code dir="ltr" translate="no">List</code>，而不是数组。</p>
+<ol type="1">
+<li>从 <code dir="ltr" translate="no">main()</code> 中移除现有代码。</li>
+<li>在 <code dir="ltr" translate="no">main()</code> 中，通过调用 <code dir="ltr" translate="no">listOf()</code> 创建名为 <code dir="ltr" translate="no">solarSystem</code> 的行星 <code dir="ltr" translate="no">List</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">fun</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">solarSystem</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">listOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Mercury"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Venus"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Earth"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Mars"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Jupiter"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Saturn"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Uranus"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Neptune"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li><code dir="ltr" translate="no">List</code> 具有 <code dir="ltr" translate="no">size</code> 属性，用于获取列表中的元素数量。输出 <code dir="ltr" translate="no">solarSystem</code> 列表的 <code dir="ltr" translate="no">size</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>运行代码。列表的大小应为 8。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>8
+</pre></devsite-code>
+<h2 data-text="访问列表中的元素" id="access-elements-from-a-list" is-upgraded="" tabindex="-1">访问列表中的元素</h2>
+<p>与数组一样，您可以使用下标语法从 <code dir="ltr" translate="no">List</code> 访问特定索引处的元素。您可以使用 <code dir="ltr" translate="no">get()</code> 方法执行相同的操作。下标语法和 <code dir="ltr" translate="no">get()</code> 方法接受 <code dir="ltr" translate="no">Int</code> 作为参数，并在该索引处返回相应元素。与 <code dir="ltr" translate="no">Array</code> 一样，<code dir="ltr" translate="no">ArrayList</code> 也为零索引，因此第四个元素位于索引 <code dir="ltr" translate="no">3</code> 处。</p>
+<ol type="1">
+<li>使用下标语法输出索引 <code dir="ltr" translate="no">2</code> 处的行星。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">2</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>通过对 <code dir="ltr" translate="no">solarSystem</code> 列表调用 <code dir="ltr" translate="no">get()</code>，输出索引 <code dir="ltr" translate="no">3</code> 处的元素。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">get</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">3</span><span class="devsite-syntax-p">))</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行代码。索引 <code dir="ltr" translate="no">2</code> 处的元素为 <code dir="ltr" translate="no">"Earth"</code>，索引 <code dir="ltr" translate="no">3</code> 处的元素为 <code dir="ltr" translate="no">"Mars"</code>。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+Earth
+Mars
+</pre></devsite-code>
+<p>除了按索引获取元素之外，您还可以使用 <code dir="ltr" translate="no">indexOf()</code> 方法搜索特定元素的索引。<code dir="ltr" translate="no">indexOf()</code> 方法在列表中搜索指定元素（作为实参传入），并返回该元素在第一次出现时的索引。如果该元素未出现在列表中，则返回 <code dir="ltr" translate="no">-1</code>。</p>
+<ol type="1">
+<li>输出对 <code dir="ltr" translate="no">solarSystem</code> 列表调用 <code dir="ltr" translate="no">indexOf()</code> 并传入 <code dir="ltr" translate="no">"Earth"</code> 的结果。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">indexOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Earth"</span><span class="devsite-syntax-p">))</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>调用 <code dir="ltr" translate="no">indexOf()</code>，传入 <code dir="ltr" translate="no">"Pluto"</code>，并输出结果。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">indexOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-p">))</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行代码。某个元素与 <code dir="ltr" translate="no">"Earth"</code> 匹配，因此输出索引 <code dir="ltr" translate="no">2</code>。没有与 <code dir="ltr" translate="no">"Pluto"</code> 匹配的元素，因此输出 <code dir="ltr" translate="no">-1</code>。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+2
+-1
+</pre></devsite-code>
+<h2 data-text="使用 for 循环遍历列表元素" id="iterate-over-list-elements-using-a-for-loop" is-upgraded="" tabindex="-1">使用 <code dir="ltr" translate="no">for</code> 循环遍历列表元素</h2>
+<p>在学习函数类型和 lambda 表达式时，您已经了解如何使用 <code dir="ltr" translate="no">repeat()</code> 函数多次执行代码。</p>
+<p>编程中的一项常见任务是对列表中的每个元素执行一次某个任务。Kotlin 包含一个名叫 <code dir="ltr" translate="no">for</code> 循环的功能，可利用简洁易懂的语法来实现此目的。这通常称为“循环遍历”列表或“遍历”列表。<em></em><em></em></p>
+<p class="image-container"><img alt="f11277e6af4459bb.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/f11277e6af4459bb_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p>如需循环遍历列表，请使用 <code dir="ltr" translate="no">for</code> 关键字，后跟一组圆括号。在圆括号内添加一个变量名称，后跟 <code dir="ltr" translate="no">in</code> 关键字，接着是集合的名称。右圆括号后面是一组大括号，其中包含您要针对集合中的每个元素执行的代码。这称为循环主体。<em></em>每次执行此代码都称为一次迭代。<em></em></p>
+<p><code dir="ltr" translate="no">in</code> 关键字之前的变量未使用 <code dir="ltr" translate="no">val</code> 或 <code dir="ltr" translate="no">var</code> 进行声明，它假定为 get-only。您可以随意为其命名。如果列表使用的是复数名称（如 <code dir="ltr" translate="no">planets</code>），则通常将该变量命名为单数形式，例如 <code dir="ltr" translate="no">planet</code>。将该变量命名为 <code dir="ltr" translate="no">item</code> 或 <code dir="ltr" translate="no">element</code> 的情况也很常见。</p>
+<p>此变量将用作与集合中的当前元素（第一次迭代为索引 <code dir="ltr" translate="no">0</code> 处的元素，第二次迭代为索引 <code dir="ltr" translate="no">1</code> 处的元素，依此类推）对应的临时变量，可在大括号内访问。</p>
+<p>若要查看其实际效果，您需要使用 <code dir="ltr" translate="no">for</code> 循环在单独的一行上输出每个行星名称。</p>
+<ol type="1">
+<li>在 <code dir="ltr" translate="no">main()</code> 中，在最近的 <code dir="ltr" translate="no">println()</code> 的调用之下，添加一个 <code dir="ltr" translate="no">for</code> 循环。在圆括号内将变量命名为 <code dir="ltr" translate="no">planet</code>，然后循环遍历 <code dir="ltr" translate="no">solarSystem</code> 列表。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">for</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">planet</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">in</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>在大括号内，使用 <code dir="ltr" translate="no">println()</code> 输出 <code dir="ltr" translate="no">planet</code> 的值。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-k">for</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">planet</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">in</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">planet</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行代码。对集合中的每个项执行循环主体内的代码。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+Mercury
+Venus
+Earth
+Mars
+Jupiter
+Saturn
+Uranus
+Neptune
+</pre></devsite-code>
+<h2 data-text="向列表中添加元素" id="add-elements-to-a-list" is-upgraded="" tabindex="-1">向列表中添加元素</h2>
+<p>只有实现 <code dir="ltr" translate="no">MutableList</code> 接口的类具有在集合中添加、移除和更新元素的功能。如果您一直在跟踪新发现的行星，则可能需要能够经常向列表中添加元素。在创建要向其中添加元素和从中移除元素的列表时，您需要专门调用 <code dir="ltr" translate="no">mutableListOf()</code> 函数，而不是 <code dir="ltr" translate="no">listOf()</code>。</p>
+<p><code dir="ltr" translate="no">add()</code> 函数有两个版本：</p>
+<ul>
+<li>第一个 <code dir="ltr" translate="no">add()</code> 函数具有一个属于列表中元素类型的参数，并将其添加到列表末尾。</li>
+<li><code dir="ltr" translate="no">add()</code> 的另一个版本有两个参数。第一个参数对应于应该插入新元素的索引。第二个参数是要添加到列表中的元素。</li>
+</ul>
+<p>我们来看看实际用例。</p>
+<ol type="1">
+<li>将 <code dir="ltr" translate="no">solarSystem</code> 的初始化更改为调用 <code dir="ltr" translate="no">mutableListOf()</code>，而不是 <code dir="ltr" translate="no">listOf()</code>。您现在可以调用 <code dir="ltr" translate="no">MutableList</code> 中定义的方法。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">solarSystem</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableListOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Mercury"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Venus"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Earth"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Mars"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Jupiter"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Saturn"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Uranus"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Neptune"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>同样，我们也可能需要将 Pluto 归类为行星。对 <code dir="ltr" translate="no">solarSystem</code> 调用 <code dir="ltr" translate="no">add()</code> 方法，传入 <code dir="ltr" translate="no">"Pluto"</code> 作为单个参数。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">add</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>有些科学家提出一种理论：过去曾有一颗名为 Theia 的行星，该行星后来与地球发生碰撞并形成月球。在索引 <code dir="ltr" translate="no">3</code>（介于 <code dir="ltr" translate="no">"Earth"</code> 和 <code dir="ltr" translate="no">"Mars"</code> 之间）处插入 <code dir="ltr" translate="no">"Theia"</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">add</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">3</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Theia"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<h2 data-text="更新特定索引处的元素" id="update-elements-at-a-specific-index" is-upgraded="" tabindex="-1">更新特定索引处的元素</h2>
+<p>您可以使用下标语法更新现有元素：</p>
+<ol type="1">
+<li>将索引 <code dir="ltr" translate="no">3</code> 处的值更新为 <code dir="ltr" translate="no">"Future Moon"</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">3</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Future Moon"</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>使用下标语法输出位于索引 <code dir="ltr" translate="no">3</code> 和 <code dir="ltr" translate="no">9</code> 处的值。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">3</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-m">9</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行代码，验证输出。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Future Moon
+Pluto
+</pre></devsite-code>
+<h2 data-text="从列表中移除元素" id="remove-elements-from-a-list" is-upgraded="" tabindex="-1">从列表中移除元素</h2>
+<p>使用 <code dir="ltr" translate="no">remove()</code> 或 <code dir="ltr" translate="no">removeAt()</code> 方法可移除元素。您可以通过两种方法移除元素：将该元素传递到 <code dir="ltr" translate="no">remove()</code> 方法中，或者使用 <code dir="ltr" translate="no">removeAt()</code> 按索引移除该元素。</p>
+<p>我们来看下这两种元素移除方法的实际操作效果。</p>
+<ol type="1">
+<li>对 <code dir="ltr" translate="no">solarSystem</code> 调用 <code dir="ltr" translate="no">removeAt()</code>，并传入索引 <code dir="ltr" translate="no">9</code>。这应该会从列表中移除 <code dir="ltr" translate="no">"Pluto"</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">removeAt</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-m">9</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>对 <code dir="ltr" translate="no">solarSystem</code> 调用 <code dir="ltr" translate="no">remove()</code>，并传入 <code dir="ltr" translate="no">"Future Moon"</code> 作为要移除的元素。此操作应该会搜索此列表，如果找到匹配元素，则会将其移除。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">remove</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Future Moon"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li><code dir="ltr" translate="no">List</code> 可提供 <code dir="ltr" translate="no">contains()</code> 方法，该方法可在列表中存在某个元素时返回 <code dir="ltr" translate="no">Boolean</code>。输出为 <code dir="ltr" translate="no">"Pluto"</code> 调用 <code dir="ltr" translate="no">contains()</code> 的结果。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">contains</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-p">))</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>更简洁的语法是使用 <code dir="ltr" translate="no">in</code> 运算符。您可以使用元素、<code dir="ltr" translate="no">in</code> 运算符和集合来检查该元素是否在列表中。使用 <code dir="ltr" translate="no">in</code> 运算符检查 <code dir="ltr" translate="no">solarSystem</code> 是否包含 <code dir="ltr" translate="no">"Future Moon"</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Future Moon"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">in</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>运行代码。两个语句都应输出 <code dir="ltr" translate="no">false</code>。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+false
+false
+</pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="3" label="集">
+          
+          <h2 class="step-title" data-text="               4. 集           " id="3" tabindex="-1">
+              4. 集
+          </h2>
+          
+          <p>集是指没有特定顺序且不允许出现重复值的集合。</p>
+<p class="image-container"><img alt="9de9d777e6b1d265.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/9de9d777e6b1d265_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p>如何实现这样的集合？秘诀是哈希代码。<em></em>哈希代码是由任何 Kotlin 类的 <code dir="ltr" translate="no">hashCode()</code> 方法生成的 <code dir="ltr" translate="no">Int</code>。可以将其视为 Kotlin 对象的半唯一标识符。如果对该对象稍作更改，例如向 <code dir="ltr" translate="no">String</code> 中添加一个字符，则会产生截然不同的哈希值。虽然两个对象可以使用相同的哈希代码（称为哈希冲突），但 <code dir="ltr" translate="no">hashCode()</code> 函数可在某种程度上确保唯一性，大多数情况下，两个不同的值各自具有唯一的哈希代码。</p>
+<p class="image-container"><img alt="84842b78e78f2f58.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/84842b78e78f2f58_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<aside class="special"><p><strong>注意</strong>：集使用哈希代码作为数组索引。当然，可能会有大约 40 亿个不同的哈希代码，因此 <code dir="ltr" translate="no">Set</code> 不仅仅是一个巨型数组。您可以将 <code dir="ltr" translate="no">Set</code> 视为一个列表数组。</p>
+<p class="image-container"><img alt="a44f3d05140a19bd.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/a44f3d05140a19bd_2880.029cc721e4.png 2880w" style="width: 610.00px" /></p>
+<p>最外层的数组（左侧以蓝色勾勒出的数字）分别对应一个可能的哈希代码范围（也称为“分区”）。每个内部列表（右侧以绿色阴影表示）均表示集中的各个项。由于哈希冲突相对罕见，即使潜在索引有限，每个数组索引处的内部列表也分别只有一两个项，除非添加了数万个或数十万个元素。</p>
+</aside>
+<p>集具有两个重要属性：</p>
+<ol type="1">
+<li>与列表相比，可以更快地搜索集中的特定元素，尤其是对于大型集合。虽然 <code dir="ltr" translate="no">List</code> 的 <code dir="ltr" translate="no">indexOf()</code> 要求从头开始检查每个元素，直到找到匹配项，但平均而言，检查某个元素是否在集中所用的时间相同，无论它是第一个元素还是第十万个元素。</li>
+<li>对于相同数量的数据，集占用的内存往往比列表多，因为所需的数组索引通常比集中的数据多。</li>
+</ol>
+<aside class="special"><p><strong>注意</strong>：与普遍的观点相反，检查集中是否含有某个元素所用的时间是不固定的，实际上取决于集中的数据量。不过，由于哈希冲突通常很少见，因此需要检查的元素数量仍然比搜索列表中的项要小几个数量级。</p>
+</aside>
+<p>集的优势在于确保唯一性。如果您要编写一个程序来跟踪新发现的行星，则可以借助集轻松检查是否已发现某颗行星。如果数据量很大，通常最好检查列表中是否存在某个元素，这需要遍历所有元素。</p>
+<p>与 <code dir="ltr" translate="no">List</code> 和 <code dir="ltr" translate="no">MutableList</code> 一样，既有 <code dir="ltr" translate="no">Set</code> 也有 <code dir="ltr" translate="no">MutableSet</code>。<code dir="ltr" translate="no">MutableSet</code> 会实现 <code dir="ltr" translate="no">Set</code>，因此任何实现 <code dir="ltr" translate="no">MutableSet</code> 的类都需要同时实现这两者。</p>
+<p class="image-container"><img alt="691f995fde47f1ff.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/691f995fde47f1ff_2880.029cc721e4.png 2880w" style="width: 421.61px" /></p>
+<h2 data-text="在 Kotlin 中使用 MutableSet" id="use-a-mutableset-in-kotlin" is-upgraded="" tabindex="-1">在 Kotlin 中使用 <code dir="ltr" translate="no">MutableSet</code></h2>
+<p>在本示例中，我们将使用 <code dir="ltr" translate="no">MutableSet</code> 来演示如何添加和移除元素。</p>
+<ol type="1">
+<li>从 <code dir="ltr" translate="no">main()</code> 中移除现有代码。</li>
+<li>使用 <code dir="ltr" translate="no">mutableSetOf()</code> 创建名为 <code dir="ltr" translate="no">solarSystem</code> 的行星 <code dir="ltr" translate="no">Set</code>。这将返回 <code dir="ltr" translate="no">MutableSet</code>，其默认实现为 <code dir="ltr" translate="no">LinkedHashSet()</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">solarSystem</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableSetOf</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Mercury"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Venus"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Earth"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Mars"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Jupiter"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Saturn"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Uranus"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Neptune"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>使用 <code dir="ltr" translate="no">size</code> 属性输出该集的大小。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>与 <code dir="ltr" translate="no">MutableList</code> 类似，<code dir="ltr" translate="no">MutableSet</code> 具有 <code dir="ltr" translate="no">add()</code> 方法。使用 <code dir="ltr" translate="no">add()</code> 方法将 <code dir="ltr" translate="no">"Pluto"</code> 添加到 <code dir="ltr" translate="no">solarSystem</code> 集。它只需要为所添加的元素使用一个参数。集中的元素未必是有序的，因此没有索引！</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">add</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>添加相应元素后，输出该集的 <code dir="ltr" translate="no">size</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li><code dir="ltr" translate="no">contains()</code> 函数接受一个参数，并检查该集中是否包含指定的元素。如果是，则返回 true。否则，它将返回 false。调用 <code dir="ltr" translate="no">contains()</code> 以检查 <code dir="ltr" translate="no">"Pluto"</code> 是否在 <code dir="ltr" translate="no">solarSystem</code> 中。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">contains</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-p">))</span>
+</code></pre></devsite-code>
+<ol start="7" type="1">
+<li>运行代码。大小已增大，<code dir="ltr" translate="no">contains()</code> 现在会返回 <code dir="ltr" translate="no">true</code>。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>8
+9
+true
+</pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：您也可以使用 <code dir="ltr" translate="no">in</code> 运算符检查某个元素是否在集合中，例如：<code dir="ltr" translate="no">"Pluto" in solarSystem</code> 相当于 <code dir="ltr" translate="no">solarSystem.contains("Pluto")</code>。</p>
+</aside>
+<ol start="8" type="1">
+<li>如前所述，集不能包含重复项。请尝试重新添加 <code dir="ltr" translate="no">"Pluto"</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">add</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="9" type="1">
+<li>再次输出集的大小。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="10" type="1">
+<li>再次运行您的代码。未添加 <code dir="ltr" translate="no">"Pluto"</code>，因为它已包含在集中。这次，大小应该不会增加。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+9
+</pre></devsite-code>
+<p><code dir="ltr" translate="no">remove()</code> 函数接受一个参数，并从集中移除指定的元素。</p>
+<ol type="1">
+<li>使用 <code dir="ltr" translate="no">remove()</code> 函数移除 <code dir="ltr" translate="no">"Pluto"</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">remove</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>注意</strong>：请记住，集是无序的集合。您无法按索引从集中移除某个值，因为集没有索引。</p>
+</aside>
+<ol start="2" type="1">
+<li>输出集合的大小，并再次调用 <code dir="ltr" translate="no">contains()</code> 以检查 <code dir="ltr" translate="no">"Pluto"</code> 是否仍在集中。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">contains</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-p">))</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行代码。<code dir="ltr" translate="no">"Pluto"</code> 不在集中，大小现在为 8。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+8
+false
+</pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="4" label="映射集合">
+          
+          <h2 class="step-title" data-text="               5. 映射集合           " id="4" tabindex="-1">
+              5. 映射集合
+          </h2>
+          
+          <p><code dir="ltr" translate="no">Map</code> 是由键和值组成的集合。之所以称之为映射，是因为唯一键会映射到其他值。<em></em>键及其附带的值通常称为 <code dir="ltr" translate="no">key-value pair</code>。</p>
+<p class="image-container"><img alt="8571494fb4a106b6.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/8571494fb4a106b6_2880.029cc721e4.png 2880w" style="width: 579.50px" /></p>
+<p>映射的键具有唯一性，但映射的值不具有唯一性。两个不同的键可以映射到同一个值。例如，<code dir="ltr" translate="no">"Mercury"</code> 有 <code dir="ltr" translate="no">0</code> 颗卫星，<code dir="ltr" translate="no">"Venus"</code> 也有 <code dir="ltr" translate="no">0</code> 颗卫星。</p>
+<p>通过相应的键访问映射的值通常比在大型列表中（例如使用 <code dir="ltr" translate="no">indexOf()</code>）搜索值更快。</p>
+<p>您可以使用 <code dir="ltr" translate="no">mapOf()</code> 或 <code dir="ltr" translate="no">mutableMapOf()</code> 函数声明映射。映射需要两个泛型类型（以英文逗号隔开），一个用于键，另一个用于值。</p>
+<p class="image-container"><img alt="affc23a0e1f2b223.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/affc23a0e1f2b223_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p>如果映射具有初始值，则还可以使用类型推断。要使用初始值填充映射，每个键值对都由以下部分组成：首先是键，后跟 <code dir="ltr" translate="no">to</code> 运算符，而后是值。每个键值对均以英文逗号隔开。</p>
+<p class="image-container"><img alt="2ed99c3391c74ec4.png" sizes="(max-width: 840px) 100vw, 856px" src="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4.029cc721e4.png" srcset="../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4_36.029cc721e4.png 36w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4_48.029cc721e4.png 48w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4_72.029cc721e4.png 72w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4_96.029cc721e4.png 96w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4_480.029cc721e4.png 480w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4_720.029cc721e4.png 720w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4_856.029cc721e4.png 856w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4_960.029cc721e4.png 960w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4_1440.029cc721e4.png 1440w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4_1920.029cc721e4.png 1920w,../../../offline-assets/developer.android.com/static/codelabs/basic-android-kotlin-compose-collections/img/2ed99c3391c74ec4_2880.029cc721e4.png 2880w" style="width: 624.00px" /></p>
+<p>接下来，我们详细了解一下如何使用映射，以及一些有用的属性和方法。</p>
+<ol type="1">
+<li>从 <code dir="ltr" translate="no">main()</code> 中移除现有代码。</li>
+<li>使用 <code dir="ltr" translate="no">mutableMapOf()</code> 和如下初始值创建一个名为 <code dir="ltr" translate="no">solarSystem</code> 的映射。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">val</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nv">solarSystem</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">mutableMapOf</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"Mercury"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"Venus"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">0</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"Earth"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">1</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"Mars"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">2</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"Jupiter"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">79</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"Saturn"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">82</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"Uranus"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">27</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"Neptune"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">14</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>与列表和集一样，<code dir="ltr" translate="no">Map</code> 提供包含键值对数量的 <code dir="ltr" translate="no">size</code> 属性。输出 <code dir="ltr" translate="no">solarSystem</code> 映射的大小。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="4" type="1">
+<li>您可以使用下标语法设置其他键值对。将 <code dir="ltr" translate="no">"Pluto"</code> 键的值设置为 <code dir="ltr" translate="no">5</code>。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">5</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>插入元素后，再次输出大小。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="6" type="1">
+<li>您可以使用下标语法来获取值。输出键 <code dir="ltr" translate="no">"Pluto"</code> 的卫星数量。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="7" type="1">
+<li>您还可以使用 <code dir="ltr" translate="no">get()</code> 方法访问值。无论您使用下标语法还是调用 <code dir="ltr" translate="no">get()</code>，您传入的键都可能不存在于映射中。如果没有键值对，它将返回 null。输出 <code dir="ltr" translate="no">"Theia"</code> 的卫星数量。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">get</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Theia"</span><span class="devsite-syntax-p">))</span>
+</code></pre></devsite-code>
+<ol start="8" type="1">
+<li>运行代码。系统应该会输出 Pluto 的卫星数量。不过，由于 Theia 不在映射中，因此调用 <code dir="ltr" translate="no">get()</code> 会返回 null。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>8
+9
+5
+null
+</pre></devsite-code>
+<p><code dir="ltr" translate="no">remove()</code> 方法可移除具有指定键的键值对。它也会返回已移除的值，或者如果指定的键不在映射中，则返回 <code dir="ltr" translate="no">null</code>。</p>
+<ol type="1">
+<li>输出调用 <code dir="ltr" translate="no">remove()</code> 并传入 <code dir="ltr" translate="no">"Pluto"</code> 的结果。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">remove</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Pluto"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="2" type="1">
+<li>若要验证相应项是否已移除，请再次输出大小。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">size</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="3" type="1">
+<li>运行代码。移除该条目后，映射的大小将为 8。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+8
+</pre></devsite-code>
+<ol start="4" type="1">
+<li>下标语法或 <code dir="ltr" translate="no">put()</code> 方法也可以修改已存在的键的值。使用下标语法将 Jupiter 的卫星数量更新为 78，并输出新值。</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Kotlin"><code translate="no" dir="ltr"><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-s">"Jupiter"</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">78</span>
+<span class="devsite-syntax-n">println</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">solarSystem</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-s">"Jupiter"</span><span class="devsite-syntax-o">]</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<ol start="5" type="1">
+<li>运行代码。现有键 <code dir="ltr" translate="no">"Jupiter"</code> 的值已更新。</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+78
+</pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="5" label="总结">
+          
+          <h2 class="step-title" data-text="               6. 总结           " id="5" tabindex="-1">
+              6. 总结
+          </h2>
+          
+          <p>恭喜！您已经了解了编程中的一种最基本的数据类型（即数组），以及一些基于数组构建的便捷集合类型（包括 <code dir="ltr" translate="no">List</code>、<code dir="ltr" translate="no">Set</code> 和 <code dir="ltr" translate="no">Map</code>）。您可以在代码中使用这些集合类型对值进行分组和整理。数组和列表可让您通过索引快速访问元素，而集和映射使用哈希代码来让您更轻松地查找集合中的元素。您将看到未来的应用中会经常用到这些集合类型，了解如何使用这些集合类型对您日后的编程生涯大有裨益。</p>
+<h2 data-text="摘要" id="summary" is-upgraded="" tabindex="-1">摘要</h2>
+<ul>
+<li>数组存储的是同一类型的有序数据，且具有固定大小。</li>
+<li>数组用于实现很多其他集合类型。</li>
+<li>列表是可调整大小的有序集合。</li>
+<li>集是无序集合，不能包含重复项。</li>
+<li>映射的工作方式与集类似，用于存储指定类型的键/值对。</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step duration="0" step="6" label="了解更多内容">
+          
+          <h2 class="step-title" data-text="               7. 了解更多内容           " id="6" tabindex="-1">
+              7. 了解更多内容
+          </h2>
+          
+          <ul>
+<li><a href="https://kotlinlang.org/docs/collections-overview.html" target="_blank">集合</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/" target="_blank">列表</a></li>
+<li><a href="https://kotlinlang.org/docs/control-flow.html" target="_blank">条件和循环</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/" target="_blank">MutableList</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/" target="_blank">集</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/hash-code.html" target="_blank">hashCode()</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/" target="_blank">MutableSet</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/" target="_blank">地图</a></li>
+<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/" target="_blank">MutableMap</a></li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>如未另行说明，那么本页面中的内容已根据<a href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 许可</a>获得了许可，并且代码示例已根据 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 许可</a>获得了许可。有关详情，请参阅 <a href="https://developers.google.com/site-policies?hl=zh-cn">Google 开发者网站政策</a>。Java 是 Oracle 和/或其关联公司的注册商标。</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+
+<nav class="devsite-footer-promos nocontent"
+     aria-label="促销活动"
+     data-nosnippet>
+  <ul class="devsite-footer-promos-list">
+    
+    <li class="devsite-footer-promo">
+      <a href="//x.com/AndroidDev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer X Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-x_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-x.029cc721e4.svg"
+                loading="lazy"
+                alt="X">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          X
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 X 上关注 @AndroidDev</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.youtube.com/user/androiddevelopers?hl=zh-cn"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer YouTube Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-youtube_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png"
+                loading="lazy"
+                alt="YouTube">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          YouTube
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">在 YouTube 上访问“Android Developers”频道</div>
+    </li>
+    
+    <li class="devsite-footer-promo">
+      <a href="//www.linkedin.com/showcase/androiddev"
+         class="devsite-footer-promo-title gc-analytics-event"
+         data-category="Site-Wide Custom Events"
+       
+       
+         data-label="Footer LinkedIn Promo"
+       >
+        
+        
+        <picture>
+          
+          <source class="devsite-dark-theme"
+                  srcset="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin_dt.029cc721e4.svg"
+                  media="(prefers-color-scheme: dark)">
+          
+          <img class="devsite-footer-promo-icon"
+                src="../../../offline-assets/developer.android.com/_static/android/images/logo-linkedin.029cc721e4.svg"
+                loading="lazy"
+                alt="LinkedIn">
+        </picture>
+        
+        <span class="devsite-footer-promo-label">
+          LinkedIn
+        </span>
+      </a>
+      <div class="devsite-footer-promo-description">Connect with the Android Developers community on LinkedIn</div>
+    </li>
+    
+  </ul>
+</nav>
+
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="页脚链接"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">关于 Android</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/enterprise/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            适用于企业的 Android
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.android.com/security-center/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            安全
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//source.android.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            源代码
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/news"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            新闻
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//android-developers.googleblog.com/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            博客
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/podcasts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            播客
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">发现</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/games"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            游戏
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            机器学习
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/health-and-fitness"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            健康与健身
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/media"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            相机与媒体
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/privacy"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            隐私权政策
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/training/connectivity/5g"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            5G
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Android 设备</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/large-screens"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            大屏幕
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/wear"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Wear OS
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/chrome-os"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            ChromeOS 设备
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/cars"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android for Cars
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/tv"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android TV
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">版本</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/15"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android 15
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/14"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Android 14
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/13"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Android 13
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/12"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Android 12
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/11"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Android 11
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/10"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Android 10
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/about/versions/pie"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Pie
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">文档和下载</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio/intro"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Android Studio 指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/guide"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            开发者指南
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/reference"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            API 参考
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/studio"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            下载 Studio
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/ndk"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Android NDK
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">支持</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=190923&amp;template=841312"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            报告平台错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//issuetracker.google.com/issues/new?component=192697"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            报告文档错误
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//support.google.com/googleplay/android-developer"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play support
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://g.co/userresearch/androiddeveloperfooter"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            参加调查研究
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="其他 Google Developers 网站">
+    <a href="https://developers.google.com/?hl=zh-cn"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <source srcset="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers-dark-theme.svg"
+                media="(prefers-color-scheme: none)"
+                class="devsite-dark-theme">
+        
+        <img class="devsite-footer-sites-logo"
+             src="../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products/?hl=zh-cn"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          所有产品
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="实用程序链接">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          隐私权政策
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/license?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer License link"
+         >
+          许可
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Brand guidelines link"
+         >
+          品牌指南
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">通过电子邮件接收资讯和提示</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="https://developer.android.com/updates?hl=zh-cn"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          订阅
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-QFRN08RN6E&#34;, &#34;purpose&#34;: 0}], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;zh-cn&#34;, &#34;served&#34;: &#34;zh-cn&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;android&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+<android-fully-clickable
+    target="
+        .android-case-study .devsite-landing-row-item,
+        .android-editorial-and-updates-cards .devsite-card-content-wrapper,
+        .android-editorial-and-updates-cards .devsite-landing-row-item,
+        .android-grouped-resources .devsite-landing-row-item,
+        .android-grouped-resources-contained--primary .devsite-landing-row-item,
+        .android-grouped-resources-contained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-contained--tertiary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--primary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--secondary .devsite-landing-row-item,
+        .android-grouped-resources-uncontained--tertiary .devsite-landing-row-item,
+        .android-guide-cards .devsite-landing-row-item,
+        .android-illustrated-resources-index .devsite-landing-row-item,
+        .android-illustrated-resources-primary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary .devsite-landing-row-item,
+        .android-illustrated-resources-secondary-small .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary .devsite-landing-row-item,
+        .android-illustrated-resources-tertiary-small .devsite-landing-row-item,
+        .android-promo .devsite-landing-row-item,
+        .android-quick-link,
+        .android-samples .devsite-card-wrapper,
+        .fully-clickable"
+    watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+    
+<script nonce="ZCAu3TURdZi/h0MiljZuDvjiPH+Jkh">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    '../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/js/app_loader.js', '[3,"zh_cn",null,"/js/devsite_app_module.js","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["../../../offline-assets/developer.android.com/_pwa/android/manifest.json","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/images/video-placeholder.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/favicon.svg","../../../offline-assets/www.gstatic.com/devrel-devsite/prod/v6ae673272608590539f8a06b3f3271c0f5688cde07499d1c9e644aeb66c8c060/android/images/lockup.png","../../../offline-assets/fonts.googleapis.com/css.b2f713419d.css"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["DevPro__enable_free_benefits","Significatio__enable_by_tenant","Profiles__enable_page_saving","CloudShell__cloud_shell_button","MiscFeatureFlags__developers_footer_dark_image","Profiles__enable_dashboard_curated_recommendations","TpcFeatures__proxy_prod_host","Cloud__enable_cloudx_experiment_ids","Profiles__enable_completecodelab_endpoint","Profiles__enable_completequiz_endpoint","MiscFeatureFlags__enable_variable_operator_index_yaml","DevPro__enable_credits_banner","Cloud__fast_free_trial","EngEduTelemetry__enable_engedu_telemetry","Profiles__enable_purchase_prompts","DevPro__enable_devpro_offers","Concierge__enable_pushui","DevPro__enable_payments_first_batch","DevPro__enable_google_one_card","MiscFeatureFlags__gdp_dashboard_reskin_enabled","DevPro__enable_google_payments_buyflow","MiscFeatureFlags__enable_firebase_utm","Analytics__enable_devpro_interaction_logging","Search__enable_suggestions_from_borg","Profiles__enable_callout_notifications","Cloud__enable_llm_concierge_chat","MiscFeatureFlags__enable_explain_this_code","MiscFeatureFlags__remove_cross_domain_tracking_params","Profiles__enable_targeted_hero","TpcFeatures__enable_unmirrored_page_left_nav","MiscFeatureFlags__enable_framebox_badge_methods","Profiles__enable_release_notes_notifications","MiscFeatureFlags__enable_explicit_template_dependencies","DevPro__remove_eu_tax_intake_form","Concierge__enable_actions_menu","Cloud__cache_serialized_dynamic_content","DevPro__enable_devsite_captcha","Profiles__enable_auto_apply_credits","Cloud__enable_cloud_dlp_service","DevPro__enable_enterprise","Profiles__enable_stripe_subscription_management","Profiles__enable_profile_collections","Search__enable_ai_search_summaries_for_all","DevPro__enable_nvidia_credits_card","DevPro__enable_code_assist","Search__enable_dynamic_content_confidential_banner","DevPro__enable_vertex_credit_card","Profiles__enable_playlist_community_acl","Cloud__enable_cloud_shell","MiscFeatureFlags__enable_variable_operator","Profiles__enable_developer_profile_pages_as_content","SignIn__enable_l1_signup_flow","Search__enable_page_map","Profiles__enable_public_developer_profiles","MiscFeatureFlags__enable_view_transitions","MiscFeatureFlags__enable_llms_txt","Concierge__enable_remove_info_panel_tags","Profiles__enable_developer_profiles_callout","BookNav__enable_tenant_cache_key","Concierge__enable_devsite_llm_tools","Profiles__enable_awarding_url","MiscFeatureFlags__enable_appearance_cookies","DevPro__enable_g1_integration","MiscFeatureFlags__fix_lower_breadcrumbs","DevPro__enable_cloud_innovators_plus","Profiles__require_profile_eligibility_for_signin","Search__enable_ai_eligibility_checks","Cloud__enable_free_trial_server_call","Experiments__reqs_query_experiments","CloudShell__cloud_code_overflow_menu","DevPro__enable_embed_profile_creation","DevPro__enable_firebase_workspaces_card","MiscFeatureFlags__enable_dark_theme","DevPro__enable_developer_subscriptions","Search__enable_ai_search_summaries","Profiles__enable_recognition_badges","Profiles__enable_user_type","Profiles__enable_developer_profile_benefits_ui_redesign","MiscFeatureFlags__enable_project_variables","Profiles__enable_join_program_group_endpoint","Analytics__enable_clearcut_logging","Cloud__enable_legacy_calculator_redirect","MiscFeatureFlags__developers_footer_image","Profiles__enable_complete_playlist_endpoint","Cloud__enable_cloud_shell_fte_user_flow"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[1,1],[2,2]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>
