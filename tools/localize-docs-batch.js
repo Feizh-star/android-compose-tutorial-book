@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-
+/**
+ * Localize docs batch.
+ */
 const fs = require("fs/promises");
 const path = require("path");
 const { spawn } = require("child_process");

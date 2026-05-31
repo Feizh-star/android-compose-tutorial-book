@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-
+/**
+ * Localize HTML assets to work offline.
+ */
 const fs = require("fs/promises");
 const path = require("path");
 const crypto = require("crypto");

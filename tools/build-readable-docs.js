@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-
+/**
+ * Build readable docs with menu.
+ */
 const fs = require("fs/promises");
 const path = require("path");
 const { pathToFileURL, fileURLToPath } = require("url");
