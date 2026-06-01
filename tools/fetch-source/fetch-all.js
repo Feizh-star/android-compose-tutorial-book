@@ -2,9 +2,42 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const ROOT = path.join(__dirname, '..', '..');
-const MENU_FILE = path.join(ROOT, 'menu.md');
 const FETCH_SCRIPT = path.join(__dirname, 'fetch-single.js');
+
+function usage() {
+  console.log(`Usage:
+  node tools/build-readable-docs.js [options]
+
+Options:
+  --input <dir>        menu md file path. Default: "menu.md"
+  --output <dir>       Output directory. Default: ""
+  --help               Show this help.
+`);
+}
+
+function parseArgs(argv) {
+  const args = {
+    input: "menu.md",
+    output: "",
+    help: false,
+  };
+
+  for (let i = 2; i < argv.length; i += 1) {
+    const arg = argv[i];
+    if (arg === "--help" || arg === "-h") {
+      args.help = true;
+    } else if (arg.startsWith("--")) {
+      const key = arg.slice(2).replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      const value = argv[i + 1];
+      if (!value || value.startsWith("--")) throw new Error(`Missing value for ${arg}`);
+      args[key] = value;
+      i += 1;
+    } else {
+      throw new Error(`Unknown argument: ${arg}`);
+    }
+  }
+  return args;
+}
 
 function safeName(title) {
   return title.replace(/[<>:"/\\|?*]/g, '');
@@ -14,15 +47,10 @@ function pad(n) {
   return String(n).padStart(2, '0');
 }
 
-// Parse menu.md into three-level tree
 function parseMenu(content) {
   const lines = content.split('\n');
-  const units = [];
-  let curUnit = null;
-  let curChapter = null;
-  let unitIdx = 0;
-  let chapterIdx = 0;
-  let sectionIdx = 0;
+  const root = { children: [] };
+  const stack = [{ node: root, indent: -2 }];
 
   for (const line of lines) {
     const m = line.match(/^(\s*)- \[(.+?)\]\((.+?)\)/);
@@ -32,50 +60,67 @@ function parseMenu(content) {
     const title = m[2];
     const url = m[3];
 
-    if (indent === 0) {
-      unitIdx++;
-      chapterIdx = 0;
-      curUnit = { num: unitIdx, title: safeName(title), url, chapters: [] };
-      units.push(curUnit);
-      curChapter = null;
-    } else if (indent === 2 && curUnit) {
-      chapterIdx++;
-      sectionIdx = 0;
-      curChapter = { num: chapterIdx, title: safeName(title), url, sections: [] };
-      curUnit.chapters.push(curChapter);
-    } else if (indent === 4 && curChapter) {
-      sectionIdx++;
-      curChapter.sections.push({ num: sectionIdx, title: safeName(title), url });
+    const node = { title: safeName(title), url, children: [] };
+
+    while (stack.length > 1 && stack[stack.length - 1].indent >= indent) {
+      stack.pop();
     }
+
+    const parent = stack[stack.length - 1].node;
+    node.num = parent.children.length + 1;
+    parent.children.push(node);
+
+    stack.push({ node, indent });
   }
-  return units;
+
+  return root.children;
 }
 
 function main() {
-  const content = fs.readFileSync(MENU_FILE, 'utf-8');
-  const units = parseMenu(content);
+  const args = parseArgs(process.argv);
+  if (args.help) {
+    usage();
+    return;
+  }
+  const cwd = process.cwd()
+  const INPUT_FILE = path.join(cwd, args.input);
+  const OUTPUT_DIR_PATH = path.join(cwd, args.output);
 
-  let total = 0;
+  const content = fs.readFileSync(INPUT_FILE, 'utf-8');
+  const nodes = parseMenu(content);
+
   let done = 0;
   let failed = 0;
 
-  for (const u of units) {
-    for (const c of u.chapters) {
-      total += c.sections.length;
+  function countLeafNodes(list) {
+    let n = 0;
+    for (const item of list) {
+      if (item.children.length === 0) n++;
+      else n += countLeafNodes(item.children);
     }
+    return n;
   }
-  console.log(`Found ${units.length} units, ${total} sections\n`);
 
-  for (const u of units) {
-    const unitDir = path.join(ROOT, `${pad(u.num)}.${u.title}`);
-    console.log(`\n=== ${pad(u.num)}.${u.title} ===`);
+  function maxDepth(list) {
+    let d = 0;
+    for (const item of list) {
+      if (item.children.length > 0) d = Math.max(d, 1 + maxDepth(item.children));
+    }
+    return d;
+  }
 
-    for (const c of u.chapters) {
-      const chapterDir = path.join(unitDir, `${pad(c.num)}.${c.title}`);
+  const total = countLeafNodes(nodes);
+  console.log(`Found ${total} items to fetch (max nesting: ${maxDepth(nodes) + 1} levels)\n`);
 
-      for (const s of c.sections) {
-        const outFile = path.join(chapterDir, `${pad(s.num)}.${s.title}.source.html`);
-        const shortPath = `${pad(u.num)}.${u.title}/${pad(c.num)}.${c.title}/${pad(s.num)}.${s.title}.source.html`;
+  function processNodes(list, parentPath) {
+    for (const node of list) {
+      const name = `${pad(node.num)}.${node.title}`;
+
+      if (node.children.length > 0) {
+        processNodes(node.children, path.join(parentPath, name));
+      } else {
+        const outFile = path.join(parentPath, `${name}.source.html`);
+        const shortPath = path.relative(cwd, outFile);
 
         if (fs.existsSync(outFile)) {
           console.log(`  SKIP: ${shortPath}`);
@@ -85,8 +130,8 @@ function main() {
 
         process.stdout.write(`  FETCH: ${shortPath} ... `);
         try {
-          execSync(`node "${FETCH_SCRIPT}" "${s.url}" "${outFile}"`, {
-            cwd: ROOT,
+          execSync(`node "${FETCH_SCRIPT}" "${node.url}" "${outFile}"`, {
+            cwd,
             stdio: 'pipe',
             timeout: 120000
           });
@@ -100,6 +145,8 @@ function main() {
       }
     }
   }
+
+  processNodes(nodes, OUTPUT_DIR_PATH);
 
   console.log(`\n=== DONE: ${done} fetched, ${failed} failed, ${total} total ===`);
 }
