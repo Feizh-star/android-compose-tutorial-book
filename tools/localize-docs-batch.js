@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 /**
  * Localize docs batch.
+ * 使用示例（Windows）
+ * 处理单个：node tools/localize-docs-batch.js --from "02.构建应用界面\03.与界面和状态交互\04.编写自动化测试.source.html" --limit 1
+ * 全部处理（默认根据docs目录结构收集所有文件，处理所有文件）：node tools/localize-docs-batch.js
  */
 const fs = require("fs/promises");
 const path = require("path");
@@ -171,7 +174,7 @@ async function main() {
     const normalizedFrom = toDisplayPath(args.from);
     const startIndex = jobs.findIndex((job) => toDisplayPath(job.relative) === normalizedFrom);
     if (startIndex === -1) {
-      throw new Error(`--from did not match any file under ${args.source}: ${args.from}`);
+      throw new Error(`--from did not match any file under ${args.source}: ${args.from}, path example: ${jobs[0].relative}`);
     }
     jobs = jobs.slice(startIndex);
   }
